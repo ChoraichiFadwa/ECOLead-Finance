@@ -1,12 +1,30 @@
-import { createContext, useContext, useState } from 'react';
+import { createContext, useContext, useState, useEffect } from 'react';
 
 const RoleContext = createContext();
 
 export const RoleProvider = ({ children }) => {
-  const [role, setRole] = useState(null); // 'student' or 'teacher'
+  const [role, setRoleState] = useState(null);
+  const [loading, setLoading] = useState(true); // <- NEW
+
+  useEffect(() => {
+    const storedRole = localStorage.getItem('role');
+    if (storedRole === 'student' || storedRole === 'teacher') {
+      setRoleState(storedRole);
+    }
+    setLoading(false); // <- Mark as ready
+  }, []);
+
+  const setRole = (newRole) => {
+    setRoleState(newRole);
+    if (newRole) {
+      localStorage.setItem('role', newRole);
+    } else {
+      localStorage.removeItem('role');
+    }
+  };
 
   return (
-    <RoleContext.Provider value={{ role, setRole }}>
+    <RoleContext.Provider value={{ role, setRole, loading }}>
       {children}
     </RoleContext.Provider>
   );
