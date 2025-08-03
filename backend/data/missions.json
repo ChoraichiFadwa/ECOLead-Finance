@@ -1,0 +1,583 @@
+{
+  "missions": {
+    "débutant": [
+      {
+        "id": "mission_lever_fonds_d",
+        "concept": "financement",
+        "niveau": "débutant",
+        "type": "finance_entreprise",
+        "contexte": "Vous devez financer un projet dans le secteur de {secteur} dans un contexte de {situation_macro}.",
+        "secteurs": [
+          "technologie",
+          "énergie",
+          "agriculture",
+          "industrie"
+        ],
+        "situations_macro": [
+          "inflation",
+          "récession",
+          "hausse des taux",
+          "marché stable"
+        ],
+        "objectif_pedagogique": "Découvrir les options de financement de base et leurs implications.",
+        "choix": {
+          "A": {
+            "description": "Recourir à un emprunt bancaire",
+            "impact": {
+              "cashflow": -10,
+              "controle": 20,
+              "stress": 5
+            }
+          },
+          "B": {
+            "description": "Lever des fonds auprès d'investisseurs",
+            "impact": {
+              "cashflow": -5,
+              "controle": -30,
+              "rentabilite": 10
+            }
+          },
+          "C": {
+            "description": "Utiliser une plateforme de crowdfunding",
+            "impact": {
+              "cashflow": -8,
+              "controle": -10,
+              "reputation": 15
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite",
+          "reputation"
+        ],
+        "tags": [
+          "financement",
+          "découverte",
+          "gestion de projet"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_hausse_taux",
+          "event_crise_bancaire"
+        ],
+        "reutilisable": true
+      },
+      {
+        "id": "mission_gestion_budget_d",
+        "concept": "gestion",
+        "niveau": "débutant",
+        "type": "finance_entreprise",
+        "contexte": "Votre startup a un budget serré et vous devez optimiser vos dépenses dans le secteur {secteur}.",
+        "secteurs": [
+          "technologie",
+          "services",
+          "commerce"
+        ],
+        "situations_macro": [
+          "inflation",
+          "marché stable",
+          "récession"
+        ],
+        "objectif_pedagogique": "Apprendre les bases de la gestion budgétaire d'entreprise.",
+        "choix": {
+          "A": {
+            "description": "Réduire les coûts opérationnels",
+            "impact": {
+              "cashflow": 15,
+              "stress": 10,
+              "reputation": -5
+            }
+          },
+          "B": {
+            "description": "Investir dans la croissance",
+            "impact": {
+              "cashflow": -20,
+              "rentabilite": 15,
+              "stress": 5
+            }
+          },
+          "C": {
+            "description": "Maintenir l'équilibre actuel",
+            "impact": {
+              "cashflow": 5,
+              "controle": 10,
+              "stress": -5
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite",
+          "reputation"
+        ],
+        "tags": [
+          "gestion",
+          "budget",
+          "optimisation"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_inflation",
+          "event_concurrence"
+        ],
+        "reutilisable": true
+      },
+      {
+        "id": "mission_lancement_startup",
+        "concept": "financement",
+        "niveau": "débutant",
+        "type": "startup",
+        "contexte": "Tu es à la tête d’une startup industrielle dans un marché émergent. Tu dois lever 100 000 € pour financer tes premières machines.",
+        "secteurs": [
+          "industrie",
+          "technologie"
+        ],
+        "situations_macro": [
+          "marché émergent"
+        ],
+        "objectif_pedagogique": "Découvrir les premières sources de financement d'une startup.",
+        "choix": {
+          "A": {
+            "description": "Emprunt bancaire",
+            "impact": {
+              "cashflow": -10,
+              "controle": 20,
+              "stress": 5
+            }
+          },
+          "B": {
+            "description": "Levée de fonds",
+            "impact": {
+              "cashflow": -5,
+              "controle": -30,
+              "rentabilite": 10
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite"
+        ],
+        "tags": [
+          "financement",
+          "startup",
+          "découverte"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_stress_test_bancaire"
+        ],
+        "reutilisable": true
+      },
+      {
+        "id": "mission_stress_test_bancaire",
+        "concept": "gestion des risques",
+        "niveau": "débutant",
+        "type": "finance",
+        "contexte": "La BCE a publié les résultats des stress tests bancaires. Les banques locales sont jugées fragiles, ce qui provoque une panique financière.",
+        "secteurs": [
+          "banque"
+        ],
+        "situations_macro": [
+          "crise bancaire"
+        ],
+        "objectif_pedagogique": "Comprendre les effets d'une crise bancaire sur les choix de financement.",
+        "choix": {
+          "A": {
+            "description": "Continuer à financer via les banques",
+            "impact": {
+              "cashflow": -15,
+              "stress": 10,
+              "controle": 10
+            }
+          },
+          "B": {
+            "description": "Chercher des alternatives de financement",
+            "impact": {
+              "cashflow": -5,
+              "reputation": 10,
+              "stress": -5
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "stress",
+          "controle",
+          "reputation"
+        ],
+        "tags": [
+          "risques",
+          "finance",
+          "banques"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance."
+        },
+        "evenements_possibles": [],
+        "reutilisable": true
+      },
+      {
+        "id": "mission_gestion_portefeuille",
+        "concept": "investissement",
+        "niveau": "débutant",
+        "type": "finance personnelle",
+        "contexte": "Tu dois gérer un portefeuille diversifié d’actifs dans un marché incertain.",
+        "secteurs": [
+          "finance"
+        ],
+        "situations_macro": [
+          "volatilité",
+          "récession"
+        ],
+        "objectif_pedagogique": "Apprendre à équilibrer rendement et risque dans la gestion d’un portefeuille.",
+        "choix": {
+          "A": {
+            "description": "Allouer en majorité aux actions",
+            "impact": {
+              "cashflow": -10,
+              "rentabilite": 15,
+              "stress": 10
+            }
+          },
+          "B": {
+            "description": "Miser sur les obligations",
+            "impact": {
+              "cashflow": -5,
+              "rentabilite": 5,
+              "stress": -5
+            }
+          },
+          "C": {
+            "description": "Conserver en liquidités",
+            "impact": {
+              "cashflow": 5,
+              "rentabilite": 0,
+              "stress": 0
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "rentabilite",
+          "stress"
+        ],
+        "tags": [
+          "investissement",
+          "gestion",
+          "risques"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [],
+        "reutilisable": true
+      }
+    ],
+    "intermédiaire": [
+      {
+        "id": "mission_lever_fonds_i",
+        "concept": "financement",
+        "niveau": "intermédiaire",
+        "type": "finance_entreprise",
+        "contexte": "Votre startup cherche à se développer dans un secteur {secteur} pendant une période de {situation_macro}.",
+        "secteurs": [
+          "technologie",
+          "biotechnologie",
+          "fintech"
+        ],
+        "situations_macro": [
+          "croissance",
+          "volatilité",
+          "transformation digitale"
+        ],
+        "objectif_pedagogique": "Comparer les coûts et risques de différentes sources de financement.",
+        "choix": {
+          "A": {
+            "description": "Renégocier un emprunt à long terme",
+            "impact": {
+              "cashflow": -8,
+              "controle": 15,
+              "stress": 3
+            }
+          },
+          "B": {
+            "description": "Accepter un financement venture capital",
+            "impact": {
+              "cashflow": -4,
+              "controle": -40,
+              "rentabilite": 20
+            }
+          },
+          "C": {
+            "description": "Lancer une levée de fonds participative",
+            "impact": {
+              "cashflow": -6,
+              "controle": -15,
+              "reputation": 10
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite",
+          "reputation"
+        ],
+        "tags": [
+          "financement",
+          "analyse",
+          "levée de fonds"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_marche_volatil",
+          "event_nouveau_concurrent"
+        ],
+        "reutilisable": true
+      },
+      {
+        "id": "mission_expansion_i",
+        "concept": "stratégie",
+        "niveau": "intermédiaire",
+        "type": "développement",
+        "contexte": "Votre entreprise envisage une expansion dans le secteur {secteur} avec un contexte {situation_macro}.",
+        "secteurs": [
+          "international",
+          "digital",
+          "retail"
+        ],
+        "situations_macro": [
+          "croissance",
+          "incertitude",
+          "opportunité"
+        ],
+        "objectif_pedagogique": "Développer une stratégie d'expansion réfléchie.",
+        "choix": {
+          "A": {
+            "description": "Expansion géographique rapide",
+            "impact": {
+              "cashflow": -25,
+              "rentabilite": 25,
+              "stress": 15,
+              "reputation": 10
+            }
+          },
+          "B": {
+            "description": "Développement de nouveaux produits",
+            "impact": {
+              "cashflow": -15,
+              "rentabilite": 15,
+              "controle": 5,
+              "stress": 10
+            }
+          },
+          "C": {
+            "description": "Consolidation du marché actuel",
+            "impact": {
+              "cashflow": 10,
+              "controle": 20,
+              "stress": -5,
+              "rentabilite": 5
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite",
+          "reputation"
+        ],
+        "tags": [
+          "stratégie",
+          "expansion",
+          "croissance"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_opportunite_marche",
+          "event_regulation_change"
+        ],
+        "reutilisable": true
+      }
+    ],
+    "avancé": [
+      {
+        "id": "mission_lever_fonds_a",
+        "concept": "financement",
+        "niveau": "avancé",
+        "type": "finance_entreprise",
+        "contexte": "Votre entreprise doit lever 1M€ dans un environnement économique {situation_macro} pour pénétrer un nouveau marché {secteur}.",
+        "secteurs": [
+          "intelligence artificielle",
+          "blockchain",
+          "biotechnologie",
+          "énergie renouvelable"
+        ],
+        "situations_macro": [
+          "récession",
+          "bulle technologique",
+          "crise énergétique",
+          "transformation digitale"
+        ],
+        "objectif_pedagogique": "Élaborer une stratégie de financement avancée en contexte complexe.",
+        "choix": {
+          "A": {
+            "description": "Structurer une opération mixte : dette + equity",
+            "impact": {
+              "cashflow": -7,
+              "controle": -20,
+              "rentabilite": 25,
+              "stress": 10
+            }
+          },
+          "B": {
+            "description": "Chercher un partenaire industriel",
+            "impact": {
+              "cashflow": -5,
+              "controle": -10,
+              "reputation": 20,
+              "rentabilite": 10
+            }
+          },
+          "C": {
+            "description": "Reporter la levée et financer sur fonds propres",
+            "impact": {
+              "cashflow": -12,
+              "controle": 25,
+              "rentabilite": -10,
+              "stress": 5
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite",
+          "reputation"
+        ],
+        "tags": [
+          "financement",
+          "stratégie avancée",
+          "entrepreneuriat"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_crise_systemique",
+          "event_disruption_technologique"
+        ],
+        "reutilisable": true
+      },
+      {
+        "id": "mission_fusion_acquisition_a",
+        "concept": "stratégie",
+        "niveau": "avancé",
+        "type": "corporate",
+        "contexte": "Une opportunité de fusion-acquisition se présente dans le secteur {secteur} pendant une période de {situation_macro}.",
+        "secteurs": [
+          "technologie",
+          "pharmaceutique",
+          "finance",
+          "énergie"
+        ],
+        "situations_macro": [
+          "consolidation du marché",
+          "disruption technologique",
+          "pression réglementaire",
+          "crise économique"
+        ],
+        "objectif_pedagogique": "Maîtriser les enjeux complexes des opérations de M&A.",
+        "choix": {
+          "A": {
+            "description": "Procéder à l'acquisition avec financement externe",
+            "impact": {
+              "cashflow": -30,
+              "controle": -25,
+              "rentabilite": 35,
+              "reputation": 15,
+              "stress": 20
+            }
+          },
+          "B": {
+            "description": "Négocier une fusion à parité",
+            "impact": {
+              "cashflow": -10,
+              "controle": -15,
+              "rentabilite": 20,
+              "reputation": 10,
+              "stress": 15
+            }
+          },
+          "C": {
+            "description": "Abandonner l'opération et se concentrer sur la croissance organique",
+            "impact": {
+              "cashflow": 5,
+              "controle": 30,
+              "rentabilite": 10,
+              "stress": -10
+            }
+          }
+        },
+        "variables_affectees": [
+          "cashflow",
+          "controle",
+          "stress",
+          "rentabilite",
+          "reputation"
+        ],
+        "tags": [
+          "stratégie",
+          "M&A",
+          "corporate finance"
+        ],
+        "feedback": {
+          "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
+          "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
+          "C": "Le crowdfunding améliore la réputation mais peut être instable."
+        },
+        "evenements_possibles": [
+          "event_due_diligence_issue",
+          "event_regulatory_approval"
+        ],
+        "reutilisable": true
+      }
+    ]
+  }
+}

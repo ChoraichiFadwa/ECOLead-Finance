@@ -1,13 +1,16 @@
-import { StrictMode } from 'react'
-import { createRoot } from 'react-dom/client'
-import './index.css'
-import App from './App.jsx'
-import { RoleProvider } from './context/RoleContext.jsx';
+import { StrictMode } from "react"
+import { createRoot } from "react-dom/client"
+import { BrowserRouter } from "react-router-dom"
+import { RoleProvider } from "./contexts/RoleContext"
+import App from "./App.jsx"
+import "./index.css"
 
-createRoot(document.getElementById('root')).render(
+createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <RoleProvider>
-      <App />
-    </RoleProvider>
+    <BrowserRouter>
+      <RoleProvider>
+        <App />
+      </RoleProvider>
+    </BrowserRouter>
   </StrictMode>,
 )

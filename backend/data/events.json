@@ -1,0 +1,323 @@
+{
+  "events": [
+    {
+      "id": "event_hausse_taux",
+      "type": "macro",
+      "message": "La BCE a augmenté ses taux directeurs de 0.5%.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ],
+        "etat_joueur": {
+          "cashflow": "< 50"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 3
+        },
+        "B": {
+          "stress": 2
+        }
+      }
+    },
+    {
+      "id": "event_crise_bancaire",
+      "type": "macro",
+      "message": "Une crise de confiance touche le secteur bancaire.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "stress": "> 15"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -10,
+          "stress": 5
+        },
+        "C": {
+          "reputation": 5
+        }
+      }
+    },
+    {
+      "id": "event_inflation",
+      "type": "macro",
+      "message": "L'inflation atteint 4.2%, impactant les coûts opérationnels.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": 5
+        },
+        "B": {
+          "cashflow": -8,
+          "stress": 3
+        }
+      }
+    },
+    {
+      "id": "event_concurrence",
+      "type": "marché",
+      "message": "Un nouveau concurrent majeur entre sur votre marché.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ],
+        "etat_joueur": {
+          "reputation": "< 60"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "reputation": -5,
+          "stress": 5
+        },
+        "B": {
+          "rentabilite": 5,
+          "stress": 3
+        },
+        "C": {
+          "reputation": 3
+        }
+      }
+    },
+    {
+      "id": "event_marche_volatil",
+      "type": "macro",
+      "message": "Les marchés financiers connaissent une forte volatilité.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "cashflow": "< 30"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "stress": 8,
+          "cashflow": -3
+        },
+        "B": {
+          "controle": -10,
+          "rentabilite": -5
+        },
+        "C": {
+          "reputation": -3,
+          "stress": 5
+        }
+      }
+    },
+    {
+      "id": "event_nouveau_concurrent",
+      "type": "marché",
+      "message": "Une startup disruptive lève 50M€ dans votre secteur.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "reputation": "< 70"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "stress": 5,
+          "reputation": -5
+        },
+        "B": {
+          "rentabilite": 8,
+          "stress": 3
+        },
+        "C": {
+          "reputation": 8,
+          "cashflow": -3
+        }
+      }
+    },
+    {
+      "id": "event_opportunite_marche",
+      "type": "opportunité",
+      "message": "Une nouvelle réglementation ouvre des opportunités dans votre secteur.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "controle": "> 40"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 10,
+          "reputation": 5
+        },
+        "B": {
+          "rentabilite": 15,
+          "cashflow": -5
+        },
+        "C": {
+          "controle": 5,
+          "reputation": 3
+        }
+      }
+    },
+    {
+      "id": "event_regulation_change",
+      "type": "réglementaire",
+      "message": "De nouvelles réglementations impactent votre secteur d'activité.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -8,
+          "stress": 10
+        },
+        "B": {
+          "cashflow": -5,
+          "controle": -5,
+          "stress": 5
+        },
+        "C": {
+          "controle": 10,
+          "stress": 3
+        }
+      }
+    },
+    {
+      "id": "event_crise_systemique",
+      "type": "macro",
+      "message": "Une crise systémique affecte l'ensemble de l'économie.",
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ],
+        "etat_joueur": {
+          "cashflow": "< 20"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -15,
+          "stress": 15,
+          "controle": -10
+        },
+        "B": {
+          "cashflow": -10,
+          "reputation": -8,
+          "stress": 12
+        },
+        "C": {
+          "controle": 15,
+          "stress": 8,
+          "rentabilite": -15
+        }
+      }
+    },
+    {
+      "id": "event_disruption_technologique",
+      "type": "technologie",
+      "message": "Une innovation technologique majeure bouleverse votre marché.",
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ],
+        "etat_joueur": {
+          "reputation": "> 50"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 20,
+          "cashflow": -10,
+          "stress": 10
+        },
+        "B": {
+          "reputation": 15,
+          "rentabilite": 10,
+          "controle": -5
+        },
+        "C": {
+          "controle": 20,
+          "rentabilite": -10,
+          "reputation": -5
+        }
+      }
+    },
+    {
+      "id": "event_due_diligence_issue",
+      "type": "corporate",
+      "message": "La due diligence révèle des problèmes comptables chez la cible.",
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -20,
+          "stress": 20,
+          "reputation": -10
+        },
+        "B": {
+          "cashflow": -10,
+          "controle": -15,
+          "stress": 15
+        },
+        "C": {
+          "controle": 25,
+          "reputation": 5,
+          "stress": -5
+        }
+      }
+    },
+    {
+      "id": "event_regulatory_approval",
+      "type": "réglementaire",
+      "message": "Les autorités de régulation examinent votre opération de M&A.",
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ],
+        "etat_joueur": {
+          "reputation": "> 60"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 10,
+          "reputation": 5
+        },
+        "B": {
+          "stress": 8,
+          "reputation": 3
+        },
+        "C": {
+          "controle": 10,
+          "reputation": 8
+        }
+      }
+    }
+  ]
+}
