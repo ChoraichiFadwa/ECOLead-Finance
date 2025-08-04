@@ -233,7 +233,8 @@ async def get_teacher_student_metrics(teacher_id: int, student_id: int, db: Sess
             concept=record.concept,
             level=record.level,
             score_earned=record.score_earned,
-            time_spent_minutes=record.time_spent_seconds / 60.0
+            time_spent_minutes=round(record.time_spent_seconds / 60.0, 2),
+            time_spent_seconds=record.time_spent_seconds
         )
         for record in recent_progress
     ]
