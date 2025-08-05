@@ -18,7 +18,7 @@ const ProgressBar = ({ value, max = 100, color = "primary", size = "md", showLab
     <div className="w-full">
       {showLabel && (
         <div className="flex justify-between items-center mb-1">
-          <span className="text-sm font-medium text-gray-700">Progress</span>
+          <span className="text-sm font-medium text-gray-700">Progression</span>
           <span className="text-sm text-gray-500">{Math.round(percentage)}%</span>
         </div>
       )}

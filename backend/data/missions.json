@@ -1,7 +1,7 @@
 {
   "concepts": {
-    "financement": {
-      "nom": "financement",
+    "Financement": {
+      "nom": "Financement",
       "description": "Progression sur le concept : financement",
       "missions": {
         "débutant": [
@@ -70,7 +70,7 @@
   "missions": {
     "mission_lever_fonds_d": {
       "id": "mission_lever_fonds_d",
-      "concept": "financement",
+      "concept": "Financement",
       "niveau": "débutant",
       "type": "finance_entreprise",
       "contexte": "Vous devez financer un projet dans le secteur de {secteur} dans un contexte de {situation_macro}.",
@@ -121,9 +121,9 @@
         "reputation"
       ],
       "tags": [
-        "financement",
-        "découverte",
-        "gestion de projet"
+        "Financement",
+        "Découverte",
+        "Gestion de projet"
       ],
       "feedback": {
         "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
@@ -204,7 +204,7 @@
     },
     "mission_lancement_startup": {
       "id": "mission_lancement_startup",
-      "concept": "financement",
+      "concept": "Financement",
       "niveau": "débutant",
       "type": "startup",
       "contexte": "Tu es à la tête d’une startup industrielle dans un marché émergent. Tu dois lever 100 000 € pour financer tes premières machines.",
@@ -364,7 +364,7 @@
     },
     "mission_lever_fonds_i": {
       "id": "mission_lever_fonds_i",
-      "concept": "financement",
+      "concept": "Financement",
       "niveau": "intermédiaire",
       "type": "finance_entreprise",
       "contexte": "Votre startup cherche à se développer dans un secteur {secteur} pendant une période de {situation_macro}.",
@@ -499,7 +499,7 @@
     },
     "mission_lever_fonds_a": {
       "id": "mission_lever_fonds_a",
-      "concept": "financement",
+      "concept": "Financement",
       "niveau": "avancé",
       "type": "finance_entreprise",
       "contexte": "Votre entreprise doit lever 1M€ dans un environnement économique {situation_macro} pour pénétrer un nouveau marché {secteur}.",

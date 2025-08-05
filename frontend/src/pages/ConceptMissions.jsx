@@ -28,7 +28,7 @@ const ConceptMissions = () => {
         console.log("MISSIONS RECEIVED", missionsRes)
         setMissionStatus(statusRes.progress_by_level)
       } catch (err) {
-        setError("Failed to load missions or progress for this concept")
+        setError("Échec du chargement des missions ou de la progression pour ce concept.")
       } finally {
         setLoading(false)
       }
@@ -79,7 +79,7 @@ const ConceptMissions = () => {
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span>Back</span>
+          <span>Retour</span>
         </button>
       </div>
 
@@ -122,7 +122,7 @@ const ConceptMissions = () => {
                   </div>
 
                   {completed ? (
-                    <span className="text-green-600 font-semibold mt-4 sm:mt-0">✔ Terminé</span>
+                    <span className="text-green-600 font-semibold mt-4 sm:mt-0">✔ Terminée</span>
                     ) : (
                       <button
                       onClick={() => !locked && handleStartMission(mission.id)}

@@ -24,7 +24,7 @@ const RoleSelection = () => {
 
       setRole(selectedRole, user.id)
     } catch (err) {
-      setError(err.message || "Failed to create user")
+      setError(err.message || "Échec de la création de l'utilisateur")
     } finally {
       setLoading(false)
     }
@@ -35,7 +35,7 @@ const RoleSelection = () => {
       <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-primary-50 to-primary-100">
         <div className="text-center">
           <LoadingSpinner size="xl" />
-          <p className="mt-4 text-lg text-gray-600">Setting up your account...</p>
+          <p className="mt-4 text-lg text-gray-600">Configuration de votre compte...</p>
         </div>
       </div>
     )
@@ -50,8 +50,7 @@ const RoleSelection = () => {
             <h1 className="text-4xl font-bold text-gradient">ECOLeadGame</h1>
           </div>
           <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Welcome to the gamified educational platform. Choose your role to get started with an immersive learning
-            experience.
+            Bienvenue sur la plateforme éducative gamifiée. Choisissez votre rôle pour commencer une expérience d'apprentissage immersive.
           </p>
         </div>
 
@@ -69,32 +68,31 @@ const RoleSelection = () => {
               <div className="mx-auto w-16 h-16 bg-primary-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-primary-200 transition-colors">
                 <User className="h-8 w-8 text-primary-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Student</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Étudiant</h3>
               <p className="text-gray-600 mb-6">
-                Embark on an interactive learning journey through missions and challenges. Track your progress and
-                master new concepts.
+                Lancez-vous dans un parcours d'apprentissage interactif à travers des missions et des défis. Suivez votre progression.
               </p>
 
               <div className="space-y-3 text-left">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Complete interactive missions</span>
+                  <span className="text-sm text-gray-700">Réalisez des missions interactives</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Track your learning progress</span>
+                  <span className="text-sm text-gray-700">Suivez votre progression d'apprentissage</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Unlock new levels and concepts</span>
+                  <span className="text-sm text-gray-700">Débloquez de nouveaux niveaux et concepts</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-primary-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">View detailed analytics</span>
+                  <span className="text-sm text-gray-700">Consultez des analyses détaillées</span>
                 </div>
               </div>
 
-              <button className="btn-primary w-full mt-6 group-hover:bg-primary-800">Start Learning</button>
+              <button className="btn-primary w-full mt-6 group-hover:bg-primary-800">Commencer l'apprentissage</button>
             </div>
           </div>
 
@@ -107,39 +105,38 @@ const RoleSelection = () => {
               <div className="mx-auto w-16 h-16 bg-success-100 rounded-full flex items-center justify-center mb-4 group-hover:bg-success-200 transition-colors">
                 <Users className="h-8 w-8 text-success-600" />
               </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Teacher</h3>
+              <h3 className="text-2xl font-bold text-gray-900 mb-4">Professeur</h3>
               <p className="text-gray-600 mb-6">
-                Monitor student progress, analyze performance metrics, and gain insights into learning patterns and
-                engagement.
+                Surveillez la progression des étudiants, analysez les indicateurs de performance et obtenez des informations sur les habitudes d'apprentissage et l'engagement.
               </p>
 
               <div className="space-y-3 text-left">
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Monitor student progress</span>
+                  <span className="text-sm text-gray-700">Surveillez la progression des étudiants</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">View detailed analytics</span>
+                  <span className="text-sm text-gray-700">Analysez les indicateurs de performance</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Track engagement metrics</span>
+                  <span className="text-sm text-gray-700">Suivez les indicateurs d'engagement</span>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="w-2 h-2 bg-success-600 rounded-full"></div>
-                  <span className="text-sm text-gray-700">Generate performance reports</span>
+                  <span className="text-sm text-gray-700">Générez des rapports de performance</span>
                 </div>
               </div>
 
-              <button className="btn-success w-full mt-6 group-hover:bg-success-800">Access Dashboard</button>
+              <button className="btn-success w-full mt-6 group-hover:bg-success-800">Accéder au tableau de bord</button>
             </div>
           </div>
         </div>
 
         <div className="text-center mt-12">
           <p className="text-sm text-gray-500">
-            This is a demo environment. Your progress will be saved locally for testing purposes.
+            Progress will be saved locally for testing purposes.
           </p>
         </div>
       </div>

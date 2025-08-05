@@ -40,7 +40,7 @@ const MissionPage = () => {
 
   const handleSubmit = async () => {
     if (!selectedChoice) {
-      setError("Please select a choice before submitting")
+      setError("Veuillez sélectionner une option avant de valider.")
       return
     }
 
@@ -80,10 +80,10 @@ const MissionPage = () => {
     return (
       <div className="text-center py-12">
         <AlertCircle className="h-12 w-12 text-red-500 mx-auto mb-4" />
-        <div className="text-red-600 mb-4">Error loading mission</div>
+        <div className="text-red-600 mb-4">Erreur lors du chargement de la mission</div>
         <p className="text-gray-600 mb-6">{error}</p>
         <button onClick={handleBackToDashboard} className="btn-primary">
-          Back to Dashboard
+          Retour au tableau de bord
         </button>
       </div>
     )
@@ -95,8 +95,8 @@ const MissionPage = () => {
         {/* Success Header */}
         <div className="text-center mb-8">
           <CheckCircle className="h-16 w-16 text-green-500 mx-auto mb-4" />
-          <h1 className="text-3xl font-bold text-gray-900 mb-2">Mission Completed!</h1>
-          <p className="text-gray-600">Great job! Here's how you performed.</p>
+          <h1 className="text-3xl font-bold text-gray-900 mb-2">Mission terminée !</h1>
+          <p className="text-gray-600">Bravo ! Voici vos résultats.</p>
         </div>
 
         {/* Results Card */}
@@ -104,10 +104,10 @@ const MissionPage = () => {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {/* Score and Feedback */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Results</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Résultats</h3>
               <div className="space-y-4">
                 <div className="flex items-center justify-between p-4 bg-green-50 rounded-lg">
-                  <span className="font-medium text-gray-900">Score Earned</span>
+                  <span className="font-medium text-gray-900">Score obtenu</span>
                   <span className="text-2xl font-bold text-green-600">+{result.score_earned}</span>
                 </div>
 
@@ -120,8 +120,8 @@ const MissionPage = () => {
 
                 {result.level_up && (
                   <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-                    <h4 className="font-medium text-yellow-800 mb-1">🎉 Level Up!</h4>
-                    <p className="text-yellow-700 text-sm">Congratulations! You've advanced to {result.new_level}!</p>
+                    <h4 className="font-medium text-yellow-800 mb-1">🎉 Niveau supérieur !</h4>
+                    <p className="text-yellow-700 text-sm">Félicitations ! Vous êtes passé(e) au niveau {result.new_level} !</p>
                   </div>
                 )}
               </div>
@@ -129,7 +129,7 @@ const MissionPage = () => {
 
             {/* Metrics Changes */}
             <div>
-              <h3 className="text-lg font-semibold text-gray-900 mb-4">Metrics Impact</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-4">Impact sur les indicateurs</h3>
               <div className="space-y-3">
                 {Object.entries(result.metrics_changes || {}).map(([metric, change]) => (
                   <div key={metric} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
@@ -158,7 +158,7 @@ const MissionPage = () => {
 
         {/* Current Metrics */}
         <div className="card mb-8">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Updated Metrics</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Indicateurs mis à jour</h3>
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
             {Object.entries(result.new_metrics || {}).map(([metric, value]) => (
               <div key={metric} className="text-center p-4 bg-gray-50 rounded-lg">
@@ -172,7 +172,7 @@ const MissionPage = () => {
         {/* Actions */}
         <div className="text-center">
           <button onClick={handleBackToConcepts} className="btn-primary">
-            Back to library
+            Retour à la bibliothèque
           </button>
         </div>
       </div>
@@ -188,16 +188,16 @@ const MissionPage = () => {
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-4"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span>Back</span>
+          <span>Retour</span>
         </button>
         <div className="flex-1">
           <h1 className="text-3xl font-bold text-gray-900">{mission?.concept}</h1>
-          <p className="text-gray-600 capitalize">Level: {mission?.niveau}</p>
+          <p className="text-gray-600 capitalize">Niveau: {mission?.niveau}</p>
         </div>
         <div className="flex items-center space-x-4 text-sm text-gray-500">
           <div className="flex items-center space-x-1">
             <Clock className="h-4 w-4" />
-            <span>Started {new Date().toLocaleTimeString()}</span>
+            <span>Début {new Date().toLocaleTimeString()}</span>
           </div>
           <div className="flex items-center space-x-1">
             <Target className="h-4 w-4" />
@@ -208,20 +208,20 @@ const MissionPage = () => {
 
       {/* Mission Context */}
       <div className="card mb-8">
-        <h2 className="text-xl font-semibold text-gray-900 mb-4">Mission Context</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-4">Contexte de la mission</h2>
         <div className="space-y-4">
           <div className="p-4 bg-blue-50 rounded-lg">
             <p className="text-gray-800">{mission?.contexte}</p>
           </div>
 
           <div>
-            <h3 className="font-medium text-gray-900 mb-2">Learning Objective</h3>
+            <h3 className="font-medium text-gray-900 mb-2">Objectif pédagogique</h3>
             <p className="text-gray-700">{mission?.objectif_pedagogique}</p>
           </div>
 
           {mission?.evenements_actifs && mission.evenements_actifs.length > 0 && (
             <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h4 className="font-medium text-yellow-800 mb-2">⚡ Active Events</h4>
+              <h4 className="font-medium text-yellow-800 mb-2">⚡ Événements actifs</h4>
               {mission.evenements_actifs.map((event, index) => (
                 <p key={index} className="text-yellow-700 text-sm">
                   {event.message}
@@ -244,7 +244,7 @@ const MissionPage = () => {
 
       {/* Choices */}
       <div className="card mb-8">
-        <h2 className="text-xl font-semibold text-gray-900 mb-6">Choose Your Strategy</h2>
+        <h2 className="text-xl font-semibold text-gray-900 mb-6">Choisissez votre stratégie</h2>
         <div className="space-y-4">
           {mission?.choix &&
             Object.entries(mission.choix).map(([key, choice]) => (
@@ -272,7 +272,7 @@ const MissionPage = () => {
 
                     {choice.impact && (
                       <div className="space-y-2">
-                        <p className="text-sm font-medium text-gray-700">Expected Impact:</p>
+                        <p className="text-sm font-medium text-gray-700">Impact attendu :</p>
                         <div className="flex flex-wrap gap-3">
                           {Object.entries(choice.impact).map(([metric, value]) => (
                             <span
@@ -314,10 +314,10 @@ const MissionPage = () => {
           {submitting ? (
             <div className="flex items-center space-x-2">
               <LoadingSpinner size="sm" />
-              <span>Submitting...</span>
+              <span>Envoi en cours...</span>
             </div>
           ) : (
-            "Submit Mission"
+            "Valider la mission"
           )}
         </button>
       </div>

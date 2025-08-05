@@ -54,7 +54,7 @@ const StudentDashboard = () => {
           setNextMission(null)
         }
       } catch (err) {
-        setError(err.message || "Failed to load dashboard data")
+        setError(err.message || "Échec du chargement des données du tableau de bord")
       } finally {
         setLoading(false)
       }
@@ -78,7 +78,7 @@ const StudentDashboard = () => {
   if (error) {
     return (
       <div className="text-center py-12">
-        <div className="text-red-600 mb-4">Error loading dashboard</div>
+        <div className="text-red-600 mb-4">Erreur lors du chargement du tableau de bord</div>
         <p className="text-gray-600">{error}</p>
       </div>
     )
@@ -119,8 +119,8 @@ const StudentDashboard = () => {
       {/* Header */}
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-gray-900">Welcome back, {student?.name}!</h1>
-          <p className="text-gray-600 mt-1">Continue your learning journey</p>
+          <h1 className="text-3xl font-bold text-gray-900">Bon retour, {student?.name}!</h1>
+          <p className="text-gray-600 mt-1">Continuez votre parcours d'apprentissage</p>
         </div>
         {/* {nextMission && (
           <button onClick={handleStartMission} className="btn-primary flex items-center space-x-2 mt-4 sm:mt-0">
@@ -132,17 +132,17 @@ const StudentDashboard = () => {
   onClick={() => navigate("/concepts")}
   className="btn-outline mt-4 sm:mt-0"
 >
-  Library of concepts
+  Bibliothèque de concepts
 </button>
 
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <MetricCard title="Total Score" value={student?.total_score || 0} icon={Trophy} color="yellow" />
-        <MetricCard title="Current Level" value={student?.level_ai || "Prudent"} icon={Target} color="blue" />
+        <MetricCard title="Score total" value={student?.total_score || 0} icon={Trophy} color="yellow" />
+        <MetricCard title="Niveau actuel" value={student?.level_ai || "Prudent"} icon={Target} color="blue" />
         <MetricCard
-          title="Missions Completed"
+          title="Missions terminées"
           value={progress?.missions_completed || 0}
           icon={BarChart3}
           color="green"
@@ -155,12 +155,12 @@ const StudentDashboard = () => {
         <div className="card bg-gradient-to-r from-primary-50 to-primary-100 border-primary-200">
           <div className="flex items-center justify-between">
             <div className="flex-1">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">Next Mission Available</h3>
+              <h3 className="text-lg font-semibold text-gray-900 mb-2">Prochaine mission </h3>
               <p className="text-gray-700 mb-1">
                 <strong>Concept:</strong> {nextMission.concept}
               </p>
               <p className="text-gray-700 mb-4">
-                <strong>Objective:</strong> {nextMission.objectif_pedagogique}
+                <strong>Objectif:</strong> {nextMission.objectif_pedagogique}
               </p>
               <div className="flex flex-wrap gap-2">
                 {nextMission.tags?.map((tag, index) => (
@@ -173,7 +173,7 @@ const StudentDashboard = () => {
             <div className="ml-6">
               <button onClick={handleStartMission} className="btn-primary flex items-center space-x-2">
                 <Play className="h-5 w-5" />
-                <span>Start Mission</span>
+                <span>Démarrer la mission</span>
               </button>
             </div>
           </div>
@@ -181,8 +181,8 @@ const StudentDashboard = () => {
       ) : (
         <div className="card text-center py-8">
           <Trophy className="h-12 w-12 text-yellow-500 mx-auto mb-4" />
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">All Missions Completed!</h3>
-          <p className="text-gray-600">Congratulations! You've completed all available missions.</p>
+          <h3 className="text-lg font-semibold text-gray-900 mb-2">Toutes les missions terminées !</h3>
+          <p className="text-gray-600">Félicitations ! Vous avez terminé toutes les missions disponibles.</p>
         </div>
       )}
 
@@ -214,7 +214,7 @@ const StudentDashboard = () => {
 
         {/* Current Metrics */}
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Current Metrics</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Indicateurs actuels</h3>
           <div className="space-y-4">
             <div className="flex items-center justify-between">
               <div className="flex items-center space-x-2">
@@ -260,7 +260,7 @@ const StudentDashboard = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {/* Progress Over Time */}
           <div className="card">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Score Progress</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Progression du score</h3>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <LineChart data={chartData.metrics_over_time}>
@@ -282,7 +282,7 @@ const StudentDashboard = () => {
 
           {/* Metrics Radar */}
           <div className="card">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Metrics Overview</h3>
+            <h3 className="text-lg font-semibold text-gray-900 mb-4">Vue d’ensemble des indicateurs</h3>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
                 <RadarChart data={metricsData}>
@@ -300,13 +300,13 @@ const StudentDashboard = () => {
       {/* Recent Missions */}
       {chartData?.mission_timeline && chartData.mission_timeline.length > 0 && (
         <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Recent Missions</h3>
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Missions récentes</h3>
           <div className="space-y-4">
             {chartData.mission_timeline.slice(0, 5).map((mission, index) => (
               <div key={index} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
                 <div className="flex-1">
                   <h4 className="font-medium text-gray-900 capitalize">{mission.concept}</h4>
-                  <p className="text-sm text-gray-600">Level: {mission.level}</p>
+                  <p className="text-sm text-gray-600">Niveau : {mission.level}</p>
                 </div>
                 <div className="text-right">
                   <p className="text-lg font-bold text-primary-600">+{mission.score_earned}</p>

@@ -25,14 +25,14 @@ const Layout = ({ children }) => {
             <div className="flex items-center space-x-4">
               <div className="flex items-center space-x-2 text-gray-600">
                 <User className="h-5 w-5" />
-                <span className="text-sm font-medium capitalize">{role} Dashboard</span>
+                <span className="text-sm font-medium capitalize">{role} Tableau de bord</span>
               </div>
               <button
                 onClick={logout}
                 className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
               >
                 <LogOut className="h-5 w-5" />
-                <span className="text-sm">Logout</span>
+                <span className="text-sm">Déconnexion</span>
               </button>
             </div>
           </div>

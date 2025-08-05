@@ -48,10 +48,10 @@ function ConceptLibrary() {
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
         >
           <ArrowLeft className="h-5 w-5" />
-          <span>Back</span>
+          <span>Retour</span>
         </button>
       </div>
-      <h1 className="text-3xl font-bold text-gray-900 mb-4">Library of concepts</h1>
+      <h1 className="text-3xl font-bold text-gray-900 mb-4">Bibliothèque de concepts</h1>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {conceptProgress.map(concept => (
           <div key={concept.concept} className="bg-white shadow rounded-xl p-5 border border-gray-200">
