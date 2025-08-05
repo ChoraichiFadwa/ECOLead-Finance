@@ -318,6 +318,509 @@
           "reputation": 8
         }
       }
+    },
+    {
+      "id": "event_hausse_taux_interet",
+      "type": "macro",
+      "message": "La banque centrale augmente ses taux directeurs de 0.75%, impactant le coût de financement.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "cashflow": "< 30"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": 5,
+          "stress": -3
+        },
+        "B": {
+          "cashflow": -8,
+          "stress": 8,
+          "rentabilite": -5
+        },
+        "C": {
+          "cashflow": 2,
+          "stress": 5
+        }
+      }
+    },
+    {
+      "id": "event_resserrement_credit",
+      "type": "financier",
+      "message": "Les banques durcissent leurs conditions de crédit suite aux nouvelles régulations.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ],
+        "etat_joueur": {
+          "stress": "> 10"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "reputation": -3
+        },
+        "B": {
+          "cashflow": -12,
+          "stress": 10
+        },
+        "C": {
+          "controle": 8,
+          "stress": 3
+        }
+      }
+    },
+    {
+      "id": "event_changement_reglementation",
+      "type": "réglementaire",
+      "message": "Une nouvelle réglementation sectorielle modifie les perspectives de rentabilité.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire",
+          "avancé"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": -8,
+          "stress": 8
+        },
+        "B": {
+          "rentabilite": -5,
+          "stress": 5
+        },
+        "C": {
+          "rentabilite": 3,
+          "stress": -2
+        }
+      }
+    },
+    {
+      "id": "event_evolution_marche",
+      "type": "marché",
+      "message": "Le marché évolue plus rapidement que prévu, modifiant les hypothèses initiales.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ],
+        "etat_joueur": {
+          "rentabilite": "< 20"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 12,
+          "stress": 5
+        },
+        "B": {
+          "rentabilite": 8,
+          "cashflow": -3
+        },
+        "C": {
+          "rentabilite": -8,
+          "reputation": 5
+        }
+      }
+    },
+    {
+      "id": "event_retard_paiement_client",
+      "type": "opérationnel",
+      "message": "Votre principal client retarde ses paiements de 45 jours en moyenne.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ],
+        "etat_joueur": {
+          "cashflow": "< 40"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": 15,
+          "stress": -5
+        },
+        "B": {
+          "cashflow": 8,
+          "reputation": -8
+        },
+        "C": {
+          "cashflow": 5,
+          "reputation": -12,
+          "stress": 10
+        }
+      }
+    },
+    {
+      "id": "event_hausse_cout_credit",
+      "type": "financier",
+      "message": "Les spreads bancaires augmentent de 150bp suite à une dégradation de la note de crédit.",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire"
+        ],
+        "etat_joueur": {
+          "stress": "> 15"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -15,
+          "rentabilite": -8
+        },
+        "B": {
+          "cashflow": 10,
+          "reputation": 5
+        },
+        "C": {
+          "cashflow": 8,
+          "stress": 12
+        }
+      }
+    },
+    {
+      "id": "event_evolution_cout_capital",
+      "type": "macro",
+      "message": "L'évolution des taux sans risque modifie significativement le coût du capital (WACC).",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "rentabilite": "> 15"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": -12,
+          "stress": 8
+        },
+        "B": {
+          "rentabilite": -8,
+          "stress": 5
+        },
+        "C": {
+          "rentabilite": 5,
+          "stress": 3
+        }
+      }
+    },
+    {
+      "id": "event_pression_actionnaires",
+      "type": "gouvernance",
+      "message": "Les actionnaires minoritaires exigent une politique de dividendes plus généreuse.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "reputation": "< 60"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "reputation": 15,
+          "cashflow": -8
+        },
+        "B": {
+          "reputation": -10,
+          "rentabilite": 8
+        },
+        "C": {
+          "reputation": 5,
+          "controle": -5
+        }
+      }
+    },
+    {
+      "id": "event_opportunite_acquisition",
+      "type": "stratégique",
+      "message": "Une opportunité d'acquisition stratégique se présente nécessitant des liquidités importantes.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "cashflow": "> 20"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -20,
+          "reputation": -8
+        },
+        "B": {
+          "cashflow": 15,
+          "rentabilite": 20,
+          "stress": 10
+        },
+        "C": {
+          "cashflow": 5,
+          "rentabilite": 5,
+          "stress": 3
+        }
+      }
+    },
+    {
+      "id": "event_controle_fiscal",
+      "type": "réglementaire",
+      "message": "L'administration fiscale lance un contrôle approfondi de vos montages d'optimisation.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ],
+        "etat_joueur": {
+          "reputation": "> 50"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -15,
+          "stress": 15,
+          "reputation": -10
+        },
+        "B": {
+          "cashflow": -8,
+          "stress": 10,
+          "reputation": -5
+        },
+        "C": {
+          "stress": 5,
+          "reputation": 8
+        }
+      }
+    },
+    {
+      "id": "event_changement_legislation",
+      "type": "réglementaire",
+      "message": "Une nouvelle loi fiscale remet en question certains de vos montages d'optimisation.",
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -20,
+          "rentabilite": -12,
+          "stress": 12
+        },
+        "B": {
+          "cashflow": -10,
+          "rentabilite": -5,
+          "stress": 8
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 3,
+          "reputation": 5
+        }
+      }
+    },
+    {
+      "id": "event_defaut_paiement",
+      "type": "crédit",
+      "message": "Votre entreprise manque un échéance importante, déclenchant des clauses de défaut.",
+      "conditions": {
+        "niveau": [
+          "avancé"
+        ],
+        "etat_joueur": {
+          "cashflow": "< 10",
+          "stress": "> 20"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": 25,
+          "controle": -30,
+          "reputation": -15
+        },
+        "B": {
+          "cashflow": 15,
+          "stress": 25,
+          "reputation": -10
+        },
+        "C": {
+          "cashflow": 30,
+          "reputation": -20,
+          "stress": 30
+        }
+      }
+    },
+    {
+      "id": "event_pression_creanciers",
+      "type": "financier",
+      "message": "Les créanciers exigent des garanties supplémentaires et un plan de redressement.",
+      "conditions": {
+        "niveau": [
+          "avancé"
+        ],
+        "etat_joueur": {
+          "stress": "> 15",
+          "reputation": "< 40"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "controle": -20,
+          "stress": 15
+        },
+        "B": {
+          "cashflow": -10,
+          "stress": 20
+        },
+        "C": {
+          "controle": 10,
+          "reputation": -5
+        }
+      }
+    },
+    {
+      "id": "event_degradation_performance",
+      "type": "opérationnel",
+      "message": "L'entreprise acquise sous-performe par rapport aux projections initiales du LBO.",
+      "conditions": {
+        "niveau": [
+          "avancé"
+        ],
+        "etat_joueur": {
+          "rentabilite": "> 20"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": -15,
+          "stress": 20
+        },
+        "B": {
+          "rentabilite": -10,
+          "stress": 15
+        },
+        "C": {
+          "rentabilite": 5,
+          "stress": -10
+        }
+      }
+    },
+    {
+      "id": "event_hausse_taux_refinancement",
+      "type": "macro",
+      "message": "La remontée des taux complique le refinancement de la dette LBO à l'échéance.",
+      "conditions": {
+        "niveau": [
+          "avancé"
+        ],
+        "etat_joueur": {
+          "stress": "> 10"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -25,
+          "stress": 25
+        },
+        "B": {
+          "cashflow": -15,
+          "stress": 20
+        },
+        "C": {
+          "cashflow": -5,
+          "stress": -8
+        }
+      }
+    },
+    {
+      "id": "event_volatilite_marches",
+      "type": "financier",
+      "message": "La volatilité extrême des marchés impacte les méthodes de valorisation traditionnelles.",
+      "conditions": {
+        "niveau": [
+          "avancé"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "stress": 15,
+          "rentabilite": -10
+        },
+        "B": {
+          "stress": 8,
+          "rentabilite": 5
+        },
+        "C": {
+          "stress": 10,
+          "reputation": 8
+        }
+      }
+    },
+    {
+      "id": "event_nouvelle_levee_concurrent",
+      "type": "marché",
+      "message": "Un concurrent lève à une valorisation 40% supérieure, créant de nouvelles références.",
+      "conditions": {
+        "niveau": [
+          "avancé"
+        ],
+        "etat_joueur": {
+          "reputation": "> 40"
+        }
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 15,
+          "stress": -5
+        },
+        "B": {
+          "rentabilite": 8,
+          "reputation": -3
+        },
+        "C": {
+          "rentabilite": 5,
+          "reputation": 10
+        }
+      }
+    },
+    {
+      "id": "event_volatilite_devises",
+      "type": "macro",
+      "message": "Une volatilité exceptionnelle touche les marchés de changes (+200% sur la volatilité implicite).",
+      "conditions": {
+        "niveau": [
+          "débutant",
+          "intermédiaire",
+          "avancé"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -8,
+          "stress": 10
+        },
+        "B": {
+          "cashflow": 15,
+          "stress": 20
+        },
+        "C": {
+          "cashflow": 3,
+          "stress": 8
+        }
+      }
     }
   ]
 }

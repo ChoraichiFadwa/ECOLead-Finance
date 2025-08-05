@@ -1,11 +1,55 @@
 {
   "concepts": {
+    "Finance d'entreprise": {
+      "nom": "Finance d'entreprise",
+      "description": "Progression sur le concept : finance d'entreprise - maîtrise des décisions financières stratégiques de l'entreprise",
+      "missions": {
+        "débutant": [
+          { "id": "mission_structure_capital_d" },
+          { "id": "mission_analyse_rentabilite_d" },
+          { "id": "mission_gestion_tresorerie_d" }
+        ],
+        "intermédiaire": [
+          { "id": "mission_evaluation_projet_i" },
+          { "id": "mission_politique_dividende_i" },
+          { "id": "mission_optimisation_fiscale_i" }
+        ],
+        "avancé": [
+          { "id": "mission_restructuration_dette_a" },
+          { "id": "mission_lbo_acquisition_a" },
+          { "id": "mission_valorisation_complexe_a" }
+        ]
+      },
+      "progression": 0
+    },
+    "Marchés de changes": {
+      "nom": "Marchés de changes",
+      "description": "Progression sur le concept : marchés de changes - compréhension des mécanismes de change et gestion du risque de change",
+      "missions": {
+        "débutant": [
+          { "id": "mission_change_spot_d" },
+          { "id": "mission_couverture_simple_d" },
+          { "id": "mission_import_export_d" }
+        ],
+        "intermédiaire": [
+          { "id": "mission_arbitrage_change_i" },
+          { "id": "mission_forward_hedge_i" },
+          { "id": "mission_correlation_devises_i" }
+        ],
+        "avancé": [
+          { "id": "mission_carry_trade_a" },
+          { "id": "mission_options_change_a" },
+          { "id": "mission_gestion_portefeuille_multidevises_a" }
+        ]
+      },
+      "progression": 0
+    },
     "Financement": {
       "nom": "Financement",
       "description": "Progression sur le concept : financement",
       "missions": {
         "débutant": [
-          { "id": "mission_lever_fonds_d" },
+          { "id": "Mission lever fonds" },
           { "id": "mission_lancement_startup" }
         ],
         "intermédiaire": [
@@ -17,22 +61,22 @@
       },
       "progression": 0
     },
-    "gestion": {
-      "nom": "gestion",
+    "Gestion": {
+      "nom": "Gestion",
       "description": "Progression sur le concept : gestion",
       "missions": {
         "débutant": [
-          { "id": "mission_gestion_budget_d" }
+          { "id": "Mission gestion budget" }
         ]
       },
       "progression": 0
     },
-    "gestion des risques": {
-      "nom": "gestion des risques",
-      "description": "Progression sur le concept : gestion des risques",
+    "Gestion des risques": {
+      "nom": "Gestion des risques",
+      "description": "Progression sur le concept : Gestion des risques",
       "missions": {
         "débutant": [
-          { "id": "mission_stress_test_bancaire" }
+          { "id": "Mission stress test bancaire" }
         ],
         "intermédiaire": [
           { "id": "mission_lever_fonds_i" }
@@ -43,9 +87,9 @@
       },
       "progression": 0
     },
-    "investissement": {
-      "nom": "investissement",
-      "description": "Progression sur le concept : investissement",
+    "Investissement": {
+      "nom": "Investissement",
+      "description": "Progression sur le concept : Investissement",
       "missions": {
         "débutant": [
           { "id": "mission_gestion_portefeuille" }
@@ -54,8 +98,8 @@
       "progression": 0
     },
     "stratégie": {
-      "nom": "stratégie",
-      "description": "Progression sur le concept : stratégie",
+      "nom": "Stratégie",
+      "description": "Progression sur le concept : Stratégie",
       "missions": {
         "intermédiaire": [
           { "id": "mission_fusion_acquisition_a" }
@@ -68,8 +112,8 @@
     }
   },
   "missions": {
-    "mission_lever_fonds_d": {
-      "id": "mission_lever_fonds_d",
+    "Mission lever fonds": {
+      "id": "Mission lever fonds",
       "concept": "Financement",
       "niveau": "débutant",
       "type": "finance_entreprise",
@@ -136,8 +180,8 @@
       ],
       "reutilisable": true
     },
-    "mission_gestion_budget_d": {
-      "id": "mission_gestion_budget_d",
+    "Mission gestion budget": {
+      "id": "Mission gestion budget",
       "concept": "gestion",
       "niveau": "débutant",
       "type": "finance_entreprise",
@@ -255,9 +299,9 @@
       ],
       "reutilisable": true
     },
-    "mission_stress_test_bancaire": {
-      "id": "mission_stress_test_bancaire",
-      "concept": "gestion des risques",
+    "Mission stress test bancaire": {
+      "id": "Mission stress test bancaire",
+      "concept": "Gestion des risques",
       "niveau": "débutant",
       "type": "finance",
       "contexte": "La BCE a publié les résultats des stress tests bancaires. Les banques locales sont jugées fragiles, ce qui provoque une panique financière.",
@@ -306,7 +350,7 @@
     },
     "mission_gestion_portefeuille": {
       "id": "mission_gestion_portefeuille",
-      "concept": "investissement",
+      "concept": "Investissement",
       "niveau": "débutant",
       "type": "finance personnelle",
       "contexte": "Tu dois gérer un portefeuille diversifié d’actifs dans un marché incertain.",
@@ -350,7 +394,7 @@
         "stress"
       ],
       "tags": [
-        "investissement",
+        "Investissement",
         "gestion",
         "risques"
       ],
@@ -430,7 +474,7 @@
     },
     "mission_expansion_i_fadwa": {
       "id": "mission_expansion_i_fadwa",
-      "concept": "stratégie",
+      "concept": "Stratégie",
       "niveau": "avancé",
       "type": "développement",
       "contexte": "Votre entreprise envisage une expansion dans le secteur {secteur} avec un contexte {situation_macro}.",
@@ -444,7 +488,7 @@
         "incertitude",
         "opportunité"
       ],
-      "objectif_pedagogique": "Développer une stratégie d'expansion réfléchie.",
+      "objectif_pedagogique": "Développer une Stratégie d'expansion réfléchie.",
       "choix": {
         "A": {
           "description": "Expansion géographique rapide",
@@ -482,7 +526,7 @@
         "reputation"
       ],
       "tags": [
-        "stratégie",
+        "Stratégie",
         "expansion",
         "croissance"
       ],
@@ -515,7 +559,7 @@
         "crise énergétique",
         "transformation digitale"
       ],
-      "objectif_pedagogique": "Élaborer une stratégie de financement avancée en contexte complexe.",
+      "objectif_pedagogique": "Élaborer une Stratégie de financement avancée en contexte complexe.",
       "choix": {
         "A": {
           "description": "Structurer une opération mixte : dette + equity",
@@ -554,7 +598,7 @@
       ],
       "tags": [
         "financement",
-        "stratégie avancée",
+        "Stratégie avancée",
         "entrepreneuriat"
       ],
       "feedback": {
@@ -570,7 +614,7 @@
     },
     "mission_fusion_acquisition_a": {
       "id": "mission_fusion_acquisition_a",
-      "concept": "stratégie",
+      "concept": "Stratégie",
       "niveau": "intermédiaire",
       "type": "corporate",
       "contexte": "Une opportunité de fusion-acquisition se présente dans le secteur {secteur} pendant une période de {situation_macro}.",
@@ -626,7 +670,7 @@
         "reputation"
       ],
       "tags": [
-        "stratégie",
+        "Stratégie",
         "M&A",
         "corporate finance"
       ],
@@ -638,6 +682,681 @@
       "evenements_possibles": [
         "event_due_diligence_issue",
         "event_regulatory_approval"
+      ],
+      "reutilisable": true
+    },
+    "mission_structure_capital_d": {
+      "id": "mission_structure_capital_d",
+      "concept": "Finance d'entreprise",
+      "niveau": "débutant",
+      "type": "finance_entreprise",
+      "contexte": "Votre PME dans le secteur {secteur} doit optimiser sa structure de capital dans un contexte de {situation_macro}.",
+      "secteurs": [
+        "commerce",
+        "industrie",
+        "services",
+        "technologie"
+      ],
+      "situations_macro": [
+        "croissance stable",
+        "expansion",
+        "difficultés économiques",
+        "opportunité d'Investissement"
+      ],
+      "objectif_pedagogique": "Comprendre l'équilibre optimal entre fonds propres et dette.",
+      "choix": {
+        "A": {
+          "description": "Augmenter les fonds propres via apport des associés",
+          "impact": {
+            "cashflow": 15,
+            "controle": -5,
+            "stress": -5,
+            "rentabilite": -3
+          }
+        },
+        "B": {
+          "description": "Recourir à l'endettement bancaire",
+          "impact": {
+            "cashflow": 10,
+            "controle": 15,
+            "stress": 8,
+            "rentabilite": -8
+          }
+        },
+        "C": {
+          "description": "Maintenir l'autofinancement",
+          "impact": {
+            "cashflow": 5,
+            "controle": 20,
+            "stress": 3,
+            "rentabilite": 5
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "controle",
+        "stress",
+        "rentabilite"
+      ],
+      "tags": [
+        "structure capital",
+        "fonds propres",
+        "dette"
+      ],
+      "feedback": {
+        "A": "L'apport en fonds propres renforce la solidité financière mais dilue le contrôle.",
+        "B": "L'endettement préserve le contrôle mais augmente le risque financier.",
+        "C": "L'autofinancement maintient l'indépendance mais limite la croissance."
+      },
+      "evenements_possibles": [
+        "event_hausse_taux_interet",
+        "event_resserrement_credit"
+      ],
+      "reutilisable": true
+    },
+    "mission_analyse_rentabilite_d": {
+      "id": "mission_analyse_rentabilite_d",
+      "concept": "Finance d'entreprise",
+      "niveau": "débutant",
+      "type": "analyse_financiere",
+      "contexte": "Vous devez analyser la rentabilité d'un nouveau projet d'Investissement de 50k€ dans le secteur {secteur}.",
+      "secteurs": [
+        "retail",
+        "manufacturing",
+        "digital",
+        "services"
+      ],
+      "situations_macro": [
+        "marché porteur",
+        "concurrence intense",
+        "incertitude économique"
+      ],
+      "objectif_pedagogique": "Maîtriser les indicateurs de rentabilité de base (ROI, ROE, payback).",
+      "choix": {
+        "A": {
+          "description": "Investir si ROI > 15%",
+          "impact": {
+            "cashflow": -10,
+            "rentabilite": 20,
+            "stress": 5
+          }
+        },
+        "B": {
+          "description": "Exiger un payback < 2 ans",
+          "impact": {
+            "cashflow": -5,
+            "rentabilite": 10,
+            "stress": 3
+          }
+        },
+        "C": {
+          "description": "Reporter l'Investissement",
+          "impact": {
+            "cashflow": 10,
+            "rentabilite": -5,
+            "stress": -3
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "stress"
+      ],
+      "tags": [
+        "rentabilité",
+        "Investissement",
+        "ROI"
+      ],
+      "feedback": {
+        "A": "Un ROI élevé assure une bonne rentabilité mais peut être optimiste.",
+        "B": "Un payback court limite les risques mais peut écarter des projets prometteurs.",
+        "C": "Reporter permet d'éviter les risques mais peut faire perdre des opportunités."
+      },
+      "evenements_possibles": [
+        "event_changement_reglementation",
+        "event_evolution_marche"
+      ],
+      "reutilisable": true
+    },
+    "mission_gestion_tresorerie_d": {
+      "id": "mission_gestion_tresorerie_d",
+      "concept": "Finance d'entreprise",
+      "niveau": "débutant",
+      "type": "tresorerie",
+      "contexte": "Votre entreprise fait face à des tensions de trésorerie avec 15 jours de trésorerie disponible dans le secteur {secteur}.",
+      "secteurs": [
+        "BTP",
+        "commerce",
+        "restauration",
+        "services"
+      ],
+      "situations_macro": [
+        "délais de paiement allongés",
+        "saisonnalité",
+        "croissance rapide"
+      ],
+      "objectif_pedagogique": "Gérer les flux de trésorerie à court terme et éviter les ruptures.",
+      "choix": {
+        "A": {
+          "description": "Négocier une ligne de crédit court terme",
+          "impact": {
+            "cashflow": 20,
+            "stress": 10,
+            "rentabilite": -3
+          }
+        },
+        "B": {
+          "description": "Accélérer l'encaissement clients",
+          "impact": {
+            "cashflow": 15,
+            "reputation": -5,
+            "stress": 5
+          }
+        },
+        "C": {
+          "description": "Retarder les paiements fournisseurs",
+          "impact": {
+            "cashflow": 12,
+            "reputation": -8,
+            "stress": 8
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "reputation",
+        "stress",
+        "rentabilite"
+      ],
+      "tags": [
+        "trésorerie",
+        "liquidité",
+        "BFR"
+      ],
+      "feedback": {
+        "A": "La ligne de crédit sécurise mais coûte en intérêts.",
+        "B": "Accélérer l'encaissement améliore la trésorerie mais peut tendre les relations clients.",
+        "C": "Retarder les paiements soulage temporairement mais dégrade l'image."
+      },
+      "evenements_possibles": [
+        "event_retard_paiement_client",
+        "event_hausse_cout_credit"
+      ],
+      "reutilisable": true
+    },
+    "mission_evaluation_projet_i": {
+      "id": "mission_evaluation_projet_i",
+      "concept": "Finance d'entreprise",
+      "niveau": "intermédiaire",
+      "type": "evaluation_Investissement",
+      "contexte": "Vous devez choisir entre trois projets d'Investissement de 200k€ chacun dans le secteur {secteur} avec un WACC de 8%.",
+      "secteurs": [
+        "technologie",
+        "industrie 4.0",
+        "énergies renouvelables",
+        "biotechnologie"
+      ],
+      "situations_macro": [
+        "transformation digitale",
+        "transition énergétique",
+        "innovation disruptive"
+      ],
+      "objectif_pedagogique": "Utiliser la VAN, TRI et indice de profitabilité pour comparer des projets.",
+      "choix": {
+        "A": {
+          "description": "Projet à VAN maximale (120k€, TRI 18%)",
+          "impact": {
+            "cashflow": -15,
+            "rentabilite": 25,
+            "stress": 8
+          }
+        },
+        "B": {
+          "description": "Projet à TRI maximal (80k€ VAN, TRI 22%)",
+          "impact": {
+            "cashflow": -10,
+            "rentabilite": 20,
+            "stress": 12
+          }
+        },
+        "C": {
+          "description": "Diversifier sur deux projets moyens",
+          "impact": {
+            "cashflow": -20,
+            "rentabilite": 15,
+            "stress": 5
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "stress"
+      ],
+      "tags": [
+        "VAN",
+        "TRI",
+        "évaluation projet"
+      ],
+      "feedback": {
+        "A": "Maximiser la VAN créé plus de valeur absolue pour l'entreprise.",
+        "B": "Un TRI élevé indique une meilleure rentabilité relative du capital investi.",
+        "C": "La diversification réduit les risques mais dilue la performance."
+      },
+      "evenements_possibles": [
+        "event_evolution_cout_capital",
+        "event_disruption_technologique"
+      ],
+      "reutilisable": true
+    },
+    "mission_politique_dividende_i": {
+      "id": "mission_politique_dividende_i",
+      "concept": "Finance d'entreprise",
+      "niveau": "intermédiaire",
+      "type": "politique_financiere",
+      "contexte": "Votre entreprise profitable doit décider de sa politique de dividendes avec 500k€ de bénéfices dans le contexte {situation_macro}.",
+      "secteurs": [
+        "services financiers",
+        "industrie mature",
+        "technologie établie"
+      ],
+      "situations_macro": [
+        "maturité du marché",
+        "pression des actionnaires",
+        "opportunités de croissance",
+        "incertitude économique"
+      ],
+      "objectif_pedagogique": "Équilibrer distribution aux actionnaires et réInvestissement.",
+      "choix": {
+        "A": {
+          "description": "Distribuer 60% en dividendes",
+          "impact": {
+            "cashflow": -20,
+            "reputation": 15,
+            "controle": 10,
+            "rentabilite": -5
+          }
+        },
+        "B": {
+          "description": "Réinvestir 80% dans la croissance",
+          "impact": {
+            "cashflow": 10,
+            "rentabilite": 20,
+            "reputation": -5,
+            "stress": 5
+          }
+        },
+        "C": {
+          "description": "Politique équilibrée 40%/60%",
+          "impact": {
+            "cashflow": -5,
+            "reputation": 8,
+            "rentabilite": 10,
+            "stress": 3
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "reputation",
+        "controle",
+        "rentabilite",
+        "stress"
+      ],
+      "tags": [
+        "dividendes",
+        "réInvestissement",
+        "actionnaires"
+      ],
+      "feedback": {
+        "A": "Des dividendes élevés satisfont les actionnaires mais limitent la croissance.",
+        "B": "Le réInvestissement favorise la croissance future mais peut décevoir les actionnaires.",
+        "C": "L'équilibre ménage tous les intérêts mais peut manquer d'ambition."
+      },
+      "evenements_possibles": [
+        "event_pression_actionnaires",
+        "event_opportunite_acquisition"
+      ],
+      "reutilisable": true
+    },
+    "mission_optimisation_fiscale_i": {
+      "id": "mission_optimisation_fiscale_i",
+      "concept": "Finance d'entreprise",
+      "niveau": "intermédiaire",
+      "type": "optimisation_fiscale",
+      "contexte": "Votre groupe d'entreprises cherche à optimiser sa charge fiscale légalement avec un résultat de 2M€ dans le contexte {situation_macro}.",
+      "secteurs": [
+        "multinationale",
+        "groupe industriel",
+        "holding"
+      ],
+      "situations_macro": [
+        "harmonisation fiscale EU",
+        "lutte contre l'évasion",
+        "réforme fiscale"
+      ],
+      "objectif_pedagogique": "Comprendre l'impact fiscal sur les décisions financières.",
+      "choix": {
+        "A": {
+          "description": "Optimiser via la structure de holding",
+          "impact": {
+            "cashflow": 8,
+            "rentabilite": 12,
+            "stress": 10,
+            "reputation": -3
+          }
+        },
+        "B": {
+          "description": "Maximiser les amortissements fiscaux",
+          "impact": {
+            "cashflow": 12,
+            "rentabilite": 8,
+            "stress": 5
+          }
+        },
+        "C": {
+          "description": "Stratégie fiscale conservatrice",
+          "impact": {
+            "cashflow": 3,
+            "reputation": 10,
+            "stress": -5,
+            "rentabilite": 2
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "stress",
+        "reputation"
+      ],
+      "tags": [
+        "optimisation fiscale",
+        "holding",
+        "amortissements"
+      ],
+      "feedback": {
+        "A": "La holding permet une optimisation efficace mais augmente la complexité.",
+        "B": "Les amortissements réduisent l'impôt immédiat de façon sûre.",
+        "C": "La prudence fiscale évite les risques mais limite les gains."
+      },
+      "evenements_possibles": [
+        "event_controle_fiscal",
+        "event_changement_legislation"
+      ],
+      "reutilisable": true
+    },
+    "mission_restructuration_dette_a": {
+      "id": "mission_restructuration_dette_a",
+      "concept": "Finance d'entreprise",
+      "niveau": "avancé",
+      "type": "restructuration",
+      "contexte": "Votre entreprise avec 10M€ de dettes doit négocier une restructuration dans le contexte {situation_macro}.",
+      "secteurs": [
+        "retail en difficulté",
+        "industrie traditionnelle",
+        "transport",
+        "hôtellerie"
+      ],
+      "situations_macro": [
+        "crise sectorielle",
+        "hausse des taux",
+        "récession",
+        "disruption digitale"
+      ],
+      "objectif_pedagogique": "Maîtriser les techniques de restructuration financière complexe.",
+      "choix": {
+        "A": {
+          "description": "Conversion dette-equity avec les créanciers",
+          "impact": {
+            "cashflow": 15,
+            "controle": -25,
+            "stress": 15,
+            "rentabilite": 10
+          }
+        },
+        "B": {
+          "description": "Renégociation des échéances et taux",
+          "impact": {
+            "cashflow": 10,
+            "stress": 20,
+            "rentabilite": -5,
+            "reputation": -8
+          }
+        },
+        "C": {
+          "description": "Procédure de sauvegarde collective",
+          "impact": {
+            "cashflow": 20,
+            "controle": -15,
+            "reputation": -15,
+            "stress": 25
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "controle",
+        "stress",
+        "rentabilite",
+        "reputation"
+      ],
+      "tags": [
+        "restructuration",
+        "dette",
+        "négociation créanciers"
+      ],
+      "feedback": {
+        "A": "La conversion améliore la structure mais fait entrer les créanciers au capital.",
+        "B": "La renégociation préserve le capital mais reste fragile.",
+        "C": "La sauvegarde offre une protection légale mais stigmatise l'entreprise."
+      },
+      "evenements_possibles": [
+        "event_defaut_paiement",
+        "event_pression_creanciers"
+      ],
+      "reutilisable": true
+    },
+    "mission_lbo_acquisition_a": {
+      "id": "mission_lbo_acquisition_a",
+      "concept": "Finance d'entreprise",
+      "niveau": "avancé",
+      "type": "lbo",
+      "contexte": "Vous montez un LBO pour acquérir une entreprise valorisée 50M€ avec un EBITDA de 8M€ dans le secteur {secteur}.",
+      "secteurs": [
+        "services B2B",
+        "industrie spécialisée",
+        "distribution",
+        "logistique"
+      ],
+      "situations_macro": [
+        "marché des LBO actif",
+        "taux bas",
+        "consolidation sectorielle"
+      ],
+      "objectif_pedagogique": "Structurer un montage LBO avec effet de levier optimal.",
+      "choix": {
+        "A": {
+          "description": "Levier 6x EBITDA, 20% fonds propres",
+          "impact": {
+            "cashflow": -30,
+            "rentabilite": 35,
+            "stress": 25,
+            "controle": 15
+          }
+        },
+        "B": {
+          "description": "Levier 4x EBITDA, 35% fonds propres",
+          "impact": {
+            "cashflow": -20,
+            "rentabilite": 25,
+            "stress": 15,
+            "controle": 20
+          }
+        },
+        "C": {
+          "description": "Acquisition minoritaire sans effet de levier",
+          "impact": {
+            "cashflow": -10,
+            "rentabilite": 12,
+            "stress": 5,
+            "controle": -10
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "stress",
+        "controle"
+      ],
+      "tags": [
+        "LBO",
+        "effet de levier",
+        "acquisition"
+      ],
+      "feedback": {
+        "A": "Un fort levier maximise les rendus mais augmente significativement les risques.",
+        "B": "Un levier modéré équilibre performance et sécurité.",
+        "C": "Sans levier, les rendements sont limités mais les risques maîtrisés."
+      },
+      "evenements_possibles": [
+        "event_degradation_performance",
+        "event_hausse_taux_refinancement"
+      ],
+      "reutilisable": true
+    },
+    "mission_valorisation_complexe_a": {
+      "id": "mission_valorisation_complexe_a",
+      "concept": "Finance d'entreprise",
+      "niveau": "avancé",
+      "type": "valorisation",
+      "contexte": "Vous devez valoriser une startup tech pré-IPO avec des revenus récurrents dans le secteur {secteur}.",
+      "secteurs": [
+        "SaaS",
+        "fintech",
+        "medtech",
+        "cleantech"
+      ],
+      "situations_macro": [
+        "bulle tech",
+        "correction des valorisations",
+        "appétit investisseurs",
+        "IPO market fermé"
+      ],
+      "objectif_pedagogique": "Maîtriser les méthodes de valorisation pour entreprises innovantes.",
+      "choix": {
+        "A": {
+          "description": "Méthode DCF avec projections 10 ans",
+          "impact": {
+            "reputation": 10,
+            "stress": 15,
+            "rentabilite": 5
+          }
+        },
+        "B": {
+          "description": "Multiples de comparables sectoriels",
+          "impact": {
+            "reputation": 5,
+            "stress": 8,
+            "rentabilite": 12
+          }
+        },
+        "C": {
+          "description": "Approche mixte pondérée",
+          "impact": {
+            "reputation": 15,
+            "stress": 10,
+            "rentabilite": 8
+          }
+        }
+      },
+      "variables_affectees": [
+        "reputation",
+        "stress",
+        "rentabilite"
+      ],
+      "tags": [
+        "valorisation",
+        "DCF",
+        "comparables"
+      ],
+      "feedback": {
+        "A": "Le DCF est rigoureux mais très sensible aux hypothèses de croissance.",
+        "B": "Les multiples reflètent le marché mais peuvent être biaisés.",
+        "C": "L'approche mixte combine les avantages mais complexifie l'analyse."
+      },
+      "evenements_possibles": [
+        "event_volatilite_marches",
+        "event_nouvelle_levee_concurrent"
+      ],
+      "reutilisable": true
+    },
+    "mission_change_spot_d": {
+      "id": "mission_change_spot_d",
+      "concept": "Marchés de changes",
+      "niveau": "débutant",
+      "type": "change_spot",
+      "contexte": "Votre entreprise doit convertir 100k€ en {devise} pour un paiement fournisseur dans le contexte {situation_macro}.",
+      "devises": [
+        "USD",
+        "GBP",
+        "JPY",
+        "CHF"
+      ],
+      "situations_macro": [
+        "volatilité élevée",
+        "tensions géopolitiques",
+        "politique monétaire divergente",
+        "marché calme"
+      ],
+      "objectif_pedagogique": "Comprendre les mécanismes de base du marché des changes spot.",
+      "choix": {
+        "A": {
+          "description": "Conversion immédiate au cours actuel",
+          "impact": {
+            "cashflow": -5,
+            "stress": 3,
+            "reputation": 5
+          }
+        },
+        "B": {
+          "description": "Attendre une amélioration du cours (24h)",
+          "impact": {
+            "cashflow": 3,
+            "stress": 8,
+            "reputation": -3
+          }
+        },
+        "C": {
+          "description": "Négocier un meilleur taux avec la banque",
+          "impact": {
+            "cashflow": 2,
+            "stress": 5,
+            "reputation": 3
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "stress",
+        "reputation"
+      ],
+      "tags": [
+        "change spot",
+        "conversion",
+        "timing"
+      ],
+      "feedback": {
+        "A": "La conversion immédiate élimine le risque de change mais peut être coûteuse.",
+        "B": "Attendre peut être profitable mais expose au risque de détérioration.",
+        "C": "Négocier améliore les conditions mais demande du temps et des relations."
+      },
+      "evenements_possibles": [
+        "event_volatilite_devises",
+        "event_annonce_banque_centrale"
       ],
       "reutilisable": true
     }
