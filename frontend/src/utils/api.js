@@ -64,6 +64,15 @@ export const api = {
     })
     return handleResponse(response)
   },
+    getMissionsByConcept: async (conceptId) => {
+    const response = await fetch(`${API_BASE_URL}/concepts/${encodeURIComponent(conceptId)}/missions`)
+    return handleResponse(response)
+  },
+    getMissionById: async (missionId) => {
+    const response = await fetch(`${API_BASE_URL}/missions/id/${missionId}`)
+    return handleResponse(response)
+  },
+
 
   // Progress
   getStudentProgress: async (studentId) => {
@@ -75,6 +84,17 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/students/${studentId}/chart-data`)
     return handleResponse(response)
   },
+
+    getStudentConceptProgress: async (studentId) => {
+    const response = await fetch(`${API_BASE_URL}/students/${studentId}/concept-progress`)
+    return handleResponse(response)
+  },
+    getConceptProgress: async (studentId, conceptId) => {
+    const response = await fetch(`${API_BASE_URL}/students/${studentId}/concepts/${conceptId}/progress`)
+    return handleResponse(response)
+  },
+
+
 
   // Teacher Analytics
   getTeacherDashboard: async (teacherId) => {

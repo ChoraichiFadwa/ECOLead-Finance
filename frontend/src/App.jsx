@@ -4,8 +4,10 @@ import Layout from "./components/Layout"
 import RoleSelection from "./pages/RoleSelection"
 import StudentDashboard from "./pages/StudentDashboard"
 import TeacherDashboard from "./pages/TeacherDashboard"
+import ConceptLibrary from "./pages/ConceptLibrary";
 import MissionPage from "./pages/MissionPage"
 import LoadingSpinner from "./components/LoadingSpinner"
+import ConceptMissions from "./pages/ConceptMissions";
 
 function App() {
   const { role, loading } = useRole()
@@ -39,6 +41,30 @@ function App() {
           )
         }
       />
+      <Route
+      path="/concepts"
+      element={
+        role === "student" ? (
+      <Layout>
+        <ConceptLibrary />
+      </Layout>
+      ) : (
+        <Navigate to="/" />
+      )
+    }
+    />
+    <Route
+    path="/concept/:conceptId"
+    element={
+      role === "student" ? (
+        <Layout>
+          <ConceptMissions />
+          </Layout>
+          ) : (
+            <Navigate to="/dashboard" />
+            )
+          }
+          />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )

@@ -55,7 +55,7 @@ class ConceptProgress(Base):
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     concept = Column(String, nullable=False)
-    level = Column(String, nullable=False)
+    # level = Column(String, nullable=False)
     missions_completed = Column(Integer, default=0)
     total_missions = Column(Integer, default=0)
     is_completed = Column(Boolean, default=False)

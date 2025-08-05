@@ -22,13 +22,10 @@ const MissionPage = () => {
     const fetchMission = async () => {
       try {
         setLoading(true)
-        const missionData = await api.getNextMission(userId)
+        const missionData = await api.getMissionById(missionId)
+        setMission(missionData)
+        
 
-        if (missionData.id === missionId) {
-          setMission(missionData)
-        } else {
-          setError("Mission not found or not available")
-        }
       } catch (err) {
         setError(err.message || "Failed to load mission")
       } finally {
@@ -70,6 +67,10 @@ const MissionPage = () => {
   const handleBackToDashboard = () => {
     navigate("/dashboard")
   }
+  const handleBackToConcepts = () => {
+  navigate("/concepts")
+}
+
 
   if (loading) {
     return <LoadingSpinner size="xl" className="min-h-96" />
@@ -170,8 +171,8 @@ const MissionPage = () => {
 
         {/* Actions */}
         <div className="text-center">
-          <button onClick={handleBackToDashboard} className="btn-primary">
-            Back to Dashboard
+          <button onClick={handleBackToConcepts} className="btn-primary">
+            Back to library
           </button>
         </div>
       </div>
@@ -183,7 +184,7 @@ const MissionPage = () => {
       {/* Header */}
       <div className="flex items-center mb-8">
         <button
-          onClick={handleBackToDashboard}
+          onClick={handleBackToConcepts}
           className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors mr-4"
         >
           <ArrowLeft className="h-5 w-5" />

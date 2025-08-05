@@ -18,7 +18,7 @@ class User(Base):
     created_at = Column(DateTime, default=datetime.utcnow)
     
     # Student-specific fields
-    current_level = Column(String, default="débutant")
+    level_ai = Column(String, default="Prudent")
     total_score = Column(Integer, default=0)
     
     # Current metrics

@@ -18,10 +18,10 @@ class TeacherCreate(BaseModel):
 
 class UserResponse(BaseModel):
     id: int
-    name: str
+    name: str 
     email: str
     role: str
-    current_level: str = None
+    level_ai: str = None
     total_score: int = None
     created_at: datetime
     
@@ -47,7 +47,7 @@ async def create_student(student: StudentCreate, db: Session = Depends(get_db)):
         name=student.name,
         email=student.email,
         role=UserRole.STUDENT,
-        current_level="débutant",
+        level_ai="Prudent",
         total_score=0,
         cashflow=100.0,
         controle=50.0,

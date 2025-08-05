@@ -59,8 +59,9 @@ async def get_next_mission(student_id: int, db: Session = Depends(get_db)):
     ).all()
     completed_mission_ids = [m[0] for m in completed_missions]
 
-    # Get missions for current level
-    missions = game_loader.get_missions_by_level(student.current_level)
+    # Get missions for current concept
+    # missions = game_loader.get_missions_by_concept(concept_id)
+    missions=game_loader.get_all_missions()
 
     # Find next uncompleted mission
     next_mission = None
@@ -71,18 +72,18 @@ async def get_next_mission(student_id: int, db: Session = Depends(get_db)):
 
     # If no more missions, try level up
     if not next_mission:
-        from routes.progress import _check_level_completion  # Import helper safely
+        # from routes.progress import _check_level_completion  # Import helper safely
 
-        if student.current_level == "débutant" and _check_level_completion(student.id, "débutant", db):
-            student.current_level = "intermédiaire"
-            db.commit()
-            return await get_next_mission(student.id, db)
-        elif student.current_level == "intermédiaire" and _check_level_completion(student.id, "intermédiaire", db):
-            student.current_level = "avancé"
-            db.commit()
-            return await get_next_mission(student.id, db)
+        # if student.current_level == "débutant" and _check_level_completion(student.id, "débutant", db):
+        #     student.current_level = "intermédiaire"
+        #     db.commit()
+        #     return await get_next_mission(student.id, db)
+        # elif student.current_level == "intermédiaire" and _check_level_completion(student.id, "intermédiaire", db):
+        #     student.current_level = "avancé"
+        #     db.commit()
+        #     return await get_next_mission(student.id, db)
 
-        raise HTTPException(status_code=404, detail="No more missions available for current level")
+        raise HTTPException(status_code=404, detail="Toutes les missions ont été complétées.")
 
     # Add dynamic context
     if "secteurs" in next_mission:
@@ -123,6 +124,22 @@ async def get_concepts_by_level(level: str):
         "concepts": list(concepts.keys()),
         "missions_by_concept": concepts
     }
+
+@router.get("/concepts", response_model=List[str])
+async def get_all_concepts():
+    return game_loader.get_all_concepts()
+
+@router.get("/concepts/{concept_id}/missions", response_model=List[MissionResponse])
+async def get_missions_by_concept(concept_id: str):
+    missions = game_loader.get_missions_by_concept(concept_id)
+    return [MissionResponse(**mission) for mission in missions]
+
+@router.get("/missions/id/{mission_id}", response_model=MissionResponse)
+async def get_mission_by_id(mission_id: str):
+    mission = game_loader.get_mission_by_id(mission_id)
+    if not mission:
+        raise HTTPException(status_code=404, detail="Mission not found")
+    return MissionResponse(**mission)
 
 @router.get("/students/{student_id}/level-progress", response_model=List[LevelSummary])
 async def get_level_progress(student_id: int, db: Session = Depends(get_db)):

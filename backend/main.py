@@ -8,8 +8,8 @@ from routes import users, missions, progress, analytics
 Base.metadata.create_all(bind=engine)
 
 app = FastAPI(
-    title="Gamified Educational Platform",
-    description="A DataCamp-style learning platform with missions and progress tracking",
+    title="ECOLead Serious Game Platform API",
+    description="A learning platform with missions and progress tracking",
     version="1.0.0"
 )
 
@@ -30,7 +30,7 @@ app.include_router(analytics.router, prefix="/api", tags=["analytics"])
 
 @app.get("/")
 async def root():
-    return {"message": "Gamified Educational Platform API", "docs": "/docs"}
+    return {"message": "ECOLead Serious Game Platform API", "docs": "/docs"}
 
 @app.get("/health")
 async def health_check():

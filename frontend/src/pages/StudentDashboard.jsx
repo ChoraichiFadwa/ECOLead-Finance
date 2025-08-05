@@ -68,7 +68,7 @@ const StudentDashboard = () => {
   const handleStartMission = () => {
     if (nextMission) {
       navigate(`/mission/${nextMission.id}`)
-    }
+    } 
   }
 
   if (loading) {
@@ -122,18 +122,25 @@ const StudentDashboard = () => {
           <h1 className="text-3xl font-bold text-gray-900">Welcome back, {student?.name}!</h1>
           <p className="text-gray-600 mt-1">Continue your learning journey</p>
         </div>
-        {nextMission && (
+        {/* {nextMission && (
           <button onClick={handleStartMission} className="btn-primary flex items-center space-x-2 mt-4 sm:mt-0">
             <Play className="h-5 w-5" />
             <span>Start Next Mission</span>
           </button>
-        )}
+        )} */}
+        <button
+  onClick={() => navigate("/concepts")}
+  className="btn-outline mt-4 sm:mt-0"
+>
+  Library of concepts
+</button>
+
       </div>
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard title="Total Score" value={student?.total_score || 0} icon={Trophy} color="yellow" />
-        <MetricCard title="Current Level" value={student?.current_level || "débutant"} icon={Target} color="blue" />
+        <MetricCard title="Current Level" value={student?.level_ai || "Prudent"} icon={Target} color="blue" />
         <MetricCard
           title="Missions Completed"
           value={progress?.missions_completed || 0}
@@ -181,8 +188,8 @@ const StudentDashboard = () => {
 
       {/* Progress Overview */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Level Progress */}
-        <div className="card">
+        {/* Level Progress */} 
+        {/* <div className="card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Level Progress</h3>
           <div className="space-y-4">
             {progress?.level_progress &&
@@ -203,7 +210,7 @@ const StudentDashboard = () => {
                 </div>
               ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Current Metrics */}
         <div className="card">
