@@ -182,7 +182,7 @@
     },
     "Mission gestion budget": {
       "id": "Mission gestion budget",
-      "concept": "gestion",
+      "concept": "Gestion",
       "niveau": "débutant",
       "type": "finance_entreprise",
       "contexte": "Votre startup a un budget serré et vous devez optimiser vos dépenses dans le secteur {secteur}.",
