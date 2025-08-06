@@ -41,7 +41,7 @@ const StudentDashboard = () => {
           api.getStudentChartData(userId),
         ])
 
-        setStudent(studentData)
+        setStudent(studentData) 
         setProgress(progressData)
         setChartData(chartDataResponse)
 

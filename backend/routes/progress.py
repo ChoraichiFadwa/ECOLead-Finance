@@ -199,7 +199,7 @@ async def submit_mission(
     #         level_up = True
     #         new_level = "avancé"
     
-    # db.commit()
+    db.commit()
     
     return MissionResult(
         success=True,
