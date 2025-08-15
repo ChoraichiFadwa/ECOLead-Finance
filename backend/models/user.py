@@ -14,10 +14,24 @@ class User(Base):
     id = Column(Integer, primary_key=True, index=True)
     name = Column(String, nullable=False)
     email = Column(String, unique=True, index=True, nullable=False)
-    role = Column(Enum(UserRole), nullable=False)
+    role = Column(Enum(UserRole), nullable=False) # for the front usage
     created_at = Column(DateTime, default=datetime.utcnow)
     
-    # Student-specific fields
+    # Single table inheritance discriminator
+    type = Column(String, nullable=False)
+    # Relationships
+    progress_records = relationship("Progress", back_populates="student")
+    metric_history = relationship("MetricHistory", back_populates="student")
+   
+
+    __mapper_args__ = {
+        'polymorphic_on': type,
+        'polymorphic_identity': 'user'
+    }
+
+
+class Student(User):
+        # Student-specific fields
     level_ai = Column(String, default="Prudent")
     total_score = Column(Integer, default=0)
     
@@ -28,16 +42,11 @@ class User(Base):
     rentabilite = Column(Float, default=50.0)
     reputation = Column(Float, default=50.0)
     
-    # Relationships
-    progress_records = relationship("Progress", back_populates="student")
-    metric_history = relationship("MetricHistory", back_populates="student")
-
-class Student(User):
     __mapper_args__ = {
-        'polymorphic_identity': UserRole.STUDENT,
+        'polymorphic_identity': UserRole.STUDENT.value, # for database usage 
     }
 
 class Teacher(User):
     __mapper_args__ = {
-        'polymorphic_identity': UserRole.TEACHER,
+        'polymorphic_identity': UserRole.TEACHER.value,
     }

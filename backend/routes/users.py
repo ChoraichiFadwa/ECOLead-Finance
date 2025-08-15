@@ -3,7 +3,7 @@ from sqlalchemy.orm import Session
 from pydantic import BaseModel, EmailStr
 from typing import List
 from database import get_db
-from models.user import User, UserRole
+from models.user import User, Student, Teacher, UserRole
 from datetime import datetime
 
 router = APIRouter()
@@ -16,7 +16,7 @@ class TeacherCreate(BaseModel):
     name: str
     email: EmailStr
 
-class UserResponse(BaseModel):
+class StudentResponse(BaseModel):
     id: int
     name: str 
     email: str
@@ -34,16 +34,25 @@ class UserResponse(BaseModel):
 
     class Config:
         from_attributes = True
+class TeacherResponse(BaseModel):
+    id: int
+    name: str 
+    email: str
+    role: str
+    created_at: datetime
 
-@router.post("/students/", response_model=UserResponse)
+    class Config:
+        from_attributes = True
+
+@router.post("/students/", response_model=StudentResponse)
 async def create_student(student: StudentCreate, db: Session = Depends(get_db)):
     # Check if email already exists
-    existing_user = db.query(User).filter(User.email == student.email).first()
+    existing_user = db.query(Student).filter(User.email == student.email).first()
     if existing_user:
         # raise HTTPException(status_code=400, detail="Email already registered")
         return existing_user
     
-    db_student = User(
+    db_student = Student(
         name=student.name,
         email=student.email,
         role=UserRole.STUDENT,
@@ -62,15 +71,15 @@ async def create_student(student: StudentCreate, db: Session = Depends(get_db)):
     
     return db_student
 
-@router.post("/teachers/", response_model=UserResponse)
+@router.post("/teachers/", response_model=TeacherResponse)
 async def create_teacher(teacher: TeacherCreate, db: Session = Depends(get_db)):
     # Check if email already exists
-    existing_user = db.query(User).filter(User.email == teacher.email).first()
+    existing_user = db.query(Teacher).filter(Teacher.email == teacher.email).first()
     if existing_user:
         # raise HTTPException(status_code=400, detail="Email already registered")
         return existing_user
     
-    db_teacher = User(
+    db_teacher = Teacher(
         name=teacher.name,
         email=teacher.email,
         role=UserRole.TEACHER
@@ -82,11 +91,10 @@ async def create_teacher(teacher: TeacherCreate, db: Session = Depends(get_db)):
     
     return db_teacher
 
-@router.get("/students/{student_id}", response_model=UserResponse)
+@router.get("/students/{student_id}", response_model=StudentResponse)
 async def get_student(student_id: int, db: Session = Depends(get_db)):
-    student = db.query(User).filter(
-        User.id == student_id, 
-        User.role == UserRole.STUDENT
+    student = db.query(Student).filter(
+        Student.id == student_id
     ).first()
     
     if not student:
@@ -94,11 +102,10 @@ async def get_student(student_id: int, db: Session = Depends(get_db)):
     
     return student
 
-@router.get("/teachers/{teacher_id}", response_model=UserResponse)
+@router.get("/teachers/{teacher_id}", response_model=TeacherResponse)
 async def get_teacher(teacher_id: int, db: Session = Depends(get_db)):
-    teacher = db.query(User).filter(
-        User.id == teacher_id, 
-        User.role == UserRole.TEACHER
+    teacher = db.query(Teacher).filter(
+        Teacher.id == teacher_id
     ).first()
     
     if not teacher:
@@ -106,12 +113,12 @@ async def get_teacher(teacher_id: int, db: Session = Depends(get_db)):
     
     return teacher
 
-@router.get("/students/", response_model=List[UserResponse])
+@router.get("/students/", response_model=List[StudentResponse])
 async def list_students(db: Session = Depends(get_db)):
-    students = db.query(User).filter(User.role == UserRole.STUDENT).all()
+    students = db.query(Student).all()
     return students
 
-@router.get("/teachers/", response_model=List[UserResponse])
+@router.get("/teachers/", response_model=List[TeacherResponse])
 async def list_teachers(db: Session = Depends(get_db)):
-    teachers = db.query(User).filter(User.role == UserRole.TEACHER).all()
+    teachers = db.query(Teacher).all()
     return teachers
