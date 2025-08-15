@@ -22,7 +22,7 @@ import ProgressBar from "../components/ProgressBar"
 import LoadingSpinner from "../components/LoadingSpinner"
 
 const StudentDashboard = () => {
-  const { userId } = useRole()
+  const { userId, setProfile } = useRole()
   const navigate = useNavigate()
   const [student, setStudent] = useState(null)
   const [progress, setProgress] = useState(null)
@@ -32,38 +32,51 @@ const StudentDashboard = () => {
   const [error, setError] = useState("")
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true)
-        const [studentData, progressData, chartDataResponse] = await Promise.all([
-          api.getStudent(userId),
-          api.getStudentProgress(userId),
-          api.getStudentChartData(userId),
-        ])
+  const fetchData = async () => {
+    try {
+      setLoading(true)
 
-        setStudent(studentData) 
-        setProgress(progressData)
-        setChartData(chartDataResponse)
+      // Fetch student first to check profile
+      const studentData = await api.getStudent(userId)
 
-        // Try to get next mission
-        try {
-          const missionData = await api.getNextMission(userId)
-          setNextMission(missionData)
-        } catch (err) {
-          // No next mission available
-          setNextMission(null)
-        }
-      } catch (err) {
-        setError(err.message || "Échec du chargement des données du tableau de bord")
-      } finally {
-        setLoading(false)
+      if (studentData.profile === -1) {
+        // Redirect to profile selection if no profile
+        navigate("/choose-profile")
+        return
       }
-    }
 
-    if (userId) {
-      fetchData()
+      // Set profile in context
+      setProfile(studentData.profile,studentData.profile_label)
+      setStudent(studentData)
+
+      // Fetch other dashboard data in parallel
+      const [progressData, chartDataResponse] = await Promise.all([
+        api.getStudentProgress(userId),
+        api.getStudentChartData(userId),
+      ])
+
+      setProgress(progressData)
+      setChartData(chartDataResponse)
+
+      // Try to get next mission
+      try {
+        const missionData = await api.getNextMission(userId)
+        setNextMission(missionData)
+      } catch (err) {
+        setNextMission(null)
+      }
+    } catch (err) {
+      setError(err.message || "Échec du chargement des données du tableau de bord")
+    } finally {
+      setLoading(false)
     }
-  }, [userId])
+  }
+
+  if (userId) {
+    fetchData()
+  }
+}, [userId, navigate])
+
 
   const handleStartMission = () => {
     if (nextMission) {

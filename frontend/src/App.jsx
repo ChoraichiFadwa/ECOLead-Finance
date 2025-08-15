@@ -7,7 +7,8 @@ import TeacherDashboard from "./pages/TeacherDashboard"
 import ConceptLibrary from "./pages/ConceptLibrary";
 import MissionPage from "./pages/MissionPage"
 import LoadingSpinner from "./components/LoadingSpinner"
-import ConceptMissions from "./pages/ConceptMissions";
+import ConceptMissions from "./pages/ConceptMissions"
+import ChooseProfile from "./pages/ChooseProfile"
 
 function App() {
   const { role, loading } = useRole()
@@ -29,6 +30,19 @@ function App() {
           )
         }
       />
+      <Route
+  path="/choose-profile"
+  element={
+    role === "student" ? (
+      <Layout>
+        <ChooseProfile />
+      </Layout>
+    ) : (
+      <Navigate to="/" />
+    )
+  }
+/>
+
       <Route
         path="/mission/:missionId"
         element={

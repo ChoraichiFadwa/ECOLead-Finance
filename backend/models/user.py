@@ -3,6 +3,7 @@ from sqlalchemy.orm import relationship
 from database import Base
 from datetime import datetime
 import enum
+from models.profile import ProfileType, PROFILE_LABELS
 
 class UserRole(enum.Enum):
     STUDENT = "student"
@@ -41,6 +42,15 @@ class Student(User):
     stress = Column(Float, default=10.0)
     rentabilite = Column(Float, default=50.0)
     reputation = Column(Float, default=50.0)
+    profile = Column(Integer, default=-1, nullable=False)
+    # to get the string for the front
+    @property
+    def profile_label(self):
+        from models.profile import PROFILE_LABELS, ProfileType
+        try:
+            return PROFILE_LABELS[ProfileType(self.profile)]
+        except (ValueError, KeyError, TypeError):
+            return "Choisis un profil"
     
     __mapper_args__ = {
         'polymorphic_identity': UserRole.STUDENT.value, # for database usage 

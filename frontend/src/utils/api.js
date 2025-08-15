@@ -49,6 +49,18 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/students/`)
     return handleResponse(response)
   },
+  // profiles
+  setStudentProfile: async (studentId, profileKey) => {
+    const response = await fetch(`${API_BASE_URL}/students/${studentId}/profile?profile=${encodeURIComponent(profileKey)}`, {
+      method: "POST",
+    })
+    return handleResponse(response)
+  },
+
+  getStudentProfile: async (studentId) => {
+    const response = await fetch(`${API_BASE_URL}/students/${studentId}/profile`)
+    return handleResponse(response)
+  },
 
   // Missions
   getNextMission: async (studentId) => {
@@ -106,4 +118,5 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/students/${studentId}/metrics`)
     return handleResponse(response)
   },
+
 }

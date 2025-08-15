@@ -5,22 +5,42 @@ const RoleContext = createContext()
 export const RoleProvider = ({ children }) => {
   const [role, setRoleState] = useState(null)
   const [userId, setUserIdState] = useState(null)
+  const [profile, setProfileState] = useState(-1)           // ← New: current profile value (1, 2, 3, or -1)
+  const [profileLabel, setProfileLabelState] = useState("Choisis un profil") // ← New: label for UI
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
     const storedRole = localStorage.getItem("role")
     const storedUserId = localStorage.getItem("userId")
+    const storedProfile = localStorage.getItem("profile")
+    const storedProfileLabel = localStorage.getItem("profileLabel")
 
     if ((storedRole === "student" || storedRole === "teacher") && storedUserId) {
       setRoleState(storedRole)
       setUserIdState(Number.parseInt(storedUserId))
     }
+    // Restore profile if exists
+    if (storedProfile !== null) {
+      setProfileState(Number.parseInt(storedProfile))
+    }
+    if (storedProfileLabel) {
+      setProfileLabelState(storedProfileLabel)
+    }
     setLoading(false)
   }, [])
 
-  const setRole = (newRole, newUserId) => {
+  const setRole = (newRole, newUserId, newProfile = null, newProfileLabel = null) => {
     setRoleState(newRole)
     setUserIdState(newUserId)
+    // Only update profile if provided
+    if (newProfile !== null) {
+      setProfileState(newProfile)
+      localStorage.setItem("profile", newProfile.toString())
+    }
+    if (newProfileLabel !== null) {
+      setProfileLabelState(newProfileLabel)
+      localStorage.setItem("profileLabel", newProfileLabel)
+    }
 
     if (newRole && newUserId) {
       localStorage.setItem("role", newRole)
@@ -28,14 +48,24 @@ export const RoleProvider = ({ children }) => {
     } else {
       localStorage.removeItem("role")
       localStorage.removeItem("userId")
+      localStorage.removeItem("profile")
+      localStorage.removeItem("profileLabel")
     }
+  }
+
+  // New: separate setProfile (optional, but clean)
+  const setProfile = (newProfile, newProfileLabel) => {
+    setProfileState(newProfile)
+    setProfileLabelState(newProfileLabel)
+    localStorage.setItem("profile", newProfile.toString())
+    localStorage.setItem("profileLabel", newProfileLabel)
   }
 
   const logout = () => {
     setRole(null, null)
   }
 
-  return <RoleContext.Provider value={{ role, userId, setRole, logout, loading }}>{children}</RoleContext.Provider>
+  return <RoleContext.Provider value={{ role, userId, setRole,profile, profileLabel,setProfile, logout, loading }}>{children}</RoleContext.Provider>
 }
 
 export const useRole = () => {

@@ -31,6 +31,8 @@ class StudentResponse(BaseModel):
     stress: float = None
     rentabilite: float = None
     reputation: float = None
+    profile: int = None       # store DB value
+    profile_label: str = None # frontend label
 
     class Config:
         from_attributes = True
@@ -122,3 +124,32 @@ async def list_students(db: Session = Depends(get_db)):
 async def list_teachers(db: Session = Depends(get_db)):
     teachers = db.query(Teacher).all()
     return teachers
+
+@router.post("/students/{student_id}/profile")
+def set_profile(student_id: int, profile: int, db: Session = Depends(get_db)):
+    student = db.query(Student).get(student_id)
+    if not student:
+        raise HTTPException(404, "Student not found")
+
+    student.profile = profile
+
+    # Apply baseline
+    from models.profile import PROFILE_BASELINES, ProfileType
+    baselines = PROFILE_BASELINES[ProfileType(profile)]
+    for k, v in baselines.items():
+        setattr(student, k, v)
+
+    db.commit()
+    db.refresh(student)
+    return {"ok": True, "profile": student.profile, "profile_label": student.profile_label}
+
+@router.get("/students/{student_id}/profile")
+def get_profile(student_id: int, db: Session = Depends(get_db)):
+    student = db.query(Student).get(student_id)
+    if not student:
+        raise HTTPException(404, "Student not found")
+    # If profile is None, return default values
+    profile = student.profile if student.profile is not None else -1
+    profile_label = student.profile_label if student.profile_label is not None else "Choisis un profil"
+
+    return {"profile": profile, "profile_label": profile_label}
