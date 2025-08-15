@@ -2,7 +2,19 @@ import { useState, useEffect } from "react"
 import { useNavigate } from "react-router-dom"
 import { useRole } from "../contexts/RoleContext"
 import { api } from "../utils/api"
-import { Play, Trophy, Target, TrendingUp, DollarSign, Shield, Zap, BarChart3, Star } from "lucide-react"
+import {
+  Play,
+  Trophy,
+  Target,
+  TrendingUp,
+  DollarSign,
+  Shield,
+  Zap,
+  BarChart3,
+  Star,
+  BookOpen,
+  Users,
+} from "lucide-react"
 import {
   LineChart,
   Line,
@@ -18,7 +30,6 @@ import {
   Radar,
 } from "recharts"
 import MetricCard from "../components/MetricCard"
-import ProgressBar from "../components/ProgressBar"
 import LoadingSpinner from "../components/LoadingSpinner"
 
 const StudentDashboard = () => {
@@ -28,6 +39,8 @@ const StudentDashboard = () => {
   const [progress, setProgress] = useState(null)
   const [chartData, setChartData] = useState(null)
   const [nextMission, setNextMission] = useState(null)
+  const [learningStage, setLearningStage] = useState(null) // Added learning stage state
+  const [activeProfile, setActiveProfile] = useState(null) // Added active profile state
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
 
@@ -35,15 +48,21 @@ const StudentDashboard = () => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const [studentData, progressData, chartDataResponse] = await Promise.all([
+        const [studentData, progressData, chartDataResponse, stageData, profileData] = await Promise.all([
           api.getStudent(userId),
           api.getStudentProgress(userId),
           api.getStudentChartData(userId),
+          fetch(`http://localhost:8000/api/learning-flow/${userId}/stage`).then((res) => res.json()),
+          fetch(`http://localhost:8000/api/profiles/${userId}/active`)
+            .then((res) => res.json())
+            .catch(() => null),
         ])
 
-        setStudent(studentData) 
+        setStudent(studentData)
         setProgress(progressData)
         setChartData(chartDataResponse)
+        setLearningStage(stageData) // Set learning stage
+        setActiveProfile(profileData) // Set active profile
 
         // Try to get next mission
         try {
@@ -68,7 +87,7 @@ const StudentDashboard = () => {
   const handleStartMission = () => {
     if (nextMission) {
       navigate(`/mission/${nextMission.id}`)
-    } 
+    }
   }
 
   if (loading) {
@@ -120,22 +139,53 @@ const StudentDashboard = () => {
       <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
           <h1 className="text-3xl font-bold text-gray-900">Bon retour, {student?.name}!</h1>
-          <p className="text-gray-600 mt-1">Continuez votre parcours d'apprentissage</p>
+          <p className="text-gray-600 mt-1">
+            {learningStage?.stage === "fundamentals" && "Continuez vos concepts fondamentaux"}
+            {learningStage?.stage === "profile_selection" && "Prêt à choisir votre spécialisation !"}
+            {learningStage?.stage === "specialized" &&
+              `Spécialisation: ${activeProfile?.profile_type?.replace(/([A-Z])/g, " $1").trim()}`}
+            {!learningStage && "Continuez votre parcours d'apprentissage"}
+          </p>
         </div>
-        {/* {nextMission && (
-          <button onClick={handleStartMission} className="btn-primary flex items-center space-x-2 mt-4 sm:mt-0">
-            <Play className="h-5 w-5" />
-            <span>Start Next Mission</span>
-          </button>
-        )} */}
-        <button
-  onClick={() => navigate("/concepts")}
-  className="btn-outline mt-4 sm:mt-0"
->
-  Bibliothèque de concepts
-</button>
-
+        <div className="flex space-x-3 mt-4 sm:mt-0">
+          {learningStage?.stage === "profile_selection" ? (
+            <button onClick={() => navigate("/profile-selection")} className="btn-primary flex items-center space-x-2">
+              <Users className="h-5 w-5" />
+              <span>Choisir mon profil</span>
+            </button>
+          ) : (
+            <button onClick={() => navigate("/domains")} className="btn-outline flex items-center space-x-2">
+              <BookOpen className="h-5 w-5" />
+              <span>Domaines d'apprentissage</span>
+            </button>
+          )}
+        </div>
       </div>
+
+      {learningStage && (
+        <div className="bg-gradient-to-r from-blue-50 to-indigo-50 border border-blue-200 rounded-lg p-6">
+          <div className="flex items-center justify-between mb-4">
+            <div>
+              <h3 className="text-lg font-semibold text-blue-900">
+                {learningStage.stage === "fundamentals" && "Phase: Concepts Fondamentaux"}
+                {learningStage.stage === "profile_selection" && "Phase: Sélection de Profil"}
+                {learningStage.stage === "specialized" && "Phase: Apprentissage Spécialisé"}
+              </h3>
+              <p className="text-blue-700 mt-1">{learningStage.next_action}</p>
+            </div>
+            <div className="text-right">
+              <div className="text-3xl font-bold text-blue-900">{Math.round(learningStage.progress_percentage)}%</div>
+              <div className="text-blue-600 text-sm">Progression</div>
+            </div>
+          </div>
+          <div className="w-full bg-blue-200 rounded-full h-3">
+            <div
+              className="bg-blue-600 h-3 rounded-full transition-all duration-500"
+              style={{ width: `${learningStage.progress_percentage}%` }}
+            ></div>
+          </div>
+        </div>
+      )}
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -188,7 +238,7 @@ const StudentDashboard = () => {
 
       {/* Progress Overview */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Level Progress */} 
+        {/* Level Progress */}
         {/* <div className="card">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Level Progress</h3>
           <div className="space-y-4">
@@ -311,8 +361,8 @@ const StudentDashboard = () => {
                 <div className="text-right">
                   <p className="text-lg font-bold text-primary-600">+{mission.score_earned}</p>
                   <p className="text-sm text-gray-500">
-  {Math.floor(mission.time_spent_seconds / 60)} min {mission.time_spent_seconds % 60} sec
-</p>
+                    {Math.floor(mission.time_spent_seconds / 60)} min {mission.time_spent_seconds % 60} sec
+                  </p>
                 </div>
               </div>
             ))}

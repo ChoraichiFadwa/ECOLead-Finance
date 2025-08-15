@@ -20,6 +20,10 @@ class User(Base):
     # Student-specific fields
     level_ai = Column(String, default="Prudent")
     total_score = Column(Integer, default=0)
+
+    fundamentals_completed = Column(Boolean, default=False)
+    fundamentals_completed_at = Column(DateTime)
+    overall_performance_score = Column(Float, default=0.0)
     
     # Current metrics
     cashflow = Column(Float, default=100.0)
@@ -31,6 +35,9 @@ class User(Base):
     # Relationships
     progress_records = relationship("Progress", back_populates="student")
     metric_history = relationship("MetricHistory", back_populates="student")
+    profiles = relationship("StudentProfile", back_populates="student")
+    user_profile = relationship("UserProfile", back_populates="user", uselist=False)
+    user_progress = relationship("UserProgress", back_populates="user")
 
 class Student(User):
     __mapper_args__ = {

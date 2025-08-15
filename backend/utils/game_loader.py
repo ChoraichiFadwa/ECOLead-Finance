@@ -3,11 +3,12 @@ import os
 from typing import Dict, List, Any, Optional
 from models.user import User
 from datetime import datetime
-
+ 
 class GameLoader:
     def __init__(self):
         self.missions = {}
         self.events = {}
+        self.domains = {}
         self.concepts = {}
         self.data={}
         self.load_game_data()
@@ -28,9 +29,9 @@ class GameLoader:
                 self.missions= self.data.get("missions", {})
                 self.concepts = self.data.get("concepts", {})
 
-        strategie = self.concepts.get("stratégie", {})
-        print(f"[DEBUG] Stratégie missions on load: {strategie.get('missions', 'NOT FOUND')}")
-        print(f"[DEBUG] Stratégie missions type: {type(strategie.get('missions', {}))}")
+        # strategie = self.concepts.get("stratégie", {})
+        # print(f"[DEBUG] Stratégie missions on load: {strategie.get('missions', 'NOT FOUND')}")
+        # print(f"[DEBUG] Stratégie missions type: {type(strategie.get('missions', {}))}")
 
         # Load events
         events_path = os.path.join("data", "events.json")

@@ -7,7 +7,11 @@ import TeacherDashboard from "./pages/TeacherDashboard"
 import ConceptLibrary from "./pages/ConceptLibrary";
 import MissionPage from "./pages/MissionPage"
 import LoadingSpinner from "./components/LoadingSpinner"
-import ConceptMissions from "./pages/ConceptMissions";
+import ConceptMissions from "./pages/ConceptMissions"
+import DomainLibrary from "./pages/DomainLibrary"
+import ProfileSelection from "./pages/ProfileSelection"
+import LearningFlow from "./pages/LearningFlow"
+import SpecializedPath from "./pages/SpecializedPath"
 
 function App() {
   const { role, loading } = useRole()
@@ -65,6 +69,57 @@ function App() {
             )
           }
           />
+     <Route
+        path="/domains"
+        element={
+          role === "student" ? (
+            <Layout>
+              <DomainLibrary />
+            </Layout>
+          ) : (
+            <Navigate to="/dashboard" />
+          )
+        }
+      />
+
+      <Route
+        path="/profile-selection"
+        element={
+          role === "student" ? (
+            <Layout>
+              <ProfileSelection />
+            </Layout>
+          ) : (
+            <Navigate to="/dashboard" />
+          )
+        }
+      />
+
+      <Route
+        path="/learning-flow"
+        element={
+          role === "student" ? (
+            <Layout>
+              <LearningFlow />
+            </Layout>
+          ) : (
+            <Navigate to="/dashboard" />
+          )
+        }
+      />
+
+      <Route
+        path="/specialized-path"
+        element={
+          role === "student" ? (
+            <Layout>
+              <SpecializedPath />
+            </Layout>
+          ) : (
+            <Navigate to="/dashboard" />
+          )
+        }
+      />
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )

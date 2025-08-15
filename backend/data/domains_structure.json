@@ -1,0 +1,292 @@
+{
+  "domains": [
+    {
+      "id": 1,
+      "name": "Finance Fondamentale",
+      "description": "Concepts de base en finance d'entreprise et personnelle",
+      "order_index": 1,
+      "is_fundamental": true,
+      "concepts": [
+        {
+          "id": 1,
+          "name": "Analyse Financière de Base",
+          "description": "Comprendre les états financiers et ratios de base",
+          "order_index": 1,
+          "is_fundamental": true,
+          "prerequisite_concepts": [],
+          "required_for_profiles": [
+            "gestion_portefeuille_boursier",
+            "lecture_indicateurs_techniques",
+            "simulation_levee_fonds"
+          ]
+        },
+        {
+          "id": 2,
+          "name": "Gestion de Trésorerie",
+          "description": "Principes de base de la gestion des flux de trésorerie",
+          "order_index": 2,
+          "is_fundamental": true,
+          "prerequisite_concepts": [1],
+          "required_for_profiles": ["gestion_portefeuille_boursier", "simulation_levee_fonds"]
+        },
+        {
+          "id": 3,
+          "name": "Évaluation d'Entreprise",
+          "description": "Méthodes de base pour évaluer une entreprise",
+          "order_index": 3,
+          "is_fundamental": true,
+          "prerequisite_concepts": [1, 2],
+          "required_for_profiles": ["gestion_portefeuille_boursier", "simulation_levee_fonds"]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "Marchés Financiers",
+      "description": "Fonctionnement des marchés boursiers et obligataires",
+      "order_index": 2,
+      "is_fundamental": false,
+      "concepts": [
+        {
+          "id": 4,
+          "name": "Marchés Actions",
+          "description": "Comprendre le fonctionnement des marchés d'actions",
+          "order_index": 1,
+          "is_fundamental": false,
+          "prerequisite_concepts": [1],
+          "required_for_profiles": ["gestion_portefeuille_boursier", "lecture_indicateurs_techniques"]
+        },
+        {
+          "id": 5,
+          "name": "Marchés Obligataires",
+          "description": "Fonctionnement des marchés de dette",
+          "order_index": 2,
+          "is_fundamental": false,
+          "prerequisite_concepts": [1],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        },
+        {
+          "id": 6,
+          "name": "Produits Dérivés",
+          "description": "Options, futures et autres dérivés",
+          "order_index": 3,
+          "is_fundamental": false,
+          "prerequisite_concepts": [4, 5],
+          "required_for_profiles": ["gestion_portefeuille_boursier", "lecture_indicateurs_techniques"]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "Analyse Technique",
+      "description": "Outils et méthodes d'analyse technique des marchés",
+      "order_index": 3,
+      "is_fundamental": false,
+      "concepts": [
+        {
+          "id": 7,
+          "name": "Graphiques et Tendances",
+          "description": "Lecture des graphiques et identification des tendances",
+          "order_index": 1,
+          "is_fundamental": false,
+          "prerequisite_concepts": [4],
+          "required_for_profiles": ["lecture_indicateurs_techniques"]
+        },
+        {
+          "id": 8,
+          "name": "Indicateurs Techniques",
+          "description": "RSI, MACD, moyennes mobiles et autres indicateurs",
+          "order_index": 2,
+          "is_fundamental": false,
+          "prerequisite_concepts": [7],
+          "required_for_profiles": ["lecture_indicateurs_techniques"]
+        },
+        {
+          "id": 9,
+          "name": "Stratégies de Trading",
+          "description": "Développement de stratégies basées sur l'analyse technique",
+          "order_index": 3,
+          "is_fundamental": false,
+          "prerequisite_concepts": [7, 8],
+          "required_for_profiles": ["lecture_indicateurs_techniques"]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "Financement d'Entreprise",
+      "description": "Levée de fonds, financement bancaire et structure du capital",
+      "order_index": 4,
+      "is_fundamental": false,
+      "concepts": [
+        {
+          "id": 10,
+          "name": "Sources de Financement",
+          "description": "Différentes sources de financement pour les entreprises",
+          "order_index": 1,
+          "is_fundamental": false,
+          "prerequisite_concepts": [2, 3],
+          "required_for_profiles": ["simulation_levee_fonds"]
+        },
+        {
+          "id": 11,
+          "name": "Levée de Fonds",
+          "description": "Processus de levée de fonds auprès d'investisseurs",
+          "order_index": 2,
+          "is_fundamental": false,
+          "prerequisite_concepts": [10],
+          "required_for_profiles": ["simulation_levee_fonds"]
+        },
+        {
+          "id": 12,
+          "name": "Financement Bancaire",
+          "description": "Crédits bancaires et relations avec les banques",
+          "order_index": 3,
+          "is_fundamental": false,
+          "prerequisite_concepts": [10],
+          "required_for_profiles": ["simulation_levee_fonds"]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "Gestion des Risques",
+      "description": "Identification, mesure et gestion des risques financiers",
+      "order_index": 5,
+      "is_fundamental": false,
+      "concepts": [
+        {
+          "id": 13,
+          "name": "Risques de Marché",
+          "description": "Comprendre et gérer les risques liés aux fluctuations de marché",
+          "order_index": 1,
+          "is_fundamental": false,
+          "prerequisite_concepts": [4, 5],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        },
+        {
+          "id": 14,
+          "name": "Risques de Crédit",
+          "description": "Évaluation et gestion du risque de crédit",
+          "order_index": 2,
+          "is_fundamental": false,
+          "prerequisite_concepts": [1, 3],
+          "required_for_profiles": ["simulation_levee_fonds"]
+        },
+        {
+          "id": 15,
+          "name": "Risques Opérationnels",
+          "description": "Gestion des risques opérationnels en entreprise",
+          "order_index": 3,
+          "is_fundamental": false,
+          "prerequisite_concepts": [2],
+          "required_for_profiles": ["simulation_levee_fonds"]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "Gestion de Portefeuille",
+      "description": "Construction et gestion de portefeuilles d'investissement",
+      "order_index": 6,
+      "is_fundamental": false,
+      "concepts": [
+        {
+          "id": 16,
+          "name": "Théorie Moderne du Portefeuille",
+          "description": "Principes de diversification et optimisation de portefeuille",
+          "order_index": 1,
+          "is_fundamental": false,
+          "prerequisite_concepts": [4, 5, 13],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        },
+        {
+          "id": 17,
+          "name": "Allocation d'Actifs",
+          "description": "Stratégies d'allocation entre différentes classes d'actifs",
+          "order_index": 2,
+          "is_fundamental": false,
+          "prerequisite_concepts": [16],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        },
+        {
+          "id": 18,
+          "name": "Performance et Benchmarking",
+          "description": "Mesure et évaluation de la performance des portefeuilles",
+          "order_index": 3,
+          "is_fundamental": false,
+          "prerequisite_concepts": [16, 17],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "Finance Internationale",
+      "description": "Marchés de changes et finance internationale",
+      "order_index": 7,
+      "is_fundamental": false,
+      "concepts": [
+        {
+          "id": 19,
+          "name": "Marchés de Changes",
+          "description": "Fonctionnement des marchés des devises",
+          "order_index": 1,
+          "is_fundamental": false,
+          "prerequisite_concepts": [4],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        },
+        {
+          "id": 20,
+          "name": "Couverture de Change",
+          "description": "Techniques de couverture du risque de change",
+          "order_index": 2,
+          "is_fundamental": false,
+          "prerequisite_concepts": [19, 6],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        },
+        {
+          "id": 21,
+          "name": "Investissement International",
+          "description": "Stratégies d'investissement sur les marchés internationaux",
+          "order_index": 3,
+          "is_fundamental": false,
+          "prerequisite_concepts": [19, 16, 17],
+          "required_for_profiles": ["gestion_portefeuille_boursier"]
+        }
+      ]
+    }
+  ],
+  "profiles": {
+    "gestion_portefeuille_boursier": {
+      "name": "Gestion de Portefeuille Boursier",
+      "description": "Spécialisation dans la gestion de portefeuilles d'investissement et l'analyse des marchés financiers",
+      "required_concepts": [1, 2, 3, 4, 5, 6, 13, 16, 17, 18, 19, 20, 21],
+      "unlock_criteria": {
+        "fundamentals_completion": true,
+        "minimum_performance_score": 75.0,
+        "required_domains_completed": [1, 2]
+      }
+    },
+    "lecture_indicateurs_techniques": {
+      "name": "Lecture des Indicateurs Techniques",
+      "description": "Spécialisation dans l'analyse technique et l'interprétation des indicateurs de marché",
+      "required_concepts": [1, 4, 6, 7, 8, 9],
+      "unlock_criteria": {
+        "fundamentals_completion": true,
+        "minimum_performance_score": 70.0,
+        "required_domains_completed": [1, 2, 3]
+      }
+    },
+    "simulation_levee_fonds": {
+      "name": "Simulation de Levée de Fonds/Financement Bancaire",
+      "description": "Spécialisation dans le financement d'entreprise et les relations avec les investisseurs",
+      "required_concepts": [1, 2, 3, 10, 11, 12, 14, 15],
+      "unlock_criteria": {
+        "fundamentals_completion": true,
+        "minimum_performance_score": 70.0,
+        "required_domains_completed": [1, 4, 5]
+      }
+    }
+  }
+}
