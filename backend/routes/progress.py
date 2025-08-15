@@ -313,12 +313,14 @@ async def get_student_progress(student_id: int, db: Session = Depends(get_db)):
     concept_progress_rows = db.query(ConceptProgress).filter(
         ConceptProgress.student_id == student_id
     ).all()
+    concept_metadata = game_loader.concepts
     concept_progress = [
         ConceptProgressSummary(
             concept=row.concept,
             missions_completed=row.missions_completed,
             total_missions=row.total_missions,
-            is_completed=row.is_completed
+            is_completed=row.is_completed,
+            profiles=concept_metadata.get(row.concept, {}).get("profiles", [])
         )
         for row in concept_progress_rows
     ]
