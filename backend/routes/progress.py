@@ -34,6 +34,7 @@ class ConceptProgressSummary(BaseModel):
     missions_completed: int
     total_missions: int
     is_completed: bool
+    profiles: List[int]
 
 class ProgressSummary(BaseModel):
     student_id: int
@@ -235,6 +236,7 @@ async def get_student_concept_progress(student_id: int, db: Session = Depends(ge
             concept_map[concept] = []
         concept_map[concept].append(mission)
 
+    concept_metadata = game_loader.concepts
     # 2. Compter les missions complétées par concept
     results = []
     for concept, missions in concept_map.items():
@@ -243,12 +245,15 @@ async def get_student_concept_progress(student_id: int, db: Session = Depends(ge
             Progress.student_id == student_id,
             Progress.mission_id.in_(mission_ids)
         ).count()
+        concept_info = concept_metadata.get(concept, {})
+        profiles = concept_info.get("profiles", [])
 
         results.append(ConceptProgressSummary(
             concept=concept,
             missions_completed=completed_count,
             total_missions=len(mission_ids),
-            is_completed=completed_count == len(mission_ids)
+            is_completed=completed_count == len(mission_ids),
+            profiles=profiles
         ))
 
     return results

@@ -3,6 +3,7 @@
     "Finance d'entreprise": {
       "nom": "Finance d'entreprise",
       "description": "Progression sur le concept : finance d'entreprise - maîtrise des décisions financières stratégiques de l'entreprise",
+      "profiles": [1, 3],
       "missions": {
         "débutant": [
           { "id": "mission_structure_capital_d" },
@@ -25,6 +26,7 @@
     "Marchés de changes": {
       "nom": "Marchés de changes",
       "description": "Progression sur le concept : marchés de changes - compréhension des mécanismes de change et gestion du risque de change",
+      "profiles": [2, 3],
       "missions": {
         "débutant": [
           { "id": "mission_change_spot_d" },
@@ -47,6 +49,7 @@
     "Financement": {
       "nom": "Financement",
       "description": "Progression sur le concept : financement",
+      "profiles": [1],
       "missions": {
         "débutant": [
           { "id": "Mission lever fonds" },
@@ -64,6 +67,7 @@
     "Gestion": {
       "nom": "Gestion",
       "description": "Progression sur le concept : gestion",
+      "profiles": [1, 2, 3],
       "missions": {
         "débutant": [
           { "id": "Mission gestion budget" }
@@ -74,6 +78,7 @@
     "Gestion des risques": {
       "nom": "Gestion des risques",
       "description": "Progression sur le concept : Gestion des risques",
+      "profiles": [1, 3],
       "missions": {
         "débutant": [
           { "id": "Mission stress test bancaire" }
@@ -90,6 +95,7 @@
     "Investissement": {
       "nom": "Investissement",
       "description": "Progression sur le concept : Investissement",
+      "profiles": [1, 2],
       "missions": {
         "débutant": [
           { "id": "mission_gestion_portefeuille" }
@@ -100,6 +106,7 @@
     "Stratégie": {
       "nom": "Stratégie",
       "description": "Progression sur le concept : Stratégie",
+      "profiles": [3],
       "missions": {
         "intermédiaire": [
           { "id": "mission_fusion_acquisition_a" }

@@ -7,14 +7,19 @@ import { ArrowLeft } from "lucide-react"
 function ConceptLibrary() {
   const [conceptProgress, setConceptProgress] = useState([])
   const [loading, setLoading] = useState(true)
-  const { userId } = useRole()
+  const { userId, profile} = useRole()
   const navigate = useNavigate()
-
+ 
   useEffect(() => {
     async function fetchConceptsWithProgress() {
       try {
         const res = await api.getStudentConceptProgress(userId)
-        setConceptProgress(res)
+        // filtering based on profiles
+        const filteredConcepts = res.filter(concept => {
+          const conceptProfiles = concept.profiles || []  // e.g., [1, 3]
+          return conceptProfiles.includes(profile)       // e.g., does [1,3] include 1? → true
+        })
+        setConceptProgress(filteredConcepts)
       } catch (err) {
         console.error('Erreur lors du chargement des concepts', err)
       } finally {
