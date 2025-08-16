@@ -1,4 +1,3 @@
-// pages/ChooseProfile.js
 import { useNavigate } from "react-router-dom"
 import { useRole } from "../contexts/RoleContext"
 import { api } from "../utils/api"
@@ -104,11 +103,11 @@ export default function ChooseProfile() {
         </div>
 
         {/* Footer */}
-        <div className="text-center mt-6">
+        {/*<div className="text-center mt-6">
           <p className="text-sm text-gray-500">
             Vous pourrez modifier votre choix plus tard. Cela réinitialisera vos indicateurs de départ.
           </p>
-        </div>
+        </div>*/}
       </div>
     </div>
   )
