@@ -186,7 +186,7 @@ const StudentDashboard = () => {
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         <MetricCard title="Score total" value={student?.total_score || 0} icon={Trophy} color="yellow" />
-        <MetricCard title="Niveau actuel" value={student?.level_ai || "Prudent"} icon={Target} color="blue" />
+        <MetricCard title="Profil d'investissement" value={student?.level_ai || "Prudent"} icon={Target} color="blue" />
         <MetricCard
           title="Missions terminées"
           value={progress?.missions_completed || 0}

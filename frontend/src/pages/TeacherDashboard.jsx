@@ -69,23 +69,26 @@ const TeacherDashboard = () => {
         <p className="text-gray-600 mt-1">Suivez les progrès et l'engagement des étudiants</p>
       </div>
 
-      {/* Overview Stats */}
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <MetricCard title="Total Students" value={students.length} icon={Users} color="blue" />
-        <MetricCard
-          title="Active Missions"
-          value={dashboardData?.total_active_missions || 0}
-          icon={Target}
-          color="green"
-        />
-        <MetricCard
-          title="Avg. Completion Time"
-          value={`${dashboardData?.avg_completion_time_minutes || 0}min`}
-          icon={Clock}
-          color="yellow"
-        />
-        <MetricCard title="Avg. Score" value={dashboardData?.avg_score || 0} icon={Award} color="purple" />
-      </div>
+      {/* statistiques */}
+      <MetricCard title="Étudiants" value={students.length} icon={Users} color="blue" />
+<MetricCard 
+  title="Taux de complétion" 
+  value={`${dashboardData?.class_completion_rate || 0}%`} 
+  icon={Target} 
+  color="green" 
+/>
+<MetricCard 
+  title="Temps moyen" 
+  value={`${dashboardData?.avg_completion_time_minutes || 0} min`} 
+  icon={Clock} 
+  color="yellow" 
+/>
+<MetricCard 
+  title="Score moyen" 
+  value={Math.round(dashboardData?.avg_score || 0)} 
+  icon={Award} 
+  color="purple" 
+/>
 
       {/* Students Overview */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -107,7 +110,7 @@ const TeacherDashboard = () => {
                   <div>
                     <h4 className="font-medium text-gray-900">{student.name}</h4>
                     <p className="text-sm text-gray-600">{student.email}</p>
-                    <p className="text-sm text-gray-500 capitalize">Niveau : {student.current_level}</p>
+                    <p className="text-sm text-gray-500">Profil d'investissement : {student.level_ai}</p>
                   </div>
                   <div className="text-right">
                     <p className="text-lg font-bold text-primary-600">{student.total_score}</p>
@@ -184,7 +187,7 @@ const TeacherDashboard = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Engagement sur la plateforme</h3>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={dashboardData.engagement_over_time || []}>
+                <LineChart data={dashboardData.engagement_trends || []}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="date" tickFormatter={(value) => new Date(value).toLocaleDateString()} />
                   <YAxis />
@@ -213,7 +216,11 @@ const TeacherDashboard = () => {
             <h3 className="text-lg font-semibold text-gray-900 mb-4">Performance</h3>
             <div className="h-64">
               <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={dashboardData.concept_performance || []}>
+                <BarChart data={Object.entries(dashboardData.concept_difficulty_analysis || {}).map(([concept, data]) => ({
+  concept,
+  avg_score: data.avg_score,
+  completion_rate: data.total_attempts * 10 // fake it for now
+}))}>
                   <CartesianGrid strokeDasharray="3 3" />
                   <XAxis dataKey="concept" />
                   <YAxis />
@@ -239,12 +246,12 @@ const TeacherDashboard = () => {
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">{student.name}</h4>
-                  <p className="text-sm text-gray-600">Niveau : {student.level_ai}</p>
+                  <p className="text-sm text-gray-600">Profil d'investissement : {student.level_ai}</p>
                 </div>
               </div>
               <div className="text-right">
                 <p className="text-lg font-bold text-primary-600">{student.total_score}</p>
-                <p className="text-sm text-gray-500">points totaux</p>
+                <p className="text-sm text-gray-500">points totals</p>
               </div>
             </div>
           ))}

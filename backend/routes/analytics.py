@@ -5,7 +5,7 @@ from pydantic import BaseModel
 from typing import List, Dict, Any
 from datetime import datetime, timedelta
 from database import get_db
-from models.user import User, UserRole
+from models.user import User, UserRole, Student, Teacher
 from models.progress import Progress, MetricHistory
 from utils.game_loader import GameLoader
 
@@ -154,18 +154,16 @@ async def get_student_chart_data(student_id: int, db: Session = Depends(get_db))
 @router.get("/teachers/{teacher_id}/students/{student_id}/metrics", response_model=TeacherStudentMetrics)
 async def get_teacher_student_metrics(teacher_id: int, student_id: int, db: Session = Depends(get_db)):
     # Verify teacher exists
-    teacher = db.query(User).filter(
-        User.id == teacher_id, 
-        User.role == UserRole.TEACHER
+    teacher = db.query(Teacher).filter(
+        Teacher.id == teacher_id
     ).first()
     
     if not teacher:
         raise HTTPException(status_code=404, detail="Teacher not found")
     
     # Get student
-    student = db.query(User).filter(
-        User.id == student_id, 
-        User.role == UserRole.STUDENT
+    student = db.query(Student).filter(
+        Student.id == student_id
     ).first()
     
     if not student:
@@ -253,9 +251,8 @@ async def get_teacher_student_metrics(teacher_id: int, student_id: int, db: Sess
 @router.get("/teachers/{teacher_id}/dashboard", response_model=TeacherDashboard)
 async def get_teacher_dashboard(teacher_id: int, db: Session = Depends(get_db)):
     # Verify teacher exists
-    teacher = db.query(User).filter(
-        User.id == teacher_id, 
-        User.role == UserRole.TEACHER
+    teacher = db.query(Teacher).filter(
+        Teacher.id == teacher_id
     ).first()
     
     if not teacher:
@@ -286,14 +283,14 @@ async def get_teacher_dashboard(teacher_id: int, db: Session = Depends(get_db)):
     
     # Top performing students
     top_students_query = db.query(
-        User.id,
-        User.name,
-        User.total_score,
+        Student.id,
+        Student.name,
+        Student.total_score,
         func.count(Progress.id).label('missions_completed')
-    ).join(Progress, User.id == Progress.student_id)\
-     .filter(User.role == UserRole.STUDENT)\
-     .group_by(User.id, User.name, User.total_score)\
-     .order_by(desc(User.total_score))\
+    ).join(Progress, Student.id == Progress.student_id)\
+     .filter(Student.role == UserRole.STUDENT)\
+     .group_by(Student.id, Student.name, Student.total_score)\
+     .order_by(desc(Student.total_score))\
      .limit(5).all()
     
     top_performing_students = [
