@@ -1,1371 +1,1160 @@
 {
-  "concepts": {
-    "Finance d'entreprise": {
-      "nom": "Finance d'entreprise",
-      "description": "Progression sur le concept : finance d'entreprise - maîtrise des décisions financières stratégiques de l'entreprise",
-      "profiles": [1, 3],
-      "missions": {
-        "débutant": [
-          { "id": "mission_structure_capital_d" },
-          { "id": "mission_analyse_rentabilite_d" },
-          { "id": "mission_gestion_tresorerie_d" }
-        ],
-        "intermédiaire": [
-          { "id": "mission_evaluation_projet_i" },
-          { "id": "mission_politique_dividende_i" },
-          { "id": "mission_optimisation_fiscale_i" }
-        ],
-        "avancé": [
-          { "id": "mission_restructuration_dette_a" },
-          { "id": "mission_lbo_acquisition_a" },
-          { "id": "mission_valorisation_complexe_a" }
-        ]
-      },
-      "progression": 0
+  "missions": {
+    "Découvrir le marché boursier": {
+  "id": "Découvrir le marché boursier",
+  "concept": "Marché Boursier",
+  "niveau": "débutant",
+  "type": "Investissement",
+  "contexte": "Vous disposez d’un capital initial de 10 000 € à investir. Vous découvrez pour la première fois les possibilités du marché financier.",
+  "objectif_pedagogique": "Comprendre les options de base pour placer de l’argent et leurs caractéristiques (sécurité vs rendement).",
+  "choix": {
+    "A": {
+      "description": "Placer la totalité sur un compte épargne sécurisé",
+      "impact": {
+        "cashflow": 2,
+        "rentabilite": 1,
+        "reputation": 5
+      }
     },
-    "Marchés de changes": {
-      "nom": "Marchés de changes",
-      "description": "Progression sur le concept : marchés de changes - compréhension des mécanismes de change et gestion du risque de change",
-      "profiles": [2, 3],
-      "missions": {
-        "débutant": [
-          { "id": "mission_change_spot_d" },
-          { "id": "mission_couverture_simple_d" },
-          { "id": "mission_import_export_d" }
-        ],
-        "intermédiaire": [
-          { "id": "mission_arbitrage_change_i" },
-          { "id": "mission_forward_hedge_i" },
-          { "id": "mission_correlation_devises_i" }
-        ],
-        "avancé": [
-          { "id": "mission_carry_trade_a" },
-          { "id": "mission_options_change_a" },
-          { "id": "mission_gestion_portefeuille_multidevises_a" }
-        ]
-      },
-      "progression": 0
+    "B": {
+      "description": "Acheter une seule action d’une grande entreprise connue (ex. énergie, tech)",
+      "impact": {
+        "cashflow": -5,
+        "rentabilite": 5,
+        "stress": 2
+      }
     },
-    "Financement": {
-      "nom": "Financement",
-      "description": "Progression sur le concept : financement",
-      "profiles": [1],
-      "missions": {
-        "débutant": [
-          { "id": "Mission lever fonds" },
-          { "id": "mission_lancement_startup" }
-        ],
-        "intermédiaire": [
-          { "id": "mission_lever_fonds_i" }
-        ],
-        "avancé": [
-          { "id": "mission_lever_fonds_a" }
-        ]
-      },
-      "progression": 0
-    },
-    "Gestion": {
-      "nom": "Gestion",
-      "description": "Progression sur le concept : gestion",
-      "profiles": [1, 2, 3],
-      "missions": {
-        "débutant": [
-          { "id": "Mission gestion budget" }
-        ]
-      },
-      "progression": 0
-    },
-    "Gestion des risques": {
-      "nom": "Gestion des risques",
-      "description": "Progression sur le concept : Gestion des risques",
-      "profiles": [1, 3],
-      "missions": {
-        "débutant": [
-          { "id": "Mission stress test bancaire" }
-        ],
-        "intermédiaire": [
-          { "id": "mission_lever_fonds_i" }
-        ],
-        "avancé": [
-          { "id": "mission_lever_fonds_a" }
-        ]
-      },
-      "progression": 0
-    },
-    "Investissement": {
-      "nom": "Investissement",
-      "description": "Progression sur le concept : Investissement",
-      "profiles": [1, 2],
-      "missions": {
-        "débutant": [
-          { "id": "mission_gestion_portefeuille" }
-        ]
-      },
-      "progression": 0
-    },
-    "Stratégie": {
-      "nom": "Stratégie",
-      "description": "Progression sur le concept : Stratégie",
-      "profiles": [3],
-      "missions": {
-        "intermédiaire": [
-          { "id": "mission_fusion_acquisition_a" }
-        ],
-        "avancé": [
-          { "id": "mission_expansion_i_fadwa"}
-        ]
-      },
-      "progression": 0
+    "C": {
+      "description": "Répartir entre épargne et actions",
+      "impact": {
+        "cashflow": -2,
+        "rentabilite": 3,
+        "reputation": 3
+      }
     }
   },
-  "missions": {
-    "Mission lever fonds": {
-      "id": "Mission lever fonds",
-      "concept": "Financement",
-      "niveau": "débutant",
-      "type": "finance_entreprise",
-      "contexte": "Vous devez financer un projet dans le secteur de {secteur} dans un contexte de {situation_macro}.",
-      "secteurs": [
-        "technologie",
-        "énergie",
-        "agriculture",
-        "industrie"
-      ],
-      "situations_macro": [
-        "inflation",
-        "récession",
-        "hausse des taux",
-        "marché stable"
-      ],
-      "objectif_pedagogique": "Découvrir les options de financement de base et leurs implications.",
-      "choix": {
-        "A": {
-          "description": "Recourir à un emprunt bancaire",
-          "impact": {
-            "cashflow": -10,
-            "controle": 20,
-            "stress": 5
-          }
-        },
-        "B": {
-          "description": "Lever des fonds auprès d'investisseurs",
-          "impact": {
-            "cashflow": -5,
-            "controle": -30,
-            "rentabilite": 10
-          }
-        },
-        "C": {
-          "description": "Utiliser une plateforme de crowdfunding",
-          "impact": {
-            "cashflow": -8,
-            "controle": -10,
-            "reputation": 15
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "Financement",
-        "Découverte",
-        "Gestion de projet"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_hausse_taux",
-        "event_crise_bancaire"
-      ],
-      "reutilisable": true
+  "variables_affectees": [
+    "cashflow",
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Découverte",
+    "Investissement",
+    "Introduction"
+  ],
+  "feedback": {
+    "A": "L’épargne est sûre mais les gains restent faibles.",
+    "B": "Acheter une seule action vous expose au risque, mais le potentiel de gain est plus élevé.",
+    "C": "Diversifier est une approche équilibrée, souvent recommandée aux débutants."
+  },
+  "evenements_possibles": [
+  ],
+  "reutilisable": true
+  },
+    "Premier choix stratégique": {
+      "id": "Premier choix stratégique",
+  "concept": "Marché Boursier",
+  "niveau": "débutant",
+  "type": "Investissement",
+  "contexte": "Après vos premiers placements, une opportunité se présente : un nouveau secteur attire les investisseurs.",
+  "objectif_pedagogique": "Découvrir la logique risque/rendement et introduire la notion de diversification sectorielle.",
+  "choix": {
+    "A": {
+      "description": "Investir uniquement dans le secteur à la mode (ex. technologie)",
+      "impact": {
+        "cashflow": -5,
+        "rentabilite": 7,
+        "stress": 4
+      }
     },
-    "Mission gestion budget": {
-      "id": "Mission gestion budget",
-      "concept": "Gestion",
-      "niveau": "débutant",
-      "type": "finance_entreprise",
-      "contexte": "Votre startup a un budget serré et vous devez optimiser vos dépenses dans le secteur {secteur}.",
-      "secteurs": [
-        "technologie",
-        "services",
-        "commerce"
-      ],
-      "situations_macro": [
-        "inflation",
-        "marché stable",
-        "récession"
-      ],
-      "objectif_pedagogique": "Apprendre les bases de la gestion budgétaire d'entreprise.",
-      "choix": {
-        "A": {
-          "description": "Réduire les coûts opérationnels",
-          "impact": {
-            "cashflow": 15,
-            "stress": 10,
-            "reputation": -5
-          }
-        },
-        "B": {
-          "description": "Investir dans la croissance",
-          "impact": {
-            "cashflow": -20,
-            "rentabilite": 15,
-            "stress": 5
-          }
-        },
-        "C": {
-          "description": "Maintenir l'équilibre actuel",
-          "impact": {
-            "cashflow": 5,
-            "controle": 10,
-            "stress": -5
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "gestion",
-        "budget",
-        "optimisation"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_inflation",
-        "event_concurrence"
-      ],
-      "reutilisable": true
+    "B": {
+      "description": "Conserver vos placements actuels sans rien changer",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": 2,
+        "reputation": 2
+      }
     },
-    "mission_lancement_startup": {
-      "id": "mission_lancement_startup",
-      "concept": "Financement",
-      "niveau": "débutant",
-      "type": "startup",
-      "contexte": "Tu es à la tête d’une startup industrielle dans un marché émergent. Tu dois lever 100 000 € pour financer tes premières machines.",
-      "secteurs": [
-        "industrie",
-        "technologie"
-      ],
-      "situations_macro": [
-        "marché émergent"
-      ],
-      "objectif_pedagogique": "Découvrir les premières sources de financement d'une startup.",
-      "choix": {
-        "A": {
-          "description": "Emprunt bancaire",
-          "impact": {
-            "cashflow": -10,
-            "controle": 20,
-            "stress": 5
-          }
-        },
-        "B": {
-          "description": "Levée de fonds",
-          "impact": {
-            "cashflow": -5,
-            "controle": -30,
-            "rentabilite": 10
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite"
-      ],
-      "tags": [
-        "financement",
-        "startup",
-        "découverte"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_stress_test_bancaire"
-      ],
-      "reutilisable": true
-    },
-    "Mission stress test bancaire": {
-      "id": "Mission stress test bancaire",
-      "concept": "Gestion des risques",
-      "niveau": "débutant",
-      "type": "finance",
-      "contexte": "La BCE a publié les résultats des stress tests bancaires. Les banques locales sont jugées fragiles, ce qui provoque une panique financière.",
-      "secteurs": [
-        "banque"
-      ],
-      "situations_macro": [
-        "crise bancaire"
-      ],
-      "objectif_pedagogique": "Comprendre les effets d'une crise bancaire sur les choix de financement.",
-      "choix": {
-        "A": {
-          "description": "Continuer à financer via les banques",
-          "impact": {
-            "cashflow": -15,
-            "stress": 10,
-            "controle": 10
-          }
-        },
-        "B": {
-          "description": "Chercher des alternatives de financement",
-          "impact": {
-            "cashflow": -5,
-            "reputation": 10,
-            "stress": -5
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "stress",
-        "controle",
-        "reputation"
-      ],
-      "tags": [
-        "risques",
-        "finance",
-        "banques"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance."
-      },
-      "evenements_possibles": [],
-      "reutilisable": true
-    },
-    "mission_gestion_portefeuille": {
-      "id": "mission_gestion_portefeuille",
-      "concept": "Investissement",
-      "niveau": "débutant",
-      "type": "finance personnelle",
-      "contexte": "Tu dois gérer un portefeuille diversifié d’actifs dans un marché incertain.",
-      "secteurs": [
-        "finance"
-      ],
-      "situations_macro": [
-        "volatilité",
-        "récession"
-      ],
-      "objectif_pedagogique": "Apprendre à équilibrer rendement et risque dans la gestion d’un portefeuille.",
-      "choix": {
-        "A": {
-          "description": "Allouer en majorité aux actions",
-          "impact": {
-            "cashflow": -10,
-            "rentabilite": 15,
-            "stress": 10
-          }
-        },
-        "B": {
-          "description": "Miser sur les obligations",
-          "impact": {
-            "cashflow": -5,
-            "rentabilite": 5,
-            "stress": -5
-          }
-        },
-        "C": {
-          "description": "Conserver en liquidités",
-          "impact": {
-            "cashflow": 5,
-            "rentabilite": 0,
-            "stress": 0
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "rentabilite",
-        "stress"
-      ],
-      "tags": [
-        "Investissement",
-        "gestion",
-        "risques"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [],
-      "reutilisable": true
-    },
-    "mission_lever_fonds_i": {
-      "id": "mission_lever_fonds_i",
-      "concept": "Financement",
-      "niveau": "intermédiaire",
-      "type": "finance_entreprise",
-      "contexte": "Votre startup cherche à se développer dans un secteur {secteur} pendant une période de {situation_macro}.",
-      "secteurs": [
-        "technologie",
-        "biotechnologie",
-        "fintech"
-      ],
-      "situations_macro": [
-        "croissance",
-        "volatilité",
-        "transformation digitale"
-      ],
-      "objectif_pedagogique": "Comparer les coûts et risques de différentes sources de financement.",
-      "choix": {
-        "A": {
-          "description": "Renégocier un emprunt à long terme",
-          "impact": {
-            "cashflow": -8,
-            "controle": 15,
-            "stress": 3
-          }
-        },
-        "B": {
-          "description": "Accepter un financement venture capital",
-          "impact": {
-            "cashflow": -4,
-            "controle": -40,
-            "rentabilite": 20
-          }
-        },
-        "C": {
-          "description": "Lancer une levée de fonds participative",
-          "impact": {
-            "cashflow": -6,
-            "controle": -15,
-            "reputation": 10
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "financement",
-        "analyse",
-        "levée de fonds"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_marche_volatil",
-        "event_nouveau_concurrent"
-      ],
-      "reutilisable": true
-    },
-    "mission_expansion_i_fadwa": {
-      "id": "mission_expansion_i_fadwa",
-      "concept": "Stratégie",
-      "niveau": "avancé",
-      "type": "développement",
-      "contexte": "Votre entreprise envisage une expansion dans le secteur {secteur} avec un contexte {situation_macro}.",
-      "secteurs": [
-        "international",
-        "digital",
-        "retail"
-      ],
-      "situations_macro": [
-        "croissance",
-        "incertitude",
-        "opportunité"
-      ],
-      "objectif_pedagogique": "Développer une Stratégie d'expansion réfléchie.",
-      "choix": {
-        "A": {
-          "description": "Expansion géographique rapide",
-          "impact": {
-            "cashflow": -25,
-            "rentabilite": 25,
-            "stress": 15,
-            "reputation": 10
-          }
-        },
-        "B": {
-          "description": "Développement de nouveaux produits",
-          "impact": {
-            "cashflow": -15,
-            "rentabilite": 15,
-            "controle": 5,
-            "stress": 10
-          }
-        },
-        "C": {
-          "description": "Consolidation du marché actuel",
-          "impact": {
-            "cashflow": 10,
-            "controle": 20,
-            "stress": -5,
-            "rentabilite": 5
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "Stratégie",
-        "expansion",
-        "croissance"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_opportunite_marche",
-        "event_regulation_change"
-      ],
-      "reutilisable": true
-    },
-    "mission_lever_fonds_a": {
-      "id": "mission_lever_fonds_a",
-      "concept": "Financement",
-      "niveau": "avancé",
-      "type": "finance_entreprise",
-      "contexte": "Votre entreprise doit lever 1M€ dans un environnement économique {situation_macro} pour pénétrer un nouveau marché {secteur}.",
-      "secteurs": [
-        "intelligence artificielle",
-        "blockchain",
-        "biotechnologie",
-        "énergie renouvelable"
-      ],
-      "situations_macro": [
-        "récession",
-        "bulle technologique",
-        "crise énergétique",
-        "transformation digitale"
-      ],
-      "objectif_pedagogique": "Élaborer une Stratégie de financement avancée en contexte complexe.",
-      "choix": {
-        "A": {
-          "description": "Structurer une opération mixte : dette + equity",
-          "impact": {
-            "cashflow": -7,
-            "controle": -20,
-            "rentabilite": 25,
-            "stress": 10
-          }
-        },
-        "B": {
-          "description": "Chercher un partenaire industriel",
-          "impact": {
-            "cashflow": -5,
-            "controle": -10,
-            "reputation": 20,
-            "rentabilite": 10
-          }
-        },
-        "C": {
-          "description": "Reporter la levée et financer sur fonds propres",
-          "impact": {
-            "cashflow": -12,
-            "controle": 25,
-            "rentabilite": -10,
-            "stress": 5
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "financement",
-        "Stratégie avancée",
-        "entrepreneuriat"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_crise_systemique",
-        "event_disruption_technologique"
-      ],
-      "reutilisable": true
-    },
-    "mission_fusion_acquisition_a": {
-      "id": "mission_fusion_acquisition_a",
-      "concept": "Stratégie",
-      "niveau": "intermédiaire",
-      "type": "corporate",
-      "contexte": "Une opportunité de fusion-acquisition se présente dans le secteur {secteur} pendant une période de {situation_macro}.",
-      "secteurs": [
-        "technologie",
-        "pharmaceutique",
-        "finance",
-        "énergie"
-      ],
-      "situations_macro": [
-        "consolidation du marché",
-        "disruption technologique",
-        "pression réglementaire",
-        "crise économique"
-      ],
-      "objectif_pedagogique": "Maîtriser les enjeux complexes des opérations de M&A.",
-      "choix": {
-        "A": {
-          "description": "Procéder à l'acquisition avec financement externe",
-          "impact": {
-            "cashflow": -30,
-            "controle": -25,
-            "rentabilite": 35,
-            "reputation": 15,
-            "stress": 20
-          }
-        },
-        "B": {
-          "description": "Négocier une fusion à parité",
-          "impact": {
-            "cashflow": -10,
-            "controle": -15,
-            "rentabilite": 20,
-            "reputation": 10,
-            "stress": 15
-          }
-        },
-        "C": {
-          "description": "Abandonner l'opération et se concentrer sur la croissance organique",
-          "impact": {
-            "cashflow": 5,
-            "controle": 30,
-            "rentabilite": 10,
-            "stress": -10
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "Stratégie",
-        "M&A",
-        "corporate finance"
-      ],
-      "feedback": {
-        "A": "Un emprunt bancaire est rapide mais augmente votre dépendance à la dette.",
-        "B": "Lever des fonds dilue votre contrôle mais peut accélérer la croissance.",
-        "C": "Le crowdfunding améliore la réputation mais peut être instable."
-      },
-      "evenements_possibles": [
-        "event_due_diligence_issue",
-        "event_regulatory_approval"
-      ],
-      "reutilisable": true
-    },
-    "mission_structure_capital_d": {
-      "id": "mission_structure_capital_d",
-      "concept": "Finance d'entreprise",
-      "niveau": "débutant",
-      "type": "finance_entreprise",
-      "contexte": "Votre PME dans le secteur {secteur} doit optimiser sa structure de capital dans un contexte de {situation_macro}.",
-      "secteurs": [
-        "commerce",
-        "industrie",
-        "services",
-        "technologie"
-      ],
-      "situations_macro": [
-        "croissance stable",
-        "expansion",
-        "difficultés économiques",
-        "opportunité d'Investissement"
-      ],
-      "objectif_pedagogique": "Comprendre l'équilibre optimal entre fonds propres et dette.",
-      "choix": {
-        "A": {
-          "description": "Augmenter les fonds propres via apport des associés",
-          "impact": {
-            "cashflow": 15,
-            "controle": -5,
-            "stress": -5,
-            "rentabilite": -3
-          }
-        },
-        "B": {
-          "description": "Recourir à l'endettement bancaire",
-          "impact": {
-            "cashflow": 10,
-            "controle": 15,
-            "stress": 8,
-            "rentabilite": -8
-          }
-        },
-        "C": {
-          "description": "Maintenir l'autofinancement",
-          "impact": {
-            "cashflow": 5,
-            "controle": 20,
-            "stress": 3,
-            "rentabilite": 5
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite"
-      ],
-      "tags": [
-        "structure capital",
-        "fonds propres",
-        "dette"
-      ],
-      "feedback": {
-        "A": "L'apport en fonds propres renforce la solidité financière mais dilue le contrôle.",
-        "B": "L'endettement préserve le contrôle mais augmente le risque financier.",
-        "C": "L'autofinancement maintient l'indépendance mais limite la croissance."
-      },
-      "evenements_possibles": [
-        "event_hausse_taux_interet",
-        "event_resserrement_credit"
-      ],
-      "reutilisable": true
-    },
-    "mission_analyse_rentabilite_d": {
-      "id": "mission_analyse_rentabilite_d",
-      "concept": "Finance d'entreprise",
-      "niveau": "débutant",
-      "type": "analyse_financiere",
-      "contexte": "Vous devez analyser la rentabilité d'un nouveau projet d'Investissement de 50k€ dans le secteur {secteur}.",
-      "secteurs": [
-        "retail",
-        "manufacturing",
-        "digital",
-        "services"
-      ],
-      "situations_macro": [
-        "marché porteur",
-        "concurrence intense",
-        "incertitude économique"
-      ],
-      "objectif_pedagogique": "Maîtriser les indicateurs de rentabilité de base (ROI, ROE, payback).",
-      "choix": {
-        "A": {
-          "description": "Investir si ROI > 15%",
-          "impact": {
-            "cashflow": -10,
-            "rentabilite": 20,
-            "stress": 5
-          }
-        },
-        "B": {
-          "description": "Exiger un payback < 2 ans",
-          "impact": {
-            "cashflow": -5,
-            "rentabilite": 10,
-            "stress": 3
-          }
-        },
-        "C": {
-          "description": "Reporter l'Investissement",
-          "impact": {
-            "cashflow": 10,
-            "rentabilite": -5,
-            "stress": -3
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "rentabilite",
-        "stress"
-      ],
-      "tags": [
-        "rentabilité",
-        "Investissement",
-        "ROI"
-      ],
-      "feedback": {
-        "A": "Un ROI élevé assure une bonne rentabilité mais peut être optimiste.",
-        "B": "Un payback court limite les risques mais peut écarter des projets prometteurs.",
-        "C": "Reporter permet d'éviter les risques mais peut faire perdre des opportunités."
-      },
-      "evenements_possibles": [
-        "event_changement_reglementation",
-        "event_evolution_marche"
-      ],
-      "reutilisable": true
-    },
-    "mission_gestion_tresorerie_d": {
-      "id": "mission_gestion_tresorerie_d",
-      "concept": "Finance d'entreprise",
-      "niveau": "débutant",
-      "type": "tresorerie",
-      "contexte": "Votre entreprise fait face à des tensions de trésorerie avec 15 jours de trésorerie disponible dans le secteur {secteur}.",
-      "secteurs": [
-        "BTP",
-        "commerce",
-        "restauration",
-        "services"
-      ],
-      "situations_macro": [
-        "délais de paiement allongés",
-        "saisonnalité",
-        "croissance rapide"
-      ],
-      "objectif_pedagogique": "Gérer les flux de trésorerie à court terme et éviter les ruptures.",
-      "choix": {
-        "A": {
-          "description": "Négocier une ligne de crédit court terme",
-          "impact": {
-            "cashflow": 20,
-            "stress": 10,
-            "rentabilite": -3
-          }
-        },
-        "B": {
-          "description": "Accélérer l'encaissement clients",
-          "impact": {
-            "cashflow": 15,
-            "reputation": -5,
-            "stress": 5
-          }
-        },
-        "C": {
-          "description": "Retarder les paiements fournisseurs",
-          "impact": {
-            "cashflow": 12,
-            "reputation": -8,
-            "stress": 8
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "reputation",
-        "stress",
-        "rentabilite"
-      ],
-      "tags": [
-        "trésorerie",
-        "liquidité",
-        "BFR"
-      ],
-      "feedback": {
-        "A": "La ligne de crédit sécurise mais coûte en intérêts.",
-        "B": "Accélérer l'encaissement améliore la trésorerie mais peut tendre les relations clients.",
-        "C": "Retarder les paiements soulage temporairement mais dégrade l'image."
-      },
-      "evenements_possibles": [
-        "event_retard_paiement_client",
-        "event_hausse_cout_credit"
-      ],
-      "reutilisable": true
-    },
-    "mission_evaluation_projet_i": {
-      "id": "mission_evaluation_projet_i",
-      "concept": "Finance d'entreprise",
-      "niveau": "intermédiaire",
-      "type": "evaluation_Investissement",
-      "contexte": "Vous devez choisir entre trois projets d'Investissement de 200k€ chacun dans le secteur {secteur} avec un WACC de 8%.",
-      "secteurs": [
-        "technologie",
-        "industrie 4.0",
-        "énergies renouvelables",
-        "biotechnologie"
-      ],
-      "situations_macro": [
-        "transformation digitale",
-        "transition énergétique",
-        "innovation disruptive"
-      ],
-      "objectif_pedagogique": "Utiliser la VAN, TRI et indice de profitabilité pour comparer des projets.",
-      "choix": {
-        "A": {
-          "description": "Projet à VAN maximale (120k€, TRI 18%)",
-          "impact": {
-            "cashflow": -15,
-            "rentabilite": 25,
-            "stress": 8
-          }
-        },
-        "B": {
-          "description": "Projet à TRI maximal (80k€ VAN, TRI 22%)",
-          "impact": {
-            "cashflow": -10,
-            "rentabilite": 20,
-            "stress": 12
-          }
-        },
-        "C": {
-          "description": "Diversifier sur deux projets moyens",
-          "impact": {
-            "cashflow": -20,
-            "rentabilite": 15,
-            "stress": 5
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "rentabilite",
-        "stress"
-      ],
-      "tags": [
-        "VAN",
-        "TRI",
-        "évaluation projet"
-      ],
-      "feedback": {
-        "A": "Maximiser la VAN créé plus de valeur absolue pour l'entreprise.",
-        "B": "Un TRI élevé indique une meilleure rentabilité relative du capital investi.",
-        "C": "La diversification réduit les risques mais dilue la performance."
-      },
-      "evenements_possibles": [
-        "event_evolution_cout_capital",
-        "event_disruption_technologique"
-      ],
-      "reutilisable": true
-    },
-    "mission_politique_dividende_i": {
-      "id": "mission_politique_dividende_i",
-      "concept": "Finance d'entreprise",
-      "niveau": "intermédiaire",
-      "type": "politique_financiere",
-      "contexte": "Votre entreprise profitable doit décider de sa politique de dividendes avec 500k€ de bénéfices dans le contexte {situation_macro}.",
-      "secteurs": [
-        "services financiers",
-        "industrie mature",
-        "technologie établie"
-      ],
-      "situations_macro": [
-        "maturité du marché",
-        "pression des actionnaires",
-        "opportunités de croissance",
-        "incertitude économique"
-      ],
-      "objectif_pedagogique": "Équilibrer distribution aux actionnaires et réInvestissement.",
-      "choix": {
-        "A": {
-          "description": "Distribuer 60% en dividendes",
-          "impact": {
-            "cashflow": -20,
-            "reputation": 15,
-            "controle": 10,
-            "rentabilite": -5
-          }
-        },
-        "B": {
-          "description": "Réinvestir 80% dans la croissance",
-          "impact": {
-            "cashflow": 10,
-            "rentabilite": 20,
-            "reputation": -5,
-            "stress": 5
-          }
-        },
-        "C": {
-          "description": "Politique équilibrée 40%/60%",
-          "impact": {
-            "cashflow": -5,
-            "reputation": 8,
-            "rentabilite": 10,
-            "stress": 3
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "reputation",
-        "controle",
-        "rentabilite",
-        "stress"
-      ],
-      "tags": [
-        "dividendes",
-        "réInvestissement",
-        "actionnaires"
-      ],
-      "feedback": {
-        "A": "Des dividendes élevés satisfont les actionnaires mais limitent la croissance.",
-        "B": "Le réInvestissement favorise la croissance future mais peut décevoir les actionnaires.",
-        "C": "L'équilibre ménage tous les intérêts mais peut manquer d'ambition."
-      },
-      "evenements_possibles": [
-        "event_pression_actionnaires",
-        "event_opportunite_acquisition"
-      ],
-      "reutilisable": true
-    },
-    "mission_optimisation_fiscale_i": {
-      "id": "mission_optimisation_fiscale_i",
-      "concept": "Finance d'entreprise",
-      "niveau": "intermédiaire",
-      "type": "optimisation_fiscale",
-      "contexte": "Votre groupe d'entreprises cherche à optimiser sa charge fiscale légalement avec un résultat de 2M€ dans le contexte {situation_macro}.",
-      "secteurs": [
-        "multinationale",
-        "groupe industriel",
-        "holding"
-      ],
-      "situations_macro": [
-        "harmonisation fiscale EU",
-        "lutte contre l'évasion",
-        "réforme fiscale"
-      ],
-      "objectif_pedagogique": "Comprendre l'impact fiscal sur les décisions financières.",
-      "choix": {
-        "A": {
-          "description": "Optimiser via la structure de holding",
-          "impact": {
-            "cashflow": 8,
-            "rentabilite": 12,
-            "stress": 10,
-            "reputation": -3
-          }
-        },
-        "B": {
-          "description": "Maximiser les amortissements fiscaux",
-          "impact": {
-            "cashflow": 12,
-            "rentabilite": 8,
-            "stress": 5
-          }
-        },
-        "C": {
-          "description": "Stratégie fiscale conservatrice",
-          "impact": {
-            "cashflow": 3,
-            "reputation": 10,
-            "stress": -5,
-            "rentabilite": 2
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "rentabilite",
-        "stress",
-        "reputation"
-      ],
-      "tags": [
-        "optimisation fiscale",
-        "holding",
-        "amortissements"
-      ],
-      "feedback": {
-        "A": "La holding permet une optimisation efficace mais augmente la complexité.",
-        "B": "Les amortissements réduisent l'impôt immédiat de façon sûre.",
-        "C": "La prudence fiscale évite les risques mais limite les gains."
-      },
-      "evenements_possibles": [
-        "event_controle_fiscal",
-        "event_changement_legislation"
-      ],
-      "reutilisable": true
-    },
-    "mission_restructuration_dette_a": {
-      "id": "mission_restructuration_dette_a",
-      "concept": "Finance d'entreprise",
-      "niveau": "avancé",
-      "type": "restructuration",
-      "contexte": "Votre entreprise avec 10M€ de dettes doit négocier une restructuration dans le contexte {situation_macro}.",
-      "secteurs": [
-        "retail en difficulté",
-        "industrie traditionnelle",
-        "transport",
-        "hôtellerie"
-      ],
-      "situations_macro": [
-        "crise sectorielle",
-        "hausse des taux",
-        "récession",
-        "disruption digitale"
-      ],
-      "objectif_pedagogique": "Maîtriser les techniques de restructuration financière complexe.",
-      "choix": {
-        "A": {
-          "description": "Conversion dette-equity avec les créanciers",
-          "impact": {
-            "cashflow": 15,
-            "controle": -25,
-            "stress": 15,
-            "rentabilite": 10
-          }
-        },
-        "B": {
-          "description": "Renégociation des échéances et taux",
-          "impact": {
-            "cashflow": 10,
-            "stress": 20,
-            "rentabilite": -5,
-            "reputation": -8
-          }
-        },
-        "C": {
-          "description": "Procédure de sauvegarde collective",
-          "impact": {
-            "cashflow": 20,
-            "controle": -15,
-            "reputation": -15,
-            "stress": 25
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "controle",
-        "stress",
-        "rentabilite",
-        "reputation"
-      ],
-      "tags": [
-        "restructuration",
-        "dette",
-        "négociation créanciers"
-      ],
-      "feedback": {
-        "A": "La conversion améliore la structure mais fait entrer les créanciers au capital.",
-        "B": "La renégociation préserve le capital mais reste fragile.",
-        "C": "La sauvegarde offre une protection légale mais stigmatise l'entreprise."
-      },
-      "evenements_possibles": [
-        "event_defaut_paiement",
-        "event_pression_creanciers"
-      ],
-      "reutilisable": true
-    },
-    "mission_lbo_acquisition_a": {
-      "id": "mission_lbo_acquisition_a",
-      "concept": "Finance d'entreprise",
-      "niveau": "avancé",
-      "type": "lbo",
-      "contexte": "Vous montez un LBO pour acquérir une entreprise valorisée 50M€ avec un EBITDA de 8M€ dans le secteur {secteur}.",
-      "secteurs": [
-        "services B2B",
-        "industrie spécialisée",
-        "distribution",
-        "logistique"
-      ],
-      "situations_macro": [
-        "marché des LBO actif",
-        "taux bas",
-        "consolidation sectorielle"
-      ],
-      "objectif_pedagogique": "Structurer un montage LBO avec effet de levier optimal.",
-      "choix": {
-        "A": {
-          "description": "Levier 6x EBITDA, 20% fonds propres",
-          "impact": {
-            "cashflow": -30,
-            "rentabilite": 35,
-            "stress": 25,
-            "controle": 15
-          }
-        },
-        "B": {
-          "description": "Levier 4x EBITDA, 35% fonds propres",
-          "impact": {
-            "cashflow": -20,
-            "rentabilite": 25,
-            "stress": 15,
-            "controle": 20
-          }
-        },
-        "C": {
-          "description": "Acquisition minoritaire sans effet de levier",
-          "impact": {
-            "cashflow": -10,
-            "rentabilite": 12,
-            "stress": 5,
-            "controle": -10
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "rentabilite",
-        "stress",
-        "controle"
-      ],
-      "tags": [
-        "LBO",
-        "effet de levier",
-        "acquisition"
-      ],
-      "feedback": {
-        "A": "Un fort levier maximise les rendus mais augmente significativement les risques.",
-        "B": "Un levier modéré équilibre performance et sécurité.",
-        "C": "Sans levier, les rendements sont limités mais les risques maîtrisés."
-      },
-      "evenements_possibles": [
-        "event_degradation_performance",
-        "event_hausse_taux_refinancement"
-      ],
-      "reutilisable": true
-    },
-    "mission_valorisation_complexe_a": {
-      "id": "mission_valorisation_complexe_a",
-      "concept": "Finance d'entreprise",
-      "niveau": "avancé",
-      "type": "valorisation",
-      "contexte": "Vous devez valoriser une startup tech pré-IPO avec des revenus récurrents dans le secteur {secteur}.",
-      "secteurs": [
-        "SaaS",
-        "fintech",
-        "medtech",
-        "cleantech"
-      ],
-      "situations_macro": [
-        "bulle tech",
-        "correction des valorisations",
-        "appétit investisseurs",
-        "IPO market fermé"
-      ],
-      "objectif_pedagogique": "Maîtriser les méthodes de valorisation pour entreprises innovantes.",
-      "choix": {
-        "A": {
-          "description": "Méthode DCF avec projections 10 ans",
-          "impact": {
-            "reputation": 10,
-            "stress": 15,
-            "rentabilite": 5
-          }
-        },
-        "B": {
-          "description": "Multiples de comparables sectoriels",
-          "impact": {
-            "reputation": 5,
-            "stress": 8,
-            "rentabilite": 12
-          }
-        },
-        "C": {
-          "description": "Approche mixte pondérée",
-          "impact": {
-            "reputation": 15,
-            "stress": 10,
-            "rentabilite": 8
-          }
-        }
-      },
-      "variables_affectees": [
-        "reputation",
-        "stress",
-        "rentabilite"
-      ],
-      "tags": [
-        "valorisation",
-        "DCF",
-        "comparables"
-      ],
-      "feedback": {
-        "A": "Le DCF est rigoureux mais très sensible aux hypothèses de croissance.",
-        "B": "Les multiples reflètent le marché mais peuvent être biaisés.",
-        "C": "L'approche mixte combine les avantages mais complexifie l'analyse."
-      },
-      "evenements_possibles": [
-        "event_volatilite_marches",
-        "event_nouvelle_levee_concurrent"
-      ],
-      "reutilisable": true
-    },
-    "mission_change_spot_d": {
-      "id": "mission_change_spot_d",
-      "concept": "Marchés de changes",
-      "niveau": "débutant",
-      "type": "change_spot",
-      "contexte": "Votre entreprise doit convertir 100k€ en {devise} pour un paiement fournisseur dans le contexte {situation_macro}.",
-      "devises": [
-        "USD",
-        "GBP",
-        "JPY",
-        "CHF"
-      ],
-      "situations_macro": [
-        "volatilité élevée",
-        "tensions géopolitiques",
-        "politique monétaire divergente",
-        "marché calme"
-      ],
-      "objectif_pedagogique": "Comprendre les mécanismes de base du marché des changes spot.",
-      "choix": {
-        "A": {
-          "description": "Conversion immédiate au cours actuel",
-          "impact": {
-            "cashflow": -5,
-            "stress": 3,
-            "reputation": 5
-          }
-        },
-        "B": {
-          "description": "Attendre une amélioration du cours (24h)",
-          "impact": {
-            "cashflow": 3,
-            "stress": 8,
-            "reputation": -3
-          }
-        },
-        "C": {
-          "description": "Négocier un meilleur taux avec la banque",
-          "impact": {
-            "cashflow": 2,
-            "stress": 5,
-            "reputation": 3
-          }
-        }
-      },
-      "variables_affectees": [
-        "cashflow",
-        "stress",
-        "reputation"
-      ],
-      "tags": [
-        "change spot",
-        "conversion",
-        "timing"
-      ],
-      "feedback": {
-        "A": "La conversion immédiate élimine le risque de change mais peut être coûteuse.",
-        "B": "Attendre peut être profitable mais expose au risque de détérioration.",
-        "C": "Négocier améliore les conditions mais demande du temps et des relations."
-      },
-      "evenements_possibles": [
-        "event_volatilite_devises",
-        "event_annonce_banque_centrale"
-      ],
-      "reutilisable": true
+    "C": {
+      "description": "Allouer une petite partie au secteur à la mode et garder le reste diversifié",
+      "impact": {
+        "cashflow": -3,
+        "rentabilite": 5,
+        "reputation": 4
+      }
     }
+  },
+  "variables_affectees": [
+    "cashflow",
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Stratégie",
+    "Diversification",
+    "Initiation"
+  ],
+  "feedback": {
+    "A": "Tout miser sur un secteur peut rapporter gros, mais le risque est élevé.",
+    "B": "Jouer la sécurité vous protège, mais limite vos perspectives.",
+    "C": "La diversification vous protège contre les incertitudes tout en saisissant une opportunité."
+  },
+  "evenements_possibles": [
+    "Crise Financière Systémique"
+  ],
+  "reutilisable": true
+  },
+    "Lire les cycles boursiers": {
+    "id": "Lire les cycles boursiers",
+    "concept": "Marché Boursier",
+    "niveau": "intermédiaire",
+    "type": "Investissement",
+    "contexte": "Les marchés montent et descendent par cycles. Vous observez un graphique montrant une phase de hausse suivie d’une correction. Votre rôle est d’identifier si le moment est favorable à l’achat ou s’il vaut mieux attendre.",
+    "objectif_pedagogique": "Comprendre que le marché n’est pas linéaire, mais cyclique, et apprendre à reconnaître une tendance haussière ou baissière.",
+    "choix": {
+      "A": {
+        "description": "Investir maintenant pour profiter de la tendance haussière",
+        "impact": {
+          "cashflow": -5,
+          "rentabilite": 7,
+          "stress": 3
+        }
+      },
+      "B": {
+        "description": "Attendre que le marché se stabilise avant d’investir",
+        "impact": {
+          "cashflow": 0,
+          "rentabilite": 3,
+          "stress": 1
+        }
+      },
+      "C": {
+        "description": "Réduire le risque en plaçant une partie sur des valeurs refuges",
+        "impact": {
+          "cashflow": -2,
+          "rentabilite": 4,
+          "reputation": 2
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Cycles",
+      "Analyse",
+      "Marché Boursier"
+    ],
+    "feedback": {
+      "A": "Vous maximisez les gains si le marché continue de monter, mais prenez le risque d'une correction brutale.",
+      "B": "Bonne approche si vous voulez limiter les risques et apprendre à observer les cycles.",
+      "C": "Vous protégez votre portefeuille tout en restant exposé au marché de manière prudente."
+    },
+    "evenements_possibles": [
+    ],
+    "reutilisable": true
+  },
+    "Indices et ETF": {
+    "id": "Indices et ETF",
+    "concept": "Marché Boursier",
+    "niveau": "intermédiaire",
+    "type": "Investissement",
+    "contexte": "Vous découvrez qu’il existe des indices (ex : S&P 500, CAC 40) et des ETF regroupant plusieurs entreprises. Vous devez décider si vous préférez acheter une seule action ou investir dans un ETF diversifié.",
+    "objectif_pedagogique": "Comprendre la diversification via les indices et ETF, et comparer avec l’achat d’actions individuelles.",
+    "choix": {
+      "A": {
+        "description": "Acheter une seule action prometteuse",
+        "impact": {
+          "cashflow": -5,
+          "rentabilite": 7,
+          "stress": 3
+        }
+      },
+      "B": {
+        "description": "Investir dans un ETF diversifié",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 5,
+          "reputation": 3
+        }
+      },
+      "C": {
+        "description": "Ne rien faire pour observer le marché",
+        "impact": {
+          "cashflow": 0,
+          "rentabilite": 1,
+          "stress": 1
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Diversification",
+      "ETF",
+      "Indice",
+      "Marché Boursier"
+    ],
+    "feedback": {
+      "A": "Concentration sur une seule action, risque élevé mais potentiel de rendement important.",
+      "B": "Approche diversifiée qui réduit le risque tout en offrant un rendement stable.",
+      "C": "Observer le marché est prudent mais ne génère pas de rendement."
+    },
+    "evenements_possibles": [
+    ],
+    "reutilisable": true
+  },
+    "Produits dérivés et stratégies avancées": {
+    "id": "Produits dérivés et stratégies avancées",
+    "concept": "Marché Boursier",
+    "niveau": "avancé",
+    "type": "Investissement",
+    "contexte": "Vous gérez un portefeuille conséquent et vous avez accès à des produits dérivés (options, futures). Vous devez décider si vous souhaitez utiliser ces instruments pour couvrir vos positions ou spéculer sur les mouvements du marché.",
+    "objectif_pedagogique": "Comprendre les produits dérivés, la différence entre couverture et spéculation, et apprendre à choisir entre gestion active et passive d’un portefeuille.",
+    "choix": {
+      "A": {
+        "description": "Utiliser des options pour couvrir le risque sur vos actions",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 3,
+          "stress": -2,
+          "reputation": 2
+        }
+      },
+      "B": {
+        "description": "Prendre des positions spéculatives sur des futures pour maximiser le rendement",
+        "impact": {
+          "cashflow": -6,
+          "rentabilite": 8,
+          "stress": 5,
+          "reputation": 1
+        }
+      },
+      "C": {
+        "description": "Adopter une gestion passive et diversifiée avec ETF et indices, sans dérivés",
+        "impact": {
+          "cashflow": -2,
+          "rentabilite": 4,
+          "stress": -1,
+          "reputation": 3
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Produits dérivés",
+      "Gestion active",
+      "Gestion passive",
+      "Stratégie avancée"
+    ],
+    "feedback": {
+      "A": "La couverture réduit le risque mais limite le rendement potentiel.",
+      "B": "La spéculation peut rapporter gros mais expose à de fortes pertes et stress.",
+      "C": "La gestion passive est sûre et stable, adaptée pour un portefeuille long terme."
+    },
+    "evenements_possibles": [
+    ],
+    "reutilisable": true
+  },
+     "Découvrir le marché des changes": {
+    "id": "Découvrir le marché des changes",
+    "concept": "Marché des Changes",
+    "niveau": "débutant",
+    "type": "Investissement",
+    "contexte": "Vous disposez d’un capital à investir sur plusieurs devises. Vous découvrez pour la première fois le fonctionnement du marché des changes et ses principales paires de devises.",
+    "objectif_pedagogique": "Comprendre les bases du marché des changes, les principales devises, et les notions de volatilité et de spread.",
+    "choix": {
+      "A": {
+        "description": "Investir uniquement dans votre devise locale",
+        "impact": {
+          "cashflow": 2,
+          "rentabilite": 1,
+          "reputation": 3,
+          "stress": 1
+        }
+      },
+      "B": {
+        "description": "Répartir le capital entre 2 ou 3 devises majeures (USD, EUR, GBP)",
+        "impact": {
+          "cashflow": -2,
+          "rentabilite": 3,
+          "reputation": 4,
+          "stress": 2
+        }
+      },
+      "C": {
+        "description": "Investir dans des devises émergentes pour maximiser le rendement",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 6,
+          "reputation": 2,
+          "stress": 4
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Découverte",
+      "Forex",
+      "Initiation"
+    ],
+    "feedback": {
+      "A": "Sécuriser son capital local est sûr mais limite le rendement potentiel.",
+      "B": "Diversifier entre devises majeures équilibre rendement et risque.",
+      "C": "Les devises émergentes offrent un fort potentiel mais un risque élevé."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+  "Premier choix des changes": {
+    "id": "Premier choix des changes",
+    "concept": "Marché des Changes",
+    "niveau": "débutant",
+    "type": "Investissement",
+    "contexte": "Une forte volatilité apparaît sur le marché des changes. Vous devez décider comment ajuster vos investissements.",
+    "objectif_pedagogique": "Découvrir la notion de risque et rendement dans un contexte de volatilité et apprendre à réagir aux fluctuations des taux de change.",
+    "choix": {
+      "A": {
+        "description": "Maintenir vos positions sans ajustement",
+        "impact": {
+          "cashflow": 0,
+          "rentabilite": 2,
+          "stress": 2,
+          "reputation": 2
+        }
+      },
+      "B": {
+        "description": "Vendre les devises risquées et garder les plus stables",
+        "impact": {
+          "cashflow": 1,
+          "rentabilite": 1,
+          "stress": -1,
+          "reputation": 3
+        }
+      },
+      "C": {
+        "description": "Prendre des positions supplémentaires sur les devises à fort potentiel",
+        "impact": {
+          "cashflow": -3,
+          "rentabilite": 5,
+          "stress": 4,
+          "reputation": 2
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Volatilité",
+      "Décision stratégique",
+      "Forex"
+    ],
+    "feedback": {
+      "A": "Maintenir vos positions est sûr mais peut limiter vos gains.",
+      "B": "Sélectionner les devises stables réduit le risque mais limite la croissance.",
+      "C": "Prendre des positions risquées peut rapporter gros mais accroît le stress."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+
+  "Lire les taux d'intérêt": {
+    "id": "Lire les taux d'intérêt",
+    "concept": "Marché des Changes",
+    "niveau": "intermédiaire",
+    "type": "Analyse",
+    "contexte": "Les banques centrales modifient leurs taux directeurs. Vous devez analyser l'impact sur le marché des changes.",
+    "objectif_pedagogique": "Comprendre la relation entre taux d’intérêt et fluctuations des devises, et anticiper les mouvements du marché.",
+    "choix": {
+      "A": {
+        "description": "Acheter la devise du pays à taux élevé",
+        "impact": {
+          "cashflow": -2,
+          "rentabilite": 4,
+          "stress": 3,
+          "reputation": 3
+        }
+      },
+      "B": {
+        "description": "Vendre cette devise et investir dans une devise stable",
+        "impact": {
+          "cashflow": 1,
+          "rentabilite": 2,
+          "stress": -1,
+          "reputation": 2
+        }
+      },
+      "C": {
+        "description": "Maintenir vos positions et observer l’évolution",
+        "impact": {
+          "cashflow": 0,
+          "rentabilite": 1,
+          "stress": 1,
+          "reputation": 1
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Taux d'intérêt",
+      "Analyse FX",
+      "Décision stratégique"
+    ],
+    "feedback": {
+      "A": "Investir sur une devise à taux élevé peut être rentable mais plus risqué.",
+      "B": "Privilégier la stabilité réduit le risque mais limite les gains.",
+      "C": "Observer permet de prendre des décisions informées ultérieurement."
+    },
+    "evenements_possibles": [
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+
+  "Stratégies avancées sur obligations": {
+    "id": "Stratégies avancées sur obligations",
+    "concept": "Marché des Changes",
+    "niveau": "avancé",
+    "type": "Investissement",
+    "contexte": "Vous avez accès à des marchés dérivés FX et obligations. Vous devez décider de couvrir vos positions ou d’adopter une stratégie spéculative multi-devises.",
+    "objectif_pedagogique": "Apprendre à utiliser les produits dérivés pour couverture ou spéculation et gérer le risque de change dans un portefeuille complexe.",
+    "choix": {
+      "A": {
+        "description": "Utiliser des forwards et options pour couvrir vos positions",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 3,
+          "stress": -2,
+          "reputation": 3
+        }
+      },
+      "B": {
+        "description": "Prendre des positions spéculatives sur plusieurs devises pour maximiser le rendement",
+        "impact": {
+          "cashflow": -6,
+          "rentabilite": 8,
+          "stress": 5,
+          "reputation": 2
+        }
+      },
+      "C": {
+        "description": "Adopter une stratégie prudente en se concentrant sur les devises majeures uniquement",
+        "impact": {
+          "cashflow": -2,
+          "rentabilite": 4,
+          "stress": -1,
+          "reputation": 3
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Produits dérivés",
+      "Stratégie avancée",
+      "Couverture",
+      "Speculation"
+    ],
+    "feedback": {
+      "A": "La couverture protège votre portefeuille mais limite le potentiel de gains.",
+      "B": "La spéculation peut générer des gains élevés mais augmente le risque et le stress.",
+      "C": "Une stratégie prudente assure la stabilité du portefeuille tout en conservant une exposition raisonnable."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+  "Découvrir la finance d'entreprise": {
+    "id": "Découvrir la finance d'entreprise",
+    "concept": "Finance d'entreprise",
+    "niveau": "débutant",
+    "type": "Finance",
+    "contexte": "Vous intégrez une entreprise fictive et devez comprendre sa structure financière et les différentes sources de financement disponibles.",
+    "objectif_pedagogique": "Comprendre les bases de la finance d'entreprise : bilans, comptes de résultat, capitaux propres et dettes.",
+    "choix": {
+      "A": {
+        "description": "Se concentrer uniquement sur la trésorerie et les liquidités",
+        "impact": {
+          "cashflow": 3,
+          "rentabilite": 1,
+          "reputation": 2,
+          "stress": 1
+        }
+      },
+      "B": {
+        "description": "Analyser aussi les dettes et les capitaux propres pour avoir une vision complète",
+        "impact": {
+          "cashflow": 2,
+          "rentabilite": 2,
+          "reputation": 4,
+          "stress": 2
+        }
+      },
+      "C": {
+        "description": "Se lancer dans un mini-projet de financement pour découvrir l'effet levier",
+        "impact": {
+          "cashflow": -1,
+          "rentabilite": 3,
+          "reputation": 3,
+          "stress": 3
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Introduction",
+      "Finance",
+      "Découverte"
+    ],
+    "feedback": {
+      "A": "Se concentrer uniquement sur la trésorerie limite la vision stratégique.",
+      "B": "Analyser dettes et capitaux propres offre une compréhension complète.",
+      "C": "Expérimenter l'effet levier illustre les risques et rendements."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Premier choix de financement": {
+    "id": "Premier choix de financement",
+    "concept": "Finance d'entreprise",
+    "niveau": "débutant",
+    "type": "Finance",
+    "contexte": "Votre entreprise souhaite financer un nouveau projet. Vous devez décider entre plusieurs sources de financement.",
+    "objectif_pedagogique": "Découvrir les choix de financement : emprunt bancaire, levée de capitaux, ou autofinancement.",
+    "choix": {
+      "A": {
+        "description": "Recourir à un emprunt bancaire",
+        "impact": {
+          "cashflow": -5,
+          "rentabilite": 2,
+          "reputation": 3,
+          "stress": 2
+        }
+      },
+      "B": {
+        "description": "Lever des fonds auprès d'investisseurs",
+        "impact": {
+          "cashflow": -3,
+          "rentabilite": 4,
+          "reputation": 4,
+          "stress": 3
+        }
+      },
+      "C": {
+        "description": "Utiliser vos réserves internes (autofinancement)",
+        "impact": {
+          "cashflow": -2,
+          "rentabilite": 1,
+          "reputation": 2,
+          "stress": 1
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Financement",
+      "Décision stratégique",
+      "Initiation"
+    ],
+    "feedback": {
+      "A": "L’emprunt augmente la dette mais garde le contrôle de l’entreprise.",
+      "B": "La levée de fonds dilue le capital mais peut accélérer la croissance.",
+      "C": "L'autofinancement est sûr mais peut limiter la taille du projet."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+
+  "Simulation de levée de fonds": {
+    "id": "Simulation de levée de fonds",
+    "concept": "Finance d'entreprise",
+    "niveau": "intermédiaire",
+    "type": "Finance",
+    "contexte": "Vous devez lever des fonds pour un projet important et simuler différentes combinaisons de dettes et capitaux propres.",
+    "objectif_pedagogique": "Apprendre à équilibrer le coût du capital, le contrôle et le risque financier.",
+    "choix": {
+      "A": {
+        "description": "Financer majoritairement par dette",
+        "impact": {
+          "cashflow": -6,
+          "rentabilite": 5,
+          "reputation": 3,
+          "stress": 4
+        }
+      },
+      "B": {
+        "description": "Financer majoritairement par capitaux propres",
+        "impact": {
+          "cashflow": -3,
+          "rentabilite": 3,
+          "reputation": 4,
+          "stress": 2
+        }
+      },
+      "C": {
+        "description": "Combiner dette et capitaux propres de manière équilibrée",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 4,
+          "reputation": 4,
+          "stress": 3
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Financement",
+      "Simulation",
+      "Décision stratégique"
+    ],
+    "feedback": {
+      "A": "La dette peut maximiser le rendement mais accroît le risque et le stress.",
+      "B": "Le financement par capitaux propres protège contre le risque mais dilue le contrôle.",
+      "C": "Un mix équilibré permet de gérer rendement et risque de façon optimale."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+
+  "Optimisation du WACC": {
+    "id": "Optimisation du WACC",
+    "concept": "Finance d'entreprise",
+    "niveau": "avancé",
+    "type": "Finance",
+    "contexte": "Vous devez décider de la structure optimale du capital de l’entreprise pour minimiser le coût moyen pondéré du capital et maximiser la valeur de l’entreprise.",
+    "objectif_pedagogique": "Apprendre à équilibrer dettes et capitaux propres pour optimiser la valeur de l’entreprise tout en maîtrisant le risque financier.",
+    "choix": {
+      "A": {
+        "description": "Augmenter la part de dette pour profiter de l’effet de levier",
+        "impact": {
+          "cashflow": -5,
+          "rentabilite": 6,
+          "reputation": 3,
+          "stress": 4
+        }
+      },
+      "B": {
+        "description": "Augmenter la part de capitaux propres pour réduire le risque",
+        "impact": {
+          "cashflow": -3,
+          "rentabilite": 3,
+          "reputation": 4,
+          "stress": 2
+        }
+      },
+      "C": {
+        "description": "Trouver un équilibre optimal entre dette et capitaux propres",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 5,
+          "reputation": 4,
+          "stress": 3
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Finance avancée",
+      "WACC",
+      "Optimisation"
+    ],
+    "feedback": {
+      "A": "L’effet de levier peut augmenter la rentabilité mais accroît le risque.",
+      "B": "Plus de capitaux propres réduit le risque mais peut limiter le rendement.",
+      "C": "Un équilibre permet d’optimiser la valeur tout en maîtrisant le risque."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+  "Découvrir les méthodes d’évaluation": {
+    "id": "Découvrir les méthodes d’évaluation",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "débutant",
+    "type": "Finance",
+    "contexte": "Vous souhaitez apprendre à évaluer une entreprise et comprendre les différentes méthodes disponibles.",
+    "objectif_pedagogique": "Comprendre les bases des méthodes d’évaluation : DCF, multiples, valeur des actifs, et notions de flux de trésorerie.",
+    "choix": {
+      "A": {
+        "description": "Se concentrer sur l’évaluation par les flux de trésorerie actualisés (DCF)",
+        "impact": {
+          "rentabilite": 3,
+          "reputation": 4,
+          "stress": 2
+        }
+      },
+      "B": {
+        "description": "Utiliser uniquement les multiples de marché pour simplifier l’évaluation",
+        "impact": {
+          "rentabilite": 2,
+          "reputation": 3,
+          "stress": 1
+        }
+      },
+      "C": {
+        "description": "Comparer les méthodes pour comprendre leurs différences et limites",
+        "impact": {
+          "rentabilite": 2,
+          "reputation": 5,
+          "stress": 2
+        }
+      }
+    },
+    "variables_affectees": [
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Introduction",
+      "Évaluation",
+      "Découverte"
+    ],
+    "feedback": {
+      "A": "Le DCF est précis mais nécessite une bonne estimation des flux de trésorerie.",
+      "B": "Les multiples sont rapides mais moins précis et dépendants du marché.",
+      "C": "Comparer les méthodes donne une vue complète et fiable."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Évaluation simplifiée d’une PME": {
+    "id": "Évaluation simplifiée d’une PME",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "débutant",
+    "type": "Finance",
+    "contexte": "Vous devez évaluer une petite entreprise fictive à partir de ses états financiers simplifiés.",
+    "objectif_pedagogique": "Mettre en pratique les notions d’évaluation dans un contexte simple et concret.",
+    "choix": {
+      "A": {
+        "description": "Se baser uniquement sur le bénéfice net pour estimer la valeur",
+        "impact": {
+          "rentabilite": 2,
+          "reputation": 3,
+          "stress": 1
+        }
+      },
+      "B": {
+        "description": "Inclure l’endettement et les actifs pour affiner l’évaluation",
+        "impact": {
+          "rentabilite": 3,
+          "reputation": 4,
+          "stress": 2
+        }
+      },
+      "C": {
+        "description": "Combiner bénéfices, actifs et multiples pour une estimation équilibrée",
+        "impact": {
+          "rentabilite": 3,
+          "reputation": 5,
+          "stress": 2
+        }
+      }
+    },
+    "variables_affectees": [
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Évaluation",
+      "Pratique",
+      "PME"
+    ],
+    "feedback": {
+      "A": "S’appuyer uniquement sur le bénéfice peut simplifier mais manque de précision.",
+      "B": "Prendre en compte actifs et dettes offre une meilleure estimation.",
+      "C": "Combiner plusieurs méthodes fournit une évaluation robuste et réaliste."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Analyse de sensibilité": {
+    "id": "Analyse de sensibilité",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "intermédiaire",
+    "type": "Finance",
+    "contexte": "Vous évaluez une entreprise en variant les hypothèses clés (taux de croissance, marge, coûts de financement).",
+    "objectif_pedagogique": "Comprendre comment les variations des hypothèses influencent la valeur de l’entreprise.",
+    "choix": {
+      "A": {
+        "description": "Analyser uniquement l’impact de la croissance des revenus",
+        "impact": {
+          "rentabilite": 4,
+          "reputation": 3,
+          "stress": 2
+        }
+      },
+      "B": {
+        "description": "Analyser les impacts combinés de revenus, marges et coût du capital",
+        "impact": {
+          "rentabilite": 5,
+          "reputation": 4,
+          "stress": 3
+        }
+      },
+      "C": {
+        "description": "Créer plusieurs scénarios pour simuler différentes situations économiques",
+        "impact": {
+          "rentabilite": 5,
+          "reputation": 5,
+          "stress": 3
+        }
+      }
+    },
+    "variables_affectees": [
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Analyse",
+      "Scénarios",
+      "Intermédiaire"
+    ],
+    "feedback": {
+      "A": "Se concentrer sur un seul paramètre est simple mais limité.",
+      "B": "Combiner plusieurs paramètres montre mieux les risques et opportunités.",
+      "C": "Créer des scénarios permet de se préparer à différentes situations économiques."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique"
+    ],
+    "reutilisable": true
+  },
+
+  "Investissements R&D": {
+    "id": "Investissements R&D",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "avancé",
+    "type": "Finance",
+    "contexte": "Vous devez décider d’allouer un budget important à la R&D dans une entreprise innovante, en tenant compte des risques et du potentiel de retour sur investissement.",
+    "objectif_pedagogique": "Apprendre à évaluer des projets risqués à fort potentiel et à intégrer les investissements dans la valorisation de l’entreprise.",
+    "choix": {
+      "A": {
+        "description": "Investir massivement en espérant un rendement élevé futur",
+        "impact": {
+          "cashflow": -7,
+          "rentabilite": 8,
+          "reputation": 5,
+          "stress": 5
+        }
+      },
+      "B": {
+        "description": "Investir modérément et tester le marché avant d’augmenter l’investissement",
+        "impact": {
+          "cashflow": -4,
+          "rentabilite": 5,
+          "reputation": 4,
+          "stress": 3
+        }
+      },
+      "C": {
+        "description": "Ne pas investir et conserver les liquidités pour plus de sécurité",
+        "impact": {
+          "cashflow": 0,
+          "rentabilite": 2,
+          "reputation": 2,
+          "stress": 1
+        }
+      }
+    },
+    "variables_affectees": [
+      "cashflow",
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "R&D",
+      "Investissement",
+      "Évaluation avancée"
+    ],
+    "feedback": {
+      "A": "Investir massivement peut rapporter gros mais comporte un risque élevé.",
+      "B": "Investir progressivement permet de limiter le risque tout en testant le potentiel.",
+      "C": "Ne pas investir protège contre le risque mais limite la croissance et l’innovation."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+  "Introduction aux secteurs": {
+    "id": "Introduction aux secteurs",
+    "concept": "Finance Sectorielle",
+    "niveau": "débutant",
+    "type": "Finance",
+    "contexte": "Vous débutez dans l’analyse financière sectorielle et devez comprendre les particularités des principaux secteurs : startups, PME, scale-ups, et industries traditionnelles.",
+    "objectif_pedagogique": "Découvrir les spécificités financières de différents secteurs et identifier les facteurs clés de succès propres à chacun.",
+    "choix": {
+      "A": {
+        "description": "Se concentrer sur les startups et comprendre leurs besoins en financement et cashflow",
+        "impact": {
+          "reputation": 4,
+          "stress": 2,
+          "rentabilite": 3
+        }
+      },
+      "B": {
+        "description": "Étudier les PME et leur gestion du risque et de la croissance",
+        "impact": {
+          "reputation": 3,
+          "stress": 1,
+          "rentabilite": 2
+        }
+      },
+      "C": {
+        "description": "Analyser les grandes industries et leur structure financière complexe",
+        "impact": {
+          "reputation": 5,
+          "stress": 3,
+          "rentabilite": 4
+        }
+      }
+    },
+    "variables_affectees": [
+      "reputation",
+      "stress",
+      "rentabilite"
+    ],
+    "tags": [
+      "Introduction",
+      "Secteurs",
+      "Découverte"
+    ],
+    "feedback": {
+      "A": "Les startups offrent un potentiel de croissance élevé mais un risque plus important.",
+      "B": "Les PME ont des modèles plus stables mais demandent une bonne compréhension du risque.",
+      "C": "Les grandes industries nécessitent une analyse complexe mais sont plus sécurisées sur le long terme."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Analyse sectorielle": {
+    "id": "Analyse sectorielle",
+    "concept": "Finance Sectorielle",
+    "niveau": "intermédiaire",
+    "type": "Finance",
+    "contexte": "Vous devez analyser un secteur spécifique pour évaluer ses perspectives de croissance et les risques associés à différents types d’entreprises.",
+    "objectif_pedagogique": "Apprendre à comparer les performances financières entre différents acteurs d’un même secteur et identifier les tendances clés.",
+    "choix": {
+      "A": {
+        "description": "Se concentrer sur les indicateurs financiers classiques (marge, rentabilité, cashflow)",
+        "impact": {
+          "rentabilite": 4,
+          "reputation": 3,
+          "stress": 2
+        }
+      },
+      "B": {
+        "description": "Analyser également les facteurs macroéconomiques et réglementaires",
+        "impact": {
+          "rentabilite": 3,
+          "reputation": 5,
+          "stress": 3
+        }
+      },
+      "C": {
+        "description": "Créer un benchmark sectoriel complet combinant financiers et non-financiers",
+        "impact": {
+          "rentabilite": 5,
+          "reputation": 5,
+          "stress": 4
+        }
+      }
+    },
+    "variables_affectees": [
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Analyse",
+      "Benchmark",
+      "Intermédiaire"
+    ],
+    "feedback": {
+      "A": "Se concentrer sur les chiffres financiers permet une première analyse solide.",
+      "B": "Prendre en compte le macro permet de mieux anticiper les risques sectoriels.",
+      "C": "Le benchmark complet donne une vision globale et fiable du secteur."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique"
+    ],
+    "reutilisable": true
+  },
+
+  "Projection stratégique sectorielle": {
+    "id": "Projection stratégique sectorielle",
+    "concept": "Finance Sectorielle",
+    "niveau": "avancé",
+    "type": "Finance",
+    "contexte": "Vous devez projeter la performance future d’un secteur en intégrant tendances macroéconomiques, innovation technologique et comportements des concurrents.",
+    "objectif_pedagogique": "Apprendre à faire des projections stratégiques pour orienter des décisions financières et d’investissement sectorielles.",
+    "choix": {
+      "A": {
+        "description": "Projeter en se basant principalement sur les données financières historiques",
+        "impact": {
+          "rentabilite": 3,
+          "reputation": 3,
+          "stress": 2
+        }
+      },
+      "B": {
+        "description": "Intégrer innovation et tendances technologiques dans la projection",
+        "impact": {
+          "rentabilite": 5,
+          "reputation": 5,
+          "stress": 4
+        }
+      },
+      "C": {
+        "description": "Combiner historique, innovation et comportements concurrentiels pour une projection complète",
+        "impact": {
+          "rentabilite": 6,
+          "reputation": 6,
+          "stress": 5
+        }
+      }
+    },
+    "variables_affectees": [
+      "rentabilite",
+      "reputation",
+      "stress"
+    ],
+    "tags": [
+      "Projection",
+      "Stratégie",
+      "Avancé"
+    ],
+    "feedback": {
+      "A": "Se baser uniquement sur l’historique peut limiter la vision stratégique.",
+      "B": "Intégrer innovation et tendances permet de mieux anticiper le futur du secteur.",
+      "C": "Combiner toutes les dimensions offre la projection la plus complète et réaliste."
+    },
+    "evenements_possibles": [
+      "Crise Financière Systémique",
+      "Changement de Politique BCE/Fed"
+    ],
+    "reutilisable": true
+  },
+  "Plan de trésorerie simplifié": {
+    "id": "Plan de trésorerie simplifié",
+        "concept": "Gestion de Trésorerie & Financement",
+        "niveau": "débutant",
+        "type": "Financement",
+        "contexte": "Une PME vous consulte pour organiser sa trésorerie. Vous devez établir un plan simple des flux d’entrées et sorties.",
+        "objectif_pedagogique": "Comprendre la base de la gestion de trésorerie et l’importance des prévisions financières.",
+        "choix": {
+          "A": {
+            "description": "Conserver une réserve de liquidité importante",
+            "impact": { "cashflow": -1, "rentabilite": 1, "stress": -1, "reputation": 1 }
+          },
+          "B": {
+            "description": "Investir l’excédent de trésorerie à court terme",
+            "impact": { "cashflow": -2, "rentabilite": 3, "stress": 2, "reputation": 1 }
+          }
+        },
+        "feedback": {
+          "A": "Bonne sécurité mais peu de rendement.",
+          "B": "Rendement supérieur mais plus risqué pour la liquidité."
+        },
+        "reutilisable": true
+  },
+  "Arbitrage dette vs equity": {
+    "id": "Arbitrage dette vs equity",
+        "concept": "Gestion de Trésorerie & Financement",
+        "niveau": "intermédiaire",
+        "type": "Financement",
+        "contexte": "Une entreprise en croissance doit lever des fonds. Vous devez recommander entre financement par dette ou equity.",
+        "objectif_pedagogique": "Apprendre à comparer les avantages et inconvénients du financement par dette et par equity.",
+        "choix": {
+          "A": {
+            "description": "Lever de la dette bancaire",
+            "impact": { "cashflow": 4, "rentabilite": 3, "stress": 2, "reputation": 1 }
+          },
+          "B": {
+            "description": "Lever des capitaux via equity",
+            "impact": { "cashflow": 6, "rentabilite": 2, "stress": 1, "reputation": 2 }
+          }
+        },
+        "feedback": {
+          "A": "La dette conserve la propriété mais augmente le risque de défaut.",
+          "B": "L’equity dilue les actionnaires mais sécurise la trésorerie."
+        },
+        "reutilisable": true
   }
+}
 }

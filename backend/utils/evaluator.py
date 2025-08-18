@@ -1,8 +1,9 @@
 from typing import Dict, List, Any
 from models.user import User
 from utils.game_loader import GameLoader
-import random
-
+# Evaluator for mission completion and scoring
+# Can be extended for different types of missions
+# Can be moved to /services for better organization
 class MissionEvaluator:
     def __init__(self, game_loader: GameLoader):
         self.game_loader = game_loader
@@ -17,7 +18,10 @@ class MissionEvaluator:
         """Evaluate a completed mission and return results"""
         
         # Get the main choice impact
+        if "main" not in choices:
+            raise ValueError("No main choice provided for mission evaluation.")
         main_choice = choices.get("main", "A")
+
         choice_data = mission["choix"].get(main_choice, {})
         base_impact = choice_data.get("impact", {})
         

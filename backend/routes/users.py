@@ -5,6 +5,9 @@ from typing import List
 from database import get_db
 from models.user import User, Student, Teacher, UserRole
 from datetime import datetime
+# Business logic is mostly inline, e.g., creating a student, applying profile baselines.
+# This could be refactored into a service class (like UserService) to respect separation of concerns.
+# Keep routes for requests/responses
 
 router = APIRouter()
 
@@ -52,6 +55,7 @@ async def create_student(student: StudentCreate, db: Session = Depends(get_db)):
     existing_user = db.query(Student).filter(User.email == student.email).first()
     if existing_user:
         # raise HTTPException(status_code=400, detail="Email already registered")
+        # we return an existing user bcz we're in a demo local storage setup
         return existing_user
     
     db_student = Student(
@@ -127,7 +131,9 @@ async def list_teachers(db: Session = Depends(get_db)):
 
 @router.post("/students/{student_id}/profile")
 def set_profile(student_id: int, profile: int, db: Session = Depends(get_db)):
-    student = db.query(Student).get(student_id)
+    student = db.query(Student).filter(
+        Student.id == student_id
+    ).first()
     if not student:
         raise HTTPException(404, "Student not found")
 
@@ -145,7 +151,9 @@ def set_profile(student_id: int, profile: int, db: Session = Depends(get_db)):
 
 @router.get("/students/{student_id}/profile")
 def get_profile(student_id: int, db: Session = Depends(get_db)):
-    student = db.query(Student).get(student_id)
+    student = db.query(Student).filter(
+        Student.id == student_id
+    ).first()
     if not student:
         raise HTTPException(404, "Student not found")
     # If profile is None, return default values

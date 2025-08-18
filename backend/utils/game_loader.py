@@ -3,6 +3,8 @@ import os
 from typing import Dict, List, Any, Optional
 from models.user import User
 from datetime import datetime
+# This module is responsible for loading game data such as missions, events, and concepts from JSON files.
+# It provides methods to access this data in a structured way.
 
 class GameLoader:
     def __init__(self):
@@ -13,48 +15,25 @@ class GameLoader:
         self.load_game_data()
     
     def load_game_data(self):
-        """Load missions and events from JSON files"""
+        """Load missions, concepts and events from JSON files"""
         # Load missions
         missions_path = os.path.join("data", "missions.json")
-        
         if os.path.exists(missions_path):
-            mod_time=os.path.getmtime(missions_path)
-            print(f"[DEBUG] Main JSON file last modified: {datetime.fromtimestamp(mod_time)}")
-            print(f"[DEBUG] Loading game data from: {missions_path}")
             with open(missions_path, 'r', encoding='utf-8') as f:
-                # missions_data = json.load(f)
-                # self.missions = missions_data.get("missions", {})
-                self.data=json.load(f)
-                self.missions= self.data.get("missions", {})
-                self.concepts = self.data.get("concepts", {})
-
-        strategie = self.concepts.get("stratégie", {})
-        print(f"[DEBUG] Stratégie missions on load: {strategie.get('missions', 'NOT FOUND')}")
-        print(f"[DEBUG] Stratégie missions type: {type(strategie.get('missions', {}))}")
-
-        # Load events
+                self.missions= json.load(f).get("missions", {})
+        
+        concepts_path=os.path.join("data", "concepts.json")
+        if os.path.exists(concepts_path):
+            with open(concepts_path, 'r', encoding='utf-8') as f:
+                self.concepts=json.load(f).get("concepts", {})
+        
+        
         events_path = os.path.join("data", "events.json")
         if os.path.exists(events_path):
             with open(events_path, 'r', encoding='utf-8') as f:
                 events_data = json.load(f)
                 self.events = {event["id"]: event for event in events_data.get("events", [])}
 
-        # Load concepts
-        # Rebuild concepts from missions
-        # concepts = {}
-        # for mission_id, mission in self.missions.items():
-        #     concept = mission.get("concept")
-        #     if concept:
-        #         if concept not in concepts:
-        #             concepts[concept] = {
-        #                 "id": concept,
-        #                 "nom": concept.capitalize(),
-        #                 "missions": []
-        #                 }
-        #             concepts[concept]["missions"].append(mission_id)
-        # self.concepts = concepts
-
-    
     def get_missions_by_level(self, level: str) -> List[Dict[str, Any]]:
         """Get all missions for a specific level THIS WILL CHANGE TO FIT INTO THE AI PROFILE"""
         return [m for m in self.missions.values() if m.get("niveau") == level]
@@ -83,16 +62,12 @@ class GameLoader:
         
         return active_events
     
+    # meant to be an internal helper aka private 
     def _should_event_be_active(self, event: Dict[str, Any], student: User) -> bool:
         """Check if an event should be active based on conditions"""
+        # we get the conditions specific of the event
         conditions = event.get("conditions", {})
         
-        # Check level conditions
-        # if "niveau" in conditions:
-        #     if student.current_level not in conditions["niveau"]:
-        #         return False
-        
-        # Check player state conditions
         if "etat_joueur" in conditions:
             for metric, condition in conditions["etat_joueur"].items():
                 student_value = getattr(student, metric, 0)
@@ -111,6 +86,7 @@ class GameLoader:
                         return False
         
         return True
+    
     def get_all_concepts(self) -> List[Dict[str, Any]]:
         """Return all concepts (IDs and metadata)"""
         return list(self.concepts.values())
@@ -119,15 +95,7 @@ class GameLoader:
         """Return a specific concept by ID"""
         return self.concepts.get(concept_id)
 
-    # def get_missions_by_concept(self, concept_id: str) -> List[Dict[str, Any]]:
-    #     """Return all missions linked to a given concept"""
-    #     concept = self.get_concept(concept_id)
-    #     print(f"[DEBUG] Concept {concept_id} → missions:", concept["missions"])
-    #     print(f"[DEBUG] Missions trouvées:", [self.get_mission_by_id(m_id) for m_id in concept["missions"]])
-        
-    #     if not concept:
-    #         return []
-    #     return [self.get_mission_by_id(mission_id) for mission_id in concept["missions"] if self.get_mission_by_id(mission_id)]
+
     def get_missions_by_concept(self, concept_id: str) -> List[Dict[str, Any]]:
        """Return all missions linked to a given concept (across all levels)"""
        concept = self.get_concept(concept_id)
@@ -139,9 +107,6 @@ class GameLoader:
        missions = []
        missions_data = concept.get("missions", {})
     
-    # Debug: Check the type of missions_data
-       print(f"[DEBUG] Type of missions_data: {type(missions_data)}")
-       print(f"[DEBUG] missions_data content: {missions_data}")
     
     # Handle both cases: dict with levels or direct list
        if isinstance(missions_data, dict):
@@ -159,7 +124,7 @@ class GameLoader:
                             if mission_data:
                                missions.append(mission_data)
        elif isinstance(missions_data, list):
-            print(f"[DEBUG] missions_data is a list: {missions_data}")
+            # print(f"[DEBUG] missions_data is a list: {missions_data}")
             for entry in missions_data:
                if isinstance(entry, dict) and "id" in entry:
                 mission_id = entry["id"]
@@ -170,6 +135,5 @@ class GameLoader:
                     mission_data = self.get_mission_by_id(entry)
                     if mission_data:
                        missions.append(mission_data)
-    
-       print(f"[DEBUG] Final missions found: {len(missions)} missions")
+
        return missions

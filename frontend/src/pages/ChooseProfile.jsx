@@ -3,15 +3,15 @@ import { useRole } from "../contexts/RoleContext"
 import { api } from "../utils/api"
 import { 
   PieChart,    // Gestion de portefeuille
-  TrendingUp,  // Lecture indicateurs
-  Briefcase,   // Levée de fonds
+  TrendingUp,  // Analyste en Finance d'Entreprise
+  Briefcase,   // Banquier d'Entreprise
   CheckCircle 
 } from "lucide-react"
 
 const profiles = [
   {
     id: 1,
-    title: "Gestion de portefeuille boursier",
+    title: "Gestionnaire de portefeuille boursier",
     blurb: "Apprenez à allouer des actifs, gérer le risque et maximiser la performance.",
     icon: PieChart,
     color: "from-blue-50 to-blue-100 border-blue-200",
@@ -19,16 +19,16 @@ const profiles = [
   },
   {
     id: 2,
-    title: "Lecture des indicateurs techniques",
-    blurb: "Maîtrisez RSI, MACD, momentum et prenez des décisions basées sur les signaux.",
+    title: "Analyste financier",
+    blurb: "Maîtrisez l’évaluation d’entreprises, la levée de fonds et l’analyse financière stratégique.",
     icon: TrendingUp,
     color: "from-indigo-50 to-indigo-100 border-indigo-200",
     indicator: "indigo-600",
   },
   {
     id: 3,
-    title: "Simulation de levée de fonds",
-    blurb: "Explorez equity vs dette, dilution et calculez le coût du capital (WACC).",
+    title: "Banquier d'affaires",
+    blurb: "Accompagnez les entreprises dans le financement, la gestion du risque et les décisions stratégiques.",
     icon: Briefcase,
     color: "from-emerald-50 to-emerald-100 border-emerald-200",
     indicator: "emerald-600",
@@ -101,13 +101,6 @@ export default function ChooseProfile() {
             </button>
           ))}
         </div>
-
-        {/* Footer */}
-        {/*<div className="text-center mt-6">
-          <p className="text-sm text-gray-500">
-            Vous pourrez modifier votre choix plus tard. Cela réinitialisera vos indicateurs de départ.
-          </p>
-        </div>*/}
       </div>
     </div>
   )

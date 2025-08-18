@@ -28,7 +28,7 @@ class Progress(Base):
     # Relationships
     student = relationship("User", back_populates="progress_records")
 
-class MetricHistory(Base):
+class MetricHistory(Base): # Tracks a timeline of student metrics 
     __tablename__ = "metric_history"
     
     id = Column(Integer, primary_key=True, index=True)
@@ -49,7 +49,7 @@ class MetricHistory(Base):
     # Relationships
     student = relationship("User", back_populates="metric_history")
 
-class ConceptProgress(Base):
+class ConceptProgress(Base): # Tracks progress on specific concept
     __tablename__ = "concept_progress"
     
     id = Column(Integer, primary_key=True, index=True)

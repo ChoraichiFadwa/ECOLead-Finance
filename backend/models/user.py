@@ -17,14 +17,15 @@ class User(Base):
     email = Column(String, unique=True, index=True, nullable=False)
     role = Column(Enum(UserRole), nullable=False) # for the front usage
     created_at = Column(DateTime, default=datetime.utcnow)
-    
-    # Single table inheritance discriminator
+
+    # Single table inheritance discriminator, required to know the user type
     type = Column(String, nullable=False)
-    # Relationships
+    # Relationships [ One-to-Many ]
     progress_records = relationship("Progress", back_populates="student")
     metric_history = relationship("MetricHistory", back_populates="student")
    
 
+    # Tells alchemy which column to use for the polymorphic identity - the subclass
     __mapper_args__ = {
         'polymorphic_on': type,
         'polymorphic_identity': 'user'
@@ -34,7 +35,7 @@ class User(Base):
 class Student(User):
         # Student-specific fields
     level_ai = Column(String, default="Prudent")
-    total_score = Column(Integer, default=0)
+    total_score = Column(Integer, default=0) # Somme points toutes missions
     
     # Current metrics
     cashflow = Column(Float, default=100.0)

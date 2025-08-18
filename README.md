@@ -2,19 +2,21 @@
 
 ## 📌 Overview
 
-This platform is a gamified educational system where **students** progress through structured **missions**, grouped by **concepts** and organized by **difficulty levels**. It includes a React frontend and a FastAPI backend, with future extensions planned for teacher analytics, XP-based progression, and content enrichment.
+This platform is a gamified educational system where **students** progress through structured **missions**, grouped by **concepts** and organized by **difficulty levels**. It includes a React frontend and a FastAPI backend.
+Currently in active development, the system supports **student progression tracking**, **concept-based learning**, and **adaptive mission unlocking**.
 
 ---
 
 ## 👤 User Roles
 
-| Role     | Abilities                                            |
-|----------|------------------------------------------------------|
-| Student  | Browse concepts, launch missions, view progression   |
-| Teacher  | (Planned) View student metrics, manage content       |
+| Role     | Status | Abilities |
+|----------|--------|---------|
+| **Student** | ✅ Implemented | Browse concepts, launch missions, track progress |
+| **Teacher** | 🚧 In Development | View class analytics, monitor student progress |
 
 Role is selected on first visit and stored locally. Role-based access is enforced in routing and backend endpoints.
 
+Missions are grouped under **7 domains** and **3 specialized profiles** (see `DOCUMENTATION.md`).
 ---
 
 ## 🧠 Core Concepts
@@ -112,7 +114,7 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 
 - ✅ Mission completion and tracking
 - ✅ Mission unlock logic by concept/level
-- 🚧 Teacher dashboard
+- ✅ Teacher dashboard
 - 🚧 XP system
 - 🚧 Prerequisites between concepts
 - 🚧 Mini-quizzes before missions
@@ -162,6 +164,18 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 ```bash
 # Backend
 cd backend
+# (recommended) Create a virtual environment
+python -m venv venv
+# Activate it:
+# On Linux/Mac
+source venv/bin/activate
+# On Windows
+venv\Scripts\activate
+
+# Install backend dependencies
+pip install -r requirements.txt
+
+# Run backend
 python main.py
 
 # Frontend

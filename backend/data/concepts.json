@@ -1,0 +1,109 @@
+  {
+    "concepts": {
+    "Marché Boursier": {
+      "nom": "Marché Boursier",
+      "description": "Progression sur le concept : marché boursier - maîtrise des décisions financières stratégiques de l'entreprise",
+      "profiles": [1],
+      "missions": {
+        "débutant": [
+          { "id": "Découvrir le marché boursier" },
+          { "id": "Premier choix stratégique" }
+        ],
+        "intermédiaire": [
+          { "id": "Lire les cycles boursiers" },
+          { "id": "Indices et ETF" }
+        ],
+        "avancé": [
+          { "id": "Produits dérivés et stratégies avancées" }
+        ]
+      },
+      "progression": 0
+    },
+    "Marché des Changes": {
+      "nom": "Marché des Changes",
+      "description": "Progression sur le concept : marché des changes - maîtrise des décisions financières stratégiques de l'entreprise",
+      "profiles": [1],
+      "missions": {
+        "débutant": [
+          { "id": "Découvrir le marché des changes" },
+          { "id": "Premier choix des changes" }
+        ],
+        "intermédiaire": [
+          { "id": "Lire les taux d'intérêt" }
+        ],
+        "avancé": [
+          { "id": "Stratégies avancées sur obligations" }
+        ]
+      },
+      "progression": 0
+    },
+    "Finance d'entreprise": {
+      "nom": "Finance d'entreprise",
+      "description": "Comprendre la structure financière d’une entreprise, financement, levée de capitaux, et gestion des risques financiers.",
+      "profiles": [2],
+      "missions": {
+        "débutant": [
+          { "id": "Découvrir la finance d'entreprise" },
+          { "id": "Premier choix de financement" }
+        ],
+        "intermédiaire": [
+          { "id": "Simulation de levée de fonds" }
+        ],
+        "avancé": [
+          { "id": "Optimisation du WACC" }
+        ]
+      },
+      "progression": 0
+    },
+    "Évaluation d’entreprise": {
+      "nom": "Évaluation d’entreprise",
+      "description": "Maîtriser les méthodes d’évaluation : DCF, multiples, actifs, analyse de sensibilité et scénarios.",
+      "profiles": [2],
+      "missions": {
+        "débutant": [
+          { "id": "Découvrir les méthodes d’évaluation" },
+          { "id": "Évaluation simplifiée d’une PME" }
+        ],
+        "intermédiaire": [
+          { "id": "Analyse de sensibilité" }
+        ],
+        "avancé": [
+          { "id": "Investissements R&D" }
+        ]
+      },
+      "progression": 0
+    },
+    "Finance Sectorielle": {
+      "nom": "Finance Sectorielle",
+      "description": "Comprendre les particularités financières des secteurs (startups, scale-ups, PME, industries)",
+      "profiles": [2],
+      "missions": {
+        "débutant": [
+          { "id": "Introduction aux secteurs" }
+        ],
+        "intermédiaire": [
+          { "id": "Analyse sectorielle" }
+        ],
+        "avancé": [
+          { "id": "Projection stratégique sectorielle" }
+        ]
+      },
+      "progression": 0
+    },
+    "Gestion de Trésorerie & Financement": {
+      "nom": "Gestion de Trésorerie & Financement",
+      "description": "Maîtriser la planification financière, l’arbitrage entre dette et equity, et l’optimisation du coût du capital.",
+      "profiles": [3],
+      "missions": {
+        "débutant": [
+          { "id": "Plan de trésorerie simplifié" }
+        ],
+        "intermédiaire": [
+          { "id": "Arbitrage dette vs equity" }
+        ]
+      },
+      "progression": 0
+    }
+
+  }
+}

@@ -4,3 +4,6 @@ venv/
 __pycache__/
 *.pyc
 .env
+# Ignore SQLite DBs
+*.sqlite3
+*.db

@@ -1,12 +1,13 @@
 from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
-import uvicorn
-from database import engine, Base
+import uvicorn # ASGI server
+from database import engine, Base # Import SQLAlchemy engine and Base, engine - db connextion | Base - ORM models
 from routes import users, missions, progress, analytics
 
-# Create database tables
+# Create database tables, dev only in prod we should use alembic
 Base.metadata.create_all(bind=engine)
 
+#Instantiate the app 
 app = FastAPI(
     title="ECOLead Serious Game Platform API",
     description="A learning platform with missions and progress tracking",
@@ -28,6 +29,7 @@ app.include_router(missions.router, prefix="/api", tags=["missions"])
 app.include_router(progress.router, prefix="/api", tags=["progress"])
 app.include_router(analytics.router, prefix="/api", tags=["analytics"])
 
+# Handle GET requests to root 
 @app.get("/")
 async def root():
     return {"message": "ECOLead Serious Game Platform API", "docs": "/docs"}
