@@ -112,7 +112,7 @@
     "concept": "Marché Boursier",
     "niveau": "intermédiaire",
     "type": "Investissement",
-    "contexte": "Les marchés montent et descendent par cycles. Vous observez un graphique montrant une phase de hausse suivie d’une correction. Votre rôle est d’identifier si le moment est favorable à l’achat ou s’il vaut mieux attendre.",
+    "contexte": "Les marchés financiers évoluent par cycles haussiers (bull market) et cycles baissiers (bear market). Vous observez un graphique montrant une phase de hausse suivie d’une correction. Votre rôle est d’identifier si le moment est favorable à l’achat ou s’il vaut mieux attendre.",
     "objectif_pedagogique": "Comprendre que le marché n’est pas linéaire, mais cyclique, et apprendre à reconnaître une tendance haussière ou baissière.",
     "choix": {
       "A": {
@@ -157,11 +157,12 @@
       "C": "Vous protégez votre portefeuille tout en restant exposé au marché de manière prudente."
     },
     "evenements_possibles": [
+      "Historique - Bulle du Mississippi"
     ],
     "reutilisable": true
   },
-    "Indices et ETF": {
-    "id": "Indices et ETF",
+    "ETF et les fonds indiciels": {
+    "id": "ETF et les fonds indiciels",
     "concept": "Marché Boursier",
     "niveau": "intermédiaire",
     "type": "Investissement",
@@ -211,6 +212,7 @@
       "C": "Observer le marché est prudent mais ne génère pas de rendement."
     },
     "evenements_possibles": [
+      "Boom Économique Global"
     ],
     "reutilisable": true
   },
@@ -497,8 +499,7 @@
       "C": "Une stratégie prudente assure la stabilité du portefeuille tout en conservant une exposition raisonnable."
     },
     "evenements_possibles": [
-      "Crise Financière Systémique",
-      "Changement de Politique BCE/Fed"
+      "Récession Économique"
     ],
     "reutilisable": true
   },
@@ -1155,6 +1156,159 @@
           "B": "L’equity dilue les actionnaires mais sécurise la trésorerie."
         },
         "reutilisable": true
-  }
+  },
+  "Identifier un risque de crédit dans une opération": {
+  "id": "Identifier un risque de crédit dans une opération",
+  "concept": "Gestion des Risques Transactionnels",
+  "niveau": "débutant",
+  "type": "Financement",
+  "contexte": "Une PME sollicite un financement bancaire de 5 M€ pour un projet d’expansion. Votre rôle est d’identifier les principaux risques de crédit liés à cette opération.",
+  "objectif_pedagogique": "Apprendre à détecter les signaux de risque de crédit dans un financement.",
+  "choix": {
+    "A": {
+      "description": "Se fier uniquement au business plan de l’entreprise",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": -2,
+        "reputation": -1
+      }
+    },
+    "B": {
+      "description": "Analyser la capacité de remboursement et les garanties disponibles",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": 3,
+        "reputation": 2
+      }
+    },
+    "C": {
+      "description": "Ne pas accorder le prêt par prudence excessive",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": 0,
+        "reputation": -2
+      }
+    }
+  },
+  "variables_affectees": [
+    "cashflow",
+    "rentabilite",
+    "reputation"
+  ],
+  "tags": [
+    "Risque de Crédit",
+    "Banque d’Affaires",
+    "Financement"
+  ],
+  "feedback": {
+    "A": "Le business plan est important, mais insuffisant pour mesurer le risque de crédit.",
+    "B": "Bonne approche : la capacité de remboursement et les garanties sont clés pour limiter le risque.",
+    "C": "Être trop conservateur peut nuire à la réputation de la banque et faire rater des opportunités."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+  },
+  "Évaluer un risque de transaction M&A": {
+  "id": "Évaluer un risque de transaction M&A",
+  "concept": "Gestion des Risques Transactionnels",
+  "niveau": "intermédiaire",
+  "type": "M&A",
+  "contexte": "Une grande entreprise envisage d’acquérir une société concurrente. Votre rôle est d’évaluer les principaux risques de la transaction : surestimation des synergies, complexité d’intégration, et incertitude réglementaire.",
+  "objectif_pedagogique": "Comprendre comment analyser les risques transactionnels dans une opération de fusion-acquisition.",
+  "choix": {
+    "A": {
+      "description": "Se concentrer uniquement sur les synergies financières prévues",
+      "impact": {
+        "rentabilite": -3,
+        "reputation": -2,
+        "stress": 2
+      }
+    },
+    "B": {
+      "description": "Évaluer les synergies, l’intégration organisationnelle et les risques réglementaires",
+      "impact": {
+        "rentabilite": 5,
+        "reputation": 4,
+        "stress": 3
+      }
+    },
+    "C": {
+      "description": "Rejeter l’opération sans approfondir l’évaluation",
+      "impact": {
+        "rentabilite": 0,
+        "reputation": -3,
+        "stress": -1
+      }
+    }
+  },
+  "variables_affectees": [
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "M&A",
+    "Risque de Transaction",
+    "Banque d’Affaires"
+  ],
+  "feedback": {
+    "A": "Se limiter aux synergies financières ignore des risques critiques pouvant compromettre la transaction.",
+    "B": "Excellente approche : une évaluation complète intègre les risques financiers, opérationnels et réglementaires.",
+    "C": "Refuser trop vite peut priver la banque d’opportunités et nuire à sa réputation."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+ },
+  "Structurer une opération avec gestion intégrée des risques": {
+  "id": "Structurer une opération avec gestion intégrée des risques",
+  "concept": "Gestion des Risques Transactionnels",
+  "niveau": "avancé",
+  "type": "Structuration",
+  "contexte": "Vous êtes en charge de structurer une opération de financement pour l’acquisition d’une entreprise industrielle. Vous devez concevoir la transaction en intégrant la gestion des risques de crédit, marché et opérationnels.",
+  "objectif_pedagogique": "Apprendre à concevoir une transaction complète en intégrant des mécanismes de protection face aux différents risques.",
+  "choix": {
+    "A": {
+      "description": "Structurer l’opération sans protections spécifiques, en misant sur la réussite du projet",
+      "impact": {
+        "rentabilite": 7,
+        "stress": 6,
+        "reputation": -2
+      }
+    },
+    "B": {
+      "description": "Inclure des covenants financiers, clauses de garantie et instruments de couverture",
+      "impact": {
+        "rentabilite": 5,
+        "stress": 2,
+        "reputation": 6
+      }
+    },
+    "C": {
+      "description": "Reporter l’opération en attendant de meilleures conditions de marché",
+      "impact": {
+        "rentabilite": 1,
+        "stress": -1,
+        "reputation": 2
+      }
+    }
+  },
+  "variables_affectees": [
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Structuration",
+    "Gestion des Risques",
+    "Banque d’Affaires"
+  ],
+  "feedback": {
+    "A": "Miser uniquement sur la réussite augmente la rentabilité potentielle mais expose à de forts risques.",
+    "B": "C’est la meilleure pratique : structurer avec protections renforce la viabilité et rassure les investisseurs.",
+    "C": "Reporter peut être prudent, mais la banque perd du temps et d’éventuels avantages compétitifs."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+}
 }
 }

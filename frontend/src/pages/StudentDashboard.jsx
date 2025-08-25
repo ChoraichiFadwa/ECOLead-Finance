@@ -77,7 +77,7 @@ const StudentDashboard = () => {
 
       setProgress({
   ...progressData,
-  concept_progress: filteredConcepts  // ✅ Inject it
+  concept_progress: filteredConcepts
 })
       // find the concept he didn't start yet or the lowest completion rate
       if (filteredConcepts && filteredConcepts.length > 0){
@@ -203,7 +203,7 @@ const StudentDashboard = () => {
 
       {/* Learning Focus OR Completion Celebration */}
 {progress?.concept_progress && progress.concept_progress.length > 0 ? (
-  // ✅ Concepts exist and are loaded
+  // Concepts exist and are loaded
   progress.concept_progress.some(c => c.missions_completed < c.total_missions) ? (
     // 🔹 Still learning: Show Recommended Concept
     <div className="card bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">

@@ -11,7 +11,7 @@
         ],
         "intermédiaire": [
           { "id": "Lire les cycles boursiers" },
-          { "id": "Indices et ETF" }
+          { "id": "ETF et les fonds indiciels" }
         ],
         "avancé": [
           { "id": "Produits dérivés et stratégies avancées" }
@@ -103,7 +103,23 @@
         ]
       },
       "progression": 0
-    }
-
+    },
+    "Gestion des Risques Transactionnels": {
+  "nom": "Gestion des Risques Transactionnels",
+  "description": "Se concentre sur les risques liés aux transactions financières, à la structuration de financements et à la conformité réglementaire. Évalue les risques de crédit et opérationnels dans le cadre des financements et des fusions-acquisitions.",
+  "profiles": [3],
+  "missions": {
+    "débutant": [
+      { "id": "Identifier un risque de crédit dans une opération" }
+    ],
+    "intermédiaire": [
+      { "id": "Évaluer un risque de transaction M&A" }
+    ],
+    "avancé": [
+      { "id": "Structurer une opération avec gestion intégrée des risques" }
+    ]
+  },
+  "progression": 0
+}
   }
 }

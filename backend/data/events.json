@@ -65,32 +65,57 @@
       }
     },
     {
-      "id": "Changement de Politique BCE/FED",
-      "type": "politique",
-      "message": "Modification significative des taux directeurs",
-      "conditions": {
-        "niveau": [
-          "débutant",
-          "intermédiaire"
-        ],
-        "etat_joueur": {
-          "reputation": "< 60"
-        }
-      },
-      "modifie_choix": {
-        "A": {
-          "reputation": -5,
-          "stress": 5
-        },
-        "B": {
-          "rentabilite": 5,
-          "stress": 3
-        },
-        "C": {
-          "reputation": 3
-        }
-      }
+  "id": "Historique - Bulle du Mississippi",
+  "type": "historique",
+  "message": "Expansion monétaire et spéculation sur la Compagnie du Mississippi, suivie d’un effondrement brutal.",
+  "conditions": {
+    "niveau": [
+      "intermédiaire",
+      "avancé"
+    ]
+  },
+  "modifie_choix": {
+    "A": {
+      "rentabilite": 20,
+      "cashflow": -10,
+      "stress": 8
     },
+    "B": {
+      "rentabilite": -5,
+      "stress": 3,
+      "reputation": 2
+    },
+    "C": {
+      "reputation": 5,
+      "cashflow": -2,
+      "rentabilite": 3
+    }
+  }
+},
+    {
+  "id": "Boom Économique Global",
+  "type": "macro",
+  "message": "Croissance soutenue, hausse généralisée des indices boursiers.",
+  "conditions": {
+    "niveau": [
+      "intermédiaire"
+    ]
+  },
+  "modifie_choix": {
+    "A": {
+      "rentabilite": 15,
+      "reputation": 2
+    },
+    "B": {
+      "rentabilite": 10,
+      "reputation": 5
+    },
+    "C": {
+      "rentabilite": 0,
+      "reputation": -2
+    }
+  }
+},
     {
       "id": "Quantitative Easing",
       "type": "politique",
@@ -131,16 +156,20 @@
       },
       "modifie_choix": {
         "A": {
-          "stress": 5,
-          "reputation": -5
-        },
-        "B": {
-          "rentabilite": 8,
-          "stress": 3
-        },
-        "C": {
-          "reputation": 8
-        }
+      "stress": 1,
+      "reputation": 0,
+      "rentabilite": -2
+    },
+    "B": {
+      "rentabilite": 8,
+      "stress": 3,
+      "reputation": -2
+    },
+    "C": {
+      "reputation": 8,
+      "stress": 0,
+      "rentabilite": -1
+    }
       }
     },
     {
