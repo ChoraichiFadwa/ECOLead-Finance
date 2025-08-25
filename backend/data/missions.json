@@ -503,6 +503,788 @@
     ],
     "reutilisable": true
   },
+  "Signaux d'achat-vente avec moyennes mobiles": {
+  "id": "Signaux d'achat-vente avec moyennes mobiles",
+  "concept": "Analyse Technique Fondamentale",
+  "niveau": "débutant",
+  "type": "Investissement",
+  "contexte": "Vous analysez 5 actions du CAC 40 avec les moyennes mobiles simples (20 jours et 50 jours). Vous devez décider d’acheter, vendre ou attendre selon les signaux observés.",
+  "objectif_pedagogique": "Apprendre à utiliser les moyennes mobiles pour détecter des signaux simples d’achat ou de vente.",
+  "choix": {
+    "A": {
+      "description": "Acheter une action dès que la moyenne mobile 20 jours croise au-dessus de la 50 jours",
+      "impact": { "cashflow": -3, "rentabilite": 4, "stress": 2 }
+    },
+    "B": {
+      "description": "Vendre dès que la moyenne 20 jours croise en dessous de la 50 jours",
+      "impact": { "cashflow": 2, "rentabilite": -2, "stress": 1 }
+    },
+    "C": {
+      "description": "Ne rien faire et attendre plus de confirmations",
+      "impact": { "cashflow": 0, "rentabilite": 1, "stress": -1 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress"],
+  "tags": ["Moyennes Mobiles", "Signaux d'achat-vente", "Analyse Technique"],
+  "feedback": {
+    "A": "Le croisement haussier est un signal d’achat classique, mais peut être piégeux en période de volatilité.",
+    "B": "La vente précoce protège du risque mais peut limiter les gains si le marché rebondit.",
+    "C": "Attendre réduit le stress mais peut vous faire rater des opportunités."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+"Timing optimal avec RSI et MACD": {
+  "id": "Timing optimal avec RSI et MACD",
+  "concept": "Analyse Technique Fondamentale",
+  "niveau": "intermédiaire",
+  "type": "Investissement",
+  "contexte": "Vous analysez un ETF sectoriel en période de forte volatilité. Vous combinez RSI et MACD pour déterminer le meilleur timing d’entrée.",
+  "objectif_pedagogique": "Comprendre comment combiner plusieurs indicateurs techniques pour améliorer la précision des décisions.",
+  "choix": {
+    "A": {
+      "description": "Entrer dès que le RSI est inférieur à 30 (survente)",
+      "impact": { "cashflow": -5, "rentabilite": 6, "stress": 3 }
+    },
+    "B": {
+      "description": "Attendre que le MACD confirme une tendance haussière avant d’acheter",
+      "impact": { "cashflow": -4, "rentabilite": 5, "stress": 1 }
+    },
+    "C": {
+      "description": "Rester liquide et ne pas entrer tant que les signaux sont contradictoires",
+      "impact": { "cashflow": 0, "rentabilite": 1, "stress": -2 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress"],
+  "tags": ["RSI", "MACD", "Volatilité", "Analyse Technique"],
+  "feedback": {
+    "A": "Un RSI bas signale une opportunité, mais en période volatile, cela peut être un faux signal.",
+    "B": "Combiner RSI et MACD renforce la fiabilité de vos décisions.",
+    "C": "Rester liquide est une approche prudente mais réduit le potentiel de rendement."
+  },
+  "evenements_possibles": ["Récession Économique"],
+  "reutilisable": true
+},
+
+"Stratégie algorithmique et backtesting": {
+  "id": "Stratégie algorithmique et backtesting",
+  "concept": "Analyse Technique Fondamentale",
+  "niveau": "avancé",
+  "type": "Investissement",
+  "contexte": "Vous développez une stratégie de trading algorithmique basée sur plusieurs indicateurs techniques et la testez sur 3 ans de données historiques.",
+  "objectif_pedagogique": "Apprendre à concevoir une stratégie quantitative, tester sa robustesse et gérer les risques associés.",
+  "choix": {
+    "A": {
+      "description": "Construire une stratégie multi-indicateurs et la lancer directement sur le marché",
+      "impact": { "cashflow": -8, "rentabilite": 12, "stress": 6 }
+    },
+    "B": {
+      "description": "Effectuer un backtest approfondi avant de déployer la stratégie",
+      "impact": { "cashflow": -5, "rentabilite": 8, "stress": 2, "reputation": 3 }
+    },
+    "C": {
+      "description": "Utiliser uniquement des stratégies simples (MACD ou RSI seul) pour éviter la complexité",
+      "impact": { "cashflow": -3, "rentabilite": 4, "stress": -1 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress", "reputation"],
+  "tags": ["Trading Algorithmique", "Backtesting", "Stratégie Quantitative"],
+  "feedback": {
+    "A": "Lancer une stratégie sans test est risqué, fort potentiel de gain mais stress élevé.",
+    "B": "Le backtesting réduit le risque et améliore la réputation de vos décisions.",
+    "C": "Les stratégies simples sont plus sûres mais moins performantes sur le long terme."
+  },
+  "evenements_possibles": ["Crise Financière Systémique"],
+  "reutilisable": true
+},
+"Portefeuille équilibré 60-40": {
+  "id": "Portefeuille équilibré 60-40",
+  "concept": "Allocation d'Actifs Stratégique",
+  "niveau": "débutant",
+  "type": "Gestion de portefeuille",
+  "contexte": "Un client modéré vous confie 100 000 €. Vous devez construire un portefeuille équilibré entre actions et obligations.",
+  "objectif_pedagogique": "Comprendre les bases de l’allocation d’actifs avec une stratégie classique 60% actions / 40% obligations.",
+  "choix": {
+    "A": {
+      "description": "Respecter strictement la répartition 60% actions / 40% obligations",
+      "impact": { "cashflow": -3, "rentabilite": 4, "stress": -1, "reputation": 3 }
+    },
+    "B": {
+      "description": "Surpondérer les actions à 70% pour viser plus de rendement",
+      "impact": { "cashflow": -4, "rentabilite": 6, "stress": 2 }
+    },
+    "C": {
+      "description": "Surpondérer les obligations à 60% pour réduire le risque",
+      "impact": { "cashflow": -2, "rentabilite": 2, "stress": -2, "reputation": 2 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress", "reputation"],
+  "tags": ["Allocation", "Actions", "Obligations", "Débutant"],
+  "feedback": {
+    "A": "C’est une allocation standard qui équilibre rendement et risque.",
+    "B": "Plus d’actions = plus de rendement potentiel mais aussi plus de volatilité.",
+    "C": "Plus d’obligations = stabilité accrue mais moins de performance."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+"Optimisation internationale": {
+  "id": "Optimisation internationale",
+  "concept": "Allocation d'Actifs Stratégique",
+  "niveau": "intermédiaire",
+  "type": "Gestion de portefeuille",
+  "contexte": "Un client souhaite diversifier son portefeuille entre actions européennes, américaines et obligations, avec un objectif de 6% de rendement annuel.",
+  "objectif_pedagogique": "Appliquer la diversification internationale pour réduire la volatilité et atteindre un rendement cible.",
+  "choix": {
+    "A": {
+      "description": "Allouer équitablement entre Europe, USA et obligations",
+      "impact": { "cashflow": -4, "rentabilite": 5, "stress": -1, "reputation": 3 }
+    },
+    "B": {
+      "description": "Surpondérer les actions américaines en raison de leur historique de performance",
+      "impact": { "cashflow": -5, "rentabilite": 7, "stress": 2 }
+    },
+    "C": {
+      "description": "Renforcer la part d’obligations pour mieux contrôler la volatilité",
+      "impact": { "cashflow": -3, "rentabilite": 3, "stress": -2 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress", "reputation"],
+  "tags": ["Allocation", "International", "Diversification"],
+  "feedback": {
+    "A": "Un portefeuille équilibré assure une bonne diversification.",
+    "B": "Les USA offrent souvent des rendements supérieurs, mais avec plus de risque.",
+    "C": "Renforcer les obligations protège du risque mais limite la performance."
+  },
+  "evenements_possibles": ["Récession Économique"],
+  "reutilisable": true
+},
+
+"Allocation institutionnelle avec actifs alternatifs": {
+  "id": "Allocation institutionnelle avec actifs alternatifs",
+  "concept": "Allocation d'Actifs Stratégique",
+  "niveau": "avancé",
+  "type": "Gestion de portefeuille",
+  "contexte": "Vous devez gérer une allocation de 100M€ pour un fonds institutionnel et intégrer des actifs alternatifs (REITs, commodités, private equity).",
+  "objectif_pedagogique": "Maîtriser l’intégration d’actifs alternatifs pour diversifier et améliorer le rendement ajusté au risque.",
+  "choix": {
+    "A": {
+      "description": "Intégrer 20% d’actifs alternatifs dans le portefeuille",
+      "impact": { "cashflow": -10, "rentabilite": 12, "stress": 4, "reputation": 4 }
+    },
+    "B": {
+      "description": "Limiter les actifs alternatifs à 10% pour réduire le risque",
+      "impact": { "cashflow": -6, "rentabilite": 8, "stress": 2, "reputation": 3 }
+    },
+    "C": {
+      "description": "Exclure totalement les actifs alternatifs et rester sur actions/obligations",
+      "impact": { "cashflow": -4, "rentabilite": 5, "stress": -1, "reputation": 2 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress", "reputation"],
+  "tags": ["Allocation", "Institutionnel", "Actifs Alternatifs", "Avancé"],
+  "feedback": {
+    "A": "Les actifs alternatifs diversifient fortement mais augmentent la complexité.",
+    "B": "Limiter leur part est un compromis prudent.",
+    "C": "Ignorer les alternatifs est plus sûr mais réduit les opportunités de rendement."
+  },
+  "evenements_possibles": ["Crise Financière Systémique"],
+  "reutilisable": true
+},
+"Calculer la VaR à 95%": {
+  "id": "Calculer la VaR à 95%",
+  "concept": "Gestion des Risques de Portefeuille",
+  "niveau": "débutant",
+  "type": "Gestion de risques",
+  "contexte": "Vous gérez un portefeuille d’actions et devez mesurer son exposition aux risques de marché en période normale.",
+  "objectif_pedagogique": "Apprendre à utiliser la Value-at-Risk comme outil de mesure de risque.",
+  "choix": {
+    "A": {
+      "description": "Utiliser un modèle historique simple",
+      "impact": { "reputation": 3, "stress": -1 }
+    },
+    "B": {
+      "description": "Utiliser un modèle paramétrique (variance-covariance)",
+      "impact": { "rentabilite": 2, "stress": 2 }
+    }
+  },
+  "variables_affectees": ["reputation", "rentabilite", "stress"],
+  "tags": ["VaR", "Mesure de risque", "Quantitatif"],
+  "feedback": {
+    "A": "Le modèle historique est simple et robuste mais peu sensible aux changements rapides.",
+    "B": "Le modèle paramétrique est plus sophistiqué mais repose sur des hypothèses fortes."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+"Mettre en place une couverture par options": {
+  "id": "Mettre en place une couverture par options",
+  "concept": "Gestion des Risques de Portefeuille",
+  "niveau": "intermédiaire",
+  "type": "Gestion de risques",
+  "contexte": "Votre portefeuille actions est exposé à une correction de marché. Vous devez décider d’utiliser des options pour réduire le risque.",
+  "objectif_pedagogique": "Comprendre l’utilisation des options comme instruments de couverture.",
+  "choix": {
+    "A": {
+      "description": "Acheter des puts pour protéger le portefeuille",
+      "impact": { "cashflow": -3, "stress": -2, "reputation": 4 }
+    },
+    "B": {
+      "description": "Vendre des calls couverts",
+      "impact": { "cashflow": 2, "rentabilite": 3, "stress": 1 }
+    }
+  },
+  "variables_affectees": ["cashflow", "rentabilite", "stress", "reputation"],
+  "tags": ["Options", "Couverture", "Dérivés"],
+  "feedback": {
+    "A": "Acheter des puts coûte cher mais protège efficacement.",
+    "B": "La vente de calls couvre partiellement mais limite le potentiel de gain."
+  },
+  "evenements_possibles": ["Récession Économique"],
+  "reutilisable": true
+},
+
+"Gérer un portefeuille multi-actifs en crise": {
+  "id": "Gérer un portefeuille multi-actifs en crise",
+  "concept": "Gestion des Risques de Portefeuille",
+  "niveau": "avancé",
+  "type": "Gestion de risques",
+  "contexte": "Un choc systémique secoue les marchés. Vous devez piloter un portefeuille diversifié avec actions, obligations et dérivés.",
+  "objectif_pedagogique": "Développer une approche intégrée de gestion des risques en période de crise.",
+  "choix": {
+    "A": {
+      "description": "Renforcer les positions défensives (obligations, or)",
+      "impact": { "rentabilite": -2, "stress": -3, "reputation": 4 }
+    },
+    "B": {
+      "description": "Exploiter la volatilité en vendant des options",
+      "impact": { "rentabilite": 8, "stress": 5, "reputation": -2 }
+    }
+  },
+  "variables_affectees": ["rentabilite", "stress", "reputation"],
+  "tags": ["Multi-actifs", "Crise", "Gestion avancée"],
+  "feedback": {
+    "A": "Stratégie prudente qui protège le capital mais limite les gains.",
+    "B": "Exploiter la volatilité peut rapporter gros mais augmente fortement le risque."
+  },
+  "evenements_possibles": ["Crise Financière Systémique"],
+  "reutilisable": true
+},
+"Analyser les ratios financiers de base": {
+  "id": "Analyser les ratios financiers de base",
+  "concept": "Analyse Fondamentale des Entreprises",
+  "niveau": "débutant",
+  "type": "Analyse financière",
+  "contexte": "Vous comparez 3 entreprises du même secteur en utilisant leurs états financiers publics.",
+  "objectif_pedagogique": "Comprendre l’importance des ratios financiers pour évaluer la santé d’une entreprise.",
+  "choix": {
+    "A": { "description": "Comparer le P/E uniquement", "impact": { "reputation": 2 } },
+    "B": { "description": "Comparer P/E, P/B et ROE", "impact": { "reputation": 5, "stress": 1 } }
+  },
+  "variables_affectees": ["reputation", "stress"],
+  "tags": ["Ratios financiers", "Analyse fondamentale"],
+  "feedback": {
+    "A": "Le P/E est utile mais insuffisant pour une analyse complète.",
+    "B": "Combiner plusieurs ratios permet une vision plus robuste."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+"Construire un modèle DCF simplifié": {
+  "id": "Construire un modèle DCF simplifié",
+  "concept": "Analyse Fondamentale des Entreprises",
+  "niveau": "intermédiaire",
+  "type": "Analyse financière",
+  "contexte": "Vous devez valoriser une entreprise de taille moyenne avec un flux de trésorerie prévisionnel.",
+  "objectif_pedagogique": "Apprendre à appliquer un modèle d’actualisation des flux de trésorerie (DCF).",
+  "choix": {
+    "A": { "description": "Utiliser un taux d’actualisation fixe", "impact": { "rentabilite": 2, "reputation": 2 } },
+    "B": { "description": "Ajuster le taux d’actualisation au risque sectoriel", "impact": { "rentabilite": 4, "stress": 2, "reputation": 4 } }
+  },
+  "variables_affectees": ["rentabilite", "stress", "reputation"],
+  "tags": ["DCF", "Valorisation"],
+  "feedback": {
+    "A": "Un taux fixe est simple mais ne reflète pas les risques réels.",
+    "B": "Un taux ajusté rend l’évaluation plus réaliste mais plus complexe."
+  },
+  "evenements_possibles": ["Récession Économique"],
+  "reutilisable": true
+},
+
+"Réaliser une analyse sectorielle complète": {
+  "id": "Réaliser une analyse sectorielle complète",
+  "concept": "Analyse Fondamentale des Entreprises",
+  "niveau": "avancé",
+  "type": "Analyse financière",
+  "contexte": "Vous devez recommander les 5 meilleurs titres d’un secteur pour un fonds d’investissement.",
+  "objectif_pedagogique": "Apprendre à combiner analyse financière et analyse sectorielle pour sélectionner les meilleures opportunités.",
+  "choix": {
+    "A": { "description": "Se baser uniquement sur les ratios financiers", "impact": { "reputation": 2 } },
+    "B": { "description": "Prendre en compte ratios + perspectives sectorielles", "impact": { "rentabilite": 6, "reputation": 5, "stress": 2 } }
+  },
+  "variables_affectees": ["rentabilite", "reputation", "stress"],
+  "tags": ["Analyse sectorielle", "Sélection de titres"],
+  "feedback": {
+    "A": "Les ratios sont utiles mais peuvent manquer de contexte.",
+    "B": "Combiner finances et perspectives sectorielles renforce vos choix."
+  },
+  "evenements_possibles": ["Choc sectoriel spécifique"],
+  "reutilisable": true
+},
+"DCF simple entreprise mature": {
+  "id": "DCF simple entreprise mature",
+  "concept": "Modélisation Financière",
+  "niveau": "débutant",
+  "type": "Finance d'entreprise",
+  "contexte": "Vous devez construire un modèle DCF simple pour une entreprise mature avec croissance stable.",
+  "objectif_pedagogique": "Apprendre à construire un modèle DCF de base et à estimer la valeur d'une entreprise.",
+  "choix": {
+    "A": { "description": "Utiliser un taux d'actualisation conservateur", "impact": { "rentabilite": 3, "reputation": 3 } },
+    "B": { "description": "Prendre des hypothèses agressives de croissance", "impact": { "rentabilite": 5, "stress": 2 } },
+    "C": { "description": "Se concentrer uniquement sur les flux de trésorerie historiques", "impact": { "rentabilite": 2, "reputation": 2 } }
+  },
+  "variables_affectees": ["rentabilite","reputation","stress"],
+  "tags": ["DCF","Modélisation","Finance"],
+  "feedback": {
+    "A": "Approche prudente mais réaliste.",
+    "B": "Potentiel plus élevé mais risque d'erreur plus grand.",
+    "C": "Bonne maîtrise des données passées, mais sous-estimation du potentiel futur."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+"Modèle intégré multi-variables": {
+  "id": "Modèle intégré multi-variables",
+  "concept": "Modélisation Financière",
+  "niveau": "intermédiaire",
+  "type": "Finance d'entreprise",
+  "contexte": "Construire un modèle intégré P&L, bilan et cash-flow avec analyse de sensibilité multi-variables.",
+  "objectif_pedagogique": "Comprendre l'impact des différentes hypothèses sur la valorisation et la performance financière.",
+  "choix": {
+    "A": { "description": "Tester différentes hypothèses de croissance", "impact": { "rentabilite": 5, "stress": 3 } },
+    "B": { "description": "Se concentrer uniquement sur la stabilité financière", "impact": { "rentabilite": 3, "reputation": 4 } },
+    "C": { "description": "Inclure différents scénarios macroéconomiques", "impact": { "rentabilite": 4, "stress": 4, "reputation": 3 } }
+  },
+  "variables_affectees": ["rentabilite","stress","reputation"],
+  "tags": ["Modélisation","Finance","Analyse de sensibilité"],
+  "feedback": {
+    "A": "Bon exercice pour évaluer les risques et opportunités.",
+    "B": "Stabilité mais opportunités limitées.",
+    "C": "Approche complète et réaliste."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+"Modèle cyclique multi-scenario": {
+  "id": "Modèle cyclique multi-scenario",
+  "concept": "Modélisation Financière",
+  "niveau": "avancé",
+  "type": "Finance d'entreprise",
+  "contexte": "Construire un modèle de valorisation pour une entreprise cyclique intégrant différents scénarios macroéconomiques.",
+  "objectif_pedagogique": "Maîtriser l'analyse avancée de scénarios et anticiper les variations économiques sur l'entreprise.",
+  "choix": {
+    "A": { "description": "Intégrer des scénarios optimistes et pessimistes", "impact": { "rentabilite": 6, "stress": 5 } },
+    "B": { "description": "Se concentrer uniquement sur le scénario le plus probable", "impact": { "rentabilite": 4, "reputation": 4 } },
+    "C": { "description": "Inclure des scénarios extrêmes pour tester la résilience", "impact": { "stress": 6, "reputation": 5 } }
+  },
+  "variables_affectees": ["rentabilite","stress","reputation"],
+  "tags": ["Modélisation","Scénarios","Finance Avancée"],
+  "feedback": {
+    "A": "Bonne couverture des risques et opportunités.",
+    "B": "Approche réaliste mais moins complète.",
+    "C": "Très complet, permet de préparer toutes les éventualités."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+"Analyse structure concurrentielle": {
+  "id": "Analyse structure concurrentielle",
+  "concept": "Analyse sectorielle",
+  "niveau": "débutant",
+  "type": "Finance",
+  "contexte": "Vous devez analyser la structure concurrentielle d'un secteur à l'aide des 5 forces de Porter pour comprendre la dynamique de marché.",
+  "objectif_pedagogique": "Apprendre à identifier les forces et faiblesses d'un secteur pour contextualiser l'analyse des entreprises.",
+  "choix": {
+    "A": { "description": "Se concentrer uniquement sur les concurrents directs", "impact": { "rentabilite": 3, "reputation": 3 } },
+    "B": { "description": "Inclure les concurrents indirects et substituts", "impact": { "rentabilite": 2, "reputation": 4, "stress": 2 } },
+    "C": { "description": "Analyser également les fournisseurs et clients clés", "impact": { "rentabilite": 3, "reputation": 5, "stress": 3 } }
+  },
+  "variables_affectees": ["rentabilite","reputation","stress"],
+  "tags": ["Analyse","Porter","Débutant"],
+  "feedback": {
+    "A": "Bonne approche pour une première lecture du secteur.",
+    "B": "Analyse plus complète mais légèrement plus complexe.",
+    "C": "Vision globale et précise du secteur."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+"Comparaison multiples et marges": {
+  "id": "Comparaison multiples et marges",
+  "concept": "Analyse sectorielle",
+  "niveau": "intermédiaire",
+  "type": "Finance",
+  "contexte": "Vous devez comparer les multiples de valorisation et marges des entreprises d'un secteur sur 5 ans pour détecter les tendances et anomalies.",
+  "objectif_pedagogique": "Apprendre à analyser les performances financières relatives des entreprises au sein d'un secteur.",
+  "choix": {
+    "A": { "description": "Se concentrer sur les ratios financiers traditionnels", "impact": { "rentabilite": 4, "reputation": 3 } },
+    "B": { "description": "Inclure les données de croissance et rentabilité opérationnelle", "impact": { "rentabilite": 5, "reputation": 4, "stress": 2 } },
+    "C": { "description": "Comparer également avec les tendances macroéconomiques du secteur", "impact": { "rentabilite": 4, "reputation": 5, "stress": 3 } }
+  },
+  "variables_affectees": ["rentabilite","reputation","stress"],
+  "tags": ["Analyse","Moyen","Sectoriel"],
+  "feedback": {
+    "A": "Analyse classique utile mais limitée.",
+    "B": "Approche complète pour des conclusions plus solides.",
+    "C": "Vision stratégique complète intégrant macro et micro."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+"Étude sectorielle avancée": {
+  "id": "Étude sectorielle avancée",
+  "concept": "Analyse sectorielle",
+  "niveau": "avancé",
+  "type": "Finance",
+  "contexte": "Vous devez réaliser une étude sectorielle complète avec prévisions, benchmarks et recommandations d’investissement.",
+  "objectif_pedagogique": "Maîtriser l'analyse sectorielle complète pour sélectionner les meilleures opportunités d'investissement.",
+  "choix": {
+    "A": { "description": "Se concentrer sur les entreprises leaders du secteur", "impact": { "rentabilite": 5, "reputation": 4, "stress": 3 } },
+    "B": { "description": "Inclure l'ensemble des entreprises pour un benchmark exhaustif", "impact": { "rentabilite": 6, "reputation": 5, "stress": 4 } },
+    "C": { "description": "Combiner analyse quantitative et qualitative pour recommandations", "impact": { "rentabilite": 7, "reputation": 6, "stress": 5 } }
+  },
+  "variables_affectees": ["rentabilite","reputation","stress"],
+  "tags": ["Analyse","Avancé","Sectoriel"],
+  "feedback": {
+    "A": "Bonne sélection mais vision partielle.",
+    "B": "Benchmark complet pour comparaison solide.",
+    "C": "Approche la plus complète et stratégique."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+
+
+
+  "Couverture avec puts protecteurs": {
+  "id": "Couverture avec puts protecteurs",
+  "concept": "Marchés Dérivés et Couverture",
+  "niveau": "débutant",
+  "type": "Investissement",
+  "contexte": "Vous gérez un portefeuille d'actions et souhaitez protéger votre capital contre une baisse soudaine du marché. Vous envisagez d'acheter des options de vente (puts) pour couvrir votre portefeuille.",
+  "objectif_pedagogique": "Apprendre à utiliser les puts pour réduire le risque de perte sur un portefeuille actions.",
+  "choix": {
+    "A": {
+      "description": "Acheter des puts pour couvrir 100% du portefeuille",
+      "impact": {
+        "cashflow": -3,
+        "stress": -2,
+        "reputation": 3
+      }
+    },
+    "B": {
+      "description": "Couvrir partiellement le portefeuille avec des puts",
+      "impact": {
+        "cashflow": -1,
+        "stress": -1,
+        "reputation": 2
+      }
+    },
+    "C": {
+      "description": "Ne pas couvrir et rester exposé aux fluctuations du marché",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": 3,
+        "stress": 3
+      }
+    }
+  },
+  "variables_affectees": [
+    "cashflow",
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Couverture",
+    "Options",
+    "Risque"
+  ],
+  "feedback": {
+    "A": "Vous protégez entièrement le portefeuille, mais cela a un coût en cashflow.",
+    "B": "Vous limitez partiellement le risque tout en conservant un certain potentiel de gain.",
+    "C": "Vous assumez le risque complet, ce qui peut être rentable mais stressant."
+  },
+  "evenements_possibles": [
+    "Récession Économique",
+    "Volatilité Exagérée du Marché"
+  ],
+  "reutilisable": true
+},
+  "Vendre des calls couverts sur blue chips": {
+  "id": "Vendre des calls couverts sur blue chips",
+  "concept": "Marchés Dérivés et Couverture",
+  "niveau": "intermédiaire",
+  "type": "Investissement",
+  "contexte": "Vous possédez un portefeuille d’actions blue chips et souhaitez générer des revenus additionnels en vendant des options d'achat couvertes.",
+  "objectif_pedagogique": "Comprendre la stratégie des calls couverts pour augmenter le rendement tout en limitant le risque.",
+  "choix": {
+    "A": {
+      "description": "Vendre des calls sur toutes vos actions blue chips",
+      "impact": {
+        "cashflow": 4,
+        "rentabilite": 2,
+        "stress": 1
+      }
+    },
+    "B": {
+      "description": "Vendre des calls sur seulement 50% du portefeuille",
+      "impact": {
+        "cashflow": 2,
+        "rentabilite": 1,
+        "stress": 1
+      }
+    },
+    "C": {
+      "description": "Ne pas vendre de calls et conserver les actions inchangées",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": 3,
+        "stress": 0
+      }
+    }
+  },
+  "variables_affectees": [
+    "cashflow",
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Options",
+    "Revenus",
+    "Blue Chips"
+  ],
+  "feedback": {
+    "A": "Vous maximisez les revenus mais limitez le potentiel de plus-value des actions.",
+    "B": "Une approche équilibrée qui génère un revenu modéré.",
+    "C": "Vous conservez tout le potentiel des actions mais ne générez pas de revenu additionnel."
+  },
+  "evenements_possibles": [
+    "Volatilité Exagérée du Marché"
+  ],
+  "reutilisable": true
+},
+  "Stratégie de collar institutionnelle": {
+  "id": "Stratégie de collar institutionnelle",
+  "concept": "Marchés Dérivés et Couverture",
+  "niveau": "avancé",
+  "type": "Investissement",
+  "contexte": "Vous gérez un portefeuille institutionnel et souhaitez protéger votre capital tout en laissant un potentiel de gain limité en utilisant une stratégie de collar (achat de puts + vente de calls).",
+  "objectif_pedagogique": "Maîtriser une stratégie complexe combinant couverture et limitation du rendement pour les portefeuilles institutionnels.",
+  "choix": {
+    "A": {
+      "description": "Mettre en place un collar complet couvrant toutes les positions",
+      "impact": {
+        "cashflow": -5,
+        "stress": -3,
+        "reputation": 4
+      }
+    },
+    "B": {
+      "description": "Collar partiel sur la moitié du portefeuille",
+      "impact": {
+        "cashflow": -2,
+        "stress": -1,
+        "reputation": 3
+      }
+    },
+    "C": {
+      "description": "Ne pas utiliser de collar et rester exposé",
+      "impact": {
+        "cashflow": 0,
+        "rentabilite": 6,
+        "stress": 5
+      }
+    }
+  },
+  "variables_affectees": [
+    "cashflow",
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Collar",
+    "Options",
+    "Portefeuille Institutionnel"
+  ],
+  "feedback": {
+    "A": "Vous sécurisez complètement le portefeuille mais avec un coût important.",
+    "B": "Vous protégez partiellement votre capital tout en conservant un potentiel de gain.",
+    "C": "Vous prenez un risque élevé mais conservez le plein potentiel de rendement."
+  },
+  "evenements_possibles": [
+    "Récession Économique",
+    "Crise Financière Systémique"
+  ],
+  "reutilisable": true
+},
+  "Calcul des ratios de performance de base": {
+  "id": "Calcul des ratios de performance de base",
+  "concept": "Performance et Attribution",
+  "niveau": "débutant",
+  "type": "Analyse",
+  "contexte": "Vous devez calculer les ratios de Sharpe, Treynor et Jensen pour un portefeuille sur une période d'un an afin de comprendre la performance ajustée du risque.",
+  "objectif_pedagogique": "Apprendre à mesurer la performance des portefeuilles en fonction du risque.",
+  "choix": {
+    "A": {
+      "description": "Calculer tous les ratios pour chaque portefeuille individuellement",
+      "impact": {
+        "rentabilite": 1,
+        "stress": 1,
+        "reputation": 3
+      }
+    },
+    "B": {
+      "description": "Se concentrer uniquement sur le ratio de Sharpe",
+      "impact": {
+        "rentabilite": 0,
+        "stress": 0,
+        "reputation": 1
+      }
+    },
+    "C": {
+      "description": "Ne pas calculer les ratios et se baser sur le rendement absolu",
+      "impact": {
+        "rentabilite": 3,
+        "stress": 2,
+        "reputation": -2
+      }
+    }
+  },
+  "variables_affectees": [
+    "rentabilite",
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Performance",
+    "Ratios",
+    "Analyse"
+  ],
+  "feedback": {
+    "A": "Vous obtenez une analyse complète et fiable.",
+    "B": "Vous avez une estimation partielle de la performance ajustée au risque.",
+    "C": "Vous risquez d’interpréter la performance de façon incorrecte."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+}, 
+  "Attribution de performance intermédiaire": {
+  "id": "Attribution de performance intermédiaire",
+  "concept": "Performance et Attribution",
+  "niveau": "intermédiaire",
+  "type": "Analyse",
+  "contexte": "Vous devez décomposer la performance d’un portefeuille entre allocation d’actifs et sélection de titres pour identifier les sources de rendement.",
+  "objectif_pedagogique": "Apprendre à expliquer la performance d’un portefeuille et justifier les décisions d’investissement.",
+  "choix": {
+    "A": {
+      "description": "Attribuer la performance uniquement à l’allocation d’actifs",
+      "impact": {
+        "reputation": 2,
+        "stress": 1
+      }
+    },
+    "B": {
+      "description": "Attribuer la performance uniquement à la sélection de titres",
+      "impact": {
+        "reputation": 2,
+        "stress": 1
+      }
+    },
+    "C": {
+      "description": "Attribuer correctement entre allocation et sélection",
+      "impact": {
+        "reputation": 4,
+        "stress": 2
+      }
+    }
+  },
+  "variables_affectees": [
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Attribution",
+    "Performance",
+    "Analyse"
+  ],
+  "feedback": {
+    "A": "Vous négligez l’impact de la sélection de titres.",
+    "B": "Vous négligez l’impact de l’allocation stratégique.",
+    "C": "Vous réalisez une attribution complète et fiable."
+  },
+  "evenements_possibles": [],
+  "reutilisable": true
+},
+  "Analyse avancée de performance hedge fund": {
+  "id": "Analyse avancée de performance hedge fund",
+  "concept": "Performance et Attribution",
+  "niveau": "avancé",
+  "type": "Analyse",
+  "contexte": "Vous devez analyser un fonds hedge fund multi-stratégies et identifier précisément les sources de performance pour présenter un rapport détaillé aux investisseurs.",
+  "objectif_pedagogique": "Maîtriser les méthodes avancées d’attribution et de décomposition de performance.",
+  "choix": {
+    "A": {
+      "description": "Analyser uniquement les stratégies actions",
+      "impact": {
+        "reputation": 2,
+        "stress": 2
+      }
+    },
+    "B": {
+      "description": "Analyser uniquement les stratégies de marché monétaire et obligations",
+      "impact": {
+        "reputation": 2,
+        "stress": 2
+      }
+    },
+    "C": {
+      "description": "Analyser toutes les stratégies et fournir un rapport détaillé",
+      "impact": {
+        "reputation": 5,
+        "stress": 3
+      }
+    }
+  },
+  "variables_affectees": [
+    "reputation",
+    "stress"
+  ],
+  "tags": [
+    "Hedge Fund",
+    "Performance",
+    "Analyse Avancée"
+  ],
+  "feedback": {
+    "A": "Analyse partielle et peu fiable pour les investisseurs.",
+    "B": "Analyse partielle et peu fiable pour les investisseurs.",
+    "C": "Rapport complet et professionnel qui reflète fidèlement les performances."
+  },
+  "evenements_possibles": [
+    "Récession Économique"
+  ],
+  "reutilisable": true
+},
+  
+
   "Découvrir la finance d'entreprise": {
     "id": "Découvrir la finance d'entreprise",
     "concept": "Finance d'entreprise",
