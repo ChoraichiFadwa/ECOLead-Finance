@@ -29,7 +29,7 @@ class MissionResponse(BaseModel):
     
     # Active events that modify this mission
     evenements_actifs: List[Dict[str, Any]] = []
-
+    
 class ConceptSummary(BaseModel):
     concept: str
     missions_completed: int

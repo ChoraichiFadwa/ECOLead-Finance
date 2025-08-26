@@ -21,6 +21,20 @@
     },
     {
   "id": "Changement de Politique BCE/Fed",
+  "title": "Changement de Politique BCE/Fed",
+  "context": {
+    "type": "Macro",
+    "tl_dr": "Système de Law : émission massive de billets/actions, flambée spéculative, puis panique et effondrement (1720).",
+    "definition": "Bulle historique liée au « système de Law » : la Banque (devenue Royale) et la Compagnie d’Occident alimentent l’essor par émission de billets et actions.",
+    "timeline": [
+      "1719 : montée du cours des actions de la Compagnie du Mississippi.",
+      "Début 1720 : inflation, ruée pour convertir les billets.",
+      "Mi-1720 : suspension de convertibilité, chute des cours, fin du système."
+    ],
+    "sources": [
+      { "label": "Synthèse courte (histoire financière)", "url": "https://meritis.fr/blog/histoire-et-impact-de-la-bulle-du-mississippi/" }
+    ]
+  },
   "type": "macro",
   "message": "Modification significative des taux directeurs",
   "conditions": {
@@ -46,7 +60,7 @@
     },
     {
       "id": "Hyperinflation",
-      "type": "macro",
+      "type": "Macro",
       "message": "Dévaluation rapide et incontrôlée de la monnaie",
       "conditions": {
         "niveau": [
@@ -65,9 +79,22 @@
       }
     },
     {
-  "id": "Historique - Bulle du Mississippi",
-  "type": "historique",
+  "id": "Bulle du Mississippi",
+  "title": "Bulle du Mississippi",
   "message": "Expansion monétaire et spéculation sur la Compagnie du Mississippi, suivie d’un effondrement brutal.",
+  "context": {
+    "type": "Historique",
+    "tl_dr": "Système de Law : émission massive de billets/actions, flambée spéculative, puis panique et effondrement (1720).",
+    "definition": "Bulle historique liée au « système de Law » : la Banque (devenue Royale) et la Compagnie d’Occident alimentent l’essor par émission de billets et actions.",
+    "timeline": [
+      "1719 : montée du cours des actions de la Compagnie du Mississippi.",
+      "Début 1720 : inflation, ruée pour convertir les billets.",
+      "Mi-1720 : suspension de convertibilité, chute des cours, fin du système."
+    ],
+    "sources": [
+      { "label": "Synthèse courte (histoire financière)", "url": "https://meritis.fr/blog/histoire-et-impact-de-la-bulle-du-mississippi/" }
+    ]
+  },
   "conditions": {
     "niveau": [
       "intermédiaire",

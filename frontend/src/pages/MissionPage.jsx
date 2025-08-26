@@ -2,8 +2,9 @@ import { useState, useEffect } from "react"
 import { useParams, useNavigate } from "react-router-dom"
 import { useRole } from "../contexts/RoleContext"
 import { api } from "../utils/api"
-import { ArrowLeft, Clock, Target, AlertCircle, CheckCircle, TrendingUp, TrendingDown } from "lucide-react"
+import { ArrowLeft, Clock, Target, AlertCircle, CheckCircle, TrendingUp, TrendingDown, Info } from "lucide-react"
 import LoadingSpinner from "../components/LoadingSpinner"
+import EventContextCard from "../components/EventContextCard"
 
 const MissionPage = () => {
   const { missionId } = useParams()
@@ -11,6 +12,8 @@ const MissionPage = () => {
   const navigate = useNavigate()
 
   const [mission, setMission] = useState(null)
+  const [openEventId, setOpenEventId] = useState(null)
+  const [showAllEvents, setShowAllEvents] = useState(false)
   const [selectedChoice, setSelectedChoice] = useState("")
   const [startTime] = useState(Date.now())
   const [loading, setLoading] = useState(true)
@@ -219,16 +222,88 @@ const MissionPage = () => {
             <p className="text-gray-700">{mission?.objectif_pedagogique}</p>
           </div>
 
-          {mission?.evenements_actifs && mission.evenements_actifs.length > 0 && (
-            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-              <h4 className="font-medium text-yellow-800 mb-2">⚡ Événements actifs</h4>
-              {mission.evenements_actifs.map((event, index) => (
-                <p key={index} className="text-yellow-700 text-sm">
-                  {event.message}
-                </p>
-              ))}
+{mission?.evenements_actifs && mission.evenements_actifs.length > 0 && (
+  <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
+    <h4 className="font-medium text-yellow-800 mb-3">⚡ Événements actifs</h4>
+
+    {/* Show 2 cards by default; reveal the rest on click */}
+    {(() => {
+      const events = mission.evenements_actifs
+      const visible = showAllEvents ? events : events.slice(0, 2)
+
+      return (
+        <>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+            {visible.map((event, index) => {
+              const evKey = event.id ?? index
+              const isOpen = openEventId === evKey
+
+              return (
+                <div
+                  key={evKey}
+                  className="bg-white border border-yellow-200 rounded-xl p-4 shadow-sm"
+                >
+                  <div className="flex items-start justify-between gap-3">
+                    <div className="flex items-start gap-2">
+                      <Info className="w-4 h-4 mt-0.5 text-yellow-700" aria-hidden="true" />
+                      <div>
+                        <div className="text-sm font-semibold text-gray-900">
+                          {event.title || "Événement"}
+                        </div>
+                        <p className="text-sm text-yellow-800 mt-0.5">
+                          {event.message}
+                        </p>
+
+                        {/* Optional badge if you have type/tags */}
+                        {event?.context?.type && (
+                          <span className="inline-block mt-2 px-2 py-0.5 text-xs rounded-full bg-yellow-100 text-yellow-800 border border-yellow-200">
+                            {event.context.type}
+                          </span>
+                        )}
+                      </div>
+                    </div>
+
+                    <button
+                      onClick={() => setOpenEventId(evKey)}
+                      className="inline-flex items-center justify-center
+                                 text-base md:text-sm font-medium
+                                 px-4 py-2 rounded-lg border-2
+                                 bg-white text-yellow-900 hover:bg-yellow-100
+                                 shadow-sm"
+                    >
+                      Détails
+                    </button>
+                  </div>
+
+                  {/* Modal/drawer for details */}
+                  <EventContextCard
+                    event={event}
+                    open={isOpen}
+                    onClose={() => setOpenEventId(null)}
+                  />
+                </div>
+              )
+            })}
+          </div>
+
+          {/* Show more / less toggle if many events */}
+          {events.length > 2 && (
+            <div className="mt-3 text-center">
+              <button
+                onClick={() => setShowAllEvents(s => !s)}
+                className="text-sm px-3 py-1 rounded-md border bg-white text-yellow-900 hover:bg-yellow-100"
+              >
+                {showAllEvents ? "Afficher moins" : `Afficher ${events.length - 2} autre(s)`}
+              </button>
             </div>
           )}
+        </>
+      )
+    })()}
+  </div>
+)}
+
+
 
           {mission?.tags && (
             <div className="flex flex-wrap gap-2">
