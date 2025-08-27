@@ -1792,6 +1792,302 @@
     "evenements_possibles": [],
     "reutilisable": true
   },
+  "Valoriser une PME par comparables sectoriels": {
+      "id": "Valoriser une PME par comparables sectoriels",
+      "concept": "Évaluation d’entreprise",
+      "niveau": "débutant",
+      "type": "Analyse financière",
+      "contexte": "Vous devez estimer rapidement la valeur d'une PME non cotée en utilisant des comparables du même secteur.",
+      "objectif_pedagogique": "Appliquer P/E et EV/EBITDA de comparables pertinents pour une estimation simple et cohérente.",
+      "choix": {
+        "A": {
+          "description": "Utiliser uniquement le P/E médian de grandes capitalisations du secteur (sans ajustement).",
+          "impact": {
+            "cashflow": -2,
+            "rentabilite": 2,
+            "reputation": 1,
+            "stress": 1
+          }
+        },
+        "B": {
+          "description": "Construire un panier de comparables PME, utiliser P/E et EV/EBITDA, exclure valeurs extrêmes.",
+          "impact": {
+            "cashflow": -3,
+            "rentabilite": 4,
+            "reputation": 3,
+            "stress": 1
+          }
+        },
+        "C": {
+          "description": "Appliquer une décote arbitraire importante pour être 'conservateur' sans justification analytique.",
+          "impact": {
+            "cashflow": 1,
+            "rentabilite": 1,
+            "reputation": -1,
+            "stress": 0
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "Analyse",
+        "Comparables",
+        "Multiples",
+        "Évaluation"
+      ],
+      "feedback": {
+        "A": "Comparables non homogènes → risque de biais; attention au mix grandes capi vs PME.",
+        "B": "Bonne pratique: échantillon homogène + exclusion des outliers → estimation plus robuste.",
+        "C": "Une décote sans fondement nuit à la crédibilité et peut sous-évaluer fortement la cible."
+      },
+      "evenements_possibles": [
+        "Choc sectoriel spécifique",
+        "Crise Financière Systémique"
+      ],
+      "reutilisable": true
+    },
+  "Ajuster les multiples pour croissance, rentabilité et risque": {
+      "id": "Ajuster les multiples pour croissance, rentabilité et risque",
+      "concept": "Évaluation d’entreprise",
+      "niveau": "intermédiaire",
+      "type": "Analyse financière",
+      "contexte": "Vos comparables présentent des marges et des perspectives de croissance différentes de la cible.",
+      "objectif_pedagogique": "Normaliser les multiples (N-items, marges) et ajuster pour croissance/levier afin d'améliorer la comparabilité.",
+      "choix": {
+        "A": {
+          "description": "Appliquer tels quels les multiples bruts du secteur sans normalisation ni ajustements.",
+          "impact": {
+            "cashflow": -1,
+            "rentabilite": 1,
+            "reputation": 0,
+            "stress": 1
+          }
+        },
+        "B": {
+          "description": "Retraiter EBITDA (N-items), ajuster pour marges/croissance, utiliser EV/EBITDA et P/E normalisés.",
+          "impact": {
+            "cashflow": -3,
+            "rentabilite": 5,
+            "reputation": 3,
+            "stress": 2
+          }
+        },
+        "C": {
+          "description": "Utiliser uniquement P/B pour toutes les entreprises, quel que soit le modèle économique.",
+          "impact": {
+            "cashflow": 0,
+            "rentabilite": 1,
+            "reputation": -1,
+            "stress": 0
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "Analyse",
+        "Multiples",
+        "Normalisation",
+        "Évaluation"
+      ],
+      "feedback": {
+        "A": "Sans normalisation, la comparaison est fragile et peut mener à des erreurs matérielles.",
+        "B": "Bonne pratique: comparables retraités + ajustements → estimation plus précise et défendable.",
+        "C": "P/B seul est rarement pertinent hors secteurs capital-intensifs spécifiques."
+      },
+      "evenements_possibles": [
+        "Choc sectoriel spécifique",
+        "Changement de Politique BCE/Fed"
+      ],
+      "reutilisable": true
+    },
+  "Développer des multiples forward-looking (NTM/PEG)": {
+      "id": "Développer des multiples forward-looking (NTM/PEG)",
+      "concept": "Évaluation d’entreprise",
+      "niveau": "avancé",
+      "type": "Analyse financière",
+      "contexte": "Le marché price la croissance future; vous devez estimer des multiples prospectifs pour refléter les perspectives.",
+      "objectif_pedagogique": "Construire des multiples NTM, utiliser PEG et relier comparables à la cible via un bridge d’hypothèses.",
+      "choix": {
+        "A": {
+          "description": "Rester sur des multiples TTM sans intégrer les estimations de croissance.",
+          "impact": {
+            "cashflow": -1,
+            "rentabilite": 2,
+            "reputation": 0,
+            "stress": 1
+          }
+        },
+        "B": {
+          "description": "Construire des multiples NTM (consensus) et PEG, tester sensibilité aux hypothèses de croissance.",
+          "impact": {
+            "cashflow": -4,
+            "rentabilite": 6,
+            "reputation": 4,
+            "stress": 2
+          }
+        },
+        "C": {
+          "description": "Extrapoler une croissance agressive sans test de sensibilité ni bornes réalistes.",
+          "impact": {
+            "cashflow": -2,
+            "rentabilite": 3,
+            "reputation": -1,
+            "stress": 3
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "Multiples",
+        "Forward",
+        "PEG",
+        "Évaluation"
+      ],
+      "feedback": {
+        "A": "Les multiples TTM ignorent la dynamique; pertinents, mais souvent insuffisants sur des titres de croissance.",
+        "B": "NTM + PEG + sensibilités = approche robuste pour relier croissance et valorisation.",
+        "C": "Hypothèses agressives non testées exposent à des survalorisations et à une réputation fragile."
+      },
+      "evenements_possibles": [
+        "Crise Financière Systémique",
+        "Boom Économique Global"
+      ],
+      "reutilisable": true
+    },
+    "Valoriser une cible en intégrant synergies industrielles et fiscales": {
+      "id": "Valoriser une cible en intégrant synergies industrielles et fiscales",
+      "concept": "Évaluation d’entreprise",
+      "niveau": "avancé",
+      "type": "M&A",
+      "contexte": "Un acquéreur industriel envisage de racheter une cible; vous devez estimer la valeur créée par les synergies.",
+      "objectif_pedagogique": "Identifier et modéliser synergies industrielles/fiscales, coûts d’intégration, probabilité de réalisation.",
+      "choix": {
+        "A": {
+          "description": "Intégrer uniquement des synergies industrielles 'run-rate' sans coûts d’intégration.",
+          "impact": {
+            "cashflow": -1,
+            "rentabilite": 4,
+            "reputation": 1,
+            "stress": 2
+          }
+        },
+        "B": {
+          "description": "Modéliser synergies industrielles+fiscales, coûts d’intégration et probabilité d’atteinte par phase.",
+          "impact": {
+            "cashflow": -5,
+            "rentabilite": 7,
+            "reputation": 4,
+            "stress": 2
+          }
+        },
+        "C": {
+          "description": "Appliquer des synergies optimistes uniformes sans justification détaillée.",
+          "impact": {
+            "cashflow": -2,
+            "rentabilite": 3,
+            "reputation": -1,
+            "stress": 3
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "M&A",
+        "Synergies",
+        "Évaluation",
+        "Finance d'entreprise"
+      ],
+      "feedback": {
+        "A": "Omettre coûts et aléas exagère la valeur capturable.",
+        "B": "Approche complète et défendable: synergies, coûts, phasage et probabilités.",
+        "C": "Hypothèses trop optimistes nuisent à la crédibilité de l’analyse."
+      },
+      "evenements_possibles": [
+        "Choc sectoriel spécifique",
+        "Crise Financière Systémique"
+      ],
+      "reutilisable": true
+    },
+    "Modéliser l’accrétion/dilution EPS et sensibilité": {
+      "id": "Modéliser l’accrétion/dilution EPS et sensibilité",
+      "concept": "Évaluation d’entreprise",
+      "niveau": "avancé",
+      "type": "Analyse financière",
+      "contexte": "Le conseil d’administration veut comprendre l’impact de l’opération sur le BPA des actionnaires.",
+      "objectif_pedagogique": "Construire un modèle pro forma EPS: structure de financement, intérêts, step-up D&A, synergies et dilution.",
+      "choix": {
+        "A": {
+          "description": "Utiliser un modèle EPS statique sans effets de financement ni dilution.",
+          "impact": {
+            "cashflow": 0,
+            "rentabilite": 2,
+            "reputation": 0,
+            "stress": 1
+          }
+        },
+        "B": {
+          "description": "Construire un modèle complet (dette/capitaux propres), synergies, step-up, dilution et sensibilités.",
+          "impact": {
+            "cashflow": -4,
+            "rentabilite": 6,
+            "reputation": 4,
+            "stress": 2
+          }
+        },
+        "C": {
+          "description": "Ignorer l’augmentation du nombre d’actions et les covenants potentiels.",
+          "impact": {
+            "cashflow": -1,
+            "rentabilite": 1,
+            "reputation": -1,
+            "stress": 2
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "M&A",
+        "EPS",
+        "Modélisation",
+        "Évaluation"
+      ],
+      "feedback": {
+        "A": "Vision incomplète qui peut masquer une dilution significative.",
+        "B": "Bonne pratique: vue complète pro forma et sensibilités pour éclairer le board.",
+        "C": "Ignorer la dilution et les contraintes peut conduire à des décisions erronées."
+      },
+      "evenements_possibles": [
+        "Crise Financière Systémique",
+        "Changement de Politique BCE/Fed"
+      ],
+      "reutilisable": true
+    },
+
 
   "Analyse de sensibilité": {
     "id": "Analyse de sensibilité",
@@ -2263,6 +2559,1209 @@
   },
   "evenements_possibles": [],
   "reutilisable": true
-}
+},
+
+
+
+  "Analyser l'évolution des marges et de la rentabilité sur 3 ans": {
+    "id": "Analyser l'évolution des marges et de la rentabilité sur 3 ans",
+    "concept": "Analyse Fondamentale des Entreprises",
+    "niveau": "débutant",
+    "type": "Analyse financière",
+    "contexte": "Vous analysez l’évolution sur 3 ans des marges, de la rentabilité et du BFR d’une entreprise.",
+    "objectif_pedagogique": "Décomposer la rentabilité (DuPont), observer marges/ROIC et la conversion cash.",
+    "choix": {
+      "A": {
+        "description": "Analyser marges, ROIC et BFR avec un schéma DuPont simplifié.",
+        "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 3, "stress": 1 }
+      },
+      "B": {
+        "description": "Se concentrer uniquement sur la marge nette sans autres ratios.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Se fier à la seule croissance du chiffre d’affaires.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Analyse", "États financiers", "DuPont"],
+    "feedback": {
+      "A": "Vue complète des leviers de performance et de la conversion cash.",
+      "B": "La marge nette seule peut masquer des signaux contradictoires.",
+      "C": "La croissance du CA ne garantit pas la création de valeur."
+    },
+    "evenements_possibles": ["Crise Financière Systémique","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Identifier et quantifier les éléments exceptionnels": {
+    "id": "Identifier et quantifier les éléments exceptionnels",
+    "concept": "Analyse Fondamentale des Entreprises",
+    "niveau": "intermédiaire",
+    "type": "Analyse financière",
+    "contexte": "Les comptes contiennent des éléments non récurrents qui biaisent la performance.",
+    "objectif_pedagogique": "Retraiter EBITDA/EBIT/FCF des items exceptionnels pour une base normalisée.",
+    "choix": {
+      "A": {
+        "description": "Retraiter N-items (litiges, restructurations) et recalculer les agrégats.",
+        "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 3, "stress": 2 }
+      },
+      "B": {
+        "description": "Conserver les chiffres publiés sans retraitements.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Exclure arbitrairement tout élément inhabituel sans justification.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Retraitements","Qualité des profits","États financiers"],
+    "feedback": {
+      "A": "Base normalisée plus fiable pour comparer et valoriser.",
+      "B": "Les comparaisons deviennent fragiles sans retraitement.",
+      "C": "Risque de biais si l’on exclut sans cadre clair."
+    },
+    "evenements_possibles": ["Changement de Politique BCE/Fed","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Détecter des manipulations comptables potentielles": {
+    "id": "Détecter des manipulations comptables potentielles",
+    "concept": "Analyse Fondamentale des Entreprises",
+    "niveau": "avancé",
+    "type": "Analyse financière",
+    "contexte": "Vous suspectez une qualité des profits dégradée et des signaux d’alerte.",
+    "objectif_pedagogique": "Utiliser indicateurs (accruals, M-score simplifié, cash conversion) pour déceler anomalies.",
+    "choix": {
+      "A": {
+        "description": "Tester accruals, cash conversion, et signaux d’inventaire/clients.",
+        "impact": { "cashflow": -2, "rentabilite": 6, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "S’appuyer sur la communication du management uniquement.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      },
+      "C": {
+        "description": "Comparer seulement les marges au secteur sans analyse des flux.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Qualité des profits","Signal d’alerte","États financiers"],
+    "feedback": {
+      "A": "Examen robuste des zones à risque de manipulation.",
+      "B": "La narration seule ne remplace pas l’évidence comptable.",
+      "C": "Les marges peuvent être gonflées temporairement."
+    },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Valoriser une startup SaaS par multiple ARR": {
+    "id": "Valoriser une startup SaaS par multiple ARR",
+    "concept": "Finance Sectorielle",
+    "niveau": "débutant",
+    "type": "Analyse",
+    "contexte": "Vous devez estimer la valeur d’une startup SaaS en phase d’expansion.",
+    "objectif_pedagogique": "Employer multiples de revenus récurrents (ARR) contextualisés (croissance, NRR, règle des 40).",
+    "choix": {
+      "A": {
+        "description": "Utiliser multiple ARR ajusté par croissance et NRR.",
+        "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 3, "stress": 1 }
+      },
+      "B": {
+        "description": "Appliquer le multiple moyen du secteur sans ajustements.",
+        "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Se baser sur le CA total (non récurrent inclus).",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Tech","SaaS","Multiples","ARR"],
+    "feedback": {
+      "A": "Les métriques récurrentes pilotent la valo SaaS.",
+      "B": "Les moyennes sectorielles masquent l’hétérogénéité.",
+      "C": "Le non récurrent distord la valorisation."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Intégrer les métriques d’engagement utilisateur dans une valorisation": {
+    "id": "Intégrer les métriques d’engagement utilisateur dans une valorisation",
+    "concept": "Finance Sectorielle",
+    "niveau": "intermédiaire",
+    "type": "Analyse",
+    "contexte": "Une plateforme digitale dépend fortement de l’engagement et de la rétention.",
+    "objectif_pedagogique": "Incorporer DAU/MAU, cohorte, churn, LTV/CAC dans un modèle de valorisation.",
+    "choix": {
+      "A": {
+        "description": "Construire cohorte et LTV/CAC, relier croissance à l’ARPU & churn.",
+        "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "Utiliser seulement le nombre d’utilisateurs inscrits.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Appliquer des hypothèses d’engagement constantes sans données.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Tech","Plateforme","Engagement","Valo"],
+    "feedback": {
+      "A": "Les métriques d’usage expliquent la création de valeur.",
+      "B": "La base inscrite ne reflète pas l’activité réelle.",
+      "C": "Des hypothèses figées masquent la dynamique."
+    },
+    "evenements_possibles": ["Changement de Politique BCE/Fed","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Valoriser une scale-up tech avec effets de réseau": {
+    "id": "Valoriser une scale-up tech avec effets de réseau",
+    "concept": "Finance Sectorielle",
+    "niveau": "avancé",
+    "type": "Analyse",
+    "contexte": "La valeur dépend d’effets de réseau et d’options de croissance.",
+    "objectif_pedagogique": "Modéliser effets de réseau, scenarii winner-takes-all et optionalité (produits/geo).",
+    "choix": {
+      "A": {
+        "description": "Construire scénarios avec pénétration progressive et effets de réseau endogènes.",
+        "impact": { "cashflow": -4, "rentabilite": 7, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "Utiliser un DCF standard sans effets de réseau.",
+        "impact": { "cashflow": -1, "rentabilite": 3, "reputation": 1, "stress": 1 }
+      },
+      "C": {
+        "description": "Projeter une croissance linéaire inflexible.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Tech","Effets de réseau","Optionalité","Scénarios"],
+    "feedback": {
+      "A": "La valeur provient des externalités réseau et de l’optionnalité.",
+      "B": "Un DCF générique sous-estime ces moteurs.",
+      "C": "La linéarité ignore les points d’inflexion."
+    },
+    "evenements_possibles": ["Crise Financière Systémique","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Rédiger une note d’initiation (mid-cap)": {
+    "id": "Rédiger une note d’initiation (mid-cap)",
+    "concept": "Recherche et recommandations",
+    "niveau": "débutant",
+    "type": "Analyse",
+    "contexte": "Vous lancez la couverture d’une valeur mid-cap.",
+    "objectif_pedagogique": "Structurer thèse, catalysts, valorisation, risques, recommandation et target price.",
+    "choix": {
+      "A": {
+        "description": "Produire une note complète (thèse, TP, risques, compliance).",
+        "impact": { "cashflow": -2, "rentabilite": 4, "reputation": 5, "stress": 2 }
+      },
+      "B": {
+        "description": "Écrire un résumé sans justification chiffrée.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Copier des opinions de marché non sourcées.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Recherche","Recommandation","Initiation"],
+    "feedback": {
+      "A": "Livrable professionnel et actionnable.",
+      "B": "Manque de fondements quantitatifs.",
+      "C": "Non conforme et peu crédible."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Actualiser une recommandation après résultats décevants": {
+    "id": "Actualiser une recommandation après résultats décevants",
+    "concept": "Recherche et recommandations",
+    "niveau": "intermédiaire",
+    "type": "Analyse",
+    "contexte": "La société publie des résultats inférieurs aux attentes.",
+    "objectif_pedagogique": "Réviser hypothèses NTM, sensibilité, rating/TP, et communication client.",
+    "choix": {
+      "A": {
+        "description": "Ajuster modèle, baisser TP et justifier le changement de reco.",
+        "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "Maintenir la reco sans mise à jour du modèle.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      },
+      "C": {
+        "description": "Reporter l’update en attendant « la prochaine fois ». ",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Recherche","Earnings","Recommandation"],
+    "feedback": {
+      "A": "Transparence et rigueur renforcent la confiance.",
+      "B": "Inertie face aux faits fragilise la crédibilité.",
+      "C": "Le délai accroît le risque réputationnel."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Étude thématique: transition énergétique sur un secteur": {
+    "id": "Étude thématique: transition énergétique sur un secteur",
+    "concept": "Recherche et recommandations",
+    "niveau": "avancé",
+    "type": "Analyse",
+    "contexte": "Vos clients demandent une étude transversale sectorielle sur la transition énergétique.",
+    "objectif_pedagogique": "Construire un cadre top-down → bottom-up, screen et paniers d’actions.",
+    "choix": {
+      "A": {
+        "description": "Quantifier impacts (capex, coûts carbone, pricing power) et proposer un panier.",
+        "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 5, "stress": 2 }
+      },
+      "B": {
+        "description": "Rester descriptif sans chiffrage ni screening.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Ne considérer qu’un seul sous-segment.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Recherche","Thématique","Transition énergétique"],
+    "feedback": {
+      "A": "Approche actionnable et différenciante.",
+      "B": "Narratif sans valeur d’investissement.",
+      "C": "Vue partielle, risques d’omissions."
+    },
+    "evenements_possibles": [],
+    "reutilisable": true
+  },
+
+  "Décomposer le business model d'une entreprise de services": {
+    "id": "Décomposer le business model d'une entreprise de services",
+    "concept": "Analyse Fondamentale des Entreprises",
+    "niveau": "débutant",
+    "type": "Analyse",
+    "contexte": "Vous devez cartographier les sources de revenus, coûts et leviers d’une entreprise de services.",
+    "objectif_pedagogique": "Identifier moteurs de revenus, structure de coûts, operating leverage et BFR.",
+    "choix": {
+      "A": {
+        "description": "Cartographier revenus/cost drivers et identifier leviers de marge.",
+        "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 3, "stress": 1 }
+      },
+      "B": {
+        "description": "Lister uniquement les produits sans structure de coûts.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Ignorer BFR et saisonnalité.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": 0, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Business Model","Analyse","Unit economics"],
+    "feedback": {
+      "A": "Vision claire des leviers de performance.",
+      "B": "Vue incomplète sur la marge.",
+      "C": "Le BFR influence fortement la trésorerie."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Comparer la scalabilité de business models": {
+    "id": "Comparer la scalabilité de business models",
+    "concept": "Analyse Fondamentale des Entreprises",
+    "niveau": "intermédiaire",
+    "type": "Analyse",
+    "contexte": "Vous comparez la scalabilité de modèles (SaaS, conseil, marketplace) dans un même secteur.",
+    "objectif_pedagogique": "Évaluer operating leverage, coûts variables/fixes et effets de réseau.",
+    "choix": {
+      "A": {
+        "description": "Comparer à partir d’unit economics et d’effets d’échelle.",
+        "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 3, "stress": 1 }
+      },
+      "B": {
+        "description": "Se baser sur le seul taux de marge historique.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Prendre un modèle « gagnant » par effet mode.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Business Model","Scalabilité","Unit economics"],
+    "feedback": {
+      "A": "La scalabilité se mesure par les unités économiques et l’échelle.",
+      "B": "Les marges historiques ne suffisent pas.",
+      "C": "L’effet mode n’est pas un critère analytique."
+    },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Évaluer l’impact d’une disruption technologique sur un incumbent": {
+    "id": "Évaluer l’impact d’une disruption technologique sur un incumbent",
+    "concept": "Analyse Fondamentale des Entreprises",
+    "niveau": "avancé",
+    "type": "Analyse",
+    "contexte": "Un nouvel entrant menace un acteur historique du secteur.",
+    "objectif_pedagogique": "Modéliser canaux de disruption (prix, mix, churn), moat et scénarios de défense.",
+    "choix": {
+      "A": {
+        "description": "Construire scénarios de parts de marché et d’adaptation de l’incumbent.",
+        "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "Supposer une inertie totale de la demande.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "S’appuyer sur les marges actuelles pour projeter l’avenir.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Disruption","Moat","Scénarios"],
+    "feedback": {
+      "A": "Les scénarios explicitent l’incertitude et l’adaptation.",
+      "B": "La demande réagit aux innovations.",
+      "C": "Les marges actuelles sont rarement pérennes en disruption."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Identifier et quantifier les actifs immatériels (pharma)": {
+    "id": "Identifier et quantifier les actifs immatériels (pharma)",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "débutant",
+    "type": "Analyse financière",
+    "contexte": "Un laboratoire détient brevets, marques et données patients.",
+    "objectif_pedagogique": "Cartographier brevets/marques/données et estimer leur poids économique.",
+    "choix": {
+      "A": {
+        "description": "Lister et quantifier les actifs immatériels clés avec hypothèses simples.",
+        "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 3, "stress": 1 }
+      },
+      "B": {
+        "description": "Citer des actifs de manière générale sans mesure.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Ignorer les actifs immatériels non comptabilisés.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Immatériel","Brevets","Marques"],
+    "feedback": {
+      "A": "Première estimation utile pour la valorisation.",
+      "B": "Sans quantification, l’analyse reste faible.",
+      "C": "Risque de sous-valoriser fortement la cible."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Valoriser un portefeuille de brevets (coûts & revenus)": {
+    "id": "Valoriser un portefeuille de brevets (coûts & revenus)",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "intermédiaire",
+    "type": "Analyse financière",
+    "contexte": "La valeur dépend de la durée restante, des flux et de l’obsolescence.",
+    "objectif_pedagogique": "Comparer approche par les coûts et par les revenus sur un portefeuille de brevets.",
+    "choix": {
+      "A": {
+        "description": "Modéliser durée utile, probas de succès et revenus attendus.",
+        "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "Utiliser uniquement le coût historique.",
+        "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Ignorer l’obsolescence et la concurrence.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Immatériel","Brevets","Valorisation"],
+    "feedback": {
+      "A": "La valeur se juge sur flux futurs et risque.",
+      "B": "Les coûts historiques ne reflètent pas la valeur économique.",
+      "C": "Le risque de substitution est clé."
+    },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Intégrer le capital humain dans la valorisation": {
+    "id": "Intégrer le capital humain dans la valorisation",
+    "concept": "Évaluation d’entreprise",
+    "niveau": "avancé",
+    "type": "Analyse financière",
+    "contexte": "L’avantage concurrentiel repose sur la connaissance et le talent.",
+    "objectif_pedagogique": "Construire un cadre de valorisation du capital humain sans double-compter au DCF/multiples.",
+    "choix": {
+      "A": {
+        "description": "Estimer productivité, risque de churn et prime de compétence (approche simple).",
+        "impact": { "cashflow": -2, "rentabilite": 6, "reputation": 4, "stress": 2 }
+      },
+      "B": {
+        "description": "Ignorer le capital humain faute de données parfaites.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Doubler l’effet dans le DCF et dans les multiples.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Immatériel","Capital humain","Évaluation"],
+    "feedback": {
+      "A": "Approche pragmatique et défendable.",
+      "B": "L’absence de mesure ne justifie pas l’ignorer.",
+      "C": "Attention à la double comptabilisation."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Analyser les risques climatiques (physiques & transition)": {
+    "id": "Analyser les risques climatiques (physiques & transition)",
+    "concept": "Finance Sectorielle",
+    "niveau": "débutant",
+    "type": "Analyse",
+    "contexte": "Une entreprise industrielle est exposée au climat (sites, chaîne d’approvisionnement).",
+    "objectif_pedagogique": "Identifier risques physiques/transition et impacts capex/opex.",
+    "choix": {
+      "A": {
+        "description": "Cartographier expositions et estimer impacts financiers.",
+        "impact": { "cashflow": -1, "rentabilite": 3, "reputation": 4, "stress": 1 }
+      },
+      "B": {
+        "description": "Rester descriptif sans quantification.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Ignorer la dimension climatique à ce stade.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["ESG","Climat","Risque"],
+    "feedback": {
+      "A": "Les expositions chiffrées alimentent ensuite la valorisation.",
+      "B": "Sans chiffres, difficile d’agir.",
+      "C": "Risque d’angle mort majeur."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Quantifier l’impact d’un score ESG sur la valorisation": {
+    "id": "Quantifier l’impact d’un score ESG sur la valorisation",
+    "concept": "Finance Sectorielle",
+    "niveau": "intermédiaire",
+    "type": "Analyse",
+    "contexte": "Un investisseur demande l’effet d’une amélioration ESG sur la valo.",
+    "objectif_pedagogique": "Relier ESG à WACC/multiples/scénarios, mesurer l’effet sur la valo.",
+    "choix": {
+      "A": {
+        "description": "Ajuster WACC/multiples et tester des scénarios chiffrés.",
+        "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 1 }
+      },
+      "B": {
+        "description": "Conclure qualitativement sans effet chiffré.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Supposer un effet linéaire constant quel que soit le secteur.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["ESG","Valorisation","WACC","Multiples"],
+    "feedback": {
+      "A": "La matérialité financière se quantifie.",
+      "B": "Narratif insuffisant pour investir.",
+      "C": "La matérialité varie fortement par secteur."
+    },
+    "evenements_possibles": ["Changement de Politique BCE/Fed","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+  "Intégrer des externalités environnementales dans la valorisation": {
+    "id": "Intégrer des externalités environnementales dans la valorisation",
+    "concept": "Finance Sectorielle",
+    "niveau": "avancé",
+    "type": "Analyse",
+    "contexte": "Votre modèle doit refléter le coût des externalités (carbone, pollution).",
+    "objectif_pedagogique": "Intégrer taxes/pénalités/capex et pricing power dans la valo (DCF/multiples).",
+    "choix": {
+      "A": {
+        "description": "Construire scénarios avec coût du carbone implicite et impacts cash.",
+        "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 5, "stress": 2 }
+      },
+      "B": {
+        "description": "Mentionner les externalités sans modélisation.",
+        "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 }
+      },
+      "C": {
+        "description": "Appliquer un taux fixe universel sans différenciation sectorielle.",
+        "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 }
+      }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["ESG","Externalités","DCF","Scénarios"],
+    "feedback": {
+      "A": "La valorisation reflète mieux la réalité économique.",
+      "B": "Sans chiffrage, le signal reste faible.",
+      "C": "Le coût des externalités n’est pas uniforme."
+    },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+  "Structurer un financement bancaire pour l'acquisition d'une PME": {
+    "id": "Structurer un financement bancaire pour l'acquisition d'une PME",
+    "concept": "Structuration de financements",
+    "niveau": "débutant",
+    "type": "Structuration",
+    "contexte": "Un client rachète une PME et sollicite un financement bancaire.",
+    "objectif_pedagogique": "Dimensionner la dette (DSCR/levier), proposer une term sheet simple et covenants de base.",
+    "choix": {
+      "A": { "description": "Dimensionner via DSCR cible et levier soutenable, proposer covenants light.", "impact": { "cashflow": -3, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Offre standard sans analyse de soutenabilité.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Refuser faute de dossier parfaitement complet.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Structuration","Dette senior","Term sheet","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Soutenabilité démontrée → proposition crédible.", "B": "Manque de défense analytique.", "C": "Trop strict, perte d'opportunité." },
+    "evenements_possibles": ["Crise Financière Systémique","Changement de Politique BCE/Fed"],
+    "reutilisable": true
+  },
+
+  "Concevoir un financement mezzanine pour croissance externe": {
+    "id": "Concevoir un financement mezzanine pour croissance externe",
+    "concept": "Structuration de financements",
+    "niveau": "intermédiaire",
+    "type": "Structuration",
+    "contexte": "Le client prépare une acquisition et vise un levier additionnel par mezzanine.",
+    "objectif_pedagogique": "Structurer mezzanine (subordination, PIK, warrants) et articuler l'intercreditor.",
+    "choix": {
+      "A": { "description": "Proposer mezz PIK + warrants avec ratios de tête et intercreditor clair.", "impact": { "cashflow": -4, "rentabilite": 6, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Ajouter une dette simple sans subordination formalisée.", "impact": { "cashflow": -2, "rentabilite": 3, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Conseiller d'abandonner l'opération sans étude de structure.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Mezzanine","Intercreditor","PIK","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Structure équilibrée rendement/risque.", "B": "Conflits inter-créanciers probables.", "C": "Perte de valeur potentielle pour le client." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Structurer un LBO multicouches optimisé fiscalement": {
+    "id": "Structurer un LBO multicouches optimisé fiscalement",
+    "concept": "Structuration de financements",
+    "niveau": "avancé",
+    "type": "Structuration",
+    "contexte": "LBO avec dette senior/unitranche, mezzanine et dette holdco.",
+    "objectif_pedagogique": "Concevoir un stack multicouches (cash sweep, covenants), effets fiscaux et scénarios de sortie.",
+    "choix": {
+      "A": { "description": "Stack complet avec cash sweep et tests de sensibilité (sortie/base/baisse).", "impact": { "cashflow": -5, "rentabilite": 7, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Structure simple sans cash sweep ni sensitivités.", "impact": { "cashflow": -2, "rentabilite": 3, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Maximiser l'effet de levier au-delà des seuils ratings.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": -2, "stress": 2 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["LBO","Unitranche","Cash sweep","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Structure défendable et robuste.", "B": "Vulnérable aux chocs.", "C": "Risque réputationnel élevé." },
+    "evenements_possibles": ["Crise Financière Systémique","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Qualifier les besoins de financement d'une entreprise en croissance": {
+    "id": "Qualifier les besoins de financement d'une entreprise en croissance",
+    "concept": "Origination et développement commercial",
+    "niveau": "débutant",
+    "type": "Origination",
+    "contexte": "Premier rendez-vous avec une entreprise en forte croissance.",
+    "objectif_pedagogique": "Qualifier via grille (BANT/MEDDICC), scoring opportunités et next steps.",
+    "choix": {
+      "A": { "description": "Qualifier besoins, décideurs, timing et contraintes.", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 3, "stress": 1 } },
+      "B": { "description": "Proposer un produit standard sans découverte.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Reporter en attendant plus d'informations passives.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Coverage","Prospection","Qualification","Pilier: Origination & Coverage"],
+    "feedback": { "A": "Découverte structurée = pipeline de qualité.", "B": "Faible conversion.", "C": "Perte d'élan commercial." },
+    "evenements_possibles": ["Boom Économique Global","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Stratégie d'approche grand compte corporate": {
+    "id": "Stratégie d'approche grand compte corporate",
+    "concept": "Origination et développement commercial",
+    "niveau": "intermédiaire",
+    "type": "Origination",
+    "contexte": "Conquête d’un grand compte multi-stakeholders.",
+    "objectif_pedagogique": "Cartographier décideurs, messages, calendrier, et proposition de valeur.",
+    "choix": {
+      "A": { "description": "Plan multi-canal et mapping influenceurs/décideurs.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Pitch générique au service achats uniquement.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Attendre un appel d’offres sans approche proactive.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Coverage","Grand compte","Go-to-market","Pilier: Origination & Coverage"],
+    "feedback": { "A": "Augmente la probabilité d'accès au board.", "B": "Accès restreint et tardif.", "C": "Perte de différenciation." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Co-originer des deals avec des fonds d'investissement": {
+    "id": "Co-originer des deals avec des fonds d'investissement",
+    "concept": "Origination et développement commercial",
+    "niveau": "avancé",
+    "type": "Origination",
+    "contexte": "Partenariat avec des fonds pour sourcer et partager les transactions.",
+    "objectif_pedagogique": "Structurer co-origination (exclusivité, partage fees/risques, screening commun).",
+    "choix": {
+      "A": { "description": "Accord de partenariat clair (périmètre, exclusivité, gouvernance).", "impact": { "cashflow": -2, "rentabilite": 6, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Coopération informelle sans cadre juridique.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": -1, "stress": 1 } },
+      "C": { "description": "Éviter tout partenariat, approche solo.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Partenariats","Fonds","Deal flow","Pilier: Origination & Coverage"],
+    "feedback": { "A": "Pipeline renforcé et crédible.", "B": "Risque de conflits et d'ambiguïtés.", "C": "Opportunités manquées." },
+    "evenements_possibles": ["Boom Économique Global","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Due diligence financière simplifiée d'une PME": {
+    "id": "Due diligence financière simplifiée d'une PME",
+    "concept": "Due Diligence et Analyse Crédit",
+    "niveau": "débutant",
+    "type": "Due diligence",
+    "contexte": "Audit préliminaire d’une PME cible.",
+    "objectif_pedagogique": "Évaluer qualité des profits, BFR, dettes hors bilan et red flags simples.",
+    "choix": {
+      "A": { "description": "Check-list structurée et retraitements de base.", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 4, "stress": 1 } },
+      "B": { "description": "Lecture rapide sans retraitements.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "S’appuyer sur la seule communication du vendeur.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Due diligence","Crédit","Red flags","Pilier: Due Diligence & Risk"],
+    "feedback": { "A": "Base factuelle solide.", "B": "Vision incomplète.", "C": "Biais vendeur non contrôlé." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Coordonner une due diligence multi-expertises pour un LBO": {
+    "id": "Coordonner une due diligence multi-expertises pour un LBO",
+    "concept": "Due Diligence et Analyse Crédit",
+    "niveau": "intermédiaire",
+    "type": "Due diligence",
+    "contexte": "Opération LBO nécessitant plusieurs streams (financier, juridique, fiscal, ESG).",
+    "objectif_pedagogique": "Piloter data room, issues log et livrables croisés.",
+    "choix": {
+      "A": { "description": "Planifier streams, jalons et consolidation des risques.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Laisser chaque expert agir sans coordination.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Reporter l’audit à la phase tardive.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["LBO","Coordination","Data room","Pilier: Due Diligence & Risk"],
+    "feedback": { "A": "Réduction des surprises en closing.", "B": "Incohérences et retards probables.", "C": "Risque de découverte tardive majeure." },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Due diligence transfrontalière avec risques réglementaires": {
+    "id": "Due diligence transfrontalière avec risques réglementaires",
+    "concept": "Due Diligence et Analyse Crédit",
+    "niveau": "avancé",
+    "type": "Due diligence",
+    "contexte": "Cible multi-pays avec enjeux sanctions, change control et fiscalité.",
+    "objectif_pedagogique": "Identifier risques pays et contraintes réglementaires transfrontalières.",
+    "choix": {
+      "A": { "description": "Cartographier risques pays et contraintes (sanctions, substance, fiscalité).", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 5, "stress": 2 } },
+      "B": { "description": "Se limiter aux états financiers consolidés.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Ignorer contraintes locales supposées mineures.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Transfrontalier","Réglementaire","Sanctions","Pilier: Due Diligence & Risk"],
+    "feedback": { "A": "Sécurise l’exécution multi-juridictions.", "B": "Angles morts importants.", "C": "Risque légal/réputationnel élevé." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Préparer une société à son introduction en bourse": {
+    "id": "Préparer une société à son introduction en bourse",
+    "concept": "Marchés de capitaux",
+    "niveau": "débutant",
+    "type": "Marchés de capitaux",
+    "contexte": "L’émetteur vise une IPO à 12-18 mois.",
+    "objectif_pedagogique": "IPO readiness: gouvernance, prospectus, calendrier et banques chefs de file.",
+    "choix": {
+      "A": { "description": "Feuille de route complète IPO readiness.", "impact": { "cashflow": -2, "rentabilite": 4, "reputation": 5, "stress": 2 } },
+      "B": { "description": "Préparer une plaquette marketing uniquement.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Reporter toute action jusqu’à l’annonce officielle.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["IPO","ECM","Prospectus","Pilier: Marchés de Capitaux"],
+    "feedback": { "A": "Augmente la probabilité de succès IPO.", "B": "Préparation incomplète.", "C": "Retard et perte de fenêtre de marché." },
+    "evenements_possibles": ["Changement de Politique BCE/Fed","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Structurer et placer une émission obligataire corporate": {
+    "id": "Structurer et placer une émission obligataire corporate",
+    "concept": "Marchés de capitaux",
+    "niveau": "intermédiaire",
+    "type": "Marchés de capitaux",
+    "contexte": "L’émetteur cherche à lever sur DCM.",
+    "objectif_pedagogique": "Choisir devise, maturité, covenants, bookbuilding et pricing (spread).",
+    "choix": {
+      "A": { "description": "Structurer covenants & maturité, piloter book & pricing au spread.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Choisir maturité standard sans analyse de demande.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Repousser l’émission en attendant un 'meilleur' marché.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["DCM","Covenants","Bookbuilding","Pilier: Marchés de Capitaux"],
+    "feedback": { "A": "Aligné sur l’appétit investisseur.", "B": "Risque de surcoût.", "C": "Fenêtre de marché incertaine." },
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
+    "reutilisable": true
+  },
+
+  "Gérer une IPO dual listing": {
+    "id": "Gérer une IPO dual listing",
+    "concept": "Marchés de capitaux",
+    "niveau": "avancé",
+    "type": "Marchés de capitaux",
+    "contexte": "IPO simultanée sur deux places (144A/Reg S, dual listing).",
+    "objectif_pedagogique": "Coordonner juridictions, allocation, stabilisation et communication.",
+    "choix": {
+      "A": { "description": "Plan d’exécution multi-juridictions et stabilisation post-listing.", "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Répliquer un process mono-bourse.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Déléguer entièrement aux conseils externes.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": -1, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["ECM","Dual listing","Allocation","Pilier: Marchés de Capitaux"],
+    "feedback": { "A": "Exécution maîtrisée et crédible.", "B": "Sous-dimensionné pour la complexité.", "C": "Perte de contrôle et d’apprentissage." },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Conseiller sur l'opportunité d'une acquisition complémentaire": {
+    "id": "Conseiller sur l'opportunité d'une acquisition complémentaire",
+    "concept": "Conseil stratégique",
+    "niveau": "débutant",
+    "type": "Conseil",
+    "contexte": "Le dirigeant envisage une acquisition de niche.",
+    "objectif_pedagogique": "Évaluer rationales, synergies, risques et alternatives (build/partner/buy).",
+    "choix": {
+      "A": { "description": "Note au board avec scénarios et risques.", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 4, "stress": 1 } },
+      "B": { "description": "Avis sommaire sans chiffrage.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Recommander par intuition personnelle.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Board","Stratégie","Synergies","Pilier: Conseil & Communication"],
+    "feedback": { "A": "Conseil structuré et défendable.", "B": "Insuffisant pour décider.", "C": "Risque réputationnel." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Accompagner la restructuration financière d'un groupe en difficulté": {
+    "id": "Accompagner la restructuration financière d'un groupe en difficulté",
+    "concept": "Conseil stratégique",
+    "niveau": "intermédiaire",
+    "type": "Conseil",
+    "contexte": "Le groupe fait face à un mur de maturités.",
+    "objectif_pedagogique": "Évaluer options (amend-extend, new money, cessions d’actifs) et impacts.",
+    "choix": {
+      "A": { "description": "Proposer un éventail d’options avec impacts sur levier et liquidité.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Prolonger la dette sans contreparties.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Attendre et observer le marché.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Turnaround","Options","Board memo","Pilier: Conseil & Communication"],
+    "feedback": { "A": "Vision claire des arbitrages.", "B": "Sous-optimal et fragile.", "C": "Perte de contrôle du calendrier." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Stratégie de désendettement via spin-off et cessions d'actifs": {
+    "id": "Stratégie de désendettement via spin-off et cessions d'actifs",
+    "concept": "Conseil stratégique",
+    "niveau": "avancé",
+    "type": "Conseil",
+    "contexte": "Le board envisage des arbitrages d’actifs et réorganisation.",
+    "objectif_pedagogique": "Analyser spin-off, carve-out et cessions; impacts rating, covenants, fiscalité.",
+    "choix": {
+      "A": { "description": "Plan de désendettement avec sensitivités et contraintes.", "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Cession opportuniste sans analyse systémique.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Refuser toute cession par principe.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Spin-off","Carve-out","Rating","Pilier: Conseil & Communication"],
+    "feedback": { "A": "Plan robuste et crédible.", "B": "Vue parcellaire.", "C": "Inflexibilité risquée." },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Identifier les risques d'une opération de financement d'acquisition": {
+    "id": "Identifier les risques d'une opération de financement d'acquisition",
+    "concept": "Gestion des Risques Transactionnels",
+    "niveau": "débutant",
+    "type": "Gestion de risques",
+    "contexte": "Cartographier les risques d’une transaction d’acquisition.",
+    "objectif_pedagogique": "Construire matrice probabilité/impact et prioriser.",
+    "choix": {
+      "A": { "description": "Cartographie exhaustive avec scoring et priorisation.", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 4, "stress": 1 } },
+      "B": { "description": "Liste non priorisée de risques génériques.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Reporter l’analyse à la fin de la structuration.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Cartographie","Priorisation","Pilier: Due Diligence & Risk"],
+    "feedback": { "A": "Base pour le risk pack.", "B": "Peu actionnable.", "C": "Découvertes tardives probables." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Mettre en place un package de couvertures pour une transaction internationale": {
+    "id": "Mettre en place un package de couvertures pour une transaction internationale",
+    "concept": "Gestion des Risques Transactionnels",
+    "niveau": "intermédiaire",
+    "type": "Gestion de risques",
+    "contexte": "Transaction multi-devises et taux.",
+    "objectif_pedagogique": "Concevoir hedges (FX forwards/collar, IRS) et clauses (MAC, garanties).",
+    "choix": {
+      "A": { "description": "Hedges calibrés + clauses contractuelles adaptées.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Couverture minimale par prudence budgétaire.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Aucune couverture, pari sur le marché.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Hedge","FX","IRS","Pilier: Due Diligence & Risk"],
+    "feedback": { "A": "Réduit la volatilité d’exécution.", "B": "Exposition résiduelle significative.", "C": "Risque spéculatif inadapté." },
+    "evenements_possibles": ["Changement de Politique BCE/Fed","Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Gérer les risques d'une restructuration en détresse": {
+    "id": "Gérer les risques d'une restructuration en détresse",
+    "concept": "Gestion des Risques Transactionnels",
+    "niveau": "avancé",
+    "type": "Gestion de risques",
+    "contexte": "Transaction en situation spéciale (distressed).",
+    "objectif_pedagogique": "Standstill, DIP-financing, amendements intercreditor et monitoring post-closing.",
+    "choix": {
+      "A": { "description": "Pacte de standstill + DIP + plan de monitoring.", "impact": { "cashflow": -2, "rentabilite": 6, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Négocier au fil de l’eau sans cadre.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Sortir du deal sans analyser les options.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Distressed","DIP","Intercreditor","Pilier: Due Diligence & Risk"],
+    "feedback": { "A": "Encadre la complexité en crise.", "B": "Réactif et risqué.", "C": "Perte d’influence sur l’issue." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Préparer une présentation investisseurs (résultats annuels)": {
+    "id": "Préparer une présentation investisseurs (résultats annuels)",
+    "concept": "Relations investisseurs",
+    "niveau": "débutant",
+    "type": "Conseil",
+    "contexte": "Entreprise cotée, communication annuelle.",
+    "objectif_pedagogique": "Construire equity story, KPI clefs et Q&A.",
+    "choix": {
+      "A": { "description": "Deck structuré (story, KPI, guidance, risques).", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 5, "stress": 1 } },
+      "B": { "description": "Slides marketing génériques.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Publier des chiffres sans narratif.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["IR","Equity story","KPI","Pilier: Conseil & Communication"],
+    "feedback": { "A": "Message clair et crédible.", "B": "Peu différenciant.", "C": "Risque de mauvaise interprétation." },
+    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Organiser un roadshow européen": {
+    "id": "Organiser un roadshow européen",
+    "concept": "Relations investisseurs",
+    "niveau": "intermédiaire",
+    "type": "Conseil",
+    "contexte": "Tournée investisseurs avant opération de marché.",
+    "objectif_pedagogique": "Ciblage fonds, agenda, messages et suivi post-meetings.",
+    "choix": {
+      "A": { "description": "Plan ciblé avec suivi et feedback loop.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Agenda standard sans ciblage précis.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Annuler en raison d’incertitudes.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["IR","Roadshow","Meetings","Pilier: Conseil & Communication"],
+    "feedback": { "A": "Maximise la portée investisseur.", "B": "Impact limité.", "C": "Fenêtre de marché perdue." },
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
+    "reutilisable": true
+  },
+
+  "Communication de crise après profit warning": {
+    "id": "Communication de crise après profit warning",
+    "concept": "Relations investisseurs",
+    "niveau": "avancé",
+    "type": "Conseil",
+    "contexte": "Entreprise cotée subissant un profit warning.",
+    "objectif_pedagogique": "Gérer message, guidance, safe harbor et confiance marché.",
+    "choix": {
+      "A": { "description": "Message transparent, actions correctives et calendrier clair.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 6, "stress": 2 } },
+      "B": { "description": "Minimiser l’événement et éviter les détails.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": -1, "stress": 1 } },
+      "C": { "description": "Silence jusqu’au prochain trimestre.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["IR","Crisis comms","Profit warning","Pilier: Conseil & Communication"],
+    "feedback": { "A": "Restaure la crédibilité.", "B": "Suspicions accrues.", "C": "Perte de confiance durable." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Renégocier un crédit syndiqué en situation tendue": {
+    "id": "Renégocier un crédit syndiqué en situation tendue",
+    "concept": "Refinancement et restructuration",
+    "niveau": "débutant",
+    "type": "Structuration",
+    "contexte": "L’emprunteur sollicite un amend-extend.",
+    "objectif_pedagogique": "Covenant reset, fees, collatéral additionnel et calendrier.",
+    "choix": {
+      "A": { "description": "Proposer amend-extend avec contreparties équilibrées.", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 4, "stress": 1 } },
+      "B": { "description": "Accepter l’extension sans contreparties.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Refuser tout ajustement.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Syndiqué","Amend-extend","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Équilibre prêteurs/emprunteur.", "B": "Risque futur non traité.", "C": "Blocage et détérioration relationnelle." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Refinancement complet avec allongement des maturités": {
+    "id": "Refinancement complet avec allongement des maturités",
+    "concept": "Refinancement et restructuration",
+    "niveau": "intermédiaire",
+    "type": "Structuration",
+    "contexte": "Maturity wall à 18 mois.",
+    "objectif_pedagogique": "Recomposer le passif (tranches, collatéral, échéances) et optimiser coût/risque.",
+    "choix": {
+      "A": { "description": "Refi multi-tranches avec nouveau collatéral et profil lissé.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Simple roll-over à court terme.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Attendre une fenêtre de marché hypothétique.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Refinancement","Passif","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Réduit le risque de liquidité.", "B": "Solution fragile.", "C": "Risque d’impasse." },
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
+    "reutilisable": true
+  },
+
+  "Restructuration avec conversion debt-to-equity": {
+    "id": "Restructuration avec conversion debt-to-equity",
+    "concept": "Refinancement et restructuration",
+    "niveau": "avancé",
+    "type": "Structuration",
+    "contexte": "Situation de détresse nécessitant conversion.",
+    "objectif_pedagogique": "Négocier conversion, dilution, gouvernance et conditions suspensives.",
+    "choix": {
+      "A": { "description": "Plan de conversion équilibré (niveaux de conversion, governance, milestones).", "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Conversion partielle sans alignement gouvernance.", "impact": { "cashflow": -1, "rentabilite": 3, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Menacer de retrait sans alternatives structurées.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Restructuration","Debt-to-equity","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Cadre de sortie réaliste.", "B": "Conflits persistants.", "C": "Position faible à la table." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Analyser la viabilité financière d'un projet ENR": {
+    "id": "Analyser la viabilité financière d'un projet ENR",
+    "concept": "Financement de projet",
+    "niveau": "débutant",
+    "type": "Financement",
+    "contexte": "Projet d’énergie renouvelable avec cash flows dédiés.",
+    "objectif_pedagogique": "Calculer CFADS/DSCR cibles et premiers risques alloués.",
+    "choix": {
+      "A": { "description": "Modèle CFADS simple et DSCR seuil.", "impact": { "cashflow": -2, "rentabilite": 4, "reputation": 4, "stress": 1 } },
+      "B": { "description": "Se baser sur EBITDA consolidé du sponsor.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Ignorer les contrats d’off-take.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Project finance","CFADS","DSCR","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Base de viabilité dédiée.", "B": "Confusion recourse / non-recourse.", "C": "Risque de revenus non sécurisés." },
+    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Structurer le financement d'une infrastructure de transport": {
+    "id": "Structurer le financement d'une infrastructure de transport",
+    "concept": "Financement de projet",
+    "niveau": "intermédiaire",
+    "type": "Financement",
+    "contexte": "Projet infrastructurel avec multiples stakeholders.",
+    "objectif_pedagogique": "Allocation des risques, contrats clés et sûretés.",
+    "choix": {
+      "A": { "description": "Contrats (EPC, O&M) et répartition risques équilibrée.", "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 4, "stress": 2 } },
+      "B": { "description": "Structuration minimaliste des contrats.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Reporter la structuration contractuelle.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Project finance","EPC/O&M","Sûretés","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Robustesse opérationnelle.", "B": "Risque de dérives coûts/délais.", "C": "Risque juridique accru." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Financement de projet minier international (garanties multilatérales)": {
+    "id": "Financement de projet minier international (garanties multilatérales)",
+    "concept": "Financement de projet",
+    "niveau": "avancé",
+    "type": "Financement",
+    "contexte": "Projet minier exposé aux risques pays.",
+    "objectif_pedagogique": "Mettre en place garanties MLIs/ECA, gérer FX et risques pays.",
+    "choix": {
+      "A": { "description": "Garanties multilatérales + structuration FX et monitoring.", "impact": { "cashflow": -4, "rentabilite": 7, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Dépendre d’une garantie corporate du sponsor.", "impact": { "cashflow": -2, "rentabilite": 3, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Ignorer le risque pays faute de données.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Project finance","ECA/MLI","Risque pays","Pilier: Structuration & LevFin"],
+    "feedback": { "A": "Sécurise l’exécution et les cash flows.", "B": "Risque de recours implicite.", "C": "Exposition majeure non couverte." },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Vérifier la conformité KYC/AML d'un client corporate": {
+    "id": "Vérifier la conformité KYC/AML d'un client corporate",
+    "concept": "Conformité et Réglementation",
+    "niveau": "débutant",
+    "type": "Conformité",
+    "contexte": "Onboarding d’un nouveau corporate.",
+    "objectif_pedagogique": "Collecte UBO, screening sanctions et documentation KYC.",
+    "choix": {
+      "A": { "description": "Dossier complet UBO + screening + archivage.", "impact": { "cashflow": -1, "rentabilite": 3, "reputation": 5, "stress": 1 } },
+      "B": { "description": "KYC minimal sur pièces principales.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Onboarder sans screening pour gagner du temps.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["KYC","AML","Sanctions","Pilier: Conformité"],
+    "feedback": { "A": "Réduit le risque réglementaire.", "B": "Compliance incomplète.", "C": "Exposition à sanction." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Mettre en conformité une opération avec les règles de grands risques": {
+    "id": "Mettre en conformité une opération avec les règles de grands risques",
+    "concept": "Conformité et Réglementation",
+    "niveau": "intermédiaire",
+    "type": "Conformité",
+    "contexte": "Vérification des limites de concentration et exigences prudentielles.",
+    "objectif_pedagogique": "Appliquer limites grands risques, impacts LCR/NSFR et mitigants.",
+    "choix": {
+      "A": { "description": "Ajuster structure pour respecter ratios et limites.", "impact": { "cashflow": -2, "rentabilite": 4, "reputation": 5, "stress": 2 } },
+      "B": { "description": "Maintenir la structure en l’état.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Fragmenter artificiellement pour contourner.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Grands risques","LCR/NSFR","Pilier: Conformité"],
+    "feedback": { "A": "Sécurise l’approbation interne.", "B": "Risque de refus.", "C": "Risque réglementaire majeur." },
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
+    "reutilisable": true
+  },
+
+  "Gérer la réglementation d'une fusion bancaire transfrontalière": {
+    "id": "Gérer la réglementation d'une fusion bancaire transfrontalière",
+    "concept": "Conformité et Réglementation",
+    "niveau": "avancé",
+    "type": "Conformité",
+    "contexte": "Opération bancaire multi-pays sous supervision conjointe.",
+    "objectif_pedagogique": "Coordonner approvals (fit & proper, concurrence) et exigences de capital.",
+    "choix": {
+      "A": { "description": "Feuille de route approvals et capital planning.", "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 6, "stress": 3 } },
+      "B": { "description": "Laisser les équipes locales gérer isolément.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": 0, "stress": 1 } },
+      "C": { "description": "Reporter jusqu’à signature finale.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -2, "stress": 1 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Transfrontalier","Régulation bancaire","Pilier: Conformité"],
+    "feedback": { "A": "Anticipe les goulots réglementaires.", "B": "Risque de blocage imprévu.", "C": "Calendrier non maîtrisé." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Évaluer l'impact de la blockchain sur le post-marché": {
+    "id": "Évaluer l'impact de la blockchain sur le post-marché",
+    "concept": "Innovation financière",
+    "niveau": "débutant",
+    "type": "Innovation",
+    "contexte": "Étude d’efficacité post-marché et règlements.",
+    "objectif_pedagogique": "Identifier cas d’usage, gains de cycle et risques opérationnels.",
+    "choix": {
+      "A": { "description": "Cartographier processus et gains potentiels (quasi-T+0).", "impact": { "cashflow": -1, "rentabilite": 4, "reputation": 3, "stress": 1 } },
+      "B": { "description": "Note descriptive sans analyse des délais.", "impact": { "cashflow": 0, "rentabilite": 2, "reputation": 0, "stress": 0 } },
+      "C": { "description": "Rejeter la techno d’emblée.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": -1, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Blockchain","Post-marché","Pilier: Innovation"],
+    "feedback": { "A": "Vision actionnable.", "B": "Peu opérationnel.", "C": "Risque d’obsolescence stratégique." },
+    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "reutilisable": true
+  },
+
+  "Développer un outil d'aide à la décision par IA": {
+    "id": "Développer un outil d'aide à la décision par IA",
+    "concept": "Innovation financière",
+    "niveau": "intermédiaire",
+    "type": "Innovation",
+    "contexte": "Cas d’usage IA pour scoring/monitoring.",
+    "objectif_pedagogique": "Définir données, métriques, garde-fous compliance et valeur ajoutée.",
+    "choix": {
+      "A": { "description": "Prototype avec critères mesurables et contrôles.", "impact": { "cashflow": -2, "rentabilite": 5, "reputation": 4, "stress": 2 } },
+      "B": { "description": "POC sans validations compliance.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": -1, "stress": 1 } },
+      "C": { "description": "Reporter en attendant une solution clé en main.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": 0, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["IA","Scoring","Compliance","Pilier: Innovation"],
+    "feedback": { "A": "Mesurable et défendable.", "B": "Risque réglementaire.", "C": "Perte d’apprentissage." },
+    "evenements_possibles": ["Crise Financière Systémique"],
+    "reutilisable": true
+  },
+
+  "Concevoir une plateforme de financement participatif pour PME": {
+    "id": "Concevoir une plateforme de financement participatif pour PME",
+    "concept": "Innovation financière",
+    "niveau": "avancé",
+    "type": "Innovation",
+    "contexte": "Nouveau produit digital orienté PME.",
+    "objectif_pedagogique": "Définir modèle, risques, régulation et go-to-market.",
+    "choix": {
+      "A": { "description": "Design complet (process, régulation, risques, ROI).", "impact": { "cashflow": -3, "rentabilite": 6, "reputation": 5, "stress": 3 } },
+      "B": { "description": "Prototype marketing sans cadre réglementaire.", "impact": { "cashflow": -1, "rentabilite": 2, "reputation": -1, "stress": 1 } },
+      "C": { "description": "Idée non priorisée, sans étude de marché.", "impact": { "cashflow": 0, "rentabilite": 1, "reputation": 0, "stress": 0 } }
+    },
+    "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
+    "tags": ["Fintech","Plateforme","PME","Pilier: Innovation"],
+    "feedback": { "A": "Vision produit investissable.", "B": "Non déployable.", "C": "Pas d’évidence d’adoption." },
+    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "reutilisable": true
+  }
 }
 }

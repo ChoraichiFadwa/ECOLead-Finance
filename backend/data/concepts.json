@@ -148,13 +148,21 @@
       "missions": {
         "débutant": [
           { "id": "Découvrir les méthodes d’évaluation" },
-          { "id": "Évaluation simplifiée d’une PME" }
+          { "id": "Évaluation simplifiée d’une PME" },
+          {"id": "Valoriser une PME par comparables sectoriels"},
+          { "id": "Identifier et quantifier les actifs immatériels (pharma)" }
         ],
         "intermédiaire": [
-          { "id": "Analyse de sensibilité" }
+          { "id": "Analyse de sensibilité" },
+          { "id": "Ajuster les multiples pour croissance, rentabilité et risque"},
+          { "id": "Valoriser un portefeuille de brevets (coûts & revenus)" }
         ],
         "avancé": [
-          { "id": "Investissements R&D" }
+          { "id": "Investissements R&D" },
+          { "id": "Développer des multiples forward-looking (NTM/PEG)" },
+          { "id": "Valoriser une cible en intégrant synergies industrielles et fiscales" },
+          { "id": "Modéliser l’accrétion/dilution EPS et sensibilité" },
+          { "id": "Intégrer le capital humain dans la valorisation" }
         ]
       },
       "progression": 0
@@ -165,13 +173,19 @@
       "profiles": [2],
       "missions": {
         "débutant": [
-          { "id": "Introduction aux secteurs" }
+          { "id": "Introduction aux secteurs" },
+          { "id": "Valoriser une startup SaaS par multiple ARR" },
+          { "id": "Analyser les risques climatiques (physiques & transition)" }
         ],
         "intermédiaire": [
-          { "id": "Analyse sectorielle" }
+          { "id": "Analyse sectorielle" },
+          { "id": "Intégrer les métriques d’engagement utilisateur dans une valorisation" },
+          { "id": "Quantifier l’impact d’un score ESG sur la valorisation" }
         ],
         "avancé": [
-          { "id": "Projection stratégique sectorielle" }
+          { "id": "Projection stratégique sectorielle" },
+          { "id": "Valoriser une scale-up tech avec effets de réseau" },
+          { "id": "Intégrer des externalités environnementales dans la valorisation" }
         ]
       },
       "progression": 0
@@ -182,13 +196,19 @@
   "profiles": [2],
   "missions": {
     "débutant": [
-      { "id": "Analyser les ratios financiers de base" }
+      { "id": "Analyser les ratios financiers de base" },
+      { "id": "Décomposer le business model d'une entreprise de services" },
+      { "id": "Analyser l'évolution des marges et de la rentabilité sur 3 ans" }
     ],
     "intermédiaire": [
-      { "id": "Construire un modèle DCF simplifié" }
+      { "id": "Construire un modèle DCF simplifié" },
+      { "id": "Comparer la scalabilité de business models" },
+      { "id": "Identifier et quantifier les éléments exceptionnels" }
     ],
     "avancé": [
-      { "id": "Réaliser une analyse sectorielle complète" }
+      { "id": "Réaliser une analyse sectorielle complète" },
+      { "id": "Évaluer l’impact d’une disruption technologique sur un incumbent" },
+      { "id": "Détecter des manipulations comptables potentielles" }
     ]
   },
   "progression": 0
@@ -252,6 +272,17 @@
     },
     "progression": 0
   },
+    "Recherche et recommandations": {
+    "nom": "Recherche et recommandations",
+    "description": "Méthodologie de recherche, rédaction de notes et formulation de recommandations actionnables.",
+    "profiles": [2],
+    "missions": {
+      "débutant": [{ "id": "Rédiger une note d’initiation (mid-cap)" }],
+      "intermédiaire": [{ "id": "Actualiser une recommandation après résultats décevants" }],
+      "avancé": [{ "id": "Étude thématique: transition énergétique sur un secteur" }]
+    },
+    "progression": 0
+  },
 
     "Gestion de Trésorerie & Financement": {
       "nom": "Gestion de Trésorerie & Financement",
@@ -273,15 +304,137 @@
   "profiles": [3],
   "missions": {
     "débutant": [
-      { "id": "Identifier un risque de crédit dans une opération" }
+      { "id": "Identifier un risque de crédit dans une opération" },
+      { "id": "Identifier les risques d'une opération de financement d'acquisition" }
     ],
     "intermédiaire": [
-      { "id": "Évaluer un risque de transaction M&A" }
+      { "id": "Évaluer un risque de transaction M&A" },
+      { "id": "Mettre en place un package de couvertures pour une transaction internationale" }
     ],
     "avancé": [
-      { "id": "Structurer une opération avec gestion intégrée des risques" }
+      { "id": "Structurer une opération avec gestion intégrée des risques" },
+      { "id": "Gérer les risques d'une restructuration en détresse" }
     ]
   },
   "progression": 0
-    }
+    },
+    "Structuration de financements": {
+    "nom": "Structuration de financements",
+    "description": "Conception de structures de financement optimales (dette, equity, hybrides).",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Structurer un financement bancaire pour l'acquisition d'une PME" }],
+      "intermédiaire": [{ "id": "Concevoir un financement mezzanine pour croissance externe" }],
+      "avancé": [{ "id": "Structurer un LBO multicouches optimisé fiscalement" }]
+    },
+    "progression": 0
+  },
+
+  "Origination et développement commercial": {
+    "nom": "Origination et développement commercial",
+    "description": "Prospection, développement relationnel et qualification des besoins de financement.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Qualifier les besoins de financement d'une entreprise en croissance" }],
+      "intermédiaire": [{ "id": "Stratégie d'approche grand compte corporate" }],
+      "avancé": [{ "id": "Co-originer des deals avec des fonds d'investissement" }]
+    },
+    "progression": 0
+  },
+
+  "Due Diligence et Analyse Crédit": {
+    "nom": "Due Diligence et Analyse Crédit",
+    "description": "Processus d'audit financier/légal/fiscal et évaluation du risque crédit de la transaction.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Due diligence financière simplifiée d'une PME" }],
+      "intermédiaire": [{ "id": "Coordonner une due diligence multi-expertises pour un LBO" }],
+      "avancé": [{ "id": "Due diligence transfrontalière avec risques réglementaires" }]
+    },
+    "progression": 0
+  },
+
+  "Marchés de capitaux": {
+    "nom": "Marchés de capitaux",
+    "description": "ECM/DCM : IPO, obligations, placements privés et exécution de marché.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Préparer une société à son introduction en bourse" }],
+      "intermédiaire": [{ "id": "Structurer et placer une émission obligataire corporate" }],
+      "avancé": [{ "id": "Gérer une IPO dual listing" }]
+    },
+    "progression": 0
+  },
+
+  "Conseil stratégique": {
+    "nom": "Conseil stratégique",
+    "description": "Conseil aux dirigeants : stratégie financière, structure de capital, M&A et désendettement.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Conseiller sur l'opportunité d'une acquisition complémentaire" }],
+      "intermédiaire": [{ "id": "Accompagner la restructuration financière d'un groupe en difficulté" }],
+      "avancé": [{ "id": "Stratégie de désendettement via spin-off et cessions d'actifs" }]
+    },
+    "progression": 0
+  },
+
+  "Relations investisseurs": {
+    "nom": "Relations investisseurs",
+    "description": "Communication financière côté émetteur : equity story, roadshows, gestion de crise.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Préparer une présentation investisseurs (résultats annuels)" }],
+      "intermédiaire": [{ "id": "Organiser un roadshow européen" }],
+      "avancé": [{ "id": "Communication de crise après profit warning" }]
+    },
+    "progression": 0
+  },
+
+  "Refinancement et restructuration": {
+    "nom": "Refinancement et restructuration",
+    "description": "Techniques de refinancement et restructuration de dettes en situations tendues.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Renégocier un crédit syndiqué en situation tendue" }],
+      "intermédiaire": [{ "id": "Refinancement complet avec allongement des maturités" }],
+      "avancé": [{ "id": "Restructuration avec conversion debt-to-equity" }]
+    },
+    "progression": 0
+  },
+
+  "Financement de projet": {
+    "nom": "Financement de projet",
+    "description": "Project finance non-recourse : allocation des risques, sûretés et garanties.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Analyser la viabilité financière d'un projet ENR" }],
+      "intermédiaire": [{ "id": "Structurer le financement d'une infrastructure de transport" }],
+      "avancé": [{ "id": "Financement de projet minier international (garanties multilatérales)" }]
+    },
+    "progression": 0
+  },
+
+  "Conformité et Réglementation": {
+    "nom": "Conformité et Réglementation",
+    "description": "KYC/AML, sanctions, limites grands risques et supervision prudentielle.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Vérifier la conformité KYC/AML d'un client corporate" }],
+      "intermédiaire": [{ "id": "Mettre en conformité une opération avec les règles de grands risques" }],
+      "avancé": [{ "id": "Gérer la réglementation d'une fusion bancaire transfrontalière" }]
+    },
+    "progression": 0
+  },
+
+  "Innovation financière": {
+    "nom": "Innovation financière",
+    "description": "Blockchain, IA et plateformes digitales appliquées aux métiers de banque d’investissement.",
+    "profiles": [3],
+    "missions": {
+      "débutant": [{ "id": "Évaluer l'impact de la blockchain sur le post-marché" }],
+      "intermédiaire": [{ "id": "Développer un outil d'aide à la décision par IA" }],
+      "avancé": [{ "id": "Concevoir une plateforme de financement participatif pour PME" }]
+    },
+    "progression": 0
+  }
   }
