@@ -444,12 +444,20 @@
     },
     {
       "id": "Crise Financière Systémique",
-      "type": "macro",
+      "title": "Crise Financière Systémique",
       "message": "Effondrement généralisé des marchés financiers",
+      "context": {
+    "type": "macro",
+    "tl_dr": "",
+    "definition": "",
+    "timeline": [
+      
+    ],
+    "sources": [
+      
+    ]
+  },
       "conditions": {
-        "niveau": [
-          "débutant"
-        ]
       },
       "modifie_choix": {
         "A": {
@@ -466,7 +474,7 @@
   "title": "Changement de Politique BCE/Fed",
   "message": "Modification significative des taux directeurs",
   "context": {
-    "type": "macro",
+    "type": "Macro",
     "tl_dr": "Quand la BCE ou la Fed relève (ou abaisse) son taux directeur, les conditions financières se resserrent (ou s’assouplissent) : marchés monétaires et obligations réajustent, le crédit devient plus cher (ou moins cher), le dollar/l’euro bougent, et l’activité/les prix réagissent avec des délais de 3–12 mois.",
     "definition": "Un changement de politique monétaire est une décision de la banque centrale (BCE/Fed) qui modifie le coût de l’argent à court terme pour atteindre ses objectifs (BCE : stabilité des prix ; Fed : double mandat emploi/prix). La transmission se fait via les taux de marché, le crédit bancaire, les anticipations et le taux de change.",
     "timeline": [

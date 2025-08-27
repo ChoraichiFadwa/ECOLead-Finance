@@ -832,7 +832,7 @@
     "A": "Les ratios sont utiles mais peuvent manquer de contexte.",
     "B": "Combiner finances et perspectives sectorielles renforce vos choix."
   },
-  "evenements_possibles": ["Choc sectoriel spécifique"],
+  "evenements_possibles": [],
   "reutilisable": true
 },
 "DCF simple entreprise mature": {
@@ -1080,8 +1080,7 @@
         "C": "Négliger la structure de capital peut exposer à des pertes en cas de stress."
       },
       "evenements_possibles": [
-        "Crise Financière Systémique",
-        "Choc sectoriel spécifique"
+        "Crise Financière Systémique"
       ],
       "reutilisable": true
     },
@@ -1846,7 +1845,6 @@
         "C": "Une décote sans fondement nuit à la crédibilité et peut sous-évaluer fortement la cible."
       },
       "evenements_possibles": [
-        "Choc sectoriel spécifique",
         "Crise Financière Systémique"
       ],
       "reutilisable": true
@@ -1905,7 +1903,6 @@
         "C": "P/B seul est rarement pertinent hors secteurs capital-intensifs spécifiques."
       },
       "evenements_possibles": [
-        "Choc sectoriel spécifique",
         "Changement de Politique BCE/Fed"
       ],
       "reutilisable": true
@@ -2023,7 +2020,6 @@
         "C": "Hypothèses trop optimistes nuisent à la crédibilité de l’analyse."
       },
       "evenements_possibles": [
-        "Choc sectoriel spécifique",
         "Crise Financière Systémique"
       ],
       "reutilisable": true
@@ -2591,7 +2587,7 @@
       "B": "La marge nette seule peut masquer des signaux contradictoires.",
       "C": "La croissance du CA ne garantit pas la création de valeur."
     },
-    "evenements_possibles": ["Crise Financière Systémique","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -2623,7 +2619,7 @@
       "B": "Les comparaisons deviennent fragiles sans retraitement.",
       "C": "Risque de biais si l’on exclut sans cadre clair."
     },
-    "evenements_possibles": ["Changement de Politique BCE/Fed","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
     "reutilisable": true
   },
 
@@ -2687,7 +2683,7 @@
       "B": "Les moyennes sectorielles masquent l’hétérogénéité.",
       "C": "Le non récurrent distord la valorisation."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -2719,7 +2715,7 @@
       "B": "La base inscrite ne reflète pas l’activité réelle.",
       "C": "Des hypothèses figées masquent la dynamique."
     },
-    "evenements_possibles": ["Changement de Politique BCE/Fed","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
     "reutilisable": true
   },
 
@@ -2751,7 +2747,7 @@
       "B": "Un DCF générique sous-estime ces moteurs.",
       "C": "La linéarité ignore les points d’inflexion."
     },
-    "evenements_possibles": ["Crise Financière Systémique","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -2879,7 +2875,7 @@
       "B": "Vue incomplète sur la marge.",
       "C": "Le BFR influence fortement la trésorerie."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "evenements_possibles": [],
     "reutilisable": true
   },
 
@@ -2943,7 +2939,7 @@
       "B": "La demande réagit aux innovations.",
       "C": "Les marges actuelles sont rarement pérennes en disruption."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -2975,7 +2971,7 @@
       "B": "Sans quantification, l’analyse reste faible.",
       "C": "Risque de sous-valoriser fortement la cible."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "evenements_possibles": [],
     "reutilisable": true
   },
 
@@ -3039,7 +3035,7 @@
       "B": "L’absence de mesure ne justifie pas l’ignorer.",
       "C": "Attention à la double comptabilisation."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -3071,7 +3067,7 @@
       "B": "Sans chiffres, difficile d’agir.",
       "C": "Risque d’angle mort majeur."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "evenements_possibles": [],
     "reutilisable": true
   },
 
@@ -3134,7 +3130,7 @@
       "B": "Sans chiffrage, le signal reste faible.",
       "C": "Le coût des externalités n’est pas uniforme."
     },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
   "Structurer un financement bancaire pour l'acquisition d'une PME": {
@@ -3190,7 +3186,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["LBO","Unitranche","Cash sweep","Pilier: Structuration & LevFin"],
     "feedback": { "A": "Structure défendable et robuste.", "B": "Vulnérable aux chocs.", "C": "Risque réputationnel élevé." },
-    "evenements_possibles": ["Crise Financière Systémique","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -3209,7 +3205,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Coverage","Prospection","Qualification","Pilier: Origination & Coverage"],
     "feedback": { "A": "Découverte structurée = pipeline de qualité.", "B": "Faible conversion.", "C": "Perte d'élan commercial." },
-    "evenements_possibles": ["Boom Économique Global","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Boom Économique Global"],
     "reutilisable": true
   },
 
@@ -3247,7 +3243,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Partenariats","Fonds","Deal flow","Pilier: Origination & Coverage"],
     "feedback": { "A": "Pipeline renforcé et crédible.", "B": "Risque de conflits et d'ambiguïtés.", "C": "Opportunités manquées." },
-    "evenements_possibles": ["Boom Économique Global","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Boom Économique Global"],
     "reutilisable": true
   },
 
@@ -3285,7 +3281,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["LBO","Coordination","Data room","Pilier: Due Diligence & Risk"],
     "feedback": { "A": "Réduction des surprises en closing.", "B": "Incohérences et retards probables.", "C": "Risque de découverte tardive majeure." },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -3361,7 +3357,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["ECM","Dual listing","Allocation","Pilier: Marchés de Capitaux"],
     "feedback": { "A": "Exécution maîtrisée et crédible.", "B": "Sous-dimensionné pour la complexité.", "C": "Perte de contrôle et d’apprentissage." },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -3418,7 +3414,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Spin-off","Carve-out","Rating","Pilier: Conseil & Communication"],
     "feedback": { "A": "Plan robuste et crédible.", "B": "Vue parcellaire.", "C": "Inflexibilité risquée." },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -3456,7 +3452,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Hedge","FX","IRS","Pilier: Due Diligence & Risk"],
     "feedback": { "A": "Réduit la volatilité d’exécution.", "B": "Exposition résiduelle significative.", "C": "Risque spéculatif inadapté." },
-    "evenements_possibles": ["Changement de Politique BCE/Fed","Choc sectoriel spécifique"],
+    "evenements_possibles": ["Changement de Politique BCE/Fed"],
     "reutilisable": true
   },
 
@@ -3494,7 +3490,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["IR","Equity story","KPI","Pilier: Conseil & Communication"],
     "feedback": { "A": "Message clair et crédible.", "B": "Peu différenciant.", "C": "Risque de mauvaise interprétation." },
-    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "evenements_possibles": [],
     "reutilisable": true
   },
 
@@ -3608,7 +3604,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Project finance","CFADS","DSCR","Pilier: Structuration & LevFin"],
     "feedback": { "A": "Base de viabilité dédiée.", "B": "Confusion recourse / non-recourse.", "C": "Risque de revenus non sécurisés." },
-    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "evenements_possibles": [],
     "reutilisable": true
   },
 
@@ -3646,7 +3642,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Project finance","ECA/MLI","Risque pays","Pilier: Structuration & LevFin"],
     "feedback": { "A": "Sécurise l’exécution et les cash flows.", "B": "Risque de recours implicite.", "C": "Exposition majeure non couverte." },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   },
 
@@ -3722,7 +3718,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Blockchain","Post-marché","Pilier: Innovation"],
     "feedback": { "A": "Vision actionnable.", "B": "Peu opérationnel.", "C": "Risque d’obsolescence stratégique." },
-    "evenements_possibles": ["Choc sectoriel spécifique"],
+    "evenements_possibles": [],
     "reutilisable": true
   },
 
@@ -3760,7 +3756,7 @@
     "variables_affectees": ["cashflow","rentabilite","reputation","stress"],
     "tags": ["Fintech","Plateforme","PME","Pilier: Innovation"],
     "feedback": { "A": "Vision produit investissable.", "B": "Non déployable.", "C": "Pas d’évidence d’adoption." },
-    "evenements_possibles": ["Choc sectoriel spécifique","Crise Financière Systémique"],
+    "evenements_possibles": ["Crise Financière Systémique"],
     "reutilisable": true
   }
 }
