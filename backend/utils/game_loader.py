@@ -21,13 +21,14 @@ class GameLoader:
         if os.path.exists(missions_path):
             with open(missions_path, 'r', encoding='utf-8') as f:
                 self.missions= json.load(f).get("missions", {})
-        
+
+        # Load concepts
         concepts_path=os.path.join("data", "concepts.json")
         if os.path.exists(concepts_path):
             with open(concepts_path, 'r', encoding='utf-8') as f:
-                self.concepts=json.load(f).get("concepts", {})
+                self.concepts=json.load(f)
         
-        
+        # Load events
         events_path = os.path.join("data", "events.json")
         if os.path.exists(events_path):
             with open(events_path, 'r', encoding='utf-8') as f:

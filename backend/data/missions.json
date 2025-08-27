@@ -969,9 +969,181 @@
   "evenements_possibles": [],
   "reutilisable": true
 },
-
-
-
+"Analyser ratios de solvabilité et notation interne": {
+      "id": "Analyser ratios de solvabilité et notation interne",
+      "concept": "Analyse de Crédit (Buy-side)",
+      "niveau": "débutant",
+      "type": "Analyse financière",
+      "contexte": "Vous évaluez un émetteur pour un achat d’obligations corporate investment grade.",
+      "objectif_pedagogique": "Calculer ND/EBITDA, ICR, couverture des intérêts et attribuer une notation interne cohérente.",
+      "choix": {
+        "A": {
+          "description": "Utiliser ND/EBITDA et ICR, analyser la tendance du levier sur 3 ans, noter en conséquence.",
+          "impact": {
+            "cashflow": -2,
+            "rentabilite": 4,
+            "reputation": 4,
+            "stress": 1
+          }
+        },
+        "B": {
+          "description": "Se baser uniquement sur le bénéfice net sans retraitements ni ratios.",
+          "impact": {
+            "cashflow": 0,
+            "rentabilite": 1,
+            "reputation": -1,
+            "stress": 0
+          }
+        },
+        "C": {
+          "description": "S’appuyer sur la réputation de l’émetteur sans analyse chiffrée.",
+          "impact": {
+            "cashflow": 1,
+            "rentabilite": 1,
+            "reputation": -2,
+            "stress": 0
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "Crédit",
+        "Ratios",
+        "Fixed Income"
+      ],
+      "feedback": {
+        "A": "Approche structurée et défendable pour un investisseur obligataire.",
+        "B": "Les bénéfices comptables ne capturent pas la capacité de service de la dette.",
+        "C": "La réputation n’est pas un substitut à l’analyse de solvabilité."
+      },
+      "evenements_possibles": [
+        "Crise Financière Systémique",
+        "Changement de Politique BCE/Fed"
+      ],
+      "reutilisable": true
+    },
+"Comparer le risque de crédit d’émetteurs du même secteur": {
+      "id": "Comparer le risque de crédit d’émetteurs du même secteur",
+      "concept": "Analyse de Crédit (Buy-side)",
+      "niveau": "intermédiaire",
+      "type": "Analyse financière",
+      "contexte": "Vous devez sélectionner l’obligation la plus attractive parmi trois émetteurs sectoriels.",
+      "objectif_pedagogique": "Comparer spreads, rating-implied default risk et structure de capital pour éclairer le choix.",
+      "choix": {
+        "A": {
+          "description": "Comparer les spreads OAS, la maturité et la séniorité pour déterminer le couple rendement/risque.",
+          "impact": {
+            "cashflow": -1,
+            "rentabilite": 5,
+            "reputation": 3,
+            "stress": 1
+          }
+        },
+        "B": {
+          "description": "Se baser uniquement sur le rendement nominal le plus élevé.",
+          "impact": {
+            "cashflow": 0,
+            "rentabilite": 2,
+            "reputation": -1,
+            "stress": 1
+          }
+        },
+        "C": {
+          "description": "Ignorer la structure de capital et les clauses (call, covenants).",
+          "impact": {
+            "cashflow": -1,
+            "rentabilite": 1,
+            "reputation": -2,
+            "stress": 1
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "Crédit",
+        "Spreads",
+        "Fixed Income"
+      ],
+      "feedback": {
+        "A": "Comparer OAS/maturité/séniorité capture mieux le risque que le rendement facial.",
+        "B": "Le rendement le plus élevé n’est pas toujours le meilleur ajusté du risque.",
+        "C": "Négliger la structure de capital peut exposer à des pertes en cas de stress."
+      },
+      "evenements_possibles": [
+        "Crise Financière Systémique",
+        "Choc sectoriel spécifique"
+      ],
+      "reutilisable": true
+    },
+"Modèle simple de scoring crédit (PD/LGD)": {
+      "id": "Modèle simple de scoring crédit (PD/LGD)",
+      "concept": "Analyse de Crédit (Buy-side)",
+      "niveau": "avancé",
+      "type": "Analyse financière",
+      "contexte": "Votre comité veut un scoring interne léger pour prioriser les dossiers d’investissement.",
+      "objectif_pedagogique": "Construire un score combinant PD/LGD approximatifs via ratios clés et signaux sectoriels.",
+      "choix": {
+        "A": {
+          "description": "Construire un modèle simple (ratios levier/couverture + signaux sectoriels) avec calibration interne.",
+          "impact": {
+            "cashflow": -2,
+            "rentabilite": 6,
+            "reputation": 4,
+            "stress": 2
+          }
+        },
+        "B": {
+          "description": "S’appuyer sur des heuristiques non quantifiées (couleurs, labels génériques).",
+          "impact": {
+            "cashflow": 0,
+            "rentabilite": 2,
+            "reputation": -1,
+            "stress": 0
+          }
+        },
+        "C": {
+          "description": "Utiliser une règle univariée unique (ex: ND/EBITDA) comme score final.",
+          "impact": {
+            "cashflow": 0,
+            "rentabilite": 2,
+            "reputation": -2,
+            "stress": 1
+          }
+        }
+      },
+      "variables_affectees": [
+        "cashflow",
+        "rentabilite",
+        "reputation",
+        "stress"
+      ],
+      "tags": [
+        "Crédit",
+        "Scoring",
+        "PD",
+        "LGD"
+      ],
+      "feedback": {
+        "A": "Un modèle simple et transparent facilite la gouvernance et l’amélioration continue.",
+        "B": "Des heuristiques non quantifiées sont difficiles à défendre devant un comité.",
+        "C": "Une règle univariée ignore des dimensions critiques du risque."
+      },
+      "evenements_possibles": [
+        "Crise Financière Systémique",
+        "Changement de Politique BCE/Fed"
+      ],
+      "reutilisable": true
+    },
   "Couverture avec puts protecteurs": {
   "id": "Couverture avec puts protecteurs",
   "concept": "Marchés Dérivés et Couverture",

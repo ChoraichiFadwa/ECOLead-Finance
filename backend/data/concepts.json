@@ -1,5 +1,4 @@
   {
-    "concepts": {
     "Marché Boursier": {
       "nom": "Marché Boursier",
       "description": "Progression sur le concept : marché boursier - maîtrise des décisions financières stratégiques de l'entreprise",
@@ -47,10 +46,10 @@
         ],
         "intermédiaire": [
           { "id": "Timing optimal avec RSI et MACD" }
-    ],
+        ],
         "avancé": [
       { "id": "Stratégie algorithmique et backtesting" }
-    ]
+        ]
       },
       "progression": 0
     },
@@ -228,6 +227,31 @@
   },
   "progression": 0
 },
+    "Analyse de Crédit (Buy-side)": {
+    "nom": "Analyse de Crédit (Buy-side)",
+    "description": "Évaluer la solvabilité des émetteurs côté investisseur obligataire: ratios, spreads, scoring PD/LGD.",
+    "profiles": [
+      2
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Analyser ratios de solvabilité et notation interne"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Comparer le risque de crédit d’émetteurs du même secteur"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Modèle simple de scoring crédit (PD/LGD)"
+        }
+      ]
+    },
+    "progression": 0
+  },
 
     "Gestion de Trésorerie & Financement": {
       "nom": "Gestion de Trésorerie & Financement",
@@ -261,4 +285,3 @@
   "progression": 0
     }
   }
-}
