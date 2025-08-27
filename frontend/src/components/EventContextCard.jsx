@@ -95,9 +95,9 @@ export default function EventContextCard({
         md:-translate-x-1/2 md:-translate-y-1/2
         w-full md:w-[680px]
         bg-white rounded-t-2xl md:rounded-2xl shadow-xl
-        p-5
+        p-5 flex flex-col max-h-[85vh]
       ">
-        <div className="flex items-start justify-between gap-3">
+        <div className="flex items-start justify-between gap-3 shrink-0">
           <div className="flex items-center gap-2">
             <Info className="w-5 h-5 text-indigo-600" aria-hidden="true" />
             <h3 className="text-lg font-semibold text-gray-900">
@@ -115,11 +115,11 @@ export default function EventContextCard({
 
         {/* Sous-titre court si disponible */}
         {event?.message && (
-          <p className="mt-1 text-sm text-gray-600">{event.message}</p>
+          <p className="mt-1 text-sm text-gray-600 shrink-0">{event.message}</p>
         )}
 
         {/* Contenu */}
-        <div className="mt-4 space-y-3 text-sm">
+        <div className="mt-4 space-y-3 text-sm overflow-y-auto overscroll-contain pr-2">
           {ctx.tl_dr && (
             <section className="bg-gray-50 border rounded p-3">
               <div className="text-xs text-gray-600 mb-1">En bref</div>

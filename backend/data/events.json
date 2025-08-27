@@ -1,6 +1,448 @@
 {
   "events": [
     {
+      "id": "premiere_choc_petrolier_1973",
+      "title": "Premier choc pétrolier (1973-1974)",
+      "message": "Embargo pétrolier arabe contre les pays occidentaux lors de la guerre du Kippour, provoquant une multiplication par quatre des prix du pétrole.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Embargo OAPEC : guerre du Kippour, prix du pétrole multipliés par 4, crise énergétique mondiale et récession (1973-1974).",
+        "definition": "Embargo pétrolier imposé par les pays arabes membres de l'OAPEC contre les États-Unis et d'autres pays occidentaux, provoquant une crise énergétique mondiale et une récession économique majeure.",
+        "timeline": [
+          "Octobre 1973 : Début de la guerre du Kippour et lancement de l'embargo pétrolier.",
+          "Novembre 1973 : Extension de l'embargo à d'autres pays soutenant Israël.",
+          "Mars 1974 : Levée de l'embargo, mais maintien des prix élevés (de 3$ à 12$ le baril)."
+        ],
+        "sources": [
+          { "label": "Premier choc pétrolier - Wikipedia", "url": "https://fr.wikipedia.org/wiki/Premier_choc_p%C3%A9trolier" },
+          { "label": "Oil Shock of 1973-74 - Federal Reserve History", "url": "https://www.federalreservehistory.org/essays/oil-shock-of-1973-74" },
+          { "label": "Arab oil embargo - Britannica", "url": "https://www.britannica.com/event/Arab-oil-embargo" }
+        ]
+      },
+        "conditions": {
+    "niveau": ["intermédiaire", "avancé"]
+  },
+  "modifie_choix": {
+    "A": {
+      "cashflow": -5,
+      "stress": 2,
+      "rentabilite": -3
+    },
+    "B": {
+      "cashflow": 0,
+      "stress": 1,
+      "rentabilite": 0
+    },
+    "C": {
+      "cashflow": -3,
+      "stress": 2,
+      "rentabilite": -1
+    }
+  }
+    },
+    {
+      "id": "second_choc_petroliere_1979",
+      "title": "Second choc pétrolier (1979-1980)",
+      "message": "Choc pétrolier déclenché par la révolution iranienne et la guerre Iran-Irak, entraînant une nouvelle flambée des prix.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Révolution iranienne et guerre Iran-Irak : production pétrolière chute, prix doublent, récession mondiale (1979-1980).",
+        "definition": "Deuxième choc pétrolier majeur causé par l'instabilité politique en Iran et le déclenchement de la guerre avec l'Irak, perturbant significativement la production pétrolière mondiale.",
+        "timeline": [
+          "1979 : Révolution iranienne et chute de la production pétrolière iranienne.",
+          "Septembre 1980 : Début de la guerre Iran-Irak.",
+          "1980-1981 : Prix du pétrole atteignent des pics historiques, récession mondiale."
+        ],
+        "sources": [
+          { "label": "Archives historiques - Agence Internationale de l'Énergie", "url": "https://www.iea.org" },
+          { "label": "Données historiques OPEP", "url": "https://www.opec.org" }
+        ]
+      },
+        "conditions": {
+          "niveau": ["intermédiaire", "avancé"]
+  },
+  "modifie_choix": {
+    "A": {
+      "cashflow": -5,
+      "stress": 2,
+      "rentabilite": -3
+    },
+    "B": {
+      "cashflow": 0,
+      "stress": 1,
+      "rentabilite": 0
+    },
+    "C": {
+      "cashflow": -3,
+      "stress": 2,
+      "rentabilite": -1
+    }
+  }
+    },
+    {
+      "id": "crise_dette_1980s",
+      "title": "Crise de la Dette des Années 1980",
+      "message": "Crise financière touchant plusieurs pays MENA après la chute des prix du pétrole, entraînant des difficultés de remboursement.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Surendettement post-boom pétrolier : chute des revenus, difficultés remboursement, programmes d'ajustement structurel (années 1980).",
+        "definition": "Crise d'endettement majeure affectant plusieurs économies MENA suite à la baisse des revenus pétroliers et à l'augmentation des taux d'intérêt mondiaux.",
+        "timeline": [
+          "1982-1986 : Chute des prix du pétrole et montée des taux d'intérêt.",
+          "1980s : Difficultés croissantes de remboursement pour plusieurs pays.",
+          "Fin 1980s : Mise en place de programmes d'ajustement structurel."
+        ],
+        "sources": [
+          { "label": "Archives Banque Mondiale", "url": "https://www.worldbank.org" },
+          { "label": "Documents FMI - Crise de la dette", "url": "https://www.imf.org" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 2,
+          "rentabilite": -3
+        },
+        "B": {
+          "cashflow": 0,
+          "stress": 1,
+          "rentabilite": 0
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 2,
+          "rentabilite": -1
+        }
+      }
+    },
+    {
+      "id": "guerre_golfe_1990",
+      "title": "Guerre du Golfe et Crise Régionale (1990-1991)",
+      "message": "Invasion du Koweït par l'Irak provoquant une crise économique régionale majeure et des perturbations pétrolières.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Invasion Koweït : guerre, embargo économique, 1,5M travailleurs migrants rapatriés, marchés pétroliers perturbés (1990-1991).",
+        "definition": "Conflit armé et crise économique déclenchés par l'invasion du Koweït, causant des déplacements massifs de populations et une volatilité extrême des marchés énergétiques.",
+        "timeline": [
+          "Août 1990 : Invasion du Koweït par l'Irak et embargo international.",
+          "1990-1991 : Rapatriement massif de travailleurs migrants (1,5 million).",
+          "Février 1991 : Fin de la guerre et reconstruction régionale."
+        ],
+        "sources": [
+          { "label": "Growth and Stability in the Middle East and North Africa - IMF", "url": "https://www.imf.org/external/pubs/ft/mena/04econ.htm" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 2,
+          "rentabilite": -3
+        },
+        "B": {
+          "cashflow": 0,
+          "stress": 1,
+          "rentabilite": 0
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 2,
+          "rentabilite": -1
+        }
+      }
+    },
+    {
+      "id": "crise_asiatique_1997",
+      "title": "Crise Asiatique et Répercussions MENA (1997-1998)",
+      "message": "Contagion de la crise financière asiatique vers les économies MENA, particulièrement les exportateurs de pétrole.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Contagion crise asiatique : demande mondiale chute, prix pétrole baissent, économies MENA affectées (1997-1998).",
+        "definition": "Propagation des effets de la crise financière asiatique vers la région MENA, principalement via la baisse de la demande mondiale d'énergie et la réduction des investissements.",
+        "timeline": [
+          "Juillet 1997 : Début de la crise asiatique en Thaïlande.",
+          "1997-1998 : Propagation mondiale et baisse des prix des matières premières.",
+          "1998-1999 : Impact sur les économies MENA exportatrices de pétrole."
+        ],
+        "sources": [
+          { "label": "Rapports Banque Mondiale - Contagion financière", "url": "https://www.worldbank.org" },
+          { "label": "Analyses FMI - Crise asiatique", "url": "https://www.imf.org" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 2,
+          "rentabilite": -3
+        },
+        "B": {
+          "cashflow": 0,
+          "stress": 1,
+          "rentabilite": 0
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 2,
+          "rentabilite": -1
+        }
+      }
+    },
+    {
+      "id": "choc_petrolier_2008",
+      "title": "Choc Pétrolier de 2008",
+      "message": "Flambée historique des prix du pétrole atteignant 147$ le baril, suivie d'un effondrement brutal lors de la crise financière.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Prix pétrole record (147$/baril) puis effondrement (40$/baril) : volatilité extrême, budgets MENA déstabilisés (2008).",
+        "definition": "Période de volatilité pétrolière extrême avec des prix atteignant des records historiques avant de s'effondrer, créant une incertitude économique majeure dans la région.",
+        "timeline": [
+          "Premier semestre 2008 : Flambée des prix jusqu'à 147$ le baril.",
+          "Septembre 2008 : Début de la crise financière mondiale.",
+          "Fin 2008 : Chute brutale des prix sous les 40$ le baril."
+        ],
+        "sources": [
+          { "label": "Données historiques OPEP", "url": "https://www.opec.org" },
+          { "label": "Rapports AIE - Crise pétrolière 2008", "url": "https://www.iea.org" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 2,
+          "rentabilite": -3
+        },
+        "B": {
+          "cashflow": 0,
+          "stress": 1,
+          "rentabilite": 0
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 2,
+          "rentabilite": -1
+        }
+      }
+    },
+    {
+      "id": "crise_financiere_2008",
+      "title": "Crise Financière Mondiale (2008-2009)",
+      "message": "Impact de la crise des subprimes sur les économies MENA, particulièrement les pays non-pétroliers et dépendants du tourisme.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Crise subprimes mondiale : marchés financiers MENA affectés, tourisme et envois de fonds chutent, récession régionale (2008-2009).",
+        "definition": "Répercussions de la crise financière mondiale sur la région MENA, touchant particulièrement les secteurs financiers, touristiques et les pays dépendants des envois de fonds.",
+        "timeline": [
+          "Septembre 2008 : Faillite de Lehman Brothers et contagion mondiale.",
+          "2008-2009 : Chute des marchés boursiers MENA et réduction des investissements.",
+          "2009-2010 : Récession et mise en place de plans de relance régionaux."
+        ],
+        "sources": [
+          { "label": "Rapports Banque Mondiale - Impact régional", "url": "https://www.worldbank.org" },
+          { "label": "Études FMI - Crise financière MENA", "url": "https://www.imf.org" }
+        ]
+      },
+      "conditions": {
+        "niveau": [
+          "intermédiaire",
+          "avancé"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 2,
+          "rentabilite": -3
+        },
+        "B": {
+          "cashflow": 0,
+          "stress": 1,
+          "rentabilite": 0
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 2,
+          "rentabilite": -1
+        }
+      }
+    },
+    {
+      "id": "printemps_arabe_2010",
+      "title": "Printemps Arabe et Crise Socio-Économique (2010-2012)",
+      "message": "Soulèvements populaires déclenchés par des facteurs économiques, entraînant une instabilité politique et économique majeure.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Révolutions arabes : chômage, inégalités, corruption déclenchent soulèvements, instabilité économique durable (2010-2012).",
+        "definition": "Série de révolutions et manifestations populaires déclenchées en partie par des facteurs économiques (chômage élevé, inflation, inégalités), provoquant une crise politique et économique régionale.",
+        "timeline": [
+          "Décembre 2010 : Début du Printemps arabe en Tunisie.",
+          "2011 : Extension aux autres pays (Égypte, Libye, Syrie, Yémen).",
+          "2011-2012 : Instabilité politique persistante et déclin économique."
+        ],
+        "sources": [
+          { "label": "All eyes on MENA: Economy and the Arab Spring", "url": "http://www.cemmis.edu.gr/index.php/about-us/item/390-all-eyes-on-mena-economy-and-the-arab-spring" },
+          { "label": "MENA Unbound: Ten Years after the Arab Spring - World Bank", "url": "https://www.worldbank.org/en/news/opinion/2021/01/14/mena-unbound-ten-years-after-the-arab-spring-avoiding-another-lost-decade" },
+          { "label": "The Greater Middle East: Arab Spring to Failed States - CSIS", "url": "https://www.csis.org/analysis/greater-middle-east-arab-spring-axis-failed-states" }
+        ]
+      },
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 3
+        },
+        "B": {
+          "stress": 2
+        }
+      }
+    },
+    {
+      "id": "chute_petrole_2014",
+      "title": "Chute des Prix du Pétrole (2014-2016)",
+      "message": "Effondrement des prix du pétrole de plus de 70%, créant des déficits budgétaires massifs dans les pays exportateurs.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Révolution du schiste américain et surproduction : prix chutent de 110$ à 30$/baril, déficits budgétaires massifs CCG (2014-2016).",
+        "definition": "Chute drastique et prolongée des prix pétroliers causée par l'augmentation de la production américaine de pétrole de schiste et la décision de l'OPEP de maintenir sa production.",
+        "timeline": [
+          "Juin 2014 : Début de la chute des prix pétroliers.",
+          "Novembre 2014 : L'OPEP décide de maintenir sa production.",
+          "Janvier 2016 : Prix atteignent leur plus bas niveau (moins de 30$ le baril)."
+        ],
+        "sources": [
+          { "label": "Données OPEP - Crise pétrolière 2014-2016", "url": "https://www.opec.org" },
+          { "label": "Rapports CCG - Impact économique", "url": "https://www.gcc-sg.org" }
+        ]
+      },
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 3
+        },
+        "B": {
+          "stress": 2
+        }
+      }
+    },
+    {
+      "id": "nouvelle_crise_dette_2020",
+      "title": "Nouvelle Crise de la Dette MENA (2020-présent)",
+      "message": "Crise d'endettement exacerbée par COVID-19, chute pétrolière et conflits, menaçant la stabilité de plusieurs États.",
+      "context": {
+        "type": "Contemporain",
+        "tl_dr": "Triple choc (COVID, pétrole, conflits) : endettement insoutenable, déficits budgétaires, risques de défaut souverain (2020-présent).",
+        "definition": "Crise d'endettement contemporaine touchant plusieurs pays MENA, aggravée par la combinaison de la pandémie, de la volatilité pétrolière et des tensions géopolitiques.",
+        "timeline": [
+          "2020 : Début des impacts économiques de COVID-19.",
+          "2020-2022 : Accumulation rapide de dette publique.",
+          "2023-présent : Risques croissants de crise de solvabilité souveraine."
+        ],
+        "sources": [
+          { "label": "The New Debt Crisis of the Middle East - Carnegie Endowment", "url": "https://carnegieendowment.org/research/2023/08/the-new-debt-crisis-of-the-middle-east-political-economy-to-the-rescue?center=middle-east&lang=en" },
+          { "label": "Debt Clouds over the Middle East - IMF", "url": "https://www.imf.org/en/Publications/fandd/issues/2023/09/debt-clouds-over-the-middle-east-adnan-mazarei" }
+        ]
+      },
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 3
+        },
+        "B": {
+          "stress": 2
+        }
+      }
+    },
+    {
+      "id": "crise_covid_petrole_2020",
+      "title": "Crise COVID-19 et Effondrement Pétrolier (2020-2022)",
+      "message": "Double choc combinant pandémie mondiale et effondrement pétrolier, créant une récession historique dans la région.",
+      "context": {
+        "type": "Contemporain",
+        "tl_dr": "Double choc COVID-pétrole : confinements, demande énergie s'effondre, récession historique, 5,1M emplois perdus MENA (2020-2022).",
+        "definition": "Crise économique sans précédent combinant les effets de la pandémie de COVID-19 et l'effondrement temporaire des prix pétroliers, provoquant une récession majeure et une crise de l'emploi.",
+        "timeline": [
+          "Mars 2020 : Début des confinements et chute de la demande pétrolière.",
+          "Avril 2020 : Prix du pétrole deviennent temporairement négatifs.",
+          "2020-2022 : Récession prolongée et crise de l'emploi (5,1M emplois perdus)."
+        ],
+        "sources": [
+          { "label": "MENA Economic Update - World Bank", "url": "https://www.worldbank.org/en/region/mena/publication/mena-economic-monitor" },
+          { "label": "MENA Economic Update October 2023 - ReliefWeb", "url": "https://reliefweb.int/report/yemen/mena-economic-update-october-2023-balancing-act-jobs-and-wages-middle-east-and-north-africa-when-crises-hit-enar" }
+        ]
+      },
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 3
+        },
+        "B": {
+          "stress": 2
+        }
+      }
+    },
+    {
+      "id": "crise_geopolitique_2023",
+      "title": "Crise Géopolitique et Économique Post-2023",
+      "message": "Instabilité économique liée aux conflits régionaux, inflation mondiale et perturbations des chaînes d'approvisionnement.",
+      "context": {
+        "type": "Contemporain",
+        "tl_dr": "Conflits régionaux et tensions géopolitiques : perturbations commerce/tourisme, inflation, incertitude économique majeure (2023-présent).",
+        "definition": "Période d'instabilité économique contemporaine marquée par l'escalade des conflits régionaux, l'inflation persistante et les perturbations des chaînes d'approvisionnement mondiales.",
+        "timeline": [
+          "2023 : Escalade des tensions géopolitiques régionales.",
+          "Octobre 2023 : Début du conflit Gaza-Israël et impact économique.",
+          "2024-présent : Perturbations continues du commerce et du tourisme régional."
+        ],
+        "sources": [
+          { "label": "Regional Economic Outlook MENA - IMF", "url": "https://www.imf.org/en/Publications/REO/MECA/Issues/2024/01/31/regional-economic-outlook-update-mena-january-2024" },
+          { "label": "A turbulent year for MENA in 2023 - Middle East Institute", "url": "https://www.mei.edu/publications/turbulent-year-mena-2023-economic-stresses-political-instability-and-need-decisive" }
+        ]
+      },
+      "conditions": {
+        "niveau": [
+          "débutant"
+        ]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -5,
+          "stress": 3
+        },
+        "B": {
+          "stress": 2
+        }
+      }
+    },
+    {
       "id": "Crise Financière Systémique",
       "type": "macro",
       "message": "Effondrement généralisé des marchés financiers",
@@ -22,21 +464,26 @@
     {
   "id": "Changement de Politique BCE/Fed",
   "title": "Changement de Politique BCE/Fed",
+  "message": "Modification significative des taux directeurs",
   "context": {
-    "type": "Macro",
-    "tl_dr": "Système de Law : émission massive de billets/actions, flambée spéculative, puis panique et effondrement (1720).",
-    "definition": "Bulle historique liée au « système de Law » : la Banque (devenue Royale) et la Compagnie d’Occident alimentent l’essor par émission de billets et actions.",
+    "type": "macro",
+    "tl_dr": "Quand la BCE ou la Fed relève (ou abaisse) son taux directeur, les conditions financières se resserrent (ou s’assouplissent) : marchés monétaires et obligations réajustent, le crédit devient plus cher (ou moins cher), le dollar/l’euro bougent, et l’activité/les prix réagissent avec des délais de 3–12 mois.",
+    "definition": "Un changement de politique monétaire est une décision de la banque centrale (BCE/Fed) qui modifie le coût de l’argent à court terme pour atteindre ses objectifs (BCE : stabilité des prix ; Fed : double mandat emploi/prix). La transmission se fait via les taux de marché, le crédit bancaire, les anticipations et le taux de change.",
     "timeline": [
-      "1719 : montée du cours des actions de la Compagnie du Mississippi.",
-      "Début 1720 : inflation, ruée pour convertir les billets.",
-      "Mi-1720 : suspension de convertibilité, chute des cours, fin du système."
+      "T0 : Annonce + ‘forward guidance’ → ajustement immédiat des taux courts et des rendements obligataires.",
+      "T+1–3 mois : Conditions de crédit et coûts de financement des entreprises/ménages se modifient ; l’euro/le dollar réagissent.",
+      "T+3–6 mois : Volume de crédit, investissement et consommation s’ajustent ; spreads et marchés d’actifs se re-pricent.",
+      "T+6–12 mois : Effets sur la croissance et l’inflation ; révision des anticipations, possible nouvelle étape de politique."
     ],
     "sources": [
-      { "label": "Synthèse courte (histoire financière)", "url": "https://meritis.fr/blog/histoire-et-impact-de-la-bulle-du-mississippi/" }
+      { "label": "ECB — Transmission mechanism of monetary policy", "url": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html" },
+      { "label": "Federal Reserve — The Fed Explained: Monetary Policy", "url": "https://www.federalreserve.gov/aboutthefed/fedexplained/monetary-policy.htm" },
+      { "label": "New York Fed — Monetary policy implementation", "url": "https://www.newyorkfed.org/markets/domestic-market-operations/monetary-policy-implementation" },
+      { "label": "Bank Al-Maghrib — Monetary policy (key rate, objectives, framework)", "url": "https://www.bkam.ma/en/Monetary-policy/Strategic-framework/Presentation" },
+      { "label": "BIS — Transmission mechanism overview (cross-country)", "url": "https://www.bis.org/publ/bisp00.pdf" },
+      { "label": "CRS (2025) — Intro to U.S. Monetary Policy", "url": "https://www.congress.gov/crs-product/IF11751" }
     ]
   },
-  "type": "macro",
-  "message": "Modification significative des taux directeurs",
   "conditions": {
     "niveau": ["intermédiaire", "avancé"]
   },
@@ -123,6 +570,20 @@
   "id": "Boom Économique Global",
   "type": "macro",
   "message": "Croissance soutenue, hausse généralisée des indices boursiers.",
+  "context": {
+    "type": "Macro",
+    "tl_dr": "Phase d’expansion synchronisée : croissance au-dessus de la tendance, indices boursiers en hausse, spreads comprimés et conditions financières favorables — avec risque d’échauffement plus tard dans le cycle.",
+    "definition": "Un boom économique global correspond à une période où plusieurs grandes régions (États-Unis, Europe, Asie) connaissent simultanément une croissance soutenue. Les marqueurs typiques : PMI > 50, progression généralisée des bénéfices, resserrement des primes de risque, reprise du commerce mondial et amélioration de l’emploi.",
+    "timeline": [
+      "Phase d’accélération : indicateurs avancés en hausse (PMI, commandes), rally actions généralisé, spreads IG/HY qui se resserrent.",
+      "Phase de maturité : tensions sur capacités et salaires, premiers signaux d’inflation sous-jacente, normalisation graduelle des politiques monétaires.",
+      "Fin de cycle (risques) : surprises d’inflation, durcissement des conditions financières, dispersion accrue des performances et vulnérabilité des actifs chers."
+    ],
+    "sources": [
+      { "label": "IMF — World Economic Outlook (Update, 2025)", "url": "https://www.imf.org/en/Publications/WEO/Issues/2025/07/29/world-economic-outlook-update-july-2025" },
+      { "label": "OECD — Economic Outlook 2025, General Assessment", "url": "https://www.oecd.org/en/publications/2025/06/oecd-economic-outlook-volume-2025-issue-1_1fd979a8/full-report/general-assessment-of-the-macroeconomic-situation_3e68d1e3.html" }
+    ]
+  },
   "conditions": {
     "niveau": [
       "intermédiaire"
@@ -147,6 +608,21 @@
       "id": "Quantitative Easing",
       "type": "politique",
       "message": "Programme d’assouplissement quantitatif massif",
+      "context": {
+    "type": "Politique monétaire",
+    "tl_dr": "Le QE est un achat d’actifs à grande échelle par la banque centrale pour faire baisser les taux longs, assouplir les conditions financières et soutenir l’activité quand les taux courts sont proches de 0.",
+    "definition": "Via des ‘large-scale asset purchases’, la banque centrale crée des réserves pour acheter des obligations (souveraines, parfois privées). Canaux : rééquilibrage de portefeuille, signalement (forward guidance), liquidité et baisse des primes de terme — ce qui réduit le coût du crédit et soutient la demande.",
+    "timeline": [
+      "Annonce et cadrage : communication/forward guidance → baisse rapide des rendements et des primes de risque.",
+      "Phase d’achats : volumes réguliers, réinvestissements à l’échéance ; transmission via taux de marché, crédit et prix d’actifs.",
+      "Normalisation : ralentissement/arrêt des achats, puis réduction du bilan (QT) ; possible remontée graduelle des taux longs et re-prix du risque."
+    ],
+    "sources": [
+      { "label": "ECB — Transmission mechanism of monetary policy", "url": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html" },
+      { "label": "Federal Reserve — The Fed Explained: Monetary Policy", "url": "https://www.federalreserve.gov/aboutthefed/fedexplained/monetary-policy.htm" },
+      { "label": "Bank of England — Quantitative easing (explainer)", "url": "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing" }
+    ]
+  },
       "conditions": {
         "niveau": [
           "intermédiaire",
@@ -173,8 +649,22 @@
     },
     {
       "id": "Récession Économique",
-      "type": "macro",
       "message": " Ralentissement prolongé de l’activité économique",
+      "context": {
+  "type": "Macro",
+  "tl_dr": "Contraction de l’activité (PIB en baisse), hausse du chômage et durcissement des conditions financières. Les bénéfices reculent, les actifs risqués corrigent et la confiance se détériore jusqu’à stabilisation puis reprise.",
+  "definition": "Une récession est une phase du cycle où l’activité décline de façon significative et diffuse (production, emploi, revenus). Les repères courants incluent deux trimestres consécutifs de baisse du PIB réel ou un diagnostic d’ensemble (diffusion de la faiblesse) par les instituts de datation.",
+  "timeline": [
+    "Signaux avancés : PMI < 50, chute des nouvelles commandes, durcissement du crédit.",
+    "Phase récessionnelle : recul du PIB/emploi, baisse des bénéfices, spreads en hausse.",
+    "Tournant & reprise : politiques de soutien, stabilisation des indicateurs, redémarrage graduel."
+  ],
+  "sources": [
+    { "label": "IMF — World Economic Outlook", "url": "https://www.imf.org/en/Publications/WEO" },
+    { "label": "OECD — Economic Outlook", "url": "https://www.oecd.org/economic-outlook/" },
+    { "label": "NBER — Business Cycle Dating", "url": "https://www.nber.org/research/business-cycle-dating" }
+  ]
+},
       "conditions": {
         "niveau": [
           "intermédiaire",
@@ -201,8 +691,23 @@
     },
     {
       "id": "Guerre Commerciale",
-      "type": "géopolitique",
       "message": " Escalade des tensions commerciales entre blocs économiques",
+      "context": {
+  "type": "Géopolitique/Commerce",
+  "tl_dr": "Escalade de mesures protectionnistes (droits de douane, quotas, contrôles à l’export), rétorsions en chaîne et fragmentation des chaînes d’approvisionnement. Effets : coûts plus élevés, inflation importée, incertitude et volatilité accrues.",
+  "definition": "Une guerre commerciale survient quand des blocs économiques se sanctionnent mutuellement via tarifs, barrières non tarifaires et restrictions technologiques. L’impact se transmet via les prix importés, les marges, les réallocations de chaînes de valeur et la confiance.",
+  "timeline": [
+    "Déclenchement : annonce de hausses tarifaires ciblées + menaces de rétorsion.",
+    "Escalade : élargissement des listes, contrôles export/tech, incertitude réglementaire.",
+    "Stabilisation/accords : trêves partielles, exemptions, renégociations sectorielles."
+  ],
+  "sources": [
+    { "label": "WTO — World Trade Report", "url": "https://www.wto.org/" },
+    { "label": "OECD — Trade Policy", "url": "https://www.oecd.org/trade/" },
+    { "label": "IMF — Trade & Global Economy", "url": "https://www.imf.org/" }
+  ]
+}
+,
       "conditions": {
         "niveau": [
           "intermédiaire",
@@ -229,8 +734,22 @@
     },
     {
       "id": " Conflit Armé Majeur",
-      "type": "géopolitique",
       "message": " Guerre impliquant des puissances économiques importantes",
+      "context":{
+  "type": "Géopolitique",
+  "tl_dr": "Conflit impliquant des puissances majeures : choc de risque, flambée des matières premières, perturbations logistiques et sanctions. Hausse des primes de risque, volatilité et incertitude macro prolongée.",
+  "definition": "Un conflit armé majeur est une guerre à grande échelle, souvent interétatique, dont les répercussions économiques se propagent via l’énergie, l’alimentation, les chaînes d’approvisionnement, la confiance et les budgets publics (défense, reconstruction).",
+  "timeline": [
+    "Ouverture du conflit : choc immédiat sur l’énergie/commodités, fuite vers la qualité.",
+    "Prolongation : sanctions, ruptures logistiques, inflation et croissance en berne.",
+    "Après-crise : cessez-le-feu, reconstruction, réallocation sectorielle et budgétaire."
+  ],
+  "sources": [
+    { "label": "SIPRI — Yearbook (sécurité/armements)", "url": "https://www.sipriyearbook.org/" },
+    { "label": "World Bank — Fragility, Conflict & Violence", "url": "https://www.worldbank.org/en/topic/fragilityconflictviolence" },
+    { "label": "UN OCHA — Humanitarian/Conflict Updates", "url": "https://www.unocha.org/" }
+  ]
+},
       "conditions": {
         "niveau": [
           "intermédiaire",
@@ -255,8 +774,23 @@
     },
     {
       "id": "Nouvelle Réglementation Financière",
-      "type": "macro",
       "message": " Adoption de nouvelles règles prudentielles",
+      "context": {
+    "type": "Réglementation prudentielle",
+    "tl_dr": "Nouvelles exigences de fonds propres, de liquidité et de gouvernance (ex. finalisation de Bâle III) qui accroissent le coût du capital et peuvent resserrer l’offre de crédit. Mise en œuvre progressive avec recalibrage des risques et des modèles.",
+    "definition": "Une réforme prudentielle fixe des normes minimales (CET1, coussins de conservation/anti-cyclique), un ratio de levier, des exigences de liquidité (LCR/NSFR) et des attentes de gestion des risques/rapports. Les banques adaptent la structure du bilan, le pricing et l’allocation d’actifs pour rester conformes.",
+    "timeline": [
+      "Annonce & texte final : publication des règles, calendrier d’entrée en vigueur et périodes de transition (phase-in).",
+      "Mise en conformité : recalibrage des actifs pondérés des risques (RWA), choix modèle standardisé vs interne, ajustements de processus et systèmes, reporting.",
+      "Effets de marché : ajustement des marges et du mix d’actifs, possibles contraintes sur certains segments de crédit ; revue post-mise en œuvre."
+    ],
+    "why_now": "Dans cette mission, évalue l’impact sur la consommation de capital et de liquidité : privilégier des actions qui réduisent les RWA ou améliorent LCR/NSFR peut diminuer le stress et préserver le cashflow, au prix parfois d’une rentabilité immédiate plus faible.",
+    "sources": [
+      { "label": "BCBS — Basel Framework (overview)", "url": "https://www.bis.org/basel_framework/" },
+      { "label": "FSB — Overview of post-crisis regulatory reforms", "url": "https://www.fsb.org/work-of-the-fsb/regulatory-reforms/" },
+      { "label": "EBA — CRR/CRD (Single Rulebook)", "url": "https://www.eba.europa.eu/regulation-and-policy/single-rulebook/interactive-single-rulebook" }
+    ]
+  },
       "conditions": {
         "niveau": [
           "débutant"
