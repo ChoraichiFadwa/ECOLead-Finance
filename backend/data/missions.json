@@ -2,7 +2,7 @@
   "missions": {
     "Découvrir le marché boursier": {
   "id": "Découvrir le marché boursier",
-  "concept": "Marché Boursier",
+  "concept": "Marche_Boursier",
   "niveau": "débutant",
   "type": "Investissement",
   "contexte": "Vous disposez d’un capital initial de 10 000 € à investir. Vous découvrez pour la première fois les possibilités du marché financier.",
@@ -55,7 +55,7 @@
   },
     "Premier choix stratégique": {
       "id": "Premier choix stratégique",
-  "concept": "Marché Boursier",
+  "concept": "Marche_Boursier",
   "niveau": "débutant",
   "type": "Investissement",
   "contexte": "Après vos premiers placements, une opportunité se présente : un nouveau secteur attire les investisseurs.",
@@ -109,7 +109,7 @@
   },
     "Lire les cycles boursiers": {
     "id": "Lire les cycles boursiers",
-    "concept": "Marché Boursier",
+    "concept": "Marche_Boursier",
     "niveau": "intermédiaire",
     "type": "Investissement",
     "contexte": "Les marchés financiers évoluent par cycles haussiers (bull market) et cycles baissiers (bear market). Vous observez un graphique montrant une phase de hausse suivie d’une correction. Votre rôle est d’identifier si le moment est favorable à l’achat ou s’il vaut mieux attendre.",
@@ -163,7 +163,7 @@
   },
     "ETF et les fonds indiciels": {
     "id": "ETF et les fonds indiciels",
-    "concept": "Marché Boursier",
+    "concept": "Marche_Boursier",
     "niveau": "intermédiaire",
     "type": "Investissement",
     "contexte": "Vous découvrez qu’il existe des indices (ex : S&P 500, CAC 40) et des ETF regroupant plusieurs entreprises. Vous devez décider si vous préférez acheter une seule action ou investir dans un ETF diversifié.",
@@ -218,7 +218,7 @@
   },
     "Produits dérivés et stratégies avancées": {
     "id": "Produits dérivés et stratégies avancées",
-    "concept": "Marché Boursier",
+    "concept": "Marche_Boursier",
     "niveau": "avancé",
     "type": "Investissement",
     "contexte": "Vous gérez un portefeuille conséquent et vous avez accès à des produits dérivés (options, futures). Vous devez décider si vous souhaitez utiliser ces instruments pour couvrir vos positions ou spéculer sur les mouvements du marché.",

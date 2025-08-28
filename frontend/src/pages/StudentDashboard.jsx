@@ -63,7 +63,7 @@ const StudentDashboard = () => {
       setProfile(studentData.profile,studentData.profile_label)
       setStudent(studentData)
 
-      // Fetch other dashboard data in parallel
+      // Fetch other dashboard data in parallel 
       const [progressData, chartDataResponse, conceptProgressData] = await Promise.all([
         api.getStudentProgress(userId),
         api.getStudentChartData(userId),
