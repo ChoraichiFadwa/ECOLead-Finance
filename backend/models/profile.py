@@ -12,9 +12,4 @@ PROFILE_LABELS = {
     ProfileType.ANALYSTE_FINANCE: "Analyste financier",
     ProfileType.BANQUIER_AFFAIRES: "Banquier d'affaires",
 }
-# models/profile.py
-PROFILE_BASELINES = {
-    ProfileType.GESTION_PORTEFEUILLE: dict(cashflow=100, controle=40, stress=20, rentabilite=50, reputation=40),
-    ProfileType.ANALYSTE_FINANCE: dict(cashflow=80,  controle=30, stress=30, rentabilite=60, reputation=35),
-    ProfileType.BANQUIER_AFFAIRES: dict(cashflow=60,  controle=60, stress=25, rentabilite=55, reputation=50),
-}
+

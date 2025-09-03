@@ -1,4 +1,4 @@
-# 🎮 ECOLea Game
+# 🎮 Serious Game
 
 ## 📌 Overview
 
@@ -15,6 +15,9 @@ Currently in active development, the system supports **student progression track
 | **Teacher** | 🚧 In Development | View class analytics, monitor student progress |
 
 Role is selected on first visit and stored locally. Role-based access is enforced in routing and backend endpoints.
+After that a student chosoes his role as student, he gets to choose what path to learn in, either it's ' Gestionnaire de portfeuille boursier', 'analyste financier' et 'Banquier d'affaires'.
+Each cooncept is linked to a certain profile to personnalize the user experience.
+
 
 Missions are grouped under **7 domains** and **3 specialized profiles** (see `DOCUMENTATION.md`).
 ---

@@ -103,33 +103,62 @@ backend/
 │   ├─ user.py
 │   ├─ progress.py
 │   └─ profile.py
-├─ schemas/                   # Pydantic models for request/response validation
-│   ├─ __init__.py
-│   ├─ user.py
-│   ├─ progress.py
-│   └─ mission.py
 ├─ routes/                    # API endpoints (FastAPI routers)
 │   ├─ __init__.py
 │   ├─ users.py
 │   ├─ missions.py
 │   ├─ progress.py
 │   └─ analytics.py
-├─ services/                  # Business/domain logic (non-route, non-DB helpers)
-│   ├─ __init__.py
-│   ├─ mission_evaluator.py   # Moves MissionEvaluator from utils here
-│   └─ event_service.py       # Logic to check active events for a student
 ├─ utils/                     # Generic helper functions, reusable tools
 │   ├─ __init__.py
+│   ├─ evaluator.py
 │   └─ game_loader.py         # Pure JSON/data loading, no business logic
+
 ├─ data/                      # Static JSON files or other assets
 │   ├─ missions.json
+│   ├─ concepts.json
 │   └─ events.json
-├─ tests/                     # Unit and integration tests
-│   ├─ __init__.py
-│   └─ test_missions.py
-├─ docs/                      # Documentation, diagrams, README extras
-│   └─ models_diagram.md      # Mermaid UML / ER diagrams
 └─ requirements.txt           # Dependencies
+
+would be better to add 
+tests/
+    unit/
+    api/ 
+services/                   # application logic (or “use cases”)
+    __init__.py
+    mission_service.py
+    concept_service.py
+    progress_service.py
+
+frontend/
+│  src/                    
+│   ├─ assets/
+│   ├─ components/
+│         ├─ EvenyContextCard.jsx
+│         ├─ Layout.jsx
+│         ├─ LoadingSpinner.jsx
+│         ├─ MetricCard.jsx
+│         └─ ProgressBar.jsx
+│   ├─ contexts/
+│         ├─ RoleContext.jsx
+│   ├─ pages/
+│         ├─ ChooseProfile.jsx
+│         ├─ ConceptLibrary.jsx
+│         ├─ ConceptMissions.jsx
+│         ├─ RoleSelection.jsx
+│         ├─ StudentDashboard.jsx
+│         └─ TeacherDashboard.jsx
+│   ├─ routes/
+│         └─ Router.jsx
+│   ├─ utils/
+│         ├─ api.js
+│         └─ cn.js
+│   ├─ App.css
+│   ├─ App.jsx
+│   ├─ Index.css
+│   ├─ main.jsx
+
+
 
 ### Backend files :
 Models 

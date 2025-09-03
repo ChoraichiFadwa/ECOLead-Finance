@@ -140,10 +140,10 @@ def set_profile(student_id: int, profile: int, db: Session = Depends(get_db)):
     student.profile = profile
 
     # Apply baseline
-    from models.profile import PROFILE_BASELINES, ProfileType
-    baselines = PROFILE_BASELINES[ProfileType(profile)]
-    for k, v in baselines.items():
-        setattr(student, k, v)
+    # from models.profile import PROFILE_BASELINES, ProfileType
+    # baselines = PROFILE_BASELINES[ProfileType(profile)]
+    # for k, v in baselines.items():
+    #     setattr(student, k, v)
 
     db.commit()
     db.refresh(student)
