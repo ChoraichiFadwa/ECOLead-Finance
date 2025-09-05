@@ -7,7 +7,7 @@
       "context": {
         "type": "Historique",
         "tl_dr": "Embargo OAPEC : guerre du Kippour, prix du pétrole multipliés par 4, crise énergétique mondiale et récession (1973-1974).",
-        "definition": "Embargo pétrolier imposé par les pays arabes membres de l'OAPEC contre les États-Unis et d'autres pays occidentaux, provoquant une crise énergétique mondiale et une récession économique majeure.",
+        "definition": "Embargo pétrolier imposé par les pays arabes membres de l'OAPEC contre les Etats-Unis et d'autres pays occidentaux, provoquant une crise énergétique mondiale et une récession économique majeure.",
         "timeline": [
           "Octobre 1973 : Début de la guerre du Kippour et lancement de l'embargo pétrolier.",
           "Novembre 1973 : Extension de l'embargo à d'autres pays soutenant Israël.",
@@ -20,7 +20,6 @@
         ]
       },
         "conditions": {
-    "niveau": ["intermédiaire", "avancé"]
   },
   "modifie_choix": {
     "A": {
@@ -54,12 +53,10 @@
           "1980-1981 : Prix du pétrole atteignent des pics historiques, récession mondiale."
         ],
         "sources": [
-          { "label": "Archives historiques - Agence Internationale de l'Énergie", "url": "https://www.iea.org" },
-          { "label": "Données historiques OPEP", "url": "https://www.opec.org" }
+          { "label": "Le deuxième choc (1979-1980) et l'émergence du marché", "url": "https://www.universalis.fr/encyclopedie/petrole-economie-petroliere/5-le-deuxieme-choc-1979-1980-et-l-emergence-du-marche/" }
         ]
       },
         "conditions": {
-          "niveau": ["intermédiaire", "avancé"]
   },
   "modifie_choix": {
     "A": {
@@ -93,12 +90,11 @@
           "Fin 1980s : Mise en place de programmes d'ajustement structurel."
         ],
         "sources": [
-          { "label": "Archives Banque Mondiale", "url": "https://www.worldbank.org" },
+          { "label": "Crise de la dette des années 1980 : les acteurs et les archives", "url": "https://www.sciencespo.fr/research/cogito/home/crise-de-la-dette-des-annees-1980-les-acteurs-et-les-archives/" },
           { "label": "Documents FMI - Crise de la dette", "url": "https://www.imf.org" }
         ]
       },
       "conditions": {
-        "niveau": ["intermédiaire", "avancé"]
       },
       "modifie_choix": {
         "A": {
@@ -132,11 +128,11 @@
           "Février 1991 : Fin de la guerre et reconstruction régionale."
         ],
         "sources": [
+          { "label": "Forum : Conseil de Sécurité Historique Guerre du Golfe 1990-1991: ", "url": "https://mfgnu.com/wp-content/uploads/2015/12/csh-golfe-cleach.pdf" },
           { "label": "Growth and Stability in the Middle East and North Africa - IMF", "url": "https://www.imf.org/external/pubs/ft/mena/04econ.htm" }
         ]
       },
       "conditions": {
-        "niveau": ["intermédiaire", "avancé"]
       },
       "modifie_choix": {
         "A": {
@@ -170,12 +166,11 @@
           "1998-1999 : Impact sur les économies MENA exportatrices de pétrole."
         ],
         "sources": [
-          { "label": "Rapports Banque Mondiale - Contagion financière", "url": "https://www.worldbank.org" },
+          { "label": "Nature, cause et conséquences de la crise asiatique. Article par: Jesus P. Estanislao.", "url": "https://www.persee.fr/doc/polit_0032-342x_1998_num_63_2_4751" },
           { "label": "Analyses FMI - Crise asiatique", "url": "https://www.imf.org" }
         ]
       },
       "conditions": {
-        "niveau": ["intermédiaire", "avancé"]
       },
       "modifie_choix": {
         "A": {
@@ -198,7 +193,7 @@
     {
       "id": "choc_petrolier_2008",
       "title": "Choc Pétrolier de 2008",
-      "message": "Flambée historique des prix du pétrole atteignant 147$ le baril, suivie d'un effondrement brutal lors de la crise financière.",
+      "message": "Flambée historique des prix du pétrole atteignant 147.5$ le baril, suivie d'un effondrement brutal lors de la crise financière.",
       "context": {
         "type": "Historique",
         "tl_dr": "Prix pétrole record (147$/baril) puis effondrement (40$/baril) : volatilité extrême, budgets MENA déstabilisés (2008).",
@@ -209,7 +204,7 @@
           "Fin 2008 : Chute brutale des prix sous les 40$ le baril."
         ],
         "sources": [
-          { "label": "Données historiques OPEP", "url": "https://www.opec.org" },
+          { "label": "2008, l'année où le pétrole a affolé tous les compteurs", "url": "https://www.ladepeche.fr/article/2008/12/27/514104-2008-annee-petrole-affole-tous-compteurs.html" },
           { "label": "Rapports AIE - Crise pétrolière 2008", "url": "https://www.iea.org" }
         ]
       },
@@ -248,8 +243,7 @@
           "2009-2010 : Récession et mise en place de plans de relance régionaux."
         ],
         "sources": [
-          { "label": "Rapports Banque Mondiale - Impact régional", "url": "https://www.worldbank.org" },
-          { "label": "Études FMI - Crise financière MENA", "url": "https://www.imf.org" }
+          { "label": "2008 : de la crise financière à la crise économique", "url": "https://www.universalis.fr/encyclopedie/economie-mondiale-2008-de-la-crise-financiere-a-la-crise-economique/" }
         ]
       },
       "conditions": {
@@ -290,7 +284,7 @@
           "2011-2012 : Instabilité politique persistante et déclin économique."
         ],
         "sources": [
-          { "label": "All eyes on MENA: Economy and the Arab Spring", "url": "http://www.cemmis.edu.gr/index.php/about-us/item/390-all-eyes-on-mena-economy-and-the-arab-spring" },
+          { "label": "All eyes on MENA: Economy and the Arab Spring", "url": "https://cemmis.edu.gr/index.php/en/publications/item/390-all-eyes-on-mena-economy-and-the-arab-spring" },
           { "label": "MENA Unbound: Ten Years after the Arab Spring - World Bank", "url": "https://www.worldbank.org/en/news/opinion/2021/01/14/mena-unbound-ten-years-after-the-arab-spring-avoiding-another-lost-decade" },
           { "label": "The Greater Middle East: Arab Spring to Failed States - CSIS", "url": "https://www.csis.org/analysis/greater-middle-east-arab-spring-axis-failed-states" }
         ]
@@ -324,8 +318,7 @@
           "Janvier 2016 : Prix atteignent leur plus bas niveau (moins de 30$ le baril)."
         ],
         "sources": [
-          { "label": "Données OPEP - Crise pétrolière 2014-2016", "url": "https://www.opec.org" },
-          { "label": "Rapports CCG - Impact économique", "url": "https://www.gcc-sg.org" }
+          { "label": "Qui a bénéficié de la chute du prix du pétrole ?", "url": "www.insee.fr/fr/statistiques/fichier/2009770/032016_d2.pdf" }
         ]
       },
       "conditions": {
@@ -442,30 +435,45 @@
         }
       }
     },
-    {
-      "id": "Crise Financière Systémique",
+        {
+      "id": "crise_financiere_systemique",
       "title": "Crise Financière Systémique",
-      "message": "Effondrement généralisé des marchés financiers",
+      "message": "Effondrement généralisé des marchés financiers avec contagion internationale et paralysie du système de crédit.",
       "context": {
-    "type": "macro",
-    "tl_dr": "",
-    "definition": "",
-    "timeline": [
-      
-    ],
-    "sources": [
-      
-    ]
-  },
+        "type": "Macro",
+        "tl_dr": "Défaillances en cascade des institutions financières : marchés gelés, crédit interbancaire arrêté, interventions d'urgence des banques centrales, récession profonde.",
+        "definition": "Une crise financière systémique survient quand les défaillances d'institutions majeures se propagent par contagion, paralysant le système de paiements et de crédit. Elle se caractérise par une perte de confiance généralisée, des ruées bancaires et des interventions d'urgence des autorités.",
+        "timeline": [
+          "Phase 1 : Défaillance d'institutions systémiques, gel des marchés interbancaires",
+          "Phase 2 : Contagion via les expositions croisées, credit crunch généralisé", 
+          "Phase 3 : Interventions d'urgence (garanties, recapitalisations, QE), récession"
+        ],
+        "sources": [
+          { "label": "Financial Stability Board - Understanding Financial Contagion", "url": "https://www.fsb.org/what-we-do/policy-development/addressing-sifis/" },
+          { "label": "BIS - The anatomy of financial crises", "url": "https://www.bis.org/publ/arpdf/ar2019e3.htm" },
+          { "label": "IMF - Systemic Banking Crises Database", "url": "https://www.imf.org/en/Publications/WP/Issues/2020/02/07/Systemic-Banking-Crises-Revisited-49001" }
+        ]
+      },
       "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
       },
       "modifie_choix": {
         "A": {
-          "cashflow": -5,
-          "stress": 3
+          "cashflow": -10,
+          "stress": 10,
+          "rentabilite": -15
         },
         "B": {
-          "stress": 2
+          "cashflow": -5,
+          "stress": 8,
+          "rentabilite": -8,
+          "reputation": -3
+        },
+        "C": {
+          "stress": 5,
+          "rentabilite": -5,
+          "reputation": 5,
+          "controle": -5
         }
       }
     },
@@ -612,46 +620,43 @@
     }
   }
 },
-    {
-      "id": "Quantitative Easing",
-      "type": "politique",
-      "message": "Programme d’assouplissement quantitatif massif",
+  {
+      "id": "quantitative_easing_programme",
+      "title": "Programme de Quantitative Easing",
+      "message": "Lancement d'un programme d'assouplissement quantitatif massif par la banque centrale pour stimuler l'économie.",
       "context": {
-    "type": "Politique monétaire",
-    "tl_dr": "Le QE est un achat d’actifs à grande échelle par la banque centrale pour faire baisser les taux longs, assouplir les conditions financières et soutenir l’activité quand les taux courts sont proches de 0.",
-    "definition": "Via des ‘large-scale asset purchases’, la banque centrale crée des réserves pour acheter des obligations (souveraines, parfois privées). Canaux : rééquilibrage de portefeuille, signalement (forward guidance), liquidité et baisse des primes de terme — ce qui réduit le coût du crédit et soutient la demande.",
-    "timeline": [
-      "Annonce et cadrage : communication/forward guidance → baisse rapide des rendements et des primes de risque.",
-      "Phase d’achats : volumes réguliers, réinvestissements à l’échéance ; transmission via taux de marché, crédit et prix d’actifs.",
-      "Normalisation : ralentissement/arrêt des achats, puis réduction du bilan (QT) ; possible remontée graduelle des taux longs et re-prix du risque."
-    ],
-    "sources": [
-      { "label": "ECB — Transmission mechanism of monetary policy", "url": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html" },
-      { "label": "Federal Reserve — The Fed Explained: Monetary Policy", "url": "https://www.federalreserve.gov/aboutthefed/fedexplained/monetary-policy.htm" },
-      { "label": "Bank of England — Quantitative easing (explainer)", "url": "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing" }
-    ]
-  },
-      "conditions": {
-        "niveau": [
-          "intermédiaire",
-          "avancé"
+        "type": "Politique monétaire",
+        "tl_dr": "Achat massif d'obligations par la banque centrale : injection de liquidité, baisse des taux longs, soutien à l'activité via rééquilibrage de portefeuille et canal du crédit.",
+        "definition": "Le QE consiste en achats à grande échelle de titres (obligations souveraines et/ou privées) par la banque centrale pour injecter des liquidités, comprimer les taux longs et stimuler l'économie quand les taux directeurs sont proches de zéro.",
+        "timeline": [
+          "Annonce : Communication sur les objectifs, volumes et duration → réaction immédiate des marchés",
+          "Phase d'achat : Achats réguliers selon calendrier → compression des spreads, recherche de rendement",
+          "Plateau/Tapering : Maintien du stock puis réduction graduelle → normalisation progressive des conditions"
         ],
-        "etat_joueur": {
-          "cashflow": "< 30"
-        }
+        "sources": [
+          { "label": "ECB - The transmission of the ECB's asset purchase programmes", "url": "https://www.ecb.europa.eu/pub/economic-bulletin/articles/2019/html/ecb.ebart201908_03~7821d31799.en.html" },
+          { "label": "Federal Reserve - FAQs: What is quantitative easing?", "url": "https://www.federalreserve.gov/faqs/what-is-quantitative-easing.htm" },
+          { "label": "Bank of England - How quantitative easing works", "url": "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
       },
       "modifie_choix": {
         "A": {
-          "stress": 8,
-          "cashflow": -3
+          "rentabilite": 8,
+          "cashflow": 5,
+          "stress": -3
         },
         "B": {
-          "controle": -10,
-          "rentabilite": -5
+          "rentabilite": 12,
+          "reputation": 3,
+          "stress": -2
         },
         "C": {
-          "reputation": -3,
-          "stress": 5
+          "controle": -5,
+          "stress": 2,
+          "rentabilite": 3
         }
       }
     },
@@ -695,6 +700,254 @@
       "stress": 0,
       "rentabilite": -1
     }
+      }
+    },
+    {
+      "id": "bulle_technologique",
+      "title": "Bulle Technologique",
+      "message": "Formation d'une bulle spéculative sur les valeurs technologiques avec surévaluations massives et euphorie irrationnelle.",
+      "context": {
+        "type": "Marchés",
+        "tl_dr": "Surévaluation extrême des entreprises tech : ratios P/E aberrants, IPO sans revenus, effet FOMO, puis correction brutale -80% sur 2-3 ans.",
+        "definition": "Une bulle technologique se caractérise par la surévaluation systématique d'entreprises du secteur tech, alimentée par l'innovation, l'effet de réseau, les anticipations de disruption et souvent des conditions monétaires accommodantes.",
+        "timeline": [
+          "Phase d'amorçage : Innovation technologique, premiers succès, valorisations en hausse",
+          "Phase euphorie : Spéculation généralisée, IPO 'licornes', multiples déconnectés des fondamentaux",
+          "Éclatement : Déclencheur (hausse taux, scandales), ventes en cascade, retour aux fondamentaux"
+        ],
+        "sources": [
+          { "label": "Robert Shiller - Irrational Exuberance (dot-com bubble analysis)", "url": "https://press.princeton.edu/books/paperback/9780691173122/irrational-exuberance" },
+          { "label": "Federal Reserve - Monetary Policy and Asset Price Bubbles", "url": "https://www.federalreserve.gov/econres/notes/feds-notes/monetary-policy-and-asset-price-bubbles-a-look-back-at-the-greenspan-era-20150717.htm" },
+          { "label": "ECB - Identifying bubbles and crashes in the Nasdaq stock market", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1613.pdf" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 25,
+          "stress": 8,
+          "reputation": -5
+        },
+        "B": {
+          "rentabilite": -10,
+          "stress": 3,
+          "reputation": 8
+        },
+        "C": {
+          "cashflow": -3,
+          "stress": 5,
+          "rentabilite": 5
+        }
+      }
+    },
+    {
+      "id": "crise_liquidite_bancaire",
+      "title": "Crise de Liquidité Bancaire",
+      "message": "Tensions sévères sur les marchés interbancaires avec assèchement des financements courts et widening des spreads.",
+      "context": {
+        "type": "Banking",
+        "tl_dr": "Méfiance interbancaire : marchés courts gelés, spreads LIBOR/OIS explosent, banques centrales injectent massivement, credit crunch pour l'économie réelle.",
+        "definition": "Une crise de liquidité bancaire survient quand les banques perdent confiance entre elles, provoquant un gel des marchés de financement interbancaire et forçant les banques centrales à intervenir comme prêteur en dernier ressort.",
+        "timeline": [
+          "Déclenchement : Doutes sur solvabilité d'acteurs clés → rétention de liquidité, hausse spreads",
+          "Propagation : Gel marché interbancaire, appels de marge, ventes forcées d'actifs",
+          "Résolution : Intervention banque centrale (LTRO, facilités d'urgence), garanties gouvernementales"
+        ],
+        "sources": [
+          { "label": "ECB - The euro area bank lending survey", "url": "https://www.ecb.europa.eu/stats/ecb_surveys/bank_lending_survey/html/index.en.html" },
+          { "label": "BIS - Central bank liquidity swaps and international bank lending", "url": "https://www.bis.org/publ/work1317.htm" },
+          { "label": "IMF - Managing Liquidity in Banks", "url": "https://www.imf.org/external/pubs/ft/wp/2012/wp12003.pdf" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"],
+        "profil": ["banking", "risk_management"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -15,
+          "stress": 12,
+          "controle": -8
+        },
+        "B": {
+          "cashflow": -8,
+          "stress": 10,
+          "reputation": -5
+        },
+        "C": {
+          "controle": 10,
+          "stress": 8,
+          "cashflow": -5,
+          "reputation": 3
+        }
+      }
+    },
+    {
+      "id": "changement_reglementation_basel",
+      "title": "Réforme Réglementaire Basel IV",
+      "message": "Entrée en vigueur des nouvelles normes prudentielles Basel IV avec durcissement des exigences de fonds propres.",
+      "context": {
+        "type": "Réglementation",
+        "tl_dr": "Finalisation de Basel III : nouveau calcul des RWA, floor sur modèles internes, ratio de levier révisé, FRTB pour risque de marché → hausse des exigences en capital.",
+        "definition": "Basel IV (finalisation de Basel III) révise les approches standardisées pour le calcul des actifs pondérés des risques, introduit un floor sur les modèles internes et renforce les exigences de fonds propres et de liquidité.",
+        "timeline": [
+          "2023-2028 : Phase d'implémentation progressive avec période de transition",
+          "Impact immédiat : Recalibrage des portefeuilles, optimisation RWA, ajustement pricing",
+          "Moyen terme : Réallocation secteurs/géographies, consolidation bancaire potentielle"
+        ],
+        "sources": [
+          { "label": "Basel Committee - Basel III: Finalising post-crisis reforms", "url": "https://www.bis.org/bcbs/publ/d424.htm" },
+          { "label": "EBA - Basel III monitoring exercise", "url": "https://www.eba.europa.eu/regulation-and-policy/own-funds/basel-iii-monitoring-exercise" },
+          { "label": "ACPR - Impact of Basel reforms on French banks", "url": "https://acpr.banque-france.fr/en/page-sommaire/financial-stability" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"],
+        "profil": ["banking", "risk_management"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -12,
+          "stress": 8,
+          "controle": 15,
+          "rentabilite": -8
+        },
+        "B": {
+          "cashflow": -8,
+          "stress": 10,
+          "reputation": -3
+        },
+        "C": {
+          "controle": -10,
+          "stress": 15,
+          "reputation": -8,
+          "cashflow": -5
+        }
+      }
+    },
+    {
+      "id": "disruption_fintech",
+      "title": "Disruption FinTech Majeure",
+      "message": "Émergence d'une innovation financière disruptive qui remet en cause les modèles traditionnels du secteur.",
+      "context": {
+        "type": "Innovation",
+        "tl_dr": "Nouvelle technologie financière : désintermédiation bancaire, nouveaux modèles économiques, réglementation en retard, opportunités/menaces pour acteurs traditionnels.",
+        "definition": "Une disruption FinTech majeure introduit une nouvelle façon de fournir des services financiers, souvent en contournant les intermédiaires traditionnels grâce à la technologie (blockchain, IA, API, mobile-first).",
+        "timeline": [
+          "Émergence : Innovation technologique, premiers adopteurs, scepticisme initial",
+          "Adoption massive : Effet réseau, scaling up, réaction des incumbents",
+          "Maturité : Réglementation adaptée, consolidation secteur, nouveaux équilibres"
+        ],
+        "sources": [
+          { "label": "BIS - Big tech in finance", "url": "https://www.bis.org/publ/arpdf/ar2019e3.htm" },
+          { "label": "ECB - Crypto-assets and decentralised finance", "url": "https://www.ecb.europa.eu/pub/financial-stability/fsr/html/ecb.fsr202111~8b0eebc817.en.html" },
+          { "label": "FSB - FinTech and market structure in financial services", "url": "https://www.fsb.org/2019/02/fintech-and-market-structure-in-financial-services-market-developments-and-potential-financial-stability-implications/" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 20,
+          "stress": 6,
+          "reputation": -3
+        },
+        "B": {
+          "rentabilite": -5,
+          "reputation": 5,
+          "controle": 8
+        },
+        "C": {
+          "stress": 8,
+          "rentabilite": -10,
+          "reputation": -5
+        }
+      }
+    },
+    {
+      "id": "krach_flash",
+      "title": "Krach Flash",
+      "message": "Chute ultra-rapide des marchés provoquée par des algorithmes de trading haute fréquence en boucle auto-renforcée.",
+      "context": {
+        "type": "Marchés",
+        "tl_dr": "Ventes algorithmiques en cascade : liquidité évaporée en minutes, circuit breakers activés, volatilité extrême puis rebond partiel. Questionnement sur la structure de marché.",
+        "definition": "Un krach flash est une chute boursière ultra-rapide (quelques minutes) et temporaire, généralement causée par des interactions dysfonctionnelles entre algorithmes de trading automatisé amplifiant un mouvement initial.",
+        "timeline": [
+          "0-5 min : Déclencheur initial → ventes algorithmiques → évaporation liquidité",
+          "5-15 min : Circuit breakers, suspension des cotations, interventions market makers",
+          "15-60 min : Retour progressif de la liquidité, rebond partiel, analyses post-mortem"
+        ],
+        "sources": [
+          { "label": "SEC - Findings Regarding the Market Events of May 6, 2010", "url": "https://www.sec.gov/news/studies/2010/marketevents-report.pdf" },
+          { "label": "CFTC-SEC - The Flash Crash: Analysis and Recommendations", "url": "https://www.sec.gov/news/studies/2010/marketevents-report.pdf" },
+          { "label": "European Commission - Review of the Markets in Financial Instruments Directive", "url": "https://ec.europa.eu/info/law/markets-financial-instruments-mifid-ii-directive-2014-65-eu_en" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"],
+        "profil": ["trader", "risk_management"]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": -25,
+          "stress": 15,
+          "reputation": -10
+        },
+        "B": {
+          "rentabilite": -8,
+          "stress": 12,
+          "controle": 5
+        },
+        "C": {
+          "stress": 8,
+          "controle": 10,
+          "rentabilite": -3,
+          "reputation": 8
+        }
+      }
+    },
+    {
+      "id": "crise_dette_souveraine",
+      "title": "Crise de Dette Souveraine",
+      "message": "Doutes croissants sur la solvabilité d'un État majeur avec explosion des spreads souverains et menace de défaut.",
+      "context": {
+        "type": "Souverain",
+        "tl_dr": "Insoutenabilité de la dette publique : spreads souverains explosent, downgrades en cascade, programmes d'ajustement, contagion aux autres pays périphériques.",
+        "definition": "Une crise de dette souveraine survient quand les marchés doutent de la capacité/volonté d'un État à honorer ses engagements, provoquant une hausse des taux d'emprunt qui peut rendre la dette effectivement insoutenable.",
+        "timeline": [
+          "Signaux précurseurs : Dégradation des finances publiques, déficit/PIB et dette/PIB en hausse",
+          "Déclenchement : Downgrade, spread souverains en explosion, difficultés de financement",
+          "Gestion de crise : Programme FMI/UE, austérité budgétaire, restructuration possible"
+        ],
+        "sources": [
+          { "label": "IMF - Sovereign Debt: A Guide for Economists and Practitioners", "url": "https://www.imf.org/external/pubs/ft/eds/Eng/Guide/" },
+          { "label": "ECB - The European sovereign debt crisis", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1419.pdf" },
+          { "label": "Reinhart & Rogoff - This Time Is Different", "url": "https://www.princeton.edu/~reinhart/VoxChapter1.pdf" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -12,
+          "stress": 10,
+          "rentabilite": -15
+        },
+        "B": {
+          "rentabilite": 15,
+          "stress": 8,
+          "reputation": -5
+        },
+        "C": {
+          "controle": 8,
+          "stress": 5,
+          "rentabilite": -3,
+          "reputation": 5
+        }
       }
     },
     {
@@ -822,6 +1075,415 @@
           "controle": 15,
           "stress": 8,
           "rentabilite": -15
+        }
+      }
+    },
+    {
+      "id": "crise_souveraine_europeenne_2010",
+      "title": "Crise de la Dette Souveraine Européenne (2010-2012)",
+      "message": "Crise d'endettement touchant la Grèce, l'Irlande, le Portugal et l'Espagne, menaçant la stabilité de la zone euro.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Dette grecque insoutenable : contagion PIIGS, spreads explosent, programmes d'aide UE/FMI, austérité drastique, création du MES (2010-2012).",
+        "definition": "Crise majeure de la zone euro déclenchée par l'insoutenabilité de la dette grecque, révélant les failles structurelles de l'union monétaire et provoquant une remise en cause des mécanismes de solidarité européens.",
+        "timeline": [
+          "2010 : Révision à la hausse du déficit grec, dégradation de la note souveraine",
+          "2011 : Programmes d'aide à la Grèce, l'Irlande et le Portugal, création du FESF",
+          "2012 : 'Whatever it takes' de Draghi, création du MES, début de stabilisation"
+        ],
+        "sources": [
+          { "label": "ECB - The European sovereign debt crisis", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1419.pdf" },
+          { "label": "European Stability Mechanism", "url": "https://www.esm.europa.eu/about-esm" },
+          { "label": "IMF - Euro Area Policies: Financial Sector Assessment Program", "url": "https://www.imf.org/en/Publications/CR/Issues/2018/07/19/Euro-Area-Policies-Financial-Sector-Assessment-Program-Technical-Note-Systemic-Risk-Analysis-46086" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -8,
+          "stress": 12,
+          "rentabilite": -10
+        },
+        "B": {
+          "rentabilite": 15,
+          "stress": 8,
+          "reputation": -3
+        },
+        "C": {
+          "controle": 10,
+          "stress": 5,
+          "rentabilite": -2,
+          "reputation": 8
+        }
+      }
+    },
+    {
+      "id": "krach_marche_chinois_2015",
+      "title": "Krach du Marché Chinois (2015-2016)",
+      "message": "Effondrement des indices boursiers chinois avec chute de plus de 40%, dévaluation du yuan et contagion mondiale.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Bulle actions chinoises éclate : Shanghai Composite -40%, circuit breakers dysfonctionnels, dévaluation yuan, fuite de capitaux, contagion aux marchés émergents (2015-2016).",
+        "definition": "Correction majeure des marchés actions chinois après une bulle spéculative, accompagnée d'une dévaluation du yuan et de sorties de capitaux massives, révélant les vulnérabilités du système financier chinois en transition.",
+        "timeline": [
+          "Juin 2015 : Pic des indices chinois après rally spéculatif",
+          "Août 2015 : Dévaluation surprise du yuan, panic selling mondial",
+          "Janvier 2016 : Nouveau circuit breaker dysfonctionnel, contagion EM"
+        ],
+        "sources": [
+          { "label": "BIS - The Chinese stock market crash", "url": "https://www.bis.org/publ/qtrpdf/r_qt1512v.htm" },
+          { "label": "IMF - People's Republic of China: Financial System Stability Assessment", "url": "https://www.imf.org/en/Publications/CR/Issues/2017/12/07/Peoples-Republic-of-China-Financial-System-Stability-Assessment-45445" },
+          { "label": "Federal Reserve - China's stock market crash and its effects", "url": "https://www.federalreserve.gov/econres/notes/ifdp-notes/chinas-stock-market-crash-spillovers-to-global-financial-markets-20151221.htm" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": -18,
+          "stress": 10,
+          "cashflow": -5
+        },
+        "B": {
+          "rentabilite": 12,
+          "stress": 8,
+          "reputation": -2
+        },
+        "C": {
+          "stress": 6,
+          "controle": 8,
+          "rentabilite": -3,
+          "reputation": 5
+        }
+      }
+    },
+    {
+      "id": "brexit_volatilite_2016",
+      "title": "Brexit et Volatilité des Marchés (2016-2020)",
+      "message": "Référendum Brexit et négociations créent une incertitude prolongée sur les marchés financiers européens.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Vote surprise Brexit : livre sterling chute -20%, relocalisations bancaires, fragmentation réglementaire, incertitude prolongée jusqu'à accord final (2016-2020).",
+        "definition": "Période d'incertitude politique et économique majeure suite au vote britannique de sortie de l'UE, créant des défis inédits pour l'intégration financière européenne et la City de Londres.",
+        "timeline": [
+          "Juin 2016 : Référendum Brexit, chute de la livre et des actions UK",
+          "2017-2019 : Négociations chaotiques, extensions répétées de l'article 50",
+          "2020 : Accord commercial final, début des relocalisations financières"
+        ],
+        "sources": [
+          { "label": "Bank of England - EU withdrawal scenarios and monetary and financial stability", "url": "https://www.bankofengland.co.uk/report/2018/eu-withdrawal-scenarios-and-monetary-and-financial-stability" },
+          { "label": "ECB - Financial integration and structure in the euro area", "url": "https://www.ecb.europa.eu/pub/pdf/other/ecb.financialintegrationineuroarea202104~7a58b2967a.en.pdf" },
+          { "label": "ESMA - Brexit impact on EU financial markets", "url": "https://www.esma.europa.eu/policy-activities/post-trading/brexit" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -6,
+          "stress": 8,
+          "controle": -5
+        },
+        "B": {
+          "stress": 6,
+          "reputation": 3,
+          "rentabilite": -2
+        },
+        "C": {
+          "controle": 12,
+          "stress": 4,
+          "cashflow": -3,
+          "reputation": 6
+        }
+      }
+    },
+    {
+      "id": "crise_real_estate_us_2007",
+      "title": "Crise des Subprimes et Immobilier US (2007-2008)",
+      "message": "Effondrement du marché immobilier américain et des produits dérivés, déclencheur de la crise financière globale.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Bulle immobilière US éclate : défauts subprimes en cascade, CDO/MBS toxiques, faillites bancaires (Bear Stearns, Lehman), credit crunch mondial (2007-2008).",
+        "definition": "Crise systémique née de l'effondrement du marché immobilier américain et de la titrisation excessive, révélant les risques du shadow banking et de l'interconnexion financière mondiale.",
+        "timeline": [
+          "2007 : Premiers défauts subprimes, Bear Stearns en difficulté",
+          "Septembre 2008 : Faillite Lehman Brothers, AIG sauvée",
+          "2008-2009 : Récession mondiale, plans de sauvetage massifs"
+        ],
+        "sources": [
+          { "label": "Federal Reserve - The Financial Crisis Inquiry Report", "url": "https://www.federalreserve.gov/boarddocs/rptcongress/annual08/sec2/c3.htm" },
+          { "label": "BIS - Origins of the financial crisis", "url": "https://www.bis.org/publ/othp02.htm" },
+          { "label": "IMF - Initial Lessons of the Crisis", "url": "https://www.imf.org/external/np/pp/eng/2009/020609.pdf" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -15,
+          "stress": 15,
+          "rentabilite": -20
+        },
+        "B": {
+          "rentabilite": 18,
+          "stress": 12,
+          "reputation": -8
+        },
+        "C": {
+          "controle": 15,
+          "stress": 8,
+          "rentabilite": -5,
+          "reputation": 10
+        }
+      }
+    },
+    {
+      "id": "crise_asie_1997",
+      "title": "Crise Financière Asiatique (1997-1998)",
+      "message": "Effondrement des devises et des systèmes financiers en Asie du Sud-Est, contagion régionale majeure.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Attaque spéculative sur baht thaï : dévaluations en cascade, faillites bancaires, programmes FMI draconiens, contagion Corée/Indonésie/Malaisie (1997-1998).",
+        "definition": "Première crise financière majeure de l'ère de la globalisation, révélant les dangers des flux de capitaux volatils et des changes fixes dans les économies émergentes.",
+        "timeline": [
+          "Juillet 1997 : Attaque sur le baht thaï, abandon du change fixe",
+          "Août-Octobre 1997 : Contagion Indonésie, Malaisie, Philippines, Corée",
+          "1998 : Programmes FMI, restructuration bancaire, début de reprise"
+        ],
+        "sources": [
+          { "label": "IMF - The Asian Financial Crisis", "url": "https://www.imf.org/external/pubs/ft/issues/issues22/index.htm" },
+          { "label": "World Bank - East Asia: The Road to Recovery", "url": "https://openknowledge.worldbank.org/handle/10986/5983" },
+          { "label": "BIS - The Asian crisis and international financial architecture", "url": "https://www.bis.org/publ/plcy04.htm" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -12,
+          "stress": 12,
+          "rentabilite": -15
+        },
+        "B": {
+          "rentabilite": 20,
+          "stress": 10,
+          "reputation": -5
+        },
+        "C": {
+          "controle": 12,
+          "stress": 6,
+          "rentabilite": -3,
+          "reputation": 8
+        }
+      }
+    },
+    {
+      "id": "bulle_internet_2000",
+      "title": "Bulle Internet et Krach des Dot-Com (2000-2002)",
+      "message": "Éclatement de la bulle spéculative sur les valeurs technologiques avec chute de 78% du NASDAQ.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Euphorie dot-com : valorisations délirantes sans revenus, IPO en cascade, NASDAQ +400% puis -78%, récession technologique (2000-2002).",
+        "definition": "Bulle spéculative majeure sur les entreprises internet et technologiques, caractérisée par des valorisations déconnectées des fondamentaux et un optimisme excessif sur la 'nouvelle économie'.",
+        "timeline": [
+          "1995-2000 : Montée de l'internet commercial, IPO tech en série",
+          "Mars 2000 : Pic du NASDAQ à 5048 points",
+          "2000-2002 : Correction -78%, faillites dot-com, récession US"
+        ],
+        "sources": [
+          { "label": "Federal Reserve - Monetary Policy and Asset Price Bubbles", "url": "https://www.federalreserve.gov/econres/notes/feds-notes/monetary-policy-and-asset-price-bubbles-a-look-back-at-the-greenspan-era-20150717.htm" },
+          { "label": "Robert Shiller - Irrational Exuberance", "url": "https://press.princeton.edu/books/paperback/9780691173122/irrational-exuberance" },
+          { "label": "NBER - The Rise and Fall of the Dot Com Bubble", "url": "https://www.nber.org/papers/w28086" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": 30,
+          "stress": 12,
+          "reputation": -8
+        },
+        "B": {
+          "rentabilite": -15,
+          "stress": 5,
+          "reputation": 10
+        },
+        "C": {
+          "cashflow": -5,
+          "stress": 8,
+          "rentabilite": 8
+        }
+      }
+    },
+    {
+      "id": "crise_rouble_1998",
+      "title": "Crise du Rouble Russe (1998)",
+      "message": "Défaut souverain russe et dévaluation massive du rouble, contagion vers les marchés émergents.",
+      "context": {
+        "type": "Historique",
+        "tl_dr": "Défaut russe sur GKO : rouble chute -75%, contagion LTCM/marchés EM, intervention Fed coordonnée pour éviter crise systémique (1998).",
+        "definition": "Crise financière majeure combinant défaut souverain, effondrement bancaire et crise de change, révélant les risques de contagion dans les marchés émergents post-guerre froide.",
+        "timeline": [
+          "Août 1998 : Défaut sur les GKO, dévaluation du rouble",
+          "Septembre 1998 : Contagion LTCM, intervention Fed/banques",
+          "1999 : Stabilisation progressive, début de reprise"
+        ],
+        "sources": [
+          { "label": "IMF - The Russian Crisis and Its Implications", "url": "https://www.imf.org/external/pubs/ft/wp/1999/wp9903.pdf" },
+          { "label": "Federal Reserve - LTCM and Systemic Risk", "url": "https://www.federalreserve.gov/boarddocs/speeches/1999/19990505.htm" },
+          { "label": "World Bank - Russia and the Challenge of Fiscal Federalism", "url": "https://openknowledge.worldbank.org/handle/10986/15130" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["intermédiaire", "avancé"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -10,
+          "stress": 15,
+          "rentabilite": -18
+        },
+        "B": {
+          "rentabilite": 15,
+          "stress": 12,
+          "reputation": -3
+        },
+        "C": {
+          "controle": 10,
+          "stress": 8,
+          "rentabilite": -5,
+          "reputation": 8
+        }
+      }
+    },
+    {
+      "id": "crise_crypto_2022",
+      "title": "Effondrement du Marché Crypto (2022)",
+      "message": "Krach majeur des cryptomonnaies avec faillites en cascade (Terra Luna, FTX) et contagion au secteur fintech.",
+      "context": {
+        "type": "Contemporain",
+        "tl_dr": "Crypto winter : Bitcoin -75%, effondrement Terra/Luna, faillite FTX, contagion DeFi, durcissement réglementaire mondial (2022).",
+        "definition": "Correction majeure du secteur des cryptomonnaies révélant les risques systémiques du DeFi et des exchanges centralisés, accélérant la régulation gouvernementale.",
+        "timeline": [
+          "Mai 2022 : Effondrement Terra Luna/UST, contagion Celsius",
+          "Novembre 2022 : Faillite FTX et Alameda Research",
+          "2023 : Durcissement réglementaire, consolidation du secteur"
+        ],
+        "sources": [
+          { "label": "BIS - DeFi risks and the decentralisation illusion", "url": "https://www.bis.org/publ/qtrpdf/r_qt2112b.htm" },
+          { "label": "FSB - Assessment of risks to financial stability from crypto-assets", "url": "https://www.fsb.org/2022/02/assessment-of-risks-to-financial-stability-from-crypto-assets/" },
+          { "label": "ECB - Crypto-assets and decentralised finance", "url": "https://www.ecb.europa.eu/pub/financial-stability/fsr/html/ecb.fsr202111~8b0eebc817.en.html" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "rentabilite": -25,
+          "stress": 10,
+          "reputation": -5
+        },
+        "B": {
+          "stress": 8,
+          "reputation": 8,
+          "rentabilite": -3
+        },
+        "C": {
+          "controle": 12,
+          "stress": 5,
+          "rentabilite": 5,
+          "reputation": 10
+        }
+      }
+    },
+    {
+      "id": "crise_energie_2021",
+      "title": "Crise Énergétique Mondiale (2021-2022)",
+      "message": "Flambée des prix du gaz et de l'électricité, pénuries énergétiques et impact sur l'industrie européenne.",
+      "context": {
+        "type": "Contemporain",
+        "tl_dr": "Choc énergétique post-COVID : gaz naturel +500%, pénuries charbon/électricité, fermetures industrielles, inflation énergétique persistante (2021-2022).",
+        "definition": "Crise énergétique globale causée par la reprise post-COVID, les tensions géopolitiques et la transition énergétique, révélant la vulnérabilité des chaînes d'approvisionnement.",
+        "timeline": [
+          "2021 : Reprise économique, pénuries gaz naturel et charbon",
+          "2022 : Guerre Ukraine aggrave la crise, rationnement énergétique",
+          "2023 : Stabilisation progressive, accélération énergies renouvelables"
+        ],
+        "sources": [
+          { "label": "IEA - World Energy Outlook 2022", "url": "https://www.iea.org/reports/world-energy-outlook-2022" },
+          { "label": "European Commission - REPowerEU Plan", "url": "https://ec.europa.eu/info/strategy/priorities-2019-2024/european-green-deal/repowereu-affordable-secure-and-sustainable-energy-europe_en" },
+          { "label": "IMF - Energy Price Shocks and Global Economic Growth", "url": "https://www.imf.org/en/Publications/WP/Issues/2022/07/26/Energy-Price-Shocks-and-Global-Economic-Growth-521129" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -8,
+          "stress": 10,
+          "rentabilite": -5
+        },
+        "B": {
+          "rentabilite": 15,
+          "stress": 6,
+          "reputation": 3
+        },
+        "C": {
+          "controle": 8,
+          "stress": 4,
+          "rentabilite": 2,
+          "reputation": 5
+        }
+      }
+    },
+    {
+      "id": "inflation_mondiale_2021",
+      "title": "Résurgence de l'Inflation Mondiale (2021-2023)",
+      "message": "Retour surprise de l'inflation après décennies de stabilité, forçant un durcissement monétaire coordonné.",
+      "context": {
+        "type": "Contemporain",
+        "tl_dr": "Inflation surprise : disruptions supply chain, stimuli fiscaux massifs, inflation US 9%, BCE/Fed relèvent taux agressivement, récession menace (2021-2023).",
+        "definition": "Résurgence inattendue de l'inflation mondiale après 30 ans de stabilité des prix, forçant les banques centrales à abandonner les politiques accommodantes post-crise 2008.",
+        "timeline": [
+          "2021 : Inflation 'transitoire' devient persistante, supply chain chaos",
+          "2022 : Hausse taux agressive Fed/BCE, récession crainte",
+          "2023 : Désinflation graduelle, atterrissage en douceur espéré"
+        ],
+        "sources": [
+          { "label": "ECB - The great normalisation after the pandemic", "url": "https://www.ecb.europa.eu/press/key/date/2023/html/ecb.sp231127~df1fab2a2e.en.html" },
+          { "label": "Federal Reserve - Monetary Policy and Price Stability", "url": "https://www.federalreserve.gov/monetarypolicy/price-stability.htm" },
+          { "label": "BIS - Central bank responses to persistent inflation", "url": "https://www.bis.org/publ/arpdf/ar2022e3.htm" }
+        ]
+      },
+      "conditions": {
+        "niveau": ["débutant", "intermédiaire"]
+      },
+      "modifie_choix": {
+        "A": {
+          "cashflow": -6,
+          "stress": 8,
+          "rentabilite": -8
+        },
+        "B": {
+          "rentabilite": 12,
+          "stress": 6,
+          "reputation": 2
+        },
+        "C": {
+          "controle": 10,
+          "stress": 4,
+          "rentabilite": -2,
+          "reputation": 6
         }
       }
     }
