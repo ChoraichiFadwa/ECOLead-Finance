@@ -59,7 +59,7 @@ async def submit_mission(
     mission_id: str, 
     submission: MissionSubmission, 
     db: Session = Depends(get_db)
-):
+      ):
     # Get student
     student = db.query(User).filter(
         User.id == student_id, 

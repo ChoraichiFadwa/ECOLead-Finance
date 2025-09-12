@@ -157,3 +157,8 @@ class MissionEvaluator:
             feedback_parts.append("Attention aux impacts négatifs multiples - considérez les alternatives.")
         
         return "<br/>".join(feedback_parts)
+     
+
+
+
+#// TODO: move to services 

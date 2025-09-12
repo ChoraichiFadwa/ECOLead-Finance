@@ -16,3 +16,6 @@ pydantic-settings==2.2.1
 
 # For date/time handling (used implicitly by pydantic or metrics)
 python-dateutil==2.9.0.post0
+
+numpy 
+joblib
