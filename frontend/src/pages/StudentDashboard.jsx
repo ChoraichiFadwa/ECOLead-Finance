@@ -21,6 +21,7 @@ import MetricCard from "../components/MetricCard"
 import ProgressBar from "../components/ProgressBar"
 import LoadingSpinner from "../components/LoadingSpinner"
 import { BookOpen } from "lucide-react"
+import StrategyBundleSection from '../components/StrategyBundleSection'
 // Profile icons and labels
 const PROFILE_ICONS = {
   1: PieChart,      // Gestion de portefeuille
@@ -267,6 +268,11 @@ const StudentDashboard = () => {
     </p>
   </div>
 )}
+
+      {/* Mini-bundle IA */}
+      <StrategyBundleSection studentId={userId} />
+
+      {/* Le reste de ton dashboard */}
 
       {/* Progress Overview */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
