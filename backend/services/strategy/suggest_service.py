@@ -23,7 +23,8 @@ TILT_MAP = {0: "prudent", 1: "equilibre", 2: "speculatif"}
 def predict_tilt(features: Dict[str, float]) -> str:
     if not kmeans:
         return "equilibre"  # fallback
-    feature_vector = [
+    feature_vector = [ # TODO no placeholde, use the real features to predict or take it from the profile database 
+        
         features.get("pct_stress_up", 0),
         features.get("ratio_ret_up_vs_ctrl_cf_down", 0),
         # ... complète avec tes 13 features exactes
@@ -213,7 +214,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     tilt = predict_tilt(feats)
 
     # 3. Charger missions
-    game_loader=GameLoader()
+    # game_loader=GameLoader()
     missions= build_mission_index(game_loader.missions)
     progress = get_recent_progress_for_student(req.student_id)
     recent_concepts = [p.get("concept") for p in progress[-8:] if p.get("concept")]
@@ -226,7 +227,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
         job=job,
         missions=missions,
         concept_whitelist=req.concept_whitelist,
-        threshold=0.0
+        threshold=1.0
     )
 
     # 5. Scorer chaque mission
@@ -246,7 +247,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
         )
         print(f"[DEBUG] ✅ Final score: {score}")
         why = build_whys(req.goal, exp_imp, feats, tilt)
-        has_event = any(e in GameLoader.events for e in m.get("evenements_possibles", [])) if m.get("evenements_possibles") else False
+        has_event = any(e in events_catalog for e in m.get("evenements_possibles", [])) if m.get("evenements_possibles") else False
         scored.append((m, score, why, has_event))
 
     # 6. Trier et limiter
