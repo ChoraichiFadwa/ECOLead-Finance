@@ -450,9 +450,8 @@
         ],
         "sources": [
           { "label": "Financial Stability Board - Understanding Financial Contagion", "url": "https://www.fsb.org/what-we-do/policy-development/addressing-sifis/" },
-          { "label": "BIS - The anatomy of financial crises", "url": "https://www.bis.org/publ/arpdf/ar2019e3.htm" },
-          { "label": "IMF - Systemic Banking Crises Database", "url": "https://www.imf.org/en/Publications/WP/Issues/2020/02/07/Systemic-Banking-Crises-Revisited-49001" }
-        ]
+          { "label": "BIS - The anatomy of financial crises", "url": "https://www.bis.org/publ/arpdf/ar2019e3.htm" }
+          ]
       },
       "conditions": {
         "niveau": ["intermédiaire", "avancé"]
@@ -495,9 +494,8 @@
       { "label": "ECB — Transmission mechanism of monetary policy", "url": "https://www.ecb.europa.eu/mopo/intro/transmission/html/index.en.html" },
       { "label": "Federal Reserve — The Fed Explained: Monetary Policy", "url": "https://www.federalreserve.gov/aboutthefed/fedexplained/monetary-policy.htm" },
       { "label": "New York Fed — Monetary policy implementation", "url": "https://www.newyorkfed.org/markets/domestic-market-operations/monetary-policy-implementation" },
-      { "label": "Bank Al-Maghrib — Monetary policy (key rate, objectives, framework)", "url": "https://www.bkam.ma/en/Monetary-policy/Strategic-framework/Presentation" },
-      { "label": "BIS — Transmission mechanism overview (cross-country)", "url": "https://www.bis.org/publ/bisp00.pdf" },
-      { "label": "CRS (2025) — Intro to U.S. Monetary Policy", "url": "https://www.congress.gov/crs-product/IF11751" }
+      { "label": "Bank Al-Maghrib — Monetary policy (key rate, objectives, framework)", "url": "https://www.bkam.ma/en/Monetary-policy/Strategic-framework/Presentation" }
+      
     ]
   },
   "conditions": {
@@ -520,26 +518,6 @@
       "rentabilite": -1
     }
   }
-    },
-    {
-      "id": "Hyperinflation",
-      "type": "Macro",
-      "message": "Dévaluation rapide et incontrôlée de la monnaie",
-      "conditions": {
-        "niveau": [
-          "débutant",
-          "intermédiaire"
-        ]
-      },
-      "modifie_choix": {
-        "A": {
-          "cashflow": 5
-        },
-        "B": {
-          "cashflow": -8,
-          "stress": 3
-        }
-      }
     },
     {
   "id": "Bulle du Mississippi",
@@ -634,8 +612,6 @@
           "Plateau/Tapering : Maintien du stock puis réduction graduelle → normalisation progressive des conditions"
         ],
         "sources": [
-          { "label": "ECB - The transmission of the ECB's asset purchase programmes", "url": "https://www.ecb.europa.eu/pub/economic-bulletin/articles/2019/html/ecb.ebart201908_03~7821d31799.en.html" },
-          { "label": "Federal Reserve - FAQs: What is quantitative easing?", "url": "https://www.federalreserve.gov/faqs/what-is-quantitative-easing.htm" },
           { "label": "Bank of England - How quantitative easing works", "url": "https://www.bankofengland.co.uk/monetary-policy/quantitative-easing" }
         ]
       },
@@ -717,8 +693,7 @@
         ],
         "sources": [
           { "label": "Robert Shiller - Irrational Exuberance (dot-com bubble analysis)", "url": "https://press.princeton.edu/books/paperback/9780691173122/irrational-exuberance" },
-          { "label": "Federal Reserve - Monetary Policy and Asset Price Bubbles", "url": "https://www.federalreserve.gov/econres/notes/feds-notes/monetary-policy-and-asset-price-bubbles-a-look-back-at-the-greenspan-era-20150717.htm" },
-          { "label": "ECB - Identifying bubbles and crashes in the Nasdaq stock market", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1613.pdf" }
+          { "label": "Working PaPer SerieS", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1613.pdf" }
         ]
       },
       "conditions": {
@@ -756,9 +731,7 @@
           "Résolution : Intervention banque centrale (LTRO, facilités d'urgence), garanties gouvernementales"
         ],
         "sources": [
-          { "label": "ECB - The euro area bank lending survey", "url": "https://www.ecb.europa.eu/stats/ecb_surveys/bank_lending_survey/html/index.en.html" },
-          { "label": "BIS - Central bank liquidity swaps and international bank lending", "url": "https://www.bis.org/publ/work1317.htm" },
-          { "label": "IMF - Managing Liquidity in Banks", "url": "https://www.imf.org/external/pubs/ft/wp/2012/wp12003.pdf" }
+          { "label": "ECB - The euro area bank lending survey", "url": "https://www.ecb.europa.eu/stats/ecb_surveys/bank_lending_survey/html/index.en.html" }
         ]
       },
       "conditions": {
@@ -798,9 +771,7 @@
           "Moyen terme : Réallocation secteurs/géographies, consolidation bancaire potentielle"
         ],
         "sources": [
-          { "label": "Basel Committee - Basel III: Finalising post-crisis reforms", "url": "https://www.bis.org/bcbs/publ/d424.htm" },
-          { "label": "EBA - Basel III monitoring exercise", "url": "https://www.eba.europa.eu/regulation-and-policy/own-funds/basel-iii-monitoring-exercise" },
-          { "label": "ACPR - Impact of Basel reforms on French banks", "url": "https://acpr.banque-france.fr/en/page-sommaire/financial-stability" }
+          { "label": "Basel Committee - Basel III: Finalising post-crisis reforms", "url": "https://www.bis.org/bcbs/publ/d424.htm" }
         ]
       },
       "conditions": {
@@ -842,7 +813,7 @@
         ],
         "sources": [
           { "label": "BIS - Big tech in finance", "url": "https://www.bis.org/publ/arpdf/ar2019e3.htm" },
-          { "label": "ECB - Crypto-assets and decentralised finance", "url": "https://www.ecb.europa.eu/pub/financial-stability/fsr/html/ecb.fsr202111~8b0eebc817.en.html" },
+          { "label": "Financial Stability Review", "url": "https://www.ecb.europa.eu/pub/financial-stability/fsr/html/ecb.fsr202111~8b0eebc817.en.html" },
           { "label": "FSB - FinTech and market structure in financial services", "url": "https://www.fsb.org/2019/02/fintech-and-market-structure-in-financial-services-market-developments-and-potential-financial-stability-implications/" }
         ]
       },
@@ -882,9 +853,8 @@
         ],
         "sources": [
           { "label": "SEC - Findings Regarding the Market Events of May 6, 2010", "url": "https://www.sec.gov/news/studies/2010/marketevents-report.pdf" },
-          { "label": "CFTC-SEC - The Flash Crash: Analysis and Recommendations", "url": "https://www.sec.gov/news/studies/2010/marketevents-report.pdf" },
-          { "label": "European Commission - Review of the Markets in Financial Instruments Directive", "url": "https://ec.europa.eu/info/law/markets-financial-instruments-mifid-ii-directive-2014-65-eu_en" }
-        ]
+          { "label": "CFTC-SEC - The Flash Crash: Analysis and Recommendations", "url": "https://www.sec.gov/news/studies/2010/marketevents-report.pdf" }
+    ]
       },
       "conditions": {
         "niveau": ["intermédiaire", "avancé"],
@@ -923,9 +893,8 @@
           "Gestion de crise : Programme FMI/UE, austérité budgétaire, restructuration possible"
         ],
         "sources": [
-          { "label": "IMF - Sovereign Debt: A Guide for Economists and Practitioners", "url": "https://www.imf.org/external/pubs/ft/eds/Eng/Guide/" },
-          { "label": "ECB - The European sovereign debt crisis", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1419.pdf" },
-          { "label": "Reinhart & Rogoff - This Time Is Different", "url": "https://www.princeton.edu/~reinhart/VoxChapter1.pdf" }
+          { "label": "External Debt Statistics: Guide for Compilers and User", "url": "https://www.imf.org/external/pubs/ft/eds/Eng/Guide/" },
+          { "label": "THE EURO AREA SOVEREIGN DEBT CRISIS", "url": "https://www.ecb.europa.eu/pub/pdf/scpwps/ecbwp1419.pdf" }
         ]
       },
       "conditions": {
