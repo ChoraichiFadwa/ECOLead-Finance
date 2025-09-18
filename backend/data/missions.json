@@ -399,7 +399,7 @@
         "C": "Prendre des positions risquées peut rapporter gros mais accroît le stress."
       },
       "evenements_possibles": [
-        "crise_financiere_systemique",
+        "brexit_volatilite_2016",
         "crise_dette_souveraine"
       ],
       "reutilisable": true
@@ -460,7 +460,7 @@
         "C": "Observer permet de prendre des décisions informées ultérieurement."
       },
       "evenements_possibles": [
-        "Changement de Politique BCE/Fed"
+        "changement_de_politique_bce_fed"
       ],
       "reutilisable": true
     },
@@ -521,7 +521,7 @@
         "C": "Une stratégie prudente assure la stabilité du portefeuille tout en conservant une exposition raisonnable."
       },
       "evenements_possibles": [
-        "Récession Économique"
+        
       ],
       "reutilisable": true
     },

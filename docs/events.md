@@ -6,7 +6,7 @@ flowchart TD
         H2["Second choc pétrolier (1979-1980)"]
         H3["Crise de la Dette des Années 1980"]
         H4["Guerre du Golfe et Crise Régionale (1990-1991)"]
-        H5["Crise Asiatique et Répercussions MENA (1997-1998)"]
+        H5["Crise Asiatique et Répercussions MENA (1997-1998)"] 
         H6["Choc Pétrolier de 2008"]
         H7["Crise Financière Mondiale (2008-2009)"]
         H8["Printemps Arabe et Crise Socio-Économique (2010-2012)"]
