@@ -477,7 +477,7 @@
       }
     },
     {
-  "id": "Changement de Politique BCE/Fed",
+  "id": "changement_de_politique_bce_fed",
   "title": "Changement de Politique BCE/Fed",
   "message": "Modification significative des taux directeurs",
   "context": {
@@ -561,7 +561,8 @@
   }
 },
     {
-  "id": "Boom Économique Global",
+  "id": "boom_economique_global",
+  "title": "Boom Économique Global",
   "type": "macro",
   "message": "Croissance soutenue, hausse généralisée des indices boursiers.",
   "context": {
@@ -621,23 +622,25 @@
       "modifie_choix": {
         "A": {
           "rentabilite": 8,
-          "cashflow": 5,
+          "cashflow": 7,
           "stress": -3
         },
         "B": {
           "rentabilite": 12,
+          "cashflow": 10,
           "reputation": 3,
           "stress": -2
         },
         "C": {
-          "controle": -5,
-          "stress": 2,
-          "rentabilite": 3
+          "controle": 0,
+          "stress": 0,
+          "rentabilite": 0
         }
       }
     },
     {
-      "id": "Récession Économique",
+      "id": "recession_economique",
+      "title": "Récession Économique",
       "message": " Ralentissement prolongé de l’activité économique",
       "context": {
   "type": "Macro",
@@ -920,10 +923,11 @@
       }
     },
     {
-      "id": "Guerre Commerciale",
+      "id": "guerr_commerciale",
+      "title": "Guerre Commerciale",
       "message": " Escalade des tensions commerciales entre blocs économiques",
       "context": {
-  "type": "Géopolitique/Commerce",
+  "type": "Géopolitique",
   "tl_dr": "Escalade de mesures protectionnistes (droits de douane, quotas, contrôles à l’export), rétorsions en chaîne et fragmentation des chaînes d’approvisionnement. Effets : coûts plus élevés, inflation importée, incertitude et volatilité accrues.",
   "definition": "Une guerre commerciale survient quand des blocs économiques se sanctionnent mutuellement via tarifs, barrières non tarifaires et restrictions technologiques. L’impact se transmet via les prix importés, les marges, les réallocations de chaînes de valeur et la confiance.",
   "timeline": [
@@ -963,8 +967,9 @@
       }
     },
     {
-      "id": " Conflit Armé Majeur",
-      "message": " Guerre impliquant des puissances économiques importantes",
+      "id": "conflit_arme_majeur",
+      "title": "Conflit Armé Majeur",
+      "message": "Guerre impliquant des puissances économiques importantes",
       "context":{
   "type": "Géopolitique",
   "tl_dr": "Conflit impliquant des puissances majeures : choc de risque, flambée des matières premières, perturbations logistiques et sanctions. Hausse des primes de risque, volatilité et incertitude macro prolongée.",
@@ -1003,10 +1008,11 @@
       }
     },
     {
-      "id": "Nouvelle Réglementation Financière",
+      "id": "nouvelle_réglementation_financiere",
+      "title": "Nouvelle Réglementation Financière",
       "message": " Adoption de nouvelles règles prudentielles",
       "context": {
-    "type": "Réglementation prudentielle",
+    "type": "Réglementation",
     "tl_dr": "Nouvelles exigences de fonds propres, de liquidité et de gouvernance (ex. finalisation de Bâle III) qui accroissent le coût du capital et peuvent resserrer l’offre de crédit. Mise en œuvre progressive avec recalibrage des risques et des modèles.",
     "definition": "Une réforme prudentielle fixe des normes minimales (CET1, coussins de conservation/anti-cyclique), un ratio de levier, des exigences de liquidité (LCR/NSFR) et des attentes de gestion des risques/rapports. Les banques adaptent la structure du bilan, le pricing et l’allocation d’actifs pour rester conformes.",
     "timeline": [

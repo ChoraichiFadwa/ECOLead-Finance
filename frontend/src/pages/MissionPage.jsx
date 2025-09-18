@@ -224,7 +224,7 @@ const MissionPage = () => {
 
 {mission?.evenements_actifs && mission.evenements_actifs.length > 0 && (
   <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg">
-    <h4 className="font-medium text-yellow-800 mb-3">⚡ Événements actifs</h4>
+    <h4 className="font-medium text-yellow-800 mb-3">Evénements actifs</h4>
 
     {/* Show 2 cards by default; reveal the rest on click */}
     {(() => {

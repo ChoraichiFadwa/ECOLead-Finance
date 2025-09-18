@@ -24,8 +24,8 @@ class MissionResponse(BaseModel):
     tags: List[str]
     
     # Dynamic context variables
-    secteur: Optional[str] = None
-    situation_macro: Optional[str] = None
+    # secteur: Optional[str] = None
+    # situation_macro: Optional[str] = None
     
     # Active events that modify this mission
     evenements_actifs: List[Dict[str, Any]] = []
@@ -139,6 +139,7 @@ async def get_mission_by_id(mission_id: str):
     mission = game_loader.get_mission_by_id(mission_id)
     if not mission:
         raise HTTPException(status_code=404, detail="Mission not found")
+
     return MissionResponse(**mission)
 
 @router.get("/students/{student_id}/level-progress", response_model=List[LevelSummary])

@@ -1,7 +1,7 @@
   {
-    "Marche_Boursier": {
+    "Marché Boursier": {
       "nom": "Marché Boursier",
-      "description": "Progression sur le concept : marché boursier - maîtrise des décisions financières stratégiques de l'entreprise",
+      "description": "C’est un marché organisé où les entreprises (privées et publiques) ainsi que l’État viennent lever des fonds auprès d’investisseurs individuels ou institutionnels pour financer leurs activités en émettant des titres de propriété (les actions) ou de créance (les obligations)",
       "profiles": [1],
       "missions": {
         "débutant": [
@@ -20,7 +20,7 @@
     },
     "Marché des Changes": {
       "nom": "Marché des Changes",
-      "description": "Progression sur le concept : marché des changes - maîtrise des décisions financières stratégiques de l'entreprise",
+      "description": "Le marché de change est un « lieu » où se confrontent les offres et les demandes de devises donnant lieu à un prix d’équilibre (cours d’équilibre) appelé cours de change (ou taux de change).",
       "profiles": [1],
       "missions": {
         "débutant": [

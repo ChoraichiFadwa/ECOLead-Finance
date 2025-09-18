@@ -40,7 +40,11 @@ class GameLoader:
         return [m for m in self.missions.values() if m.get("niveau") == level]
     
     def get_mission_by_id(self, mission_id: str) -> Optional[Dict[str, Any]]:
-        return self.missions.get(mission_id)
+        mission=self.missions.get(mission_id)
+        mission["evenements_actifs"] = [ self.get_event_by_id(eid) for eid in mission.get("evenements_possibles", [])
+        if self.get_event_by_id(eid)
+        ]
+        return mission
     
     def get_all_missions(self) -> List[Dict[str, Any]]:
         return list(self.missions.values())
@@ -63,7 +67,7 @@ class GameLoader:
         
         return active_events
     
-    # meant to be an internal helper aka private 
+    #meant to be an internal helper aka private 
     def _should_event_be_active(self, event: Dict[str, Any], student: User) -> bool:
         """Check if an event should be active based on conditions"""
         # we get the conditions specific of the event
