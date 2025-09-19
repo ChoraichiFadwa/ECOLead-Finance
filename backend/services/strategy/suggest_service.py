@@ -3,40 +3,36 @@ import joblib
 from typing import List, Set, Tuple, Dict, Any
 from models.schemas import SuggestRequest, SuggestResponse
 from utils.game_loader import GameLoader
-from services.features_service import compute_features_from_student_id, build_mission_index
+from services.features_service import compute_features_from_student_id, build_mission_index, FEATURE_SPEC
 from services.profile_service import get_student_profile
 from services.progress_service import get_done_mission_ids, get_recent_progress_for_student
+from models.profile import ProfileType, PROFILE_LABELS
 # --- Chargement IA ---
-MODEL_PATH = os.path.join(os.path.dirname(__file__), "../../../data/KMeans.pkl")
-PIPELINE_PATH = os.path.join(os.path.dirname(__file__), "../../../data/pipeline.pkl")
+MODEL = os.path.join(os.path.dirname(__file__), "../../../data/kmeans.pkl")
+SCALER = os.path.join(os.path.dirname(__file__), "../../../data/scaler.pkl")
 # CŒUR DU SYSTÈME de suggestion 
 
 try:
-    kmeans = joblib.load(MODEL_PATH)
-    pipeline = joblib.load(PIPELINE_PATH)
+    kmeans = joblib.load(MODEL)
+    scaler = joblib.load(SCALER)
 except:
     kmeans = None
-    pipeline = None
+    scaler = None
+    print("[WARN] Could not load KMeans model or scaler")
 
 TILT_MAP = {0: "prudent", 1: "equilibre", 2: "speculatif"}
 
 def predict_tilt(features: Dict[str, float]) -> str:
     if not kmeans:
-        return "equilibre"  # fallback
-    feature_vector = [ # TODO no placeholde, use the real features to predict or take it from the profile database 
-        
-        features.get("pct_stress_up", 0),
-        features.get("ratio_ret_up_vs_ctrl_cf_down", 0),
-        # ... complète avec tes 13 features exactes
-        # Si tu me donnes la liste, je les mets en 10s
-        0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0  # placeholder
-    ]
+        return "failed"  # fallback
+    feature_vector = [features.get(name, 0.0) for name in FEATURE_SPEC["feature_names"]]
     X = [feature_vector]
-    cluster = kmeans.predict(X)[0]
-    return TILT_MAP.get(cluster, "equilibre")
+    X_scaled = scaler.transform(X)
+    cluster = kmeans.predict(X_scaled)[0]
+    return TILT_MAP.get(cluster, "failed")
 
 # --- Règles produit ---
-from models.profile import ProfileType, PROFILE_LABELS
+
 
 concepts_by_job = {
     ProfileType.GESTION_PORTEFEUILLE: ["Marché Boursier", "Marché des Changes", "Analyse Technique Fondamentale", "Allocation d'Actifs Stratégique","Gestion des Risques de Portefeuille", "Marchés Dérivés et Couverture", "Performance et Attribution"],
@@ -47,7 +43,6 @@ concepts_by_job = {
 LEVEL_ORDER = ["débutant", "intermédiaire", "avancé"]
 IDX = {lvl: i for i, lvl in enumerate(LEVEL_ORDER)}
 
-# --- Fonctions de gating ---
 def concepts_allowed_for_job(job: ProfileType) -> Set[str]:
     return set(concepts_by_job.get(job, []))
 
@@ -76,6 +71,7 @@ def concept_unlock_level(student_id: int, concept: str, missions: List[Dict], th
         return "intermédiaire"
     return "avancé"
 
+# les missions liées au job + niveau + not completed
 def eligible_missions(student_id: int, job: ProfileType, missions: List[Dict], concept_whitelist=None, threshold=1.0) -> List[Dict]:
     done_ids = get_done_mission_ids(student_id)
     allow_concepts = concepts_allowed_for_job(job)
@@ -100,9 +96,10 @@ def eligible_missions(student_id: int, job: ProfileType, missions: List[Dict], c
             pool.append(m)
     return pool
 
-# --- Scoring ---
 PROFILE_TO_RANK = {"prudent": 0, "equilibre": 1, "speculatif": 2}
-
+# Avant de proposer une mission, il faut s'assurer qu'elle aide à atteindre l'objectif 
+# On choisit l'impact attendu en fonction du profil IA
+#combien cette mission est bonne pour cet étudiant, compte tenu de son profil et de l’objectif à atteindre
 def expected_impact_for_profile(mission: Dict, profile: str) -> Dict:
     choix = mission.get("choix", {})
     # Cas 1 : "choix" est un dict → format standard
@@ -117,14 +114,14 @@ def expected_impact_for_profile(mission: Dict, profile: str) -> Dict:
                 for i, item in enumerate(choix)
             }
         except:
-            print(f"[DEBUG] ❌ Mission {mission.get('mission_id')} has 'choix' as list but invalid format")
+            print(f"[DEBUG] Mission {mission.get('mission_id')} has 'choix' as list but invalid format")
             return {}
     # Cas 3 : on utilise "choices" + "impacts"
     else:
         choice_keys = mission.get("choices", [])
         impacts = mission.get("impacts", [])
         if not choice_keys or not impacts:
-            print(f"[DEBUG] ❌ Mission {mission.get('mission_id')} has no valid choix/choices+impacts")
+            print(f"[DEBUG]  Mission {mission.get('mission_id')} has no valid choix/choices+impacts")
             return {}
         # Créer un dict à partir des listes
         choix = {
@@ -186,7 +183,7 @@ def pacing_soft(mission: Dict, last_mission: Dict) -> float:
         return 0.0
     return -0.1 if mission["concept"] == last_mission["concept"] else 0.1
 
-# --- Fonction principale ---
+
 def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     # 1. Récupérer métier
     job_name = get_student_profile(req.student_id)  # ex: "gestionnaire"
@@ -213,6 +210,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     feats = compute_features_from_student_id(req.student_id)  # doit retourner dict de 13 features
     tilt = predict_tilt(feats)
 
+    print(f"[DEBUG] predicted ai profile: {tilt}")
     # 3. Charger missions
     # game_loader=GameLoader()
     missions= build_mission_index(game_loader.missions)
@@ -269,7 +267,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
             cards.append({"kind": "event_context", "event_id": ev_id})
 
 
-    tip = select_tip(feats, tilt, job)
+    tip = select_tip(goal=req.goal)
 
     explanation = f"Mini-bundle aligné sur {req.goal}, respect des pré-requis par concept et du track {job}."
 
@@ -293,13 +291,28 @@ def build_whys(goal: str, exp_imp: Dict, feats: Dict, tilt: str) -> List[str]:
         whys.append("Ton historique récent montre trop de hausses de stress")
     whys.append(f"Adaptée à un profil {tilt}")
     return whys[:3]
+GOAL_TIPS = {
+    "reduce_stress": [
+        {"id": "too_much_stress", "text": "Tu acceptes trop de hausses de stress; pense à couvrir avant une prise de risque."}
+    ],
+    "boost_rentabilite": [
+        {"id": "focus_profit", "text": "Pour augmenter la rentabilité, privilégie les missions avec un impact positif sur rentabilité et cashflow."}
+    ],
+    "preserve_liquidity": [
+        {"id": "monitor_cashflow", "text": "Garde un œil sur la trésorerie; évite les missions qui la diminuent trop."}
+    ],
+    "balance": [
+        {"id": "balanced_choice", "text": "Essaie de choisir des missions qui équilibrent stress, cashflow et rentabilité."}
+    ]
+}
 
-def select_tip(feats: Dict, tilt: str, job: str) -> Dict:
-    if feats.get("pct_stress_up", 0) >= 0.45:
-        return {
-            "id": "too_much_stress",
-            "audience": tilt,
-            "text": "Tu acceptes trop de hausses de stress; pense à couvrir avant une prise de risque."
-        }
-    return None
+def select_tip(goal: str) -> Dict:
+    tips=GOAL_TIPS.get(goal, [])
+    if not tips:
+        return {}
+    tip = tips[0]  # prend la première tip
+    return {
+        "id": tip["id"],
+        "text": tip["text"]
+    }
 # TODO Make the tip more relevant and missions and behavior related 
