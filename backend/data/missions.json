@@ -282,7 +282,7 @@
         "B": "La spéculation peut rapporter gros mais expose à de fortes pertes et stress.",
         "C": "La gestion passive est sûre et stable, adaptée pour un portefeuille long terme."
       },
-      "evenements_possibles": [],
+      "evenements_possibles": ["recession_economique"],
       "reutilisable": true
     },
     "Découvrir le marché des changes": {
@@ -460,7 +460,8 @@
         "C": "Observer permet de prendre des décisions informées ultérieurement."
       },
       "evenements_possibles": [
-        "changement_de_politique_bce_fed"
+        "changement_de_politique_bce_fed",
+        "nouvelle_crise_dette_2020"
       ],
       "reutilisable": true
     },
@@ -632,7 +633,8 @@
         "C": "Rester liquide est une approche prudente mais réduit le potentiel de rendement."
       },
       "evenements_possibles": [
-        "Récession Économique"
+        "recession_economique",
+        "krach_flash"
       ],
       "reutilisable": true
     },
@@ -690,7 +692,8 @@
         "C": "Les stratégies simples sont plus sûres mais moins performantes sur le long terme."
       },
       "evenements_possibles": [
-        "Crise Financière Systémique"
+        "Crise Financière Systémique",
+        "crise_crypto_2022"
       ],
       "reutilisable": true
     },
