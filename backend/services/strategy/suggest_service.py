@@ -53,26 +53,26 @@ def eligible_missions(student_id: int, job: ProfileType, missions: List[Dict], c
     allow_concepts = concepts_allowed_for_job(job)
     if concept_whitelist:
         allow_concepts = allow_concepts.intersection(set(concept_whitelist))
-        print(f"[DEBUG] allowed concepts after whitelist: {allow_concepts}")
+        # print(f"[DEBUG] allowed concepts after whitelist: {allow_concepts}")
 
     pool = []
     for concept in allow_concepts:
         max_lvl = concept_unlock_level(student_id, concept, missions, threshold)
-        print(f"[DEBUG] Concept '{concept}' → niveau max autorisé: {max_lvl}")
+        # print(f"[DEBUG] Concept '{concept}' → niveau max autorisé: {max_lvl}")
         for m in missions:
             mission_id = m.get("id") or m.get("mission_id")
             if m["concept"] != concept:
                 continue
             if IDX[m["niveau"]] > IDX[max_lvl]:
-                print(f"[DEBUG] Mission {m.get('id', m.get('mission_id', 'NO_ID'))} niveau {m['niveau']} > {max_lvl}, skipped")
+                # print(f"[DEBUG] Mission {m.get('id', m.get('mission_id', 'NO_ID'))} niveau {m['niveau']} > {max_lvl}, skipped")
                 continue
             if m["mission_id"] in done_ids:
                 continue
-            print(f"[DEBUG] Mission {mission_id} added to pool")
+            # print(f"[DEBUG] Mission {mission_id} added to pool")
             pool.append(m)
     return pool
 
-PROFILE_TO_RANK = {"Prudent": 0, "Equilibré": 1, "Speculatif": 2}
+PROFILE_TO_RANK = {"Prudent": 0, "Equilibré": 1, "Spéculatif": 2}
 # Avant de proposer une mission, il faut s'assurer qu'elle aide à atteindre l'objectif 
 # On choisit l'impact attendu en fonction du profil IA
 #combien cette mission est bonne pour cet étudiant, compte tenu de son profil et de l’objectif à atteindre
@@ -90,14 +90,14 @@ def expected_impact_for_profile(mission: Dict, profile: str) -> Dict:
                 for i, item in enumerate(choix)
             }
         except:
-            print(f"[DEBUG] Mission {mission.get('mission_id')} has 'choix' as list but invalid format")
+            # print(f"[DEBUG] Mission {mission.get('mission_id')} has 'choix' as list but invalid format")
             return {}
     # Cas 3 : on utilise "choices" + "impacts"
     else:
         choice_keys = mission.get("choices", [])
         impacts = mission.get("impacts", [])
         if not choice_keys or not impacts:
-            print(f"[DEBUG]  Mission {mission.get('mission_id')} has no valid choix/choices+impacts")
+            # print(f"[DEBUG]  Mission {mission.get('mission_id')} has no valid choix/choices+impacts")
             return {}
         # Créer un dict à partir des listes
         choix = {
@@ -163,7 +163,7 @@ def pacing_soft(mission: Dict, last_mission: Dict) -> float:
 def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     # 1. Récupérer métier
     job_name = get_student_profile(req.student_id)  # ex: "gestionnaire"
-    print(f"[DEBUG] Job ID from service: '{job_name}'")
+    # print(f"[DEBUG] Job ID from service: '{job_name}'")
     if not job_name:
         job_name = "Gestionnaire de Portefeuille"  # fallback , normalement it shouldn't happen car on a un profil
     
@@ -175,10 +175,10 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     # job = profile_mapping.get(job, ProfileType.GESTION_PORTEFEUILLE)
     # print(f"[DEBUG] Job from service: '{job}'")
     name_to_profile = {name: profile_type for profile_type, name in PROFILE_LABELS.items()}
-    print(f"[DEBUG] Available name mappings: {list(name_to_profile.keys())}")
+    # print(f"[DEBUG] Available name mappings: {list(name_to_profile.keys())}")
 
     job = name_to_profile.get(job_name, ProfileType.GESTION_PORTEFEUILLE)
-    print(f"[DEBUG] Mapped to ProfileType: {job}")
+    # print(f"[DEBUG] Mapped to ProfileType: {job}")
 
     # 2. Calculer features IA
     game_loader=GameLoader()
@@ -186,7 +186,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     feats = compute_features_from_student_id(req.student_id)  # doit retourner dict de 13 features
     tilt = get_student_level_ai(req.student_id)  # ex: "Prudent"
 
-    print(f"[DEBUG] predicted ai profile: {tilt}")
+    # print(f"[DEBUG] predicted ai profile: {tilt}")
     # 3. Charger missions
     # game_loader=GameLoader()
     missions= build_mission_index(game_loader.missions)
@@ -206,12 +206,12 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
 
     # 5. Scorer chaque mission
     scored = []
-    print(f"[DEBUG] Starting to score {len(pool)} missions")
+    # print(f"[DEBUG] Starting to score {len(pool)} missions")
     for i, m in enumerate(pool):
-        print(f"[DEBUG] Scoring mission {i+1}/{len(pool)}: {m.get('mission_id', 'NO_ID')}")
+        # print(f"[DEBUG] Scoring mission {i+1}/{len(pool)}: {m.get('mission_id', 'NO_ID')}")
         exp_imp = expected_impact_for_profile(m, tilt)
         if not exp_imp:
-            print(f"[DEBUG] Mission has no expected impact (missing choix?)")
+            # print(f"[DEBUG] Mission has no expected impact (missing choix?)")
             continue
         score = (
             0.5 * kpi_goal_score(exp_imp, req.goal) +
@@ -219,7 +219,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
             0.15 * diversity_bonus(m, recent_concepts) +
             0.15 * pacing_soft(m, last_mission)
         )
-        print(f"[DEBUG] Final score: {score}")
+        # print(f"[DEBUG] Final score: {score}")
         why = build_whys(req.goal, exp_imp, feats, tilt)
         has_event = any(e in events_catalog for e in m.get("evenements_possibles", [])) if m.get("evenements_possibles") else False
         scored.append((m, score, why, has_event))

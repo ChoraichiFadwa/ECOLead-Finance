@@ -10,7 +10,7 @@ from utils.game_loader import GameLoader
 from utils.evaluator import MissionEvaluator
 from datetime import datetime
 from models.progress import ConceptProgress
-
+from services.predict_ai_profile import run_profiling
 
 router = APIRouter()
 game_loader = GameLoader()
@@ -89,7 +89,7 @@ async def submit_mission(
     # Evaluate the mission
     evaluator = MissionEvaluator(game_loader)
     result = evaluator.evaluate_mission(mission, submission.choices, events, student)
-    main_choice = submission.choices.get("main")
+    # main_choice = submission.choices.get("main")
     # feedback_map = mission.get("feedback", {})
     # feedback_text = feedback_map.get(main_choice, "")
 
@@ -133,9 +133,18 @@ async def submit_mission(
         rentabilite_after=student.rentabilite,
         reputation_after=student.reputation
     )
-    
     db.add(progress)
     db.commit()
+
+    missions_completed_total = db.query(Progress).filter(Progress.student_id == student_id).count()
+
+# Lancer le profilage tous les 8 missions
+    print(f"[AI] missions {missions_completed_total}")
+    if missions_completed_total % 2 == 0:
+        run_profiling(student_id, db)
+        print(f"[DEBUG] Profilage exécuté pour l'étudiant {student_id} après {missions_completed_total} missions")
+    
+    
     
     concept_name = mission["concept"]
     niveau = mission["niveau"]
@@ -164,7 +173,13 @@ async def submit_mission(
         m for m in game_loader.get_all_missions()
         if m["concept"] == concept_name and m["niveau"] == niveau
 ])
+    
     concept_progress.total_missions = total_missions
+    
+    if total_missions%6==0:
+        run_profiling(student_id, db)
+        db.commit()
+        print(f"[AI] updated profile {run_profiling}")
 
     if concept_progress.missions_completed >= total_missions:
         concept_progress.is_completed = True
