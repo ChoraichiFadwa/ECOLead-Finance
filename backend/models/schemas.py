@@ -4,7 +4,7 @@ from typing import List, Optional, Dict
 class SuggestRequest(BaseModel):
     student_id: int
     goal: str = "balance"
-    max_bundle: int = 4
+    max_bundle: int = 3
     concept_whitelist: Optional[List[str]] = None
 
 class SuggestedMission(BaseModel):

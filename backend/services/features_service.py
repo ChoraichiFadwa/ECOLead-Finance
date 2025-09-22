@@ -7,7 +7,6 @@ from utils.game_loader import GameLoader
 from services.progress_service import get_recent_progress_for_student
 
 FEATURE_SPEC = {
-    "version": "v1.0",
     "window_missions": 8,         # last N missions considered [ the window]
     "half_life": 4,               # recent missions weighted more
     "intensity_threshold": 1.5,   # skip tiny/neutral decisions
@@ -18,7 +17,7 @@ FEATURE_SPEC = {
         "concept_coverage", "choice_entropy", "event_exposure_rate"
     ]
 }
-# ----- Robust mission index builder -----
+
 KPI_KEYS = ["cashflow","controle","stress","rentabilite","reputation"]
 
 def build_mission_index(missions_json):

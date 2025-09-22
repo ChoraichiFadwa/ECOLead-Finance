@@ -3,43 +3,27 @@ import joblib
 from typing import Dict
 from services.features_service import FEATURE_SPEC
 from fastapi import HTTPException
-# --- Chargement IA ---
+
 MODEL = os.path.join(os.path.dirname(__file__), "../data/kmeans.pkl")
 SCALER = os.path.join(os.path.dirname(__file__), "../data/scaler.pkl")
-print(os.path.abspath(MODEL))
-print(os.path.exists(MODEL))
-# try:
-#     kmeans = joblib.load(MODEL)
-#     scaler = joblib.load(SCALER)
-# except:
-#     kmeans = None
-#     scaler = None
-#     print("[WARN] Could not load KMeans model or scaler")
-# Test KMeans
+TILT_MAP = {0: "Prudent", 1: "Equilibré", 2: "Speculatif"}
+
 if os.path.exists(MODEL):
     try:
         kmeans = joblib.load(MODEL)
-        print("KMeans loaded")
     except Exception as e:
         kmeans = None
-        print(f"[WARN] Failed to load KMeans: {e}")
 else:
     kmeans = None
-    print(f"[WARN] KMeans file not found: {MODEL}")
 
-# Test Scaler
 if os.path.exists(SCALER):
     try:
         scaler = joblib.load(SCALER)
-        print("Scaler loaded")
     except Exception as e:
         scaler = None
-        print(f"[WARN] Failed to load Scaler: {e}")
 else:
     scaler = None
-    print(f"[WARN] Scaler file not found: {SCALER}")
 
-TILT_MAP = {0: "prudent", 1: "equilibre", 2: "speculatif"}
 
 def predict_tilt(features: Dict[str, float]) -> str:
     feature_dict = features.dict()

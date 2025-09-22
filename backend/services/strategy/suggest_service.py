@@ -4,34 +4,10 @@ from typing import List, Set, Tuple, Dict, Any
 from models.schemas import SuggestRequest, SuggestResponse
 from utils.game_loader import GameLoader
 from services.features_service import compute_features_from_student_id, build_mission_index, FEATURE_SPEC
-from services.profile_service import get_student_profile
+from services.profile_service import get_student_profile, get_student_level_ai
 from services.progress_service import get_done_mission_ids, get_recent_progress_for_student
 from models.profile import ProfileType, PROFILE_LABELS
-# --- Chargement IA ---
-MODEL = os.path.join(os.path.dirname(__file__), "../../../data/kmeans.pkl")
-SCALER = os.path.join(os.path.dirname(__file__), "../../../data/scaler.pkl")
-# CŒUR DU SYSTÈME de suggestion 
 
-try:
-    kmeans = joblib.load(MODEL)
-    scaler = joblib.load(SCALER)
-except:
-    kmeans = None
-    scaler = None
-    print("[WARN] Could not load KMeans model or scaler")
-
-TILT_MAP = {0: "prudent", 1: "equilibre", 2: "speculatif"}
-
-def predict_tilt(features: Dict[str, float]) -> str:
-    if not kmeans:
-        return "failed"  # fallback
-    feature_vector = [features.get(name, 0.0) for name in FEATURE_SPEC["feature_names"]]
-    X = [feature_vector]
-    X_scaled = scaler.transform(X)
-    cluster = kmeans.predict(X_scaled)[0]
-    return TILT_MAP.get(cluster, "failed")
-
-# --- Règles produit ---
 
 
 concepts_by_job = {
@@ -96,7 +72,7 @@ def eligible_missions(student_id: int, job: ProfileType, missions: List[Dict], c
             pool.append(m)
     return pool
 
-PROFILE_TO_RANK = {"prudent": 0, "equilibre": 1, "speculatif": 2}
+PROFILE_TO_RANK = {"Prudent": 0, "Equilibré": 1, "Speculatif": 2}
 # Avant de proposer une mission, il faut s'assurer qu'elle aide à atteindre l'objectif 
 # On choisit l'impact attendu en fonction du profil IA
 #combien cette mission est bonne pour cet étudiant, compte tenu de son profil et de l’objectif à atteindre
@@ -208,7 +184,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     game_loader=GameLoader()
     events_catalog=game_loader.events
     feats = compute_features_from_student_id(req.student_id)  # doit retourner dict de 13 features
-    tilt = predict_tilt(feats)
+    tilt = get_student_level_ai(req.student_id)  # ex: "Prudent"
 
     print(f"[DEBUG] predicted ai profile: {tilt}")
     # 3. Charger missions
@@ -235,7 +211,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
         print(f"[DEBUG] Scoring mission {i+1}/{len(pool)}: {m.get('mission_id', 'NO_ID')}")
         exp_imp = expected_impact_for_profile(m, tilt)
         if not exp_imp:
-            print(f"[DEBUG] ❌ Mission has no expected impact (missing choix?)")
+            print(f"[DEBUG] Mission has no expected impact (missing choix?)")
             continue
         score = (
             0.5 * kpi_goal_score(exp_imp, req.goal) +
@@ -243,7 +219,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
             0.15 * diversity_bonus(m, recent_concepts) +
             0.15 * pacing_soft(m, last_mission)
         )
-        print(f"[DEBUG] ✅ Final score: {score}")
+        print(f"[DEBUG] Final score: {score}")
         why = build_whys(req.goal, exp_imp, feats, tilt)
         has_event = any(e in events_catalog for e in m.get("evenements_possibles", [])) if m.get("evenements_possibles") else False
         scored.append((m, score, why, has_event))
