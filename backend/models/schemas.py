@@ -3,7 +3,7 @@ from typing import List, Optional, Dict
 
 class SuggestRequest(BaseModel):
     student_id: int
-    goal: str = "balance"
+    goal: str # = "balance"
     max_bundle: int = 3
     concept_whitelist: Optional[List[str]] = None
 
@@ -20,4 +20,4 @@ class SuggestResponse(BaseModel):
     bundle: Dict
     cards: List[Dict] = []
     tip: Optional[Dict] = None
-    explanation: str
+    # explanation: str

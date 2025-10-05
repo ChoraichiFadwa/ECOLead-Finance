@@ -1,9 +1,8 @@
-// src/components/StrategyBundleSection.jsx
 import { useState, useEffect } from 'react';
 import MissionBundleCard from './MissionBundleCard';
 import EventContextCard from './EventContextCard';
 
-const StrategyBundleSection = ({ studentId = 123 }) => {
+const StrategyBundleSection = ({ studentId}) => {
   const [goal, setGoal] = useState("reduce_stress");
   const [bundleData, setBundleData] = useState(null);
   const [loading, setLoading] = useState(true);
@@ -41,13 +40,14 @@ const StrategyBundleSection = ({ studentId = 123 }) => {
     fetchBundle();
   }, [studentId, goal]);
 
-  if (loading) return <div>Chargement de ton mini-bundle...</div>;
+  if (loading) return <div>Chargement de ta carte de missions personnalisé...</div>;
   if (error) return <div>Erreur : {error}</div>;
   if (!bundleData) return null;
 
   return (
     
     <div className="strategy-bundle-section mt-8 p-6 bg-gray-50 rounded-lg">
+      <h2 className="text-2xl font-bold mb-4">Ta carte de missions personnalisée</h2>
       <div className="mb-4 flex gap-2">
   {Object.keys(goalLabels).map(g => (
     <button
@@ -62,7 +62,7 @@ const StrategyBundleSection = ({ studentId = 123 }) => {
   ))}
 </div>
 
-      <h2 className="text-2xl font-bold mb-4">Ton mini-bundle personnalisé</h2>
+      
       
       {/* Missions */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-6">
@@ -70,10 +70,7 @@ const StrategyBundleSection = ({ studentId = 123 }) => {
           <MissionBundleCard
             key={mission.mission_id}
             mission={mission}
-            onEventClick={() => {
-              // Ouvre modal ou affiche EventContextCard
-              console.log("Show event:", mission);
-            }}
+            onEventClick={() => {}}
           />
         ))}
       </div>
@@ -86,7 +83,7 @@ const StrategyBundleSection = ({ studentId = 123 }) => {
       )}
 
       {/* Explanation */}
-      <p className="text-sm text-gray-600 mt-4">{bundleData.explanation}</p>
+      {/* {<p className="text-sm text-gray-600 mt-4">{bundleData.explanation}</p>} */}
     </div>
   );
 };

@@ -8,8 +8,6 @@ from services.profile_service import get_student_profile, get_student_level_ai
 from services.progress_service import get_done_mission_ids, get_recent_progress_for_student
 from models.profile import ProfileType, PROFILE_LABELS
 
-
-
 concepts_by_job = {
     ProfileType.GESTION_PORTEFEUILLE: ["Marché Boursier", "Marché des Changes", "Analyse Technique Fondamentale", "Allocation d'Actifs Stratégique","Gestion des Risques de Portefeuille", "Marchés Dérivés et Couverture", "Performance et Attribution"],
     ProfileType.ANALYSTE_FINANCE: ["Finance d'entreprise", "Évaluation d’entreprise", "Finance Sectorielle", "Analyse Fondamentale des Entreprises", "Modélisation Financière", "Analyse sectorielle","Analyse de Crédit (Buy-side)","Recherche et recommandations"],
@@ -245,15 +243,15 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
 
     tip = select_tip(goal=req.goal)
 
-    explanation = f"Mini-bundle aligné sur {req.goal}, respect des pré-requis par concept et du track {job}."
+    # explanation = f"Mini-bundle aligné sur {req.goal}, respect des pré-requis par concept et du track {job}."
 
     return SuggestResponse(
         profile_tilt=tilt,
         job=PROFILE_LABELS.get(job, "Gestionnaire de Portefeuille"),  # ← ICI
         bundle={"missions": missions_out},
         cards=cards,
-        tip=tip,
-        explanation=explanation
+        tip=tip
+        #explanation=explanation
     )
 
 def build_whys(goal: str, exp_imp: Dict, feats: Dict, tilt: str) -> List[str]:
@@ -267,6 +265,7 @@ def build_whys(goal: str, exp_imp: Dict, feats: Dict, tilt: str) -> List[str]:
         whys.append("Ton historique récent montre trop de hausses de stress")
     whys.append(f"Adaptée à un profil {tilt}")
     return whys[:3]
+
 GOAL_TIPS = {
     "reduce_stress": [
         {"id": "too_much_stress", "text": "Tu acceptes trop de hausses de stress; pense à couvrir avant une prise de risque."}
