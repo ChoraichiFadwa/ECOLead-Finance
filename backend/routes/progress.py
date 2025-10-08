@@ -140,7 +140,7 @@ async def submit_mission(
 
 # Lancer le profilage tous les 8 missions
     print(f"[AI] missions {missions_completed_total}")
-    if missions_completed_total % 2 == 0:
+    if missions_completed_total % 8 == 0:
         run_profiling(student_id, db)
         print(f"[DEBUG] Profilage exécuté pour l'étudiant {student_id} après {missions_completed_total} missions")
     

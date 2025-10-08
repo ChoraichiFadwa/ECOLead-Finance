@@ -118,5 +118,33 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/students/${studentId}/metrics`)
     return handleResponse(response)
   },
+  // Strategic Context
+  getStrategicContext: async (studentId) => {
+    const response = await fetch(`${API_BASE_URL}/strategy/students/${studentId}/strategic-context`)
+    return handleResponse(response)
+  },
+  // Strategic Context
+  getStrategicContext: async (studentId) => {
+    const response = await fetch(`${API_BASE_URL}/strategy/students/${studentId}/strategic-context`)
+    return handleResponse(response)
+  },
+
+  // Strategy Bundle (ton endpoint existant pour les missions recommandées)
+  getStrategyBundle: async (studentId, goal, maxBundle = 3, conceptWhitelist = null) => {
+    const params = new URLSearchParams({
+      goal,
+      max_bundle: maxBundle
+    })
+    if (conceptWhitelist && conceptWhitelist.length > 0) {
+      params.append('concept_whitelist', conceptWhitelist.join(','))
+    }
+    const response = await fetch(`${API_BASE_URL}/strategy/students/${studentId}/suggest?${params}`)
+    return handleResponse(response)
+  },
+
+  getAllEvents: async () => {
+    const response = await fetch(`${API_BASE_URL}/events`);
+    return handleResponse(response);
+  },
 
 }

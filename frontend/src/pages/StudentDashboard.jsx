@@ -22,11 +22,13 @@ import ProgressBar from "../components/ProgressBar"
 import LoadingSpinner from "../components/LoadingSpinner"
 import { BookOpen } from "lucide-react"
 import StrategyBundleSection from '../components/StrategyBundleSection'
-// Profile icons and labels
+import StrategicContextSection from '../components/StrategicContextSection'
+import EventLibrarySection from '../components/EventLibrarySection'
+
 const PROFILE_ICONS = {
-  1: PieChart,      // Gestion de portefeuille
-  2: TrendingUp,    // Lecture des indicateurs
-  3: Briefcase,     // Simulation de levée de fonds
+  1: PieChart,    
+  2: TrendingUp,  
+  3: Briefcase, 
 }
 
 const PROFILE_DESCRIPTIONS = {
@@ -45,6 +47,7 @@ const StudentDashboard = () => {
   const [recommendedConcept, setRecommendedConcept] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [selectedGoal, setSelectedGoal] = useState(null)
 
   useEffect(() => {
   const fetchData = async () => {
@@ -202,75 +205,14 @@ const StudentDashboard = () => {
 />
       </div>
 
-      {/* Learning Focus OR Completion Celebration */}
-{progress?.concept_progress && progress.concept_progress.length > 0 ? (
-  // Concepts exist and are loaded
-  progress.concept_progress.some(c => c.missions_completed < c.total_missions) ? (
-    // 🔹 Still learning: Show Recommended Concept
-    <div className="card bg-gradient-to-r from-indigo-50 to-purple-50 border-indigo-200">
-      <div className="flex flex-col md:flex-row md:items-center justify-between">
-        <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900 mb-2">Focus d'apprentissage</h3>
-          {recommendedConcept ? (
-            <>
-              <p className="text-gray-700 mb-1">
-                <strong>Recommandé :</strong> {recommendedConcept.concept}
-              </p>
-              <p className="text-gray-600 mb-2">
-                Progression : {recommendedConcept.missions_completed} / {recommendedConcept.total_missions}
-              </p>
-              <div className="w-full h-2 bg-indigo-200 rounded mb-4">
-                <div
-                  className="h-2 bg-indigo-600 rounded"
-                  style={{
-                    width: `${(recommendedConcept.missions_completed / recommendedConcept.total_missions) * 100}%`,
-                  }}
-                ></div>
-              </div>
-            </>
-          ) : (
-            <p className="text-gray-600">Chargement du prochain concept...</p>
-          )}
-        </div>
-        <div className="ml-6 mt-4 md:mt-0">
-          <button
-            onClick={() => navigate("/concepts")}
-            className="btn-primary flex items-center space-x-2"
-          >
-            <BookOpen className="h-5 w-5" />
-            <span>Voir la bibliothèque</span>
-          </button>
-        </div>
-      </div>
-    </div>
-  ) : (
-    // 🎉 All concepts completed
-    <div className="card text-center py-8 bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200">
-      <Trophy className="h-16 w-16 text-green-500 mx-auto mb-4" />
-      <h3 className="text-2xl font-bold text-gray-900 mb-2">Félicitations !</h3>
-      <p className="text-gray-700 mb-4 max-w-2xl mx-auto">
-        Vous avez maîtrisé tous les concepts de votre parcours. 
-        Vous êtes maintenant prêt(e) à affronter des défis financiers complexes.
-      </p>
-      <button
-        onClick={() => navigate("/concepts")}
-        className="btn-outline mx-auto"
-      >
-        Explorer les défis avancés
-      </button>
-    </div>
-  )
-) : (
-  // 🟡 No concepts loaded yet (e.g., first time user, still loading)
-  <div className="card text-center py-8">
-    <p className="text-gray-700">
-      Chargement de votre parcours d'apprentissage...
-    </p>
-  </div>
-)}
+      {/* Strategic Context Section */}
+      <StrategicContextSection 
+        studentId={userId}
+        onGoalSelect={(goal) => setSelectedGoal(goal)}
+      />
 
       {/* Mini-bundle IA */}
-      <StrategyBundleSection studentId={userId} />
+      <StrategyBundleSection studentId={userId} selectedGoal={selectedGoal} />
 
       {/* Le reste de ton dashboard */}
 
@@ -385,21 +327,10 @@ const StudentDashboard = () => {
         </div>
       )}
 
-      {/* AI Tip */}
-<div className="card">
-  <div className="flex items-start space-x-3">
-    <div className="p-2 bg-amber-100 rounded-full">
-      <Star className="h-5 w-5 text-amber-600" />
-    </div>
-    <div>
-      <h3 className="text-lg font-semibold text-gray-900">Conseil du jour</h3>
-      <p className="text-gray-700">
-        "La diversification réduit le risque, mais pas le stress. 
-        Explorez <strong>Gestion des Risques</strong> pour apprendre à gérer les deux."
-      </p>
-    </div>
-  </div>
-</div>
+      {/* Bibliothèque d'événements */}
+     <EventLibrarySection studentId={userId} />
+
+
       {/* Recent Missions */}
       {chartData?.mission_timeline && chartData.mission_timeline.length > 0 && (
         <div className="card">

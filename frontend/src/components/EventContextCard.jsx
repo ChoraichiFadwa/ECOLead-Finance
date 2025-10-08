@@ -1,30 +1,6 @@
 import { useEffect, useMemo, useRef, useState } from "react"
 import { X, Info } from "lucide-react"
 
-/**
- * EventContextCard
- * Affiche une fiche (modal/drawer) avec le rappel théorique/historique d’un événement.
- *
- * Props:
- * - event: {
- *     id?: string,
- *     title?: string,
- *     message?: string,
- *     context?: {
- *       type?: "historique" | "theorie" | string,
- *       tl_dr?: string,
- *       definition?: string,
- *       timeline?: string[],
- *       sources?: {label: string, url: string}[],
- *       why_now?: string
- *     }
- *   }
- * - open: bool (contrôlé)
- * - onClose: fn()
- * - region: string (facultatif, ex. "MENA/Maroc")
- * - onFlagsChange: fn({ context_opened, dwell_time_sec }) (facultatif, analytics)
- * - className: string (facultatif)
- */
 export default function EventContextCard({
   event,
   open,

@@ -38,6 +38,25 @@ def get_student_profile_enum(student_id: int, db: Session = None) -> ProfileType
         if close_session:
             db.close()
 
-def get_student_profile(student_id: int) -> str:
-    profiles = {1: "Gestionnaire de Portefeuille", 2: "Analyste financier", 3: "Banquier d'affaires"}
-    return profiles.get(student_id)
+def get_student_profile(student_id: int, db: Session = None) -> str:
+    """Return the profile label for a given student ID."""
+    profiles = {
+        1: "Gestionnaire de Portefeuille",
+        2: "Analyste financier",
+        3: "Banquier d'affaires",
+    }
+
+    close_session = False
+    if db is None:
+        db = next(get_db())
+        close_session = True
+
+    try:
+        student = db.query(Student).filter(Student.id == student_id).first()
+        if not student or student.profile is None:
+            return "Profil inconnu"
+
+        return profiles.get(student.profile, "Profil inconnu")
+    finally:
+        if close_session:
+            db.close()
