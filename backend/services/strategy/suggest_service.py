@@ -157,6 +157,15 @@ def pacing_soft(mission: Dict, last_mission: Dict) -> float:
         return 0.0
     return -0.1 if mission["concept"] == last_mission["concept"] else 0.1
 
+def goal_gap_bonus(feats, goal):
+    if goal == "reduce_stress" and feats.get("pct_stress_up", 0) > 0.5:
+        return 0.5
+    if goal == "boost_rentabilite" and feats.get("avg_rentabilite", 0) < 0.3:
+        return 0.5
+    if goal == "preserve_liquidity" and feats.get("avg_cashflow", 0) < 0.3:
+        return 0.5
+    return 0.0
+
 
 def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
     # 1. Récupérer métier
@@ -212,10 +221,11 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
             # print(f"[DEBUG] Mission has no expected impact (missing choix?)")
             continue
         score = (
-            0.5 * kpi_goal_score(exp_imp, req.goal) +
+            0.45 * kpi_goal_score(exp_imp, req.goal) +
             0.2 * gap_score(exp_imp, feats) +
             0.15 * diversity_bonus(m, recent_concepts) +
-            0.15 * pacing_soft(m, last_mission)
+            0.1 * pacing_soft(m, last_mission)+
+            0.1 * goal_gap_bonus(feats, req.goal)
         )
         # print(f"[DEBUG] Final score: {score}")
         why = build_whys(req.goal, exp_imp, feats, tilt)
