@@ -42,6 +42,13 @@ class LevelSummary(BaseModel):
     is_unlocked: bool
     is_completed: bool
 
+class ConceptResponse(BaseModel):
+    nom: str
+    description: str
+    profiles: List[int]
+    missions: Dict[str, List[Dict[str, str]]]
+    progression: int
+
 @router.get("/students/{student_id}/next-mission", response_model=MissionResponse)
 async def get_next_mission(student_id: int, db: Session = Depends(get_db)):
     # Get student
@@ -125,7 +132,7 @@ async def get_concepts_by_level(level: str):
         "missions_by_concept": concepts
     }
 
-@router.get("/concepts", response_model=List[str])
+@router.get("/concepts", response_model=List[ConceptResponse])
 async def get_all_concepts():
     return game_loader.get_all_concepts()
 

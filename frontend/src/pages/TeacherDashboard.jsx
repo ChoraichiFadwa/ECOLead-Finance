@@ -1,8 +1,10 @@
+// src/pages/TeacherDashboard.jsx
 import { useState, useEffect } from "react"
+import { Link } from "react-router-dom"
 import { useRole } from "../contexts/RoleContext"
 import { api } from "../utils/api"
-import { Users, Clock, Target, Award, Eye } from "lucide-react"
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, BarChart, Bar } from "recharts"
+import { Users, Clock, Target, Award } from "lucide-react"
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
 import MetricCard from "../components/MetricCard"
 import LoadingSpinner from "../components/LoadingSpinner"
 
@@ -10,8 +12,6 @@ const TeacherDashboard = () => {
   const { userId } = useRole()
   const [dashboardData, setDashboardData] = useState(null)
   const [students, setStudents] = useState([])
-  const [selectedStudent, setSelectedStudent] = useState(null)
-  const [studentMetrics, setStudentMetrics] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
 
@@ -23,39 +23,23 @@ const TeacherDashboard = () => {
           api.getTeacherDashboard(userId),
           api.getAllStudents(),
         ])
-
         setDashboardData(dashboardResponse)
         setStudents(studentsResponse)
       } catch (err) {
-        setError(err.message || "Erreur lors du chargement du tableau de bord")
+        setError(err.message || "Erreur lors du chargement")
       } finally {
         setLoading(false)
       }
     }
 
-    if (userId) {
-      fetchData()
-    }
+    if (userId) fetchData()
   }, [userId])
 
-  const handleStudentSelect = async (student) => {
-    setSelectedStudent(student)
-    try {
-      const metrics = await api.getStudentMetrics(userId, student.id)
-      setStudentMetrics(metrics)
-    } catch (err) {
-      console.error("Failed to load student metrics:", err)
-    }
-  }
-
-  if (loading) {
-    return <LoadingSpinner size="xl" className="min-h-96" />
-  }
-
+  if (loading) return <LoadingSpinner size="xl" className="min-h-96" />
   if (error) {
     return (
       <div className="text-center py-12">
-        <div className="text-red-600 mb-4">Échec du chargement des données du tableau de bord</div>
+        <div className="text-red-600 mb-4">Échec du chargement</div>
         <p className="text-gray-600">{error}</p>
       </div>
     )
@@ -64,194 +48,90 @@ const TeacherDashboard = () => {
   return (
     <div className="space-y-8 animate-fade-in">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-gray-900">Tableau de bord professeur</h1>
-        <p className="text-gray-600 mt-1">Suivez les progrès et l'engagement des étudiants</p>
+      <div className="flex justify-between items-start">
+        <div>
+          <h1 className="text-3xl font-bold text-gray-900">Tableau de bord professeur</h1>
+          <p className="text-gray-600 mt-1">Suivez les progrès et l'engagement de votre classe</p>
+        </div>
+        {/* 👇 Link to Learning Design Page */}
+        <Link
+          to="/teacher/learning-design"
+          className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
+        >
+          Créer du contenu pédagogique
+        </Link>
       </div>
 
-      {/* statistiques */}
-      <MetricCard title="Étudiants" value={students.length} icon={Users} color="blue" />
-<MetricCard 
-  title="Taux de complétion" 
-  value={`${dashboardData?.class_completion_rate || 0}%`} 
-  icon={Target} 
-  color="green" 
-/>
-<MetricCard 
-  title="Temps moyen" 
-  value={`${dashboardData?.avg_completion_time_minutes || 0} min`} 
-  icon={Clock} 
-  color="yellow" 
-/>
-<MetricCard 
-  title="Score moyen" 
-  value={Math.round(dashboardData?.avg_score || 0)} 
-  icon={Award} 
-  color="purple" 
-/>
-
-      {/* Students Overview */}
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-        {/* Students List */}
-        <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Étudiants</h3>
-          <div className="space-y-3 max-h-96 overflow-y-auto">
-            {students.map((student) => (
-              <div
-                key={student.id}
-                className={`p-4 rounded-lg border cursor-pointer transition-all ${
-                  selectedStudent?.id === student.id
-                    ? "border-primary-300 bg-primary-50"
-                    : "border-gray-200 hover:border-gray-300 hover:bg-gray-50"
-                }`}
-                onClick={() => handleStudentSelect(student)}
-              >
-                <div className="flex items-center justify-between">
-                  <div>
-                    <h4 className="font-medium text-gray-900">{student.name}</h4>
-                    <p className="text-sm text-gray-600">{student.email}</p>
-                    <p className="text-sm text-gray-500">Profil d'investissement : {student.level_ai}</p>
-                  </div>
-                  <div className="text-right">
-                    <p className="text-lg font-bold text-primary-600">{student.total_score}</p>
-                    <p className="text-sm text-gray-500">points</p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* Student Details */}
-        <div className="card">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">
-            {selectedStudent ? `${selectedStudent.name} - Détails` : "Sélectionnez un étudiant"}
-          </h3>
-
-          {selectedStudent ? (
-            <div className="space-y-4">
-              {/* Current Metrics */}
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-3 bg-green-50 rounded-lg">
-                  <p className="text-2xl font-bold text-green-600">{selectedStudent.cashflow}€</p>
-                  <p className="text-sm text-gray-600">Cashflow</p>
-                </div>
-                <div className="text-center p-3 bg-blue-50 rounded-lg">
-                  <p className="text-2xl font-bold text-blue-600">{selectedStudent.controle}%</p>
-                  <p className="text-sm text-gray-600">Contrôle</p>
-                </div>
-                <div className="text-center p-3 bg-red-50 rounded-lg">
-                  <p className="text-2xl font-bold text-red-600">{selectedStudent.stress}%</p>
-                  <p className="text-sm text-gray-600">Stress</p>
-                </div>
-                <div className="text-center p-3 bg-purple-50 rounded-lg">
-                  <p className="text-2xl font-bold text-purple-600">{selectedStudent.rentabilite}%</p>
-                  <p className="text-sm text-gray-600">Rentabilité</p>
-                </div>
-              </div>
-
-              {/* Additional Info */}
-              <div className="pt-4 border-t border-gray-200">
-                <div className="flex justify-between items-center mb-2">
-                  <span className="text-sm font-medium text-gray-700">Réputation</span>
-                  <span className="text-sm text-gray-900">{selectedStudent.reputation}%</span>
-                </div>
-                <div className="w-full bg-gray-200 rounded-full h-2">
-                  <div
-                    className="bg-yellow-600 h-2 rounded-full transition-all duration-500"
-                    style={{ width: `${selectedStudent.reputation}%` }}
-                  />
-                </div>
-              </div>
-
-              <div className="pt-4">
-                <p className="text-sm text-gray-600">
-                  <strong>Date d'inscription :</strong> {new Date(selectedStudent.created_at).toLocaleDateString()}
-                </p>
-              </div>
-            </div>
-          ) : (
-            <div className="text-center py-8 text-gray-500">
-              <Eye className="h-12 w-12 mx-auto mb-4 opacity-50" />
-              <p>Cliquez sur un étudiant pour voir ses détails</p>
-            </div>
-          )}
-        </div>
+      {/* Key Metrics */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <MetricCard title="Étudiants" value={students.length} icon={Users} color="blue" />
+        <MetricCard 
+          title="Taux de complétion" 
+          value={`${dashboardData?.class_completion_rate || 0}%`} 
+          icon={Target} 
+          color="green" 
+        />
+        <MetricCard 
+          title="Temps moyen" 
+          value={`${dashboardData?.avg_completion_time_minutes || 0} min`} 
+          icon={Clock} 
+          color="yellow" 
+        />
+        <MetricCard 
+          title="Score moyen" 
+          value={Math.round(dashboardData?.avg_score || 0)} 
+          icon={Award} 
+          color="purple" 
+        />
+        <Link to="/teacher/students" className="block">
+    <MetricCard 
+      title="Voir les étudiants" 
+      value="→" 
+      icon={Users} 
+      color="indigo" 
+    />
+  </Link>
       </div>
 
-      {/* Platform Analytics */}
+      {/* Engagement Chart */}
       {dashboardData && (
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {/* Engagement Over Time */}
-          <div className="card">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Engagement sur la plateforme</h3>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <LineChart data={dashboardData.engagement_trends || []}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="date" tickFormatter={(value) => new Date(value).toLocaleDateString()} />
-                  <YAxis />
-                  <Tooltip labelFormatter={(value) => new Date(value).toLocaleDateString()} />
-                  <Line
-                    type="monotone"
-                    dataKey="active_students"
-                    stroke="#3b82f6"
-                    strokeWidth={2}
-                    name="Étudiants actifs"
-                  />
-                  <Line
-                    type="monotone"
-                    dataKey="missions_completed"
-                    stroke="#10b981"
-                    strokeWidth={2}
-                    name="Missions terminées"
-                  />
-                </LineChart>
-              </ResponsiveContainer>
-            </div>
-          </div>
-
-          {/* Concept Performance */}
-          <div className="card">
-            <h3 className="text-lg font-semibold text-gray-900 mb-4">Performance</h3>
-            <div className="h-64">
-              <ResponsiveContainer width="100%" height="100%">
-                <BarChart data={Object.entries(dashboardData.concept_difficulty_analysis || {}).map(([concept, data]) => ({
-  concept,
-  avg_score: data.avg_score,
-  completion_rate: data.total_attempts * 10 // fake it for now
-}))}>
-                  <CartesianGrid strokeDasharray="3 3" />
-                  <XAxis dataKey="concept" />
-                  <YAxis />
-                  <Tooltip />
-                  <Bar dataKey="avg_score" fill="#3b82f6" name="Score moyen" />
-                  <Bar dataKey="completion_rate" fill="#10b981" name="Completion Rate" />
-                </BarChart>
-              </ResponsiveContainer>
-            </div>
+        <div className="card">
+          <h3 className="text-lg font-semibold text-gray-900 mb-4">Engagement sur la plateforme</h3>
+          <div className="h-64">
+            <ResponsiveContainer width="100%" height="100%">
+              <LineChart data={dashboardData.engagement_trends || []}>
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey="date" tickFormatter={(v) => new Date(v).toLocaleDateString()} />
+                <YAxis />
+                <Tooltip labelFormatter={(v) => new Date(v).toLocaleDateString()} />
+                <Line type="monotone" dataKey="active_students" stroke="#3b82f6" name="Étudiants actifs" />
+                <Line type="monotone" dataKey="missions_completed" stroke="#10b981" name="Missions terminées" />
+              </LineChart>
+            </ResponsiveContainer>
           </div>
         </div>
       )}
+
+
 
       {/* Recent Activity */}
       <div className="card">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Activité récente</h3>
         <div className="space-y-4">
-          {students.slice(0, 5).map((student, index) => (
+          {students.slice(0, 5).map((student) => (
             <div key={student.id} className="flex items-center justify-between p-4 bg-gray-50 rounded-lg">
               <div className="flex items-center space-x-4">
                 <div className="w-10 h-10 bg-primary-100 rounded-full flex items-center justify-center">
-                  <span className="text-primary-600 font-medium">{student.name.charAt(0).toUpperCase()}</span>
+                  <span className="text-primary-600 font-medium">{student.name.charAt(0)}</span>
                 </div>
                 <div>
                   <h4 className="font-medium text-gray-900">{student.name}</h4>
-                  <p className="text-sm text-gray-600">Profil d'investissement : {student.level_ai}</p>
+                  <p className="text-sm text-gray-600">Profil : {student.level_ai}</p>
                 </div>
               </div>
               <div className="text-right">
                 <p className="text-lg font-bold text-primary-600">{student.total_score}</p>
-                <p className="text-sm text-gray-500">points totals</p>
+                <p className="text-sm text-gray-500">points</p>
               </div>
             </div>
           ))}

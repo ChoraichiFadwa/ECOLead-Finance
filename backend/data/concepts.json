@@ -1,252 +1,417 @@
-  {
-    "Marché Boursier": {
-      "nom": "Marché Boursier",
-      "description": "C’est un marché organisé où les entreprises (privées et publiques) ainsi que l’État viennent lever des fonds auprès d’investisseurs individuels ou institutionnels pour financer leurs activités en émettant des titres de propriété (les actions) ou de créance (les obligations)",
-      "profiles": [1],
-      "missions": {
-        "débutant": [
-          { "id": "Découvrir le marché boursier" },
-          { "id": "Premier choix stratégique" }
-        ],
-        "intermédiaire": [
-          { "id": "Lire les cycles boursiers" },
-          { "id": "ETF et les fonds indiciels" }
-        ],
-        "avancé": [
-          { "id": "Produits dérivés et stratégies avancées" }
-        ]
-      },
-      "progression": 0
+{
+  "Marché Boursier": {
+    "nom": "Marché Boursier",
+    "description": "C’est un marché organisé où les entreprises (privées et publiques) ainsi que l’État viennent lever des fonds auprès d’investisseurs individuels ou institutionnels pour financer leurs activités en émettant des titres de propriété (les actions) ou de créance (les obligations)",
+    "profiles": [
+      1
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Découvrir le marché boursier"
+        },
+        {
+          "id": "Premier choix stratégique"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Lire les cycles boursiers"
+        },
+        {
+          "id": "ETF et les fonds indiciels"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Produits dérivés et stratégies avancées"
+        }
+      ]
     },
-    "Marché des Changes": {
-      "nom": "Marché des Changes",
-      "description": "Le marché de change est un « lieu » où se confrontent les offres et les demandes de devises donnant lieu à un prix d’équilibre (cours d’équilibre) appelé cours de change (ou taux de change).",
-      "profiles": [1],
-      "missions": {
-        "débutant": [
-          { "id": "Découvrir le marché des changes" },
-          { "id": "Premier choix des changes" }
-        ],
-        "intermédiaire": [
-          { "id": "Lire les taux d'intérêt" }
-        ],
-        "avancé": [
-          { "id": "Stratégies avancées sur obligations" }
-        ]
-      },
-      "progression": 0
+    "progression": 0
+  },
+  "Marché des Changes": {
+    "nom": "Marché des Changes",
+    "description": "Le marché de change est un « lieu » où se confrontent les offres et les demandes de devises donnant lieu à un prix d’équilibre (cours d’équilibre) appelé cours de change (ou taux de change).",
+    "profiles": [
+      1
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Découvrir le marché des changes"
+        },
+        {
+          "id": "Premier choix des changes"
+        },
+        {
+          "id": "Décider un investissement"
+        },
+        {
+          "id": "jsp"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Lire les taux d'intérêt"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Stratégies avancées sur obligations"
+        }
+      ]
     },
-    "Analyse Technique Fondamentale":  {
-      "nom": "Analyse Technique Fondamentale",
-      "description": "Maîtrise des indicateurs techniques de base (moyennes mobiles, RSI, MACD) pour analyser les tendances et identifier les opportunités d'investissement.",
-      "profiles": [1],
-      "missions": {
-        "débutant": [
-          { "id": "Signaux d'achat-vente avec moyennes mobiles" }
-        ],
-        "intermédiaire": [
-          { "id": "Timing optimal avec RSI et MACD" }
-        ],
-        "avancé": [
-      { "id": "Stratégie algorithmique et backtesting" }
-        ]
-      },
-      "progression": 0
+    "progression": 0
+  },
+  "Analyse Technique Fondamentale": {
+    "nom": "Analyse Technique Fondamentale",
+    "description": "Maîtrise des indicateurs techniques de base (moyennes mobiles, RSI, MACD) pour analyser les tendances et identifier les opportunités d'investissement.",
+    "profiles": [
+      1
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Signaux d'achat-vente avec moyennes mobiles"
+        },
+        {
+          "id": "jsp1"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Timing optimal avec RSI et MACD"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Stratégie algorithmique et backtesting"
+        }
+      ]
     },
-    "Allocation d'Actifs Stratégique": {
-  "nom": "Allocation d'Actifs Stratégique",
-  "description": "Application de la théorie moderne du portefeuille pour construire des allocations optimales entre classes d'actifs et optimiser le couple rendement/risque.",
-  "profiles": [1],
-  "missions": {
-    "débutant": [
-      { "id": "Portefeuille équilibré 60-40" }
-    ],
-    "intermédiaire": [
-      { "id": "Optimisation internationale" }
-    ],
-    "avancé": [
-      { "id": "Allocation institutionnelle avec actifs alternatifs" }
-    ]
+    "progression": 0
   },
-  "progression": 0
-},
-    "Gestion des Risques de Portefeuille": {
-  "nom": "Gestion des Risques de Portefeuille",
-  "description": "Utilisation du Value-at-Risk, stress testing et mécanismes de couverture pour contrôler l'exposition aux risques.",
-  "profiles": [1],
-  "missions": {
-    "débutant": [
-      { "id": "Calculer la VaR à 95%" }
+  "Allocation d'Actifs Stratégique": {
+    "nom": "Allocation d'Actifs Stratégique",
+    "description": "Application de la théorie moderne du portefeuille pour construire des allocations optimales entre classes d'actifs et optimiser le couple rendement/risque.",
+    "profiles": [
+      1
     ],
-    "intermédiaire": [
-      { "id": "Mettre en place une couverture par options" }
-    ],
-    "avancé": [
-      { "id": "Gérer un portefeuille multi-actifs en crise" }
-    ]
-  },
-  "progression": 0
-},
-    "Marchés Dérivés et Couverture": {
-  "nom": "Marchés Dérivés et Couverture",
-  "description": "Utilisation d'options, futures et swaps pour couvrir les risques, générer des revenus additionnels ou ajuster l'exposition.",
-  "profiles": [1],
-  "missions": {
-    "débutant": [
-      { "id": "Couverture avec puts protecteurs" }
-    ],
-    "intermédiaire": [
-      { "id": "Vendre des calls couverts sur blue chips" }
-    ],
-    "avancé": [
-      { "id": "Stratégie de collar institutionnelle" }
-    ]
-  },
-  "progression": 0
-},
-"Performance et Attribution": {
-  "nom": "Performance et Attribution",
-  "description": "Calcul des mesures de performance ajustées du risque et analyse de l'attribution de performance.",
-  "profiles": [1],
-  "missions": {
-    "débutant": [
-      { "id": "Calcul des ratios de performance de base" }
-    ],
-    "intermédiaire": [
-      { "id": "Attribution de performance intermédiaire" }
-    ],
-    "avancé": [
-      { "id": "Analyse avancée de performance hedge fund" }
-    ]
-  },
-  "progression": 0
-},
-
-    "Finance d'entreprise": {
-      "nom": "Finance d'entreprise",
-      "description": "Comprendre la structure financière d’une entreprise, financement, levée de capitaux, et gestion des risques financiers.",
-      "profiles": [2],
-      "missions": {
-        "débutant": [
-          { "id": "Découvrir la finance d'entreprise" },
-          { "id": "Premier choix de financement" }
-        ],
-        "intermédiaire": [
-          { "id": "Simulation de levée de fonds" }
-        ],
-        "avancé": [
-          { "id": "Optimisation du WACC" }
-        ]
-      },
-      "progression": 0
+    "missions": {
+      "débutant": [
+        {
+          "id": "Portefeuille équilibré 60-40"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Optimisation internationale"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Allocation institutionnelle avec actifs alternatifs"
+        }
+      ]
     },
-    "Évaluation d’entreprise": {
-      "nom": "Évaluation d’entreprise",
-      "description": "Maîtriser les méthodes d’évaluation : DCF, multiples, actifs, analyse de sensibilité et scénarios.",
-      "profiles": [2],
-      "missions": {
-        "débutant": [
-          { "id": "Découvrir les méthodes d’évaluation" },
-          { "id": "Évaluation simplifiée d’une PME" },
-          {"id": "Valoriser une PME par comparables sectoriels"},
-          { "id": "Identifier et quantifier les actifs immatériels (pharma)" }
-        ],
-        "intermédiaire": [
-          { "id": "Analyse de sensibilité" },
-          { "id": "Ajuster les multiples pour croissance, rentabilité et risque"},
-          { "id": "Valoriser un portefeuille de brevets (coûts & revenus)" }
-        ],
-        "avancé": [
-          { "id": "Investissements R&D" },
-          { "id": "Développer des multiples forward-looking (NTM/PEG)" },
-          { "id": "Valoriser une cible en intégrant synergies industrielles et fiscales" },
-          { "id": "Modéliser l’accrétion/dilution EPS et sensibilité" },
-          { "id": "Intégrer le capital humain dans la valorisation" }
-        ]
-      },
-      "progression": 0
+    "progression": 0
+  },
+  "Gestion des Risques de Portefeuille": {
+    "nom": "Gestion des Risques de Portefeuille",
+    "description": "Utilisation du Value-at-Risk, stress testing et mécanismes de couverture pour contrôler l'exposition aux risques.",
+    "profiles": [
+      1
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Calculer la VaR à 95%"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Mettre en place une couverture par options"
+        },
+        {
+          "id": "jsp12"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Gérer un portefeuille multi-actifs en crise"
+        }
+      ]
     },
-    "Finance Sectorielle": {
-      "nom": "Finance Sectorielle",
-      "description": "Comprendre les particularités financières des secteurs (startups, scale-ups, PME, industries)",
-      "profiles": [2],
-      "missions": {
-        "débutant": [
-          { "id": "Introduction aux secteurs" },
-          { "id": "Valoriser une startup SaaS par multiple ARR" },
-          { "id": "Analyser les risques climatiques (physiques & transition)" }
-        ],
-        "intermédiaire": [
-          { "id": "Analyse sectorielle" },
-          { "id": "Intégrer les métriques d’engagement utilisateur dans une valorisation" },
-          { "id": "Quantifier l’impact d’un score ESG sur la valorisation" }
-        ],
-        "avancé": [
-          { "id": "Projection stratégique sectorielle" },
-          { "id": "Valoriser une scale-up tech avec effets de réseau" },
-          { "id": "Intégrer des externalités environnementales dans la valorisation" }
-        ]
-      },
-      "progression": 0
+    "progression": 0
+  },
+  "Marchés Dérivés et Couverture": {
+    "nom": "Marchés Dérivés et Couverture",
+    "description": "Utilisation d'options, futures et swaps pour couvrir les risques, générer des revenus additionnels ou ajuster l'exposition.",
+    "profiles": [
+      1
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Couverture avec puts protecteurs"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Vendre des calls couverts sur blue chips"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Stratégie de collar institutionnelle"
+        }
+      ]
     },
-    "Analyse Fondamentale des Entreprises": {
-  "nom": "Analyse Fondamentale des Entreprises",
-  "description": "Évaluation de la valeur intrinsèque des entreprises par l'analyse des états financiers, du secteur et des perspectives de croissance.",
-  "profiles": [2],
-  "missions": {
-    "débutant": [
-      { "id": "Analyser les ratios financiers de base" },
-      { "id": "Décomposer le business model d'une entreprise de services" },
-      { "id": "Analyser l'évolution des marges et de la rentabilité sur 3 ans" }
-    ],
-    "intermédiaire": [
-      { "id": "Construire un modèle DCF simplifié" },
-      { "id": "Comparer la scalabilité de business models" },
-      { "id": "Identifier et quantifier les éléments exceptionnels" }
-    ],
-    "avancé": [
-      { "id": "Réaliser une analyse sectorielle complète" },
-      { "id": "Évaluer l’impact d’une disruption technologique sur un incumbent" },
-      { "id": "Détecter des manipulations comptables potentielles" }
-    ]
+    "progression": 0
   },
-  "progression": 0
-},
-    "Modélisation Financière": {
-  "nom": "Modélisation Financière",
-  "description": "Construction de modèles financiers intégrés pour la valorisation, la planification et l'analyse de sensibilité.",
-  "profiles": [2],
-  "missions": {
-    "débutant": [
-      { "id": "DCF simple entreprise mature" }
+  "Performance et Attribution": {
+    "nom": "Performance et Attribution",
+    "description": "Calcul des mesures de performance ajustées du risque et analyse de l'attribution de performance.",
+    "profiles": [
+      1
     ],
-    "intermédiaire": [
-      { "id": "Modèle intégré multi-variables" }
-    ],
-    "avancé": [
-      { "id": "Modèle cyclique multi-scenario" }
-    ]
+    "missions": {
+      "débutant": [
+        {
+          "id": "Calcul des ratios de performance de base"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Attribution de performance intermédiaire"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Analyse avancée de performance hedge fund"
+        }
+      ]
+    },
+    "progression": 0
   },
-  "progression": 0
-},  
-    "Analyse sectorielle": {
-  "nom": "Analyse sectorielle",
-  "description": "Comprendre les dynamiques sectorielles pour contextualiser l'analyse des entreprises individuelles.",
-  "profiles": [2],
-  "missions": {
-    "débutant": [
-      { "id": "Analyse structure concurrentielle" }
+  "Finance d'entreprise": {
+    "nom": "Finance d'entreprise",
+    "description": "Comprendre la structure financière d’une entreprise, financement, levée de capitaux, et gestion des risques financiers.",
+    "profiles": [
+      2
     ],
-    "intermédiaire": [
-      { "id": "Comparaison multiples et marges" }
-    ],
-    "avancé": [
-      { "id": "Étude sectorielle avancée" }
-    ]
+    "missions": {
+      "débutant": [
+        {
+          "id": "Découvrir la finance d'entreprise"
+        },
+        {
+          "id": "Premier choix de financement"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Simulation de levée de fonds"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Optimisation du WACC"
+        }
+      ]
+    },
+    "progression": 0
   },
-  "progression": 0
-},
-    "Analyse de Crédit (Buy-side)": {
+  "Évaluation d’entreprise": {
+    "nom": "Évaluation d’entreprise",
+    "description": "Maîtriser les méthodes d’évaluation : DCF, multiples, actifs, analyse de sensibilité et scénarios.",
+    "profiles": [
+      2
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Découvrir les méthodes d’évaluation"
+        },
+        {
+          "id": "Évaluation simplifiée d’une PME"
+        },
+        {
+          "id": "Valoriser une PME par comparables sectoriels"
+        },
+        {
+          "id": "Identifier et quantifier les actifs immatériels (pharma)"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Analyse de sensibilité"
+        },
+        {
+          "id": "Ajuster les multiples pour croissance, rentabilité et risque"
+        },
+        {
+          "id": "Valoriser un portefeuille de brevets (coûts & revenus)"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Investissements R&D"
+        },
+        {
+          "id": "Développer des multiples forward-looking (NTM/PEG)"
+        },
+        {
+          "id": "Valoriser une cible en intégrant synergies industrielles et fiscales"
+        },
+        {
+          "id": "Modéliser l’accrétion/dilution EPS et sensibilité"
+        },
+        {
+          "id": "Intégrer le capital humain dans la valorisation"
+        }
+      ]
+    },
+    "progression": 0
+  },
+  "Finance Sectorielle": {
+    "nom": "Finance Sectorielle",
+    "description": "Comprendre les particularités financières des secteurs (startups, scale-ups, PME, industries)",
+    "profiles": [
+      2
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Introduction aux secteurs"
+        },
+        {
+          "id": "Valoriser une startup SaaS par multiple ARR"
+        },
+        {
+          "id": "Analyser les risques climatiques (physiques & transition)"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Analyse sectorielle"
+        },
+        {
+          "id": "Intégrer les métriques d’engagement utilisateur dans une valorisation"
+        },
+        {
+          "id": "Quantifier l’impact d’un score ESG sur la valorisation"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Projection stratégique sectorielle"
+        },
+        {
+          "id": "Valoriser une scale-up tech avec effets de réseau"
+        },
+        {
+          "id": "Intégrer des externalités environnementales dans la valorisation"
+        }
+      ]
+    },
+    "progression": 0
+  },
+  "Analyse Fondamentale des Entreprises": {
+    "nom": "Analyse Fondamentale des Entreprises",
+    "description": "Évaluation de la valeur intrinsèque des entreprises par l'analyse des états financiers, du secteur et des perspectives de croissance.",
+    "profiles": [
+      2
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Analyser les ratios financiers de base"
+        },
+        {
+          "id": "Décomposer le business model d'une entreprise de services"
+        },
+        {
+          "id": "Analyser l'évolution des marges et de la rentabilité sur 3 ans"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Construire un modèle DCF simplifié"
+        },
+        {
+          "id": "Comparer la scalabilité de business models"
+        },
+        {
+          "id": "Identifier et quantifier les éléments exceptionnels"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Réaliser une analyse sectorielle complète"
+        },
+        {
+          "id": "Évaluer l’impact d’une disruption technologique sur un incumbent"
+        },
+        {
+          "id": "Détecter des manipulations comptables potentielles"
+        }
+      ]
+    },
+    "progression": 0
+  },
+  "Modélisation Financière": {
+    "nom": "Modélisation Financière",
+    "description": "Construction de modèles financiers intégrés pour la valorisation, la planification et l'analyse de sensibilité.",
+    "profiles": [
+      2
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "DCF simple entreprise mature"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Modèle intégré multi-variables"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Modèle cyclique multi-scenario"
+        }
+      ]
+    },
+    "progression": 0
+  },
+  "Analyse sectorielle": {
+    "nom": "Analyse sectorielle",
+    "description": "Comprendre les dynamiques sectorielles pour contextualiser l'analyse des entreprises individuelles.",
+    "profiles": [
+      2
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Analyse structure concurrentielle"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Comparaison multiples et marges"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Étude sectorielle avancée"
+        }
+      ]
+    },
+    "progression": 0
+  },
+  "Analyse de Crédit (Buy-side)": {
     "nom": "Analyse de Crédit (Buy-side)",
     "description": "Évaluer la solvabilité des émetteurs côté investisseur obligataire: ratios, spreads, scoring PD/LGD.",
     "profiles": [
@@ -271,169 +436,333 @@
     },
     "progression": 0
   },
-    "Recherche et recommandations": {
+  "Recherche et recommandations": {
     "nom": "Recherche et recommandations",
     "description": "Méthodologie de recherche, rédaction de notes et formulation de recommandations actionnables.",
-    "profiles": [2],
+    "profiles": [
+      2
+    ],
     "missions": {
-      "débutant": [{ "id": "Rédiger une note d’initiation (mid-cap)" }],
-      "intermédiaire": [{ "id": "Actualiser une recommandation après résultats décevants" }],
-      "avancé": [{ "id": "Étude thématique: transition énergétique sur un secteur" }]
+      "débutant": [
+        {
+          "id": "Rédiger une note d’initiation (mid-cap)"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Actualiser une recommandation après résultats décevants"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Étude thématique: transition énergétique sur un secteur"
+        }
+      ]
     },
     "progression": 0
   },
-
-    "Gestion de Trésorerie & Financement": {
-      "nom": "Gestion de Trésorerie & Financement",
-      "description": "Maîtriser la planification financière, l’arbitrage entre dette et equity, et l’optimisation du coût du capital.",
-      "profiles": [3],
-      "missions": {
-        "débutant": [
-          { "id": "Plan de trésorerie simplifié" }
-        ],
-        "intermédiaire": [
-          { "id": "Arbitrage dette vs equity" }
-        ]
-      },
-      "progression": 0
+  "Gestion de Trésorerie & Financement": {
+    "nom": "Gestion de Trésorerie & Financement",
+    "description": "Maîtriser la planification financière, l’arbitrage entre dette et equity, et l’optimisation du coût du capital.",
+    "profiles": [
+      3
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Plan de trésorerie simplifié"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Arbitrage dette vs equity"
+        }
+      ]
     },
-    "Gestion des Risques Transactionnels": {
-  "nom": "Gestion des Risques Transactionnels",
-  "description": "Se concentre sur les risques liés aux transactions financières, à la structuration de financements et à la conformité réglementaire. Évalue les risques de crédit et opérationnels dans le cadre des financements et des fusions-acquisitions.",
-  "profiles": [3],
-  "missions": {
-    "débutant": [
-      { "id": "Identifier un risque de crédit dans une opération" },
-      { "id": "Identifier les risques d'une opération de financement d'acquisition" }
-    ],
-    "intermédiaire": [
-      { "id": "Évaluer un risque de transaction M&A" },
-      { "id": "Mettre en place un package de couvertures pour une transaction internationale" }
-    ],
-    "avancé": [
-      { "id": "Structurer une opération avec gestion intégrée des risques" },
-      { "id": "Gérer les risques d'une restructuration en détresse" }
-    ]
+    "progression": 0
   },
-  "progression": 0
+  "Gestion des Risques Transactionnels": {
+    "nom": "Gestion des Risques Transactionnels",
+    "description": "Se concentre sur les risques liés aux transactions financières, à la structuration de financements et à la conformité réglementaire. Évalue les risques de crédit et opérationnels dans le cadre des financements et des fusions-acquisitions.",
+    "profiles": [
+      3
+    ],
+    "missions": {
+      "débutant": [
+        {
+          "id": "Identifier un risque de crédit dans une opération"
+        },
+        {
+          "id": "Identifier les risques d'une opération de financement d'acquisition"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Évaluer un risque de transaction M&A"
+        },
+        {
+          "id": "Mettre en place un package de couvertures pour une transaction internationale"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Structurer une opération avec gestion intégrée des risques"
+        },
+        {
+          "id": "Gérer les risques d'une restructuration en détresse"
+        }
+      ]
     },
-    "Structuration de financements": {
+    "progression": 0
+  },
+  "Structuration de financements": {
     "nom": "Structuration de financements",
     "description": "Conception de structures de financement optimales (dette, equity, hybrides).",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Structurer un financement bancaire pour l'acquisition d'une PME" }],
-      "intermédiaire": [{ "id": "Concevoir un financement mezzanine pour croissance externe" }],
-      "avancé": [{ "id": "Structurer un LBO multicouches optimisé fiscalement" }]
+      "débutant": [
+        {
+          "id": "Structurer un financement bancaire pour l'acquisition d'une PME"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Concevoir un financement mezzanine pour croissance externe"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Structurer un LBO multicouches optimisé fiscalement"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Origination et développement commercial": {
     "nom": "Origination et développement commercial",
     "description": "Prospection, développement relationnel et qualification des besoins de financement.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Qualifier les besoins de financement d'une entreprise en croissance" }],
-      "intermédiaire": [{ "id": "Stratégie d'approche grand compte corporate" }],
-      "avancé": [{ "id": "Co-originer des deals avec des fonds d'investissement" }]
+      "débutant": [
+        {
+          "id": "Qualifier les besoins de financement d'une entreprise en croissance"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Stratégie d'approche grand compte corporate"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Co-originer des deals avec des fonds d'investissement"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Due Diligence et Analyse Crédit": {
     "nom": "Due Diligence et Analyse Crédit",
     "description": "Processus d'audit financier/légal/fiscal et évaluation du risque crédit de la transaction.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Due diligence financière simplifiée d'une PME" }],
-      "intermédiaire": [{ "id": "Coordonner une due diligence multi-expertises pour un LBO" }],
-      "avancé": [{ "id": "Due diligence transfrontalière avec risques réglementaires" }]
+      "débutant": [
+        {
+          "id": "Due diligence financière simplifiée d'une PME"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Coordonner une due diligence multi-expertises pour un LBO"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Due diligence transfrontalière avec risques réglementaires"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Marchés de capitaux": {
     "nom": "Marchés de capitaux",
     "description": "ECM/DCM : IPO, obligations, placements privés et exécution de marché.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Préparer une société à son introduction en bourse" }],
-      "intermédiaire": [{ "id": "Structurer et placer une émission obligataire corporate" }],
-      "avancé": [{ "id": "Gérer une IPO dual listing" }]
+      "débutant": [
+        {
+          "id": "Préparer une société à son introduction en bourse"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Structurer et placer une émission obligataire corporate"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Gérer une IPO dual listing"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Conseil stratégique": {
     "nom": "Conseil stratégique",
     "description": "Conseil aux dirigeants : stratégie financière, structure de capital, M&A et désendettement.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Conseiller sur l'opportunité d'une acquisition complémentaire" }],
-      "intermédiaire": [{ "id": "Accompagner la restructuration financière d'un groupe en difficulté" }],
-      "avancé": [{ "id": "Stratégie de désendettement via spin-off et cessions d'actifs" }]
+      "débutant": [
+        {
+          "id": "Conseiller sur l'opportunité d'une acquisition complémentaire"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Accompagner la restructuration financière d'un groupe en difficulté"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Stratégie de désendettement via spin-off et cessions d'actifs"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Relations investisseurs": {
     "nom": "Relations investisseurs",
     "description": "Communication financière côté émetteur : equity story, roadshows, gestion de crise.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Préparer une présentation investisseurs (résultats annuels)" }],
-      "intermédiaire": [{ "id": "Organiser un roadshow européen" }],
-      "avancé": [{ "id": "Communication de crise après profit warning" }]
+      "débutant": [
+        {
+          "id": "Préparer une présentation investisseurs (résultats annuels)"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Organiser un roadshow européen"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Communication de crise après profit warning"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Refinancement et restructuration": {
     "nom": "Refinancement et restructuration",
     "description": "Techniques de refinancement et restructuration de dettes en situations tendues.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Renégocier un crédit syndiqué en situation tendue" }],
-      "intermédiaire": [{ "id": "Refinancement complet avec allongement des maturités" }],
-      "avancé": [{ "id": "Restructuration avec conversion debt-to-equity" }]
+      "débutant": [
+        {
+          "id": "Renégocier un crédit syndiqué en situation tendue"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Refinancement complet avec allongement des maturités"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Restructuration avec conversion debt-to-equity"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Financement de projet": {
     "nom": "Financement de projet",
     "description": "Project finance non-recourse : allocation des risques, sûretés et garanties.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Analyser la viabilité financière d'un projet ENR" }],
-      "intermédiaire": [{ "id": "Structurer le financement d'une infrastructure de transport" }],
-      "avancé": [{ "id": "Financement de projet minier international (garanties multilatérales)" }]
+      "débutant": [
+        {
+          "id": "Analyser la viabilité financière d'un projet ENR"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Structurer le financement d'une infrastructure de transport"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Financement de projet minier international (garanties multilatérales)"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Conformité et Réglementation": {
     "nom": "Conformité et Réglementation",
     "description": "KYC/AML, sanctions, limites grands risques et supervision prudentielle.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Vérifier la conformité KYC/AML d'un client corporate" }],
-      "intermédiaire": [{ "id": "Mettre en conformité une opération avec les règles de grands risques" }],
-      "avancé": [{ "id": "Gérer la réglementation d'une fusion bancaire transfrontalière" }]
+      "débutant": [
+        {
+          "id": "Vérifier la conformité KYC/AML d'un client corporate"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Mettre en conformité une opération avec les règles de grands risques"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Gérer la réglementation d'une fusion bancaire transfrontalière"
+        }
+      ]
     },
     "progression": 0
   },
-
   "Innovation financière": {
     "nom": "Innovation financière",
     "description": "Blockchain, IA et plateformes digitales appliquées aux métiers de banque d’investissement.",
-    "profiles": [3],
+    "profiles": [
+      3
+    ],
     "missions": {
-      "débutant": [{ "id": "Évaluer l'impact de la blockchain sur le post-marché" }],
-      "intermédiaire": [{ "id": "Développer un outil d'aide à la décision par IA" }],
-      "avancé": [{ "id": "Concevoir une plateforme de financement participatif pour PME" }]
+      "débutant": [
+        {
+          "id": "Évaluer l'impact de la blockchain sur le post-marché"
+        }
+      ],
+      "intermédiaire": [
+        {
+          "id": "Développer un outil d'aide à la décision par IA"
+        }
+      ],
+      "avancé": [
+        {
+          "id": "Concevoir une plateforme de financement participatif pour PME"
+        }
+      ]
     },
     "progression": 0
   }
-  }
+}

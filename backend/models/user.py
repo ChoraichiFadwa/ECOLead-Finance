@@ -58,6 +58,8 @@ class Student(User):
     }
 
 class Teacher(User):
+    custom_missions = relationship("CustomMission", back_populates="teacher")
+
     __mapper_args__ = {
         'polymorphic_identity': UserRole.TEACHER.value,
     }

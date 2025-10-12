@@ -8,6 +8,10 @@ from database import get_db
 from models.user import User, UserRole, Student, Teacher
 from models.progress import Progress, MetricHistory
 from utils.game_loader import GameLoader
+from services.teacher_service import add_concept_to_json
+from models.schemas import ConceptCreate, ConceptOut
+
+# mostly teacher dashboard and student analytics
 
 router = APIRouter()
 game_loader = GameLoader()
@@ -349,3 +353,5 @@ async def get_teacher_dashboard(teacher_id: int, db: Session = Depends(get_db)):
         concept_difficulty_analysis=concept_difficulty_analysis,
         engagement_trends=engagement_trends
     )
+
+

@@ -86,6 +86,13 @@ export const api = {
   },
 
 
+  // Get all concepts
+getConcepts: async () => {
+  const response = await fetch(`${API_BASE_URL}/concepts`);
+  return handleResponse(response);
+},
+
+
   // Progress
   getStudentProgress: async (studentId) => {
     const response = await fetch(`${API_BASE_URL}/students/${studentId}/progress`)
@@ -146,5 +153,24 @@ export const api = {
     const response = await fetch(`${API_BASE_URL}/events`);
     return handleResponse(response);
   },
+  // Concept creation 
+  createConcept: async (teacherId, data) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/concepts`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+  return handleResponse(response)
+},
+// Mission creation
+createMission: async (teacherId, data) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/missions`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(response);
+},
+
 
 }

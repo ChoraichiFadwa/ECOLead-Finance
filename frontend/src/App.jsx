@@ -9,6 +9,8 @@ import MissionPage from "./pages/MissionPage"
 import LoadingSpinner from "./components/LoadingSpinner"
 import ConceptMissions from "./pages/ConceptMissions"
 import ChooseProfile from "./pages/ChooseProfile"
+import LearningDesignPage from "./pages/LearningDesignPage"
+import StudentsPage from "./pages/StudentsPage"
 
 function App() {
   const { role, loading } = useRole()
@@ -79,6 +81,30 @@ function App() {
             )
           }
           />
+      <Route
+  path="/teacher/learning-design"
+  element={
+    role === "teacher" ? (
+      <Layout>
+        <LearningDesignPage />
+      </Layout>
+    ) : (
+      <Navigate to="/dashboard" />
+    )
+  }
+/>
+      <Route
+  path="/teacher/students"
+  element={
+    role === "teacher" ? (
+      <Layout>
+        <StudentsPage />
+      </Layout>
+    ) : (
+      <Navigate to="/dashboard" />
+    )
+  }
+/>
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   )
