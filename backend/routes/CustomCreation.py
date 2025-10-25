@@ -10,12 +10,14 @@ from models.user import Teacher
 from models.custom_mission import CustomMission
 from models.schemas import ConceptCreate, ConceptOut
 from models.custom_mission import CustomMission
-from services.teacher_service import add_concept_to_json, add_custom_mission_to_json
-
+from services.teacher_service import add_concept_to_json, add_custom_mission_to_json, add_event_to_json, slugify
+from models.custom_event import Event
+from models.schemas import EventCreate, EventOut
 router = APIRouter()
 from pydantic import BaseModel
 from typing import List, Optional, Dict
 from datetime import datetime
+
 
 class Impact(BaseModel):
     cashflow: int = 0
@@ -267,3 +269,45 @@ def delete_custom_mission(teacher_id: int, mission_id: int, db: Session = Depend
     db.commit()
     return {"message": "Mission deleted successfully"}
 
+@router.post("/teachers/{teacher_id}/events", response_model=EventOut)
+def create_event(teacher_id: int, event: EventCreate, db: Session = Depends(get_db)):
+    teacher = db.query(Teacher).filter(Teacher.id == teacher_id).first()
+    if not teacher:
+        raise HTTPException(status_code=404, detail="Teacher not found")
+
+    event_id = slugify(event.title)
+    new_event = Event(
+        id=event_id,
+        title=event.title,
+        message=event.message,
+        context=event.context,
+        conditions=event.conditions,
+        modifie_choix=event.modifie_choix,
+        teacher_id=teacher_id
+    )
+    db.add(new_event)
+    db.commit()
+    db.refresh(new_event)
+    try:
+        add_event_to_json(new_event)
+    except HTTPException as e:
+        # Rollback DB if JSON update fails
+        db.delete(new_event)
+        db.commit()
+        raise e
+    
+    return new_event
+
+@router.get("/teachers/{teacher_id}/events", response_model=List[EventOut])
+def list_events(teacher_id: int, db: Session = Depends(get_db)):
+    events = db.query(Event).filter(Event.teacher_id == teacher_id).all()
+    return events
+
+@router.delete("/teachers/{teacher_id}/events/{event_id}")
+def delete_event(teacher_id: int, event_id: str, db: Session = Depends(get_db)):
+    event = db.query(Event).filter_by(id=event_id, teacher_id=teacher_id).first()
+    if not event:
+        raise HTTPException(status_code=404, detail="Event not found")
+    db.delete(event)
+    db.commit()
+    return {"message": "Event deleted successfully"}

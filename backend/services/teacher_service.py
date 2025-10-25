@@ -4,7 +4,17 @@ import uuid
 from fastapi import HTTPException
 from models.schemas import ConceptCreate
 from models.custom_mission import CustomMission
+from models.custom_event import Event
+import re
 
+def slugify(title: str) -> str:
+    # Convert to lowercase
+    title = title.lower()
+    # Replace spaces and special chars with underscores
+    title = re.sub(r"\W+", "_", title)
+    # Remove leading/trailing underscores
+    title = title.strip("_")
+    return title
 # --- Helper to get project data path ---
 def get_data_path(filename: str):
     # Get project root (two folders up if this file is in services/)
@@ -114,3 +124,53 @@ def add_custom_mission_to_json(mission: CustomMission, json_missions_file=None, 
     return mission_id
 
 
+def add_event_to_json(event: Event, json_file_path=None):
+    if not json_file_path:
+        json_file_path = get_data_path("events.json")
+
+    # Load existing events
+    try:
+        with open(json_file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        data = {"events": []}  # start with empty list
+
+    # Ensure "events" key exists
+    if "events" not in data:
+        data["events"] = []
+
+    # Check for duplicate ID
+    if any(e["id"] == event.id for e in data["events"]):
+        raise HTTPException(status_code=400, detail=f"Event with id '{event.id}' already exists")
+
+    # Append new event
+    data["events"].append({
+        "id": event.id,
+        "title": event.title,
+        "message": event.message,
+        "context": event.context,
+        "conditions": getattr(event, "conditions", {}),
+        "modifie_choix": getattr(event, "modifie_choix", {})
+    })
+
+    # Save back to JSON
+    with open(json_file_path, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+
+    return event.id
+
+
+def validate_event_ids(event_ids: list[str], json_file_path=None):
+    """Helper to check that all event IDs exist before assigning to a mission"""
+    if not json_file_path:
+        json_file_path = get_data_path("events.json")
+
+    try:
+        with open(json_file_path, "r", encoding="utf-8") as f:
+            data = json.load(f)
+    except FileNotFoundError:
+        data = {}
+
+    missing = [eid for eid in event_ids if eid not in data]
+    if missing:
+        raise HTTPException(status_code=400, detail=f"These events do not exist: {missing}")

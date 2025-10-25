@@ -11,6 +11,7 @@ import ConceptMissions from "./pages/ConceptMissions"
 import ChooseProfile from "./pages/ChooseProfile"
 import LearningDesignPage from "./pages/LearningDesignPage"
 import StudentsPage from "./pages/StudentsPage"
+import StudentStatusPage from "./pages/StudentStatusPage"
 
 function App() {
   const { role, loading } = useRole()
@@ -57,6 +58,18 @@ function App() {
           )
         }
       />
+      <Route
+  path="/student/status"
+  element={
+    role === "student" ? (
+      <Layout>
+        <StudentStatusPage />
+      </Layout>
+    ) : (
+      <Navigate to="/dashboard" />
+    )
+  }
+/>
       <Route
       path="/concepts"
       element={

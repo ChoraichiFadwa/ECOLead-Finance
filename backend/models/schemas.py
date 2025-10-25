@@ -1,5 +1,5 @@
 from pydantic import BaseModel
-from typing import List, Optional, Dict
+from typing import List, Optional, Dict, Any
 from datetime import datetime
 
 class SuggestRequest(BaseModel):
@@ -74,3 +74,13 @@ class CustomMissionOut(CustomMissionBase):
         orm_mode = True
 
 
+class EventCreate(BaseModel):
+    title: str
+    message: str
+    context: Optional[Dict[str, Any]] = {}
+    conditions: Optional[Dict[str, Any]] = {}
+    modifie_choix: Optional[Dict[str, Dict[str, int]]] = {}
+
+class EventOut(EventCreate):
+    teacher_id: int
+    created_at: str

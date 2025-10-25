@@ -180,6 +180,18 @@ getCustomConcepts: async (teacherId) => {
   const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/concepts`)
   if (!response.ok) throw new Error("Failed to fetch concepts")
   return response.json()
-}
-
+},
+createEvent: async (teacherId, data) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/events`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  });
+  return handleResponse(response);
+},
+getCustomEvents: async (teacherId) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/events`)
+  if (!response.ok) throw new Error("Failed to fetch events")
+  return response.json()
+},
 }
