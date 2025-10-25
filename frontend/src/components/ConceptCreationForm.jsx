@@ -41,7 +41,7 @@ export default function ConceptForm({ teacherId }) {
       setProfiles([]);
     } catch (err) {
       console.error(err);
-      setError("❌ Échec de la création. Veuillez réessayer.");
+      setError(" Échec de la création. Veuillez réessayer.");
     } finally {
       setLoading(false);
     }

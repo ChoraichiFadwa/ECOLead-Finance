@@ -54,7 +54,7 @@ const StrategicContextSection = ({ studentId }) => {
         <div className="flex-1">
           <div className="flex items-center justify-between mb-3">
             <h3 className="text-lg font-semibold text-gray-900">
-              📚 Concepts explorés : {concepts.explored}/{concepts.total}
+               Concepts explorés : {concepts.explored}/{concepts.total}
             </h3>
             <span className="text-xl font-bold text-indigo-600">
               {coveragePct}%
@@ -83,7 +83,7 @@ const StrategicContextSection = ({ studentId }) => {
           ) : (
             <div className="mb-4">
               <p className="text-sm text-green-700 font-medium">
-                🎉 Tous les concepts de ton parcours sont explorés !
+                 Tous les concepts de ton parcours sont explorés !
               </p>
             </div>
           )}

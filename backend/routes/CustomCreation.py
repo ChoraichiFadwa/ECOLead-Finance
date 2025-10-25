@@ -2,6 +2,7 @@
 from pydantic import BaseModel
 from datetime import datetime
 from typing import List, Optional
+from models.custom_concept import CustomConcept
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from database import get_db
@@ -211,17 +212,51 @@ def list_custom_missions(teacher_id: int, db: Session = Depends(get_db)):
     return missions
 
 @router.post("/teachers/{teacher_id}/concepts", response_model=ConceptOut)
-def create_concept(teacher_id: int, concept: ConceptCreate, db: Session = Depends(get_db)):
+def create_concept(
+    teacher_id: int,
+    concept: ConceptCreate,
+    db: Session = Depends(get_db)
+):
+    # Check teacher exists
     teacher = db.query(Teacher).filter(Teacher.id == teacher_id).first()
     if not teacher:
         raise HTTPException(status_code=404, detail="Teacher not found")
 
+    # Check if concept already exists in DB
+    existing = db.query(CustomConcept).filter(
+        CustomConcept.name == concept.name,
+        CustomConcept.teacher_id == teacher_id
+    ).first()
+    if existing:
+        raise HTTPException(status_code=400, detail="Concept already exists for this teacher")
+
+    # Save to DB
+    new_concept = CustomConcept(
+        name=concept.name,
+        description=concept.description,
+        teacher_id=teacher_id,
+        missions={}  # empty JSON field
+    )
+    db.add(new_concept)
+    db.commit()
+    db.refresh(new_concept)
+
+    # Update JSON file
     try:
         add_concept_to_json(concept)
-    except ValueError as e:
-        raise HTTPException(status_code=400, detail=str(e))
+    except HTTPException as e:
+        # Rollback DB if JSON update fails
+        db.delete(new_concept)
+        db.commit()
+        raise e
 
-    return concept
+    return new_concept
+
+@router.get("/teachers/{teacher_id}/concepts", response_model=list[ConceptOut])
+def list_concepts(teacher_id: int, db: Session = Depends(get_db)):
+    concepts = db.query(CustomConcept).filter(CustomConcept.teacher_id == teacher_id).all()
+    return concepts
+
 
 @router.delete("/teachers/{teacher_id}/missions/{mission_id}")
 def delete_custom_mission(teacher_id: int, mission_id: int, db: Session = Depends(get_db)):
@@ -231,3 +266,4 @@ def delete_custom_mission(teacher_id: int, mission_id: int, db: Session = Depend
     db.delete(mission)
     db.commit()
     return {"message": "Mission deleted successfully"}
+

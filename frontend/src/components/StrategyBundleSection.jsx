@@ -79,7 +79,7 @@ const StrategyBundleSection = ({ studentId, selectedGoal = null }) => {
     <div className="space-y-6">
       {/* Goal Selection */}
       <div className="card">
-        <h3 className="text-lg font-semibold text-gray-900 mb-4">🎯 Choisis Ton Objectif</h3>
+        <h3 className="text-lg font-semibold text-gray-900 mb-4"> Choisis Ton Objectif</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
           {Object.entries(GOAL_CONFIG).map(([key, config]) => {
             const IconComponent = config.icon

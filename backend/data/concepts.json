@@ -46,9 +46,6 @@
         },
         {
           "id": "Décider un investissement"
-        },
-        {
-          "id": "jsp"
         }
       ],
       "intermédiaire": [
@@ -59,6 +56,9 @@
       "avancé": [
         {
           "id": "Stratégies avancées sur obligations"
+        },
+        {
+          "id": "Nouvelle mission"
         }
       ]
     },
@@ -313,6 +313,9 @@
         },
         {
           "id": "Intégrer des externalités environnementales dans la valorisation"
+        },
+        {
+          "id": "test"
         }
       ]
     },
@@ -426,6 +429,9 @@
       "intermédiaire": [
         {
           "id": "Comparer le risque de crédit d’émetteurs du même secteur"
+        },
+        {
+          "id": "yay"
         }
       ],
       "avancé": [
@@ -763,6 +769,16 @@
         }
       ]
     },
+    "progression": 0
+  },
+  "Test": {
+    "nom": "Test",
+    "description": "test",
+    "profiles": [
+      2,
+      1
+    ],
+    "missions": {},
     "progression": 0
   }
 }

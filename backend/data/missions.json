@@ -6295,30 +6295,30 @@
     ],
     "reutilisable": true
   },
-  "jsp": {
-    "id": "jsp",
-    "concept": "Marché des Changes",
+  "up": {
+    "id": "up",
+    "concept": "Marché Boursier",
     "niveau": "débutant",
     "type": "Investissement",
     "contexte": "",
     "objectif_pedagogique": "",
     "choix": {
       "A": {
-        "description": "jsp",
+        "description": "go up",
         "impact": {
-          "cashflow": 2,
-          "rentabilite": -1,
+          "cashflow": 1,
+          "rentabilite": -4,
           "reputation": 0,
           "stress": 0,
           "controle": 0
         }
       },
       "B": {
-        "description": "jspagain",
+        "description": "oui",
         "impact": {
           "cashflow": 0,
           "rentabilite": 0,
-          "reputation": -3,
+          "reputation": 0,
           "stress": 0,
           "controle": 0
         }
@@ -6327,11 +6327,53 @@
     "variables_affectees": [],
     "tags": [],
     "feedback": {
-      "A": "no",
-      "B": "ui "
+      "A": "good",
+      "B": "n"
     },
     "evenements_possibles": [
+      "second_choc_petrolier_1979",
       "premiere_choc_petrolier_1973"
+    ],
+    "reutilisable": true
+  },
+  "test": {
+    "id": "test",
+    "concept": "Finance Sectorielle",
+    "niveau": "avancé",
+    "type": "Investissement",
+    "contexte": "",
+    "objectif_pedagogique": "",
+    "choix": {
+      "A": {
+        "description": "sell",
+        "impact": {
+          "cashflow": 0,
+          "rentabilite": 3,
+          "reputation": -2,
+          "stress": 0,
+          "controle": 0
+        }
+      },
+      "B": {
+        "description": "buy",
+        "impact": {
+          "cashflow": 3,
+          "rentabilite": 0,
+          "reputation": 0,
+          "stress": 0,
+          "controle": 0
+        }
+      }
+    },
+    "variables_affectees": [],
+    "tags": [],
+    "feedback": {
+      "A": "good job",
+      "B": "bad job "
+    },
+    "evenements_possibles": [
+      "choc_petrolier_2008",
+      "printemps_arabe_2010"
     ],
     "reutilisable": true
   }

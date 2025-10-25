@@ -171,6 +171,15 @@ createMission: async (teacherId, data) => {
   });
   return handleResponse(response);
 },
-
+getCustomMissions: async (teacherId) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/missions`)
+  if (!response.ok) throw new Error("Failed to fetch missions")
+  return response.json()
+},
+getCustomConcepts: async (teacherId) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/concepts`)
+  if (!response.ok) throw new Error("Failed to fetch concepts")
+  return response.json()
+}
 
 }
