@@ -194,4 +194,45 @@ getCustomEvents: async (teacherId) => {
   if (!response.ok) throw new Error("Failed to fetch events")
   return response.json()
 },
+// src/utils/api.js (add at the bottom of your api object)
+
+// Fetch all missions for a given student under a teacher
+getTeacherStudentMissions: async (teacherId, studentId) => {
+  const response = await fetch(`${API_BASE_URL}/teachers/${teacherId}/students/${studentId}/missions`);
+  if (!response.ok) throw new Error("Failed to fetch student missions");
+  return response.json();
+},
+
+// Submit feedback for a specific mission
+addTeacherFeedback: async (teacherId, studentId, missionId, payload) => {
+  const response = await fetch(
+    `${API_BASE_URL}/teachers/${teacherId}/students/${studentId}/missions/${encodeURIComponent(missionId)}/feedback`,
+    {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(payload),
+    }
+  );
+  if (!response.ok) throw new Error("Failed to send feedback");
+  return response.json();
+},
+// Notifications
+getNotifications: async (studentId) => {
+  const res = await fetch(`${API_BASE_URL}/students/${studentId}/notifications`);
+  if (!res.ok) throw new Error("Failed to fetch notifications");
+  return res.json();
+},
+
+markNotificationRead: async (notificationId, studentId) => {
+  const res = await fetch(`${API_BASE_URL}/students/${studentId}/notifications/${notificationId}/read`, {
+    method: "POST",
+  });
+  if (!res.ok) throw new Error("Failed to mark as read");
+  return res.json();
+},
+getStudentMissionReport: async(studentId, missionId) => {
+  const res = await fetch(`${API_BASE_URL}/students/${studentId}/missions/${missionId}/report`);
+  return res.json();
+},
+
 }

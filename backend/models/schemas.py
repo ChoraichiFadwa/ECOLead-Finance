@@ -84,3 +84,20 @@ class EventCreate(BaseModel):
 class EventOut(EventCreate):
     teacher_id: int
     created_at: str
+
+from pydantic import BaseModel
+from datetime import datetime
+
+class FeedbackCreate(BaseModel):
+    comment: str
+
+class FeedbackOut(BaseModel):
+    id: int
+    teacher_id: int
+    student_id: int
+    mission_id: str
+    comment: str
+    created_at: datetime
+
+    class Config:
+        orm_mode = True

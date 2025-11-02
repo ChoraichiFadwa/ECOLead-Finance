@@ -44,6 +44,7 @@ class Student(User):
     rentabilite = Column(Float, default=50.0)
     reputation = Column(Float, default=50.0)
     profile = Column(Integer, default=-1, nullable=False)
+    notifications = relationship("Notification", back_populates="student")
     # to get the string for the front
     @property
     def profile_label(self):

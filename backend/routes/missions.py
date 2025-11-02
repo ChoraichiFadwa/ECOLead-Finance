@@ -11,7 +11,7 @@ import random
 
 router = APIRouter()
 game_loader = GameLoader()
-
+ 
 class MissionResponse(BaseModel):
     id: str
     concept: str

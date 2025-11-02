@@ -11,9 +11,99 @@ from utils.evaluator import MissionEvaluator
 from datetime import datetime
 from models.progress import ConceptProgress
 from services.predict_ai_profile import run_profiling
-
+from models.notification import Notification
 router = APIRouter()
 game_loader = GameLoader()
+class StudentMissionDetail(BaseModel):
+    mission_id: str
+    concept: str
+    niveau: str
+    type: str
+    contexte: str
+    objectif_pedagogique: str
+    choix_etudiant: Dict[str, str]
+    score_earned: int
+    feedback_auto: Optional[str] = None
+    completed_at: Optional[datetime] = None
+
+from models.custom_feedback import Feedback
+from models.schemas import FeedbackCreate, FeedbackOut
+
+@router.post("/teachers/{teacher_id}/students/{student_id}/missions/{mission_id}/feedback",response_model=FeedbackOut)
+async def add_teacher_feedback(
+    teacher_id: int,
+    student_id: int,
+    mission_id: str,
+    feedback: FeedbackCreate,
+    db: Session = Depends(get_db)
+):
+    new_feedback = Feedback(
+        teacher_id=teacher_id,
+        student_id=student_id,
+        mission_id=mission_id,
+        comment=feedback.comment
+    )
+    db.add(new_feedback)
+    db.commit()
+    db.refresh(new_feedback)
+
+    new_notif = Notification(
+        student_id=student_id,
+        type="feedback",
+        message=f"Vous avez reçu un feedback de votre professeur pour la mission {mission_id}",
+        target_mission_id=mission_id
+)
+    db.add(new_notif)
+    db.commit()
+
+    return new_feedback
+
+@router.get("/teachers/{teacher_id}/students/{student_id}/missions", response_model=List[StudentMissionDetail])
+async def get_student_missions_for_teacher(
+    teacher_id: int,
+    student_id: int,
+    db: Session = Depends(get_db)
+):
+    #  Validate teacher
+    teacher = db.query(User).filter(User.id == teacher_id, User.role == UserRole.TEACHER).first()
+    if not teacher:
+        raise HTTPException(status_code=403, detail="Teacher not found or unauthorized")
+
+    #  Validate student
+    student = db.query(User).filter(User.id == student_id, User.role == UserRole.STUDENT).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Student not found")
+
+    #  Get all completed missions by this student
+    progress_entries = db.query(Progress).filter(Progress.student_id == student_id).all()
+
+    result = []
+    for entry in progress_entries:
+        mission_data = game_loader.get_mission_by_id(entry.mission_id)
+        if not mission_data:
+            continue  # skip invalid ids if any
+
+        detail = StudentMissionDetail(
+            mission_id=entry.mission_id,
+            concept=mission_data.get("concept", ""),
+            niveau=mission_data.get("niveau", ""),
+            type=mission_data.get("type", ""),
+            contexte=mission_data.get("contexte", ""),
+            objectif_pedagogique=mission_data.get("objectif_pedagogique", ""),
+            choix_etudiant=entry.choices_made,
+            score_earned=entry.score_earned,
+            feedback_auto=mission_data.get("feedback", {}).get(list(entry.choices_made.values())[0], ""),
+            completed_at=entry.created_at if hasattr(entry, "created_at") else None
+        )
+        result.append(detail)
+
+    return result
+
+@router.get("/students/{student_id}/missions/{mission_id}/feedback")
+async def get_feedback(student_id: int, mission_id: str, db: Session = Depends(get_db)):
+    feedbacks = db.query(Feedback).filter_by(student_id=student_id, mission_id=mission_id).all()
+    return feedbacks
+
 
 class MissionSubmission(BaseModel):
     mission_id: str
@@ -404,3 +494,64 @@ async def debug_concept(concept_id: str):
         "missions_content": raw_concept.get("missions", {}),
         "data_source": str(game_loader.data.get("concepts", {}).get(concept_id, {}))
     }
+
+from typing import List
+from fastapi import APIRouter, Depends, HTTPException
+from sqlalchemy.orm import Session
+from models.user import User, UserRole
+from models.progress import Progress
+from models.custom_feedback import Feedback
+from utils.game_loader import GameLoader
+from database import get_db
+from pydantic import BaseModel
+
+# router = APIRouter()
+# game_loader = GameLoader()
+
+class MissionReport(BaseModel):
+    mission_id: str
+    concept: str
+    niveau: str
+    type: str
+    contexte: str
+    objectif_pedagogique: str
+    student_choices: dict
+    score_earned: int
+    feedback_teacher: List[str] = []
+    feedback_auto: str = None
+    completed_at: str = None
+
+@router.get("/students/{student_id}/missions/{mission_id}/report", response_model=MissionReport)
+def get_mission_report(student_id: int, mission_id: str, db: Session = Depends(get_db)):
+    # Validate student
+    student = db.query(User).filter(User.id == student_id, User.role == UserRole.STUDENT).first()
+    if not student:
+        raise HTTPException(status_code=404, detail="Student not found")
+
+    # Get mission details
+    mission = game_loader.get_mission_by_id(mission_id)
+    if not mission:
+        raise HTTPException(status_code=404, detail="Mission not found")
+
+    # Get student progress for this mission
+    progress = db.query(Progress).filter(Progress.student_id == student_id, Progress.mission_id == mission_id).first()
+    if not progress:
+        raise HTTPException(status_code=404, detail="Mission not completed by student")
+
+    # Get teacher feedback
+    feedbacks = db.query(Feedback).filter(Feedback.student_id == student_id, Feedback.mission_id == mission_id).all()
+    feedback_texts = [f.comment for f in feedbacks]
+
+    return MissionReport(
+        mission_id=mission_id,
+        concept=mission.get("concept", ""),
+        niveau=mission.get("niveau", ""),
+        type=mission.get("type", ""),
+        contexte=mission.get("contexte", ""),
+        objectif_pedagogique=mission.get("objectif_pedagogique", ""),
+        student_choices=progress.choices_made,
+        score_earned=progress.score_earned,
+        feedback_teacher=feedback_texts,
+        feedback_auto=mission.get("feedback", {}).get(list(progress.choices_made.values())[0], ""),
+        completed_at=str(progress.completed_at)
+    )

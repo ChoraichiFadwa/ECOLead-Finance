@@ -1,9 +1,9 @@
-// src/pages/StudentsPage.jsx
 import { useState, useEffect } from "react"
 import { useRole } from "../contexts/RoleContext"
 import { api } from "../utils/api"
 import LoadingSpinner from "../components/LoadingSpinner"
 import { Link } from "react-router-dom"
+import TeacherFeedbackPanel from "../components/TeacherFeedbackPanel" 
 
 const StudentsPage = () => {
   const { userId } = useRole()
@@ -76,13 +76,13 @@ const StudentsPage = () => {
         </div>
 
         {/* Student Detail */}
-        <div className="card">
+        <div className="card overflow-y-auto max-h-[90vh]">
           {selectedStudent ? (
             <>
               <h2 className="text-lg font-semibold mb-4">
                 {selectedStudent.name} — Détails
               </h2>
-              
+
               <div className="grid grid-cols-2 gap-4 mb-6">
                 <Metric label="Cashflow" value={`${selectedStudent.cashflow}€`} color="green" />
                 <Metric label="Contrôle" value={`${selectedStudent.controle}%`} color="blue" />
@@ -103,9 +103,17 @@ const StudentsPage = () => {
                 </div>
               </div>
 
-              <p className="text-sm text-gray-600">
+              <p className="text-sm text-gray-600 mb-6">
                 Inscrit le {new Date(selectedStudent.created_at).toLocaleDateString()}
               </p>
+
+              {/* ✅ Teacher Feedback Panel */}
+              <div className="border-t pt-4 mt-6">
+                <TeacherFeedbackPanel
+                  teacherId={userId}
+                  studentId={selectedStudent.id}
+                />
+              </div>
             </>
           ) : (
             <div className="text-center py-12 text-gray-500">

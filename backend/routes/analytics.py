@@ -2,11 +2,12 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import func, desc
 from pydantic import BaseModel
-from typing import List, Dict, Any
+from typing import List, Dict, Any, Optional
 from datetime import datetime, timedelta
 from database import get_db
 from models.user import User, UserRole, Student, Teacher
 from models.progress import Progress, MetricHistory
+from models.custom_feedback import Feedback
 from utils.game_loader import GameLoader
 from services.teacher_service import add_concept_to_json
 from models.schemas import ConceptCreate, ConceptOut
@@ -33,6 +34,10 @@ class MissionTimelinePoint(BaseModel):
     score_earned: int
     time_spent_minutes: float
     time_spent_seconds: int
+    # contexte: Optional[str] = None
+    # objectif_pedagogique: Optional[str] = None
+    # choix_etudiant: Optional[Any] = None
+    # feedback_teacher: Optional[str] = None
 
 class StudentChartData(BaseModel):
     metrics_over_time: List[MetricPoint]
@@ -103,6 +108,29 @@ async def get_student_chart_data(student_id: int, db: Session = Depends(get_db))
         )
         for record in progress_records
     ]
+    # mission_timeline = []
+    # for record in progress_records:
+    #     teacher_feedback = db.query(Feedback.comment).filter(
+    #         Feedback.student_id == student_id,
+    #         Feedback.mission_id == record.mission_id
+    # ).first()
+    
+    # mission_timeline.append(
+    #     MissionTimelinePoint(
+    #         date=record.completed_at,
+    #         mission_id=record.mission_id,
+    #         concept=record.concept,
+    #         level=record.level,
+    #         score_earned=record.score_earned,
+    #         time_spent_minutes=record.time_spent_seconds / 60.0,
+    #         time_spent_seconds=record.time_spent_seconds,
+    #         contexte=record.contexte,
+    #         objectif_pedagogique=record.objectif_pedagogique,
+    #         choix_etudiant=record.choix_etudiant,
+    #         feedback_teacher=teacher_feedback.feedback if teacher_feedback else None
+    #     )
+    # )
+
     
     # Concept performance analysis
     concept_performance = {}

@@ -9,6 +9,24 @@ import {
 } from "lucide-react";
 import LoadingSpinner from "../components/LoadingSpinner";
 import EventLibrarySection from '../components/EventLibrarySection';
+import StudentNotifications from "../components/StudentNotifications"; // 👈 Added
+import StudentMissionReport from "../components/StudentMissionReport"; // 👈 Added
+
+// Recharts imports
+import {
+  ResponsiveContainer,
+  LineChart,
+  Line,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Tooltip,
+  RadarChart,
+  PolarGrid,
+  PolarAngleAxis,
+  PolarRadiusAxis,
+  Radar,
+} from "recharts";
 
 const StudentStatusPage = () => {
   const { userId } = useRole();
@@ -16,6 +34,7 @@ const StudentStatusPage = () => {
   const [student, setStudent] = useState(null);
   const [chartData, setChartData] = useState(null);
   const [recentMissions, setRecentMissions] = useState([]);
+  const [selectedMissionId, setSelectedMissionId] = useState(null); // 👈 For inline report
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState("");
 
@@ -63,18 +82,29 @@ const StudentStatusPage = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Header */}
-      <div className="flex justify-between items-start">
-        <div>
-          <h1 className="text-3xl font-bold text-gray-900">Mon état</h1>
-          <p className="text-gray-600 mt-1">Vue d’ensemble de votre performance</p>
+      {/* Unified Header with Bell */}
+      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5">
+        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
+          <div>
+            <h1 className="text-2xl font-bold text-gray-900">Mon état</h1>
+            <p className="text-gray-600 mt-1">Vue d’ensemble de votre performance</p>
+          </div>
+          <div className="flex items-center flex-wrap gap-3">
+            {/* Notification Bell */}
+            <StudentNotifications 
+              studentId={userId} 
+              onMissionSelect={(missionId) => setSelectedMissionId(missionId)} 
+            />
+            
+            {/* Back to Dashboard Button */}
+            <Link
+              to="/dashboard"
+              className="px-3 py-2 text-sm text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
+            >
+              ← Mon parcours
+            </Link>
+          </div>
         </div>
-        <Link
-          to="/dashboard"
-          className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-        >
-          ← Retour à mon parcours
-        </Link>
       </div>
 
       {/* Current Metrics */}
@@ -96,7 +126,15 @@ const StudentStatusPage = () => {
               <h3 className="text-lg font-semibold text-gray-900">Progression du score</h3>
             </div>
             <div className="h-64">
-              <ResponsiveLineChart data={chartData.metrics_over_time} />
+              <ResponsiveContainer width="100%" height="100%">
+                <LineChart data={chartData.metrics_over_time}>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <XAxis dataKey="date" tickFormatter={(v) => new Date(v).toLocaleDateString()} />
+                  <YAxis />
+                  <Tooltip labelFormatter={(v) => new Date(v).toLocaleString()} />
+                  <Line type="monotone" dataKey="total_score" stroke="#3b82f6" strokeWidth={2} dot={{ fill: "#3b82f6" }} />
+                </LineChart>
+              </ResponsiveContainer>
             </div>
           </div>
 
@@ -107,7 +145,14 @@ const StudentStatusPage = () => {
               <h3 className="text-lg font-semibold text-gray-900">Vue d’ensemble</h3>
             </div>
             <div className="h-64">
-              <ResponsiveRadarChart data={metricsData} />
+              <ResponsiveContainer width="100%" height="100%">
+                <RadarChart data={metricsData}>
+                  <PolarGrid />
+                  <PolarAngleAxis dataKey="subject" />
+                  <PolarRadiusAxis angle={90} domain={[0, "dataMax"]} />
+                  <Radar name="Current" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.3} />
+                </RadarChart>
+              </ResponsiveContainer>
             </div>
           </div>
         </div>
@@ -136,8 +181,25 @@ const StudentStatusPage = () => {
         </div>
       )}
 
-      {/* Event Library */}
-      <EventLibrarySection studentId={userId} />
+
+      {/* Inline Mission Report */}
+      {selectedMissionId && (
+        <div className="card animate-fade-in">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-gray-900">Rapport de mission</h2>
+            <button
+              onClick={() => setSelectedMissionId(null)}
+              className="text-gray-500 hover:text-gray-700"
+            >
+              ✕
+            </button>
+          </div>
+          <StudentMissionReport
+            studentId={userId}
+            missionId={selectedMissionId}
+          />
+        </div>
+      )}
     </div>
   );
 };
@@ -152,45 +214,5 @@ const MetricItem = ({ label, value, icon: Icon, color, bg }) => (
     <p className="text-xl font-bold text-gray-900">{value}</p>
   </div>
 );
-
-// Reusable Chart Wrappers (to avoid importing recharts in main file)
-const ResponsiveLineChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height="100%">
-    <LineChart data={data}>
-      <CartesianGrid strokeDasharray="3 3" />
-      <XAxis dataKey="date" tickFormatter={(v) => new Date(v).toLocaleDateString()} />
-      <YAxis />
-      <Tooltip labelFormatter={(v) => new Date(v).toLocaleString()} />
-      <Line type="monotone" dataKey="total_score" stroke="#3b82f6" strokeWidth={2} dot={{ fill: "#3b82f6" }} />
-    </LineChart>
-  </ResponsiveContainer>
-);
-
-const ResponsiveRadarChart = ({ data }) => (
-  <ResponsiveContainer width="100%" height="100%">
-    <RadarChart data={data}>
-      <PolarGrid />
-      <PolarAngleAxis dataKey="subject" />
-      <PolarRadiusAxis angle={90} domain={[0, "dataMax"]} />
-      <Radar name="Current" dataKey="value" stroke="#3b82f6" fill="#3b82f6" fillOpacity={0.3} />
-    </RadarChart>
-  </ResponsiveContainer>
-);
-
-// Import only where needed
-import {
-  ResponsiveContainer,
-  LineChart,
-  Line,
-  XAxis,
-  YAxis,
-  CartesianGrid,
-  Tooltip,
-  RadarChart,
-  PolarGrid,
-  PolarAngleAxis,
-  PolarRadiusAxis,
-  Radar,
-} from "recharts";
 
 export default StudentStatusPage;

@@ -41,6 +41,9 @@ class GameLoader:
     
     def get_mission_by_id(self, mission_id: str) -> Optional[Dict[str, Any]]:
         mission=self.missions.get(mission_id)
+        if mission is None:
+            print(f"[ERROR] Mission ID '{mission_id}' not found in missions.json. Available IDs: {list(self.missions.keys())[:5]}")
+            return None
         mission["evenements_actifs"] = [ self.get_event_by_id(eid) for eid in mission.get("evenements_possibles", [])
         if self.get_event_by_id(eid)
         ]
