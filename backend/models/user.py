@@ -53,7 +53,8 @@ class Student(User):
             return PROFILE_LABELS[ProfileType(self.profile)]
         except (ValueError, KeyError, TypeError):
             return "Choisis un profil"
-    
+        
+    classes = relationship("Class", secondary="class_students", back_populates="students")
     __mapper_args__ = {
         'polymorphic_identity': UserRole.STUDENT.value, # for database usage 
     }
@@ -61,6 +62,7 @@ class Student(User):
 class Teacher(User):
     custom_missions = relationship("CustomMission", back_populates="teacher")
     custom_concepts = relationship("CustomConcept", back_populates="teacher", cascade="all, delete-orphan")
+    classes = relationship("Class", back_populates="teacher", cascade="all, delete")
 
     __mapper_args__ = {
         'polymorphic_identity': UserRole.TEACHER.value,

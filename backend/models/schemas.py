@@ -33,7 +33,6 @@ class ConceptOut(BaseModel):
     description: str
     profiles: List[int]
 
-
 class CustomMissionBase(BaseModel):
     title: str
     concept: str
@@ -98,6 +97,30 @@ class FeedbackOut(BaseModel):
     mission_id: str
     comment: str
     created_at: datetime
+
+    class Config:
+        orm_mode = True
+
+class StudentBase(BaseModel):
+    id: int
+    name: str
+    email: str
+
+    class Config:
+        orm_mode = True
+
+class ClassBase(BaseModel):
+    name: str
+    description: Optional[str] = None
+    student_ids: Optional[List[int]] = [] 
+
+class ClassCreate(ClassBase):
+    pass
+
+class ClassResponse(ClassBase):
+    id: int
+    teacher_id: int
+    students: List[StudentBase] = []
 
     class Config:
         orm_mode = True

@@ -1,4 +1,3 @@
-// src/pages/TeacherDashboard.jsx
 import { useState, useEffect } from "react"
 import { Link } from "react-router-dom"
 import { useRole } from "../contexts/RoleContext"
@@ -7,6 +6,8 @@ import { Users, Clock, Target, Award } from "lucide-react"
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer } from "recharts"
 import MetricCard from "../components/MetricCard"
 import LoadingSpinner from "../components/LoadingSpinner"
+import ClassCreateForm from "../components/ClassCreateForm"
+
 
 const TeacherDashboard = () => {
   const { userId } = useRole()
@@ -61,6 +62,11 @@ const TeacherDashboard = () => {
           Créer du contenu pédagogique
         </Link>
       </div>
+
+      {/* Add new class form */}
+<div className="mt-6">
+  <ClassCreateForm teacherId={userId} onCreated={() => console.log("Class created!")} />
+</div>
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

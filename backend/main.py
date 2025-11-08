@@ -2,7 +2,7 @@ from fastapi import FastAPI, HTTPException
 from fastapi.middleware.cors import CORSMiddleware
 import uvicorn # ASGI server
 from database import engine, Base # Import SQLAlchemy engine and Base, engine - db connextion | Base - ORM models
-from routes import users, missions, progress, analytics, suggestion, predict_ai_profile, events, CustomCreation, notification
+from routes import users, missions, progress, analytics, suggestion, predict_ai_profile, events, CustomCreation, notification, classroom
 # Create database tables, dev only in prod we should use alembic
 Base.metadata.create_all(bind=engine)
 
@@ -32,6 +32,7 @@ app.include_router(predict_ai_profile.router, prefix="/api", tags=["predict_ai_p
 app.include_router(events.router, prefix="/api", tags=["events"])
 app.include_router(CustomCreation.router, prefix="/api", tags=["custom_creation"])
 app.include_router(notification.router, prefix="/api", tags=["notification"])
+app.include_router(classroom.router, prefix="/api", tags=["Classes"])
 
 # Handle GET requests to root 
 @app.get("/")

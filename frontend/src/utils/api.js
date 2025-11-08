@@ -234,5 +234,17 @@ getStudentMissionReport: async(studentId, missionId) => {
   const res = await fetch(`${API_BASE_URL}/students/${studentId}/missions/${missionId}/report`);
   return res.json();
 },
+createClass: async (teacherId, data) => {
+  const response = await fetch(`${API_BASE_URL}/classes?teacher_id=${teacherId}`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify(data),
+  })
+  return handleResponse(response)
+},
 
+getTeacherClasses: async (teacherId) => {
+  const response = await fetch(`${API_BASE_URL}/classes/teacher/${teacherId}`)
+  return handleResponse(response)
+},
 }
