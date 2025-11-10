@@ -4,6 +4,9 @@ from pydantic import BaseModel, EmailStr
 from typing import List
 from database import get_db
 from models.user import User, Student, Teacher, UserRole
+from models.classroom import Class, class_student_table
+from models.user import Student as StudentBase
+from sqlalchemy import select
 from datetime import datetime
 # Business logic is mostly inline, e.g., creating a student, applying profile baselines.
 # This could be refactored into a service class (like UserService) to respect separation of concerns.
@@ -162,3 +165,27 @@ def get_profile(student_id: int, db: Session = Depends(get_db)):
     profile_label = student.profile_label if student.profile_label is not None else "Choisis un profil"
 
     return {"profile": profile, "profile_label": profile_label}
+
+
+# @router.get("/teachers/{teacher_id}/students", response_model=List[StudentBase])
+# def get_teacher_students(teacher_id: int, db: Session = Depends(get_db)):
+#     # Step 1. Get all classes owned by the teacher
+#     class_ids = [c.id for c in db.query(Class).filter(Class.teacher_id == teacher_id).all()]
+
+#     if not class_ids:
+#         return []
+
+#     # Step 2. Get all students from those classes
+#     stmt = (
+#         select(Student)
+#         .join(class_student_table, Student.id == class_student_table.c.student_id)
+#         .filter(class_student_table.c.class_id.in_(class_ids))
+#         .distinct()
+#     )
+
+#     students = db.scalars(stmt).all()
+#     return students
+@router.get("/teachers/{teacher_id}/classes")
+def get_teacher_classes(teacher_id: int, db: Session = Depends(get_db)):
+    classes = db.query(Class).filter(Class.teacher_id == teacher_id).all()
+    return classes

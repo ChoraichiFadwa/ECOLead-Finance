@@ -6,7 +6,7 @@ import ConceptForm from "../components/ConceptCreationForm";
 import MissionForm from "../components/MissionCreationForm";
 import EventCreationForm from "../components/EventCreationForm";
 import { Link } from "react-router-dom";
-import { BookOpen, Target, Plus, Search } from "lucide-react";
+import { BookOpen, Target, Plus, Search, Calendar } from "lucide-react";
 
 const LearningDesignPage = () => {
   const { userId } = useRole();

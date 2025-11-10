@@ -1,48 +1,125 @@
-import { useRole } from "../contexts/RoleContext"
-import { LogOut, User, BookOpen } from "lucide-react"
+// src/components/Layout.jsx
+import { useState } from "react";
+import { useRole } from "../contexts/RoleContext";
+import { useLocation, Link } from "react-router-dom";
+import { 
+  LogOut, 
+  BookOpen, 
+  Menu, 
+  Home, 
+  Users, 
+  Target, 
+  BarChart3, 
+  BookOpen as BookOpenIcon,
+} from "lucide-react";
 
 const Layout = ({ children }) => {
-  const { role, logout } = useRole()
+  const { role, logout, student } = useRole();
+  const location = useLocation();
+  const [sidebarExpanded, setSidebarExpanded] = useState(true);
+
+  // Student Navigation - Fixed: Apprentissage points to concepts page
+  const studentSidebarItems = [
+    { icon: Home, label: "Accueil", path: "/dashboard" },
+    { icon: BookOpenIcon, label: "Apprentissage", path: "/concepts" }, // 👈 Changed
+    { icon: BarChart3, label: "Mon état", path: "/student/status" },
+    { icon: LogOut, label: "Déconnexion", onClick: logout },
+  ];
+
+  // Teacher Navigation
+  const teacherSidebarItems = [
+    { icon: Home, label: "Accueil", path: "/teacher/dashboard" },
+    { icon: Users, label: "Étudiants", path: "/teacher/students" },
+    { icon: Target, label: "Contenu pédagogique", path: "/teacher/learning-design" },
+    { icon: LogOut, label: "Déconnexion", onClick: logout },
+  ];
+
+  const sidebarItems = role === "student" ? studentSidebarItems : teacherSidebarItems;
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-sm border-b border-gray-200">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex justify-between items-center h-16">
-            <div className="flex items-center space-x-4">
+    <div className="flex h-screen bg-gray-50">
+      {/* Sidebar */}
+      <div 
+        className={`bg-white border-r border-gray-200 flex flex-col transition-all duration-300 ${
+          sidebarExpanded ? "w-64" : "w-16"
+        }`}
+      >
+        {/* Logo Header */}
+        <div className="p-4 border-b flex items-center justify-between">
+          {sidebarExpanded ? (
+            // Expanded: Show icon + full text
+            <>
               <div className="flex items-center space-x-2">
-                <BookOpen className="h-8 w-8 text-primary-600" />
-                <h1 className="text-xl font-bold text-gradient">ECOLeadGame</h1>
+                <BookOpen className="h-6 w-6 text-primary-600" />
+                <h1 className="text-lg font-bold text-gray-900">ECOLeadGame</h1>
               </div>
-              <div className="hidden sm:block">
-                <span className="px-3 py-1 text-sm font-medium bg-primary-100 text-primary-800 rounded-full capitalize">
-                  {role}
-                </span>
-              </div>
-            </div>
-
-            <div className="flex items-center space-x-4">
-              <div className="flex items-center space-x-2 text-gray-600">
-                <User className="h-5 w-5" />
-                <span className="text-sm font-medium capitalize">{role} Tableau de bord</span>
-              </div>
-              <button
-                onClick={logout}
-                className="flex items-center space-x-2 text-gray-600 hover:text-gray-900 transition-colors"
+              <button 
+                onClick={() => setSidebarExpanded(!sidebarExpanded)}
+                className="text-gray-500 hover:text-gray-700"
               >
-                <LogOut className="h-5 w-5" />
-                <span className="text-sm">Déconnexion</span>
+                <Menu className="w-5 h-5" />
               </button>
-            </div>
-          </div>
+            </>
+          ) : (
+            // Collapsed: Show only Menu button centered
+            <button 
+              onClick={() => setSidebarExpanded(!sidebarExpanded)}
+              className="text-gray-500 hover:text-gray-700 mx-auto"
+            >
+              <Menu className="w-5 h-5" />
+            </button>
+          )}
         </div>
-      </header>
+
+        {/* Navigation Items */}
+        <nav className="flex-1 p-4 space-y-2">
+          {sidebarItems.map((item, index) => {
+            const Icon = item.icon;
+            const isActive = location.pathname === item.path;
+
+            return (
+              <div
+                key={index}
+                onClick={item.onClick || undefined}
+                className="relative"
+              >
+                <Link
+                  to={item.path || "#"}
+                  className={`flex items-center px-3 py-3 rounded-lg transition ${
+                    isActive 
+                      ? "bg-white text-primary-700 border-l-4 border-primary-500" // 👈 New style
+                      : "text-gray-700 hover:bg-gray-100"
+                  } ${!sidebarExpanded ? "justify-center" : ""}`}
+                  onClick={(e) => {
+                    if (item.onClick) {
+                      e.preventDefault();
+                      item.onClick();
+                    }
+                  }}
+                >
+                  {/* Left accent (semi-circle) - only when active and expanded */}
+                  {isActive && sidebarExpanded && (
+                    <div className="absolute left-0 top-1/2 transform -translate-y-1/2 w-2 h-4 bg-primary-500 rounded-r-full"></div>
+                  )}
+                  
+                  {/* Icon with consistent sizing */}
+                  <Icon className="w-5 h-5 flex-shrink-0" />
+                  
+                  {/* Label only when expanded */}
+                  {sidebarExpanded && <span className="ml-3">{item.label}</span>}
+                </Link>
+              </div>
+            );
+          })}
+        </nav>
+      </div>
 
       {/* Main Content */}
-      <main className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">{children}</main>
+      <div className="flex-1 overflow-y-auto p-6">
+        {children}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default Layout
+export default Layout;

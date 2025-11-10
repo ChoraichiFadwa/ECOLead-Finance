@@ -4,7 +4,7 @@ from typing import List
 from database import get_db
 from models.schemas import ClassCreate, ClassResponse, StudentBase
 import services.classroom_service as crud_classroom
-
+from models.notification import Notification
 router = APIRouter()
 
 # ✅ Create a new class (teacher)
@@ -42,3 +42,19 @@ def remove_student_from_class(class_id: int, student_id: int, db: Session = Depe
 @router.get("/classes/{class_id}/students", response_model=List[StudentBase])
 def get_class_students(class_id: int, db: Session = Depends(get_db)):
     return crud_classroom.get_class_students(db, class_id)
+
+@router.post("/test-notif/{student_id}")
+def test_notification(student_id: int, db: Session = Depends(get_db)):
+    test_notif = Notification(
+        student_id=student_id,
+        type="class_add",
+        message="Test direct"
+    )
+    print("DB in use:", db.bind.url)
+    db.add(test_notif)
+    print("Before commit:", test_notif.__table__.fullname)
+    print("Session info:", db.bind)
+    db.commit()
+    notif_in_db = db.query(Notification).filter(Notification.id == test_notif.id).first()
+    print("🔍 Found:", notif_in_db)
+    return {"message": "Notification created!"}

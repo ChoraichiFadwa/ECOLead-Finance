@@ -15,17 +15,23 @@ const TeacherDashboard = () => {
   const [students, setStudents] = useState([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState("")
+  const [classes, setClasses] = useState([])
+  const [selectedClass, setSelectedClass] = useState(null)
+  const [classStudents, setClassStudents] = useState([])
+
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true)
-        const [dashboardResponse, studentsResponse] = await Promise.all([
+        const [dashboardResponse, studentsResponse, classesResponse] = await Promise.all([
           api.getTeacherDashboard(userId),
           api.getAllStudents(),
+          api.getTeacherClasses(userId),
         ])
         setDashboardData(dashboardResponse)
         setStudents(studentsResponse)
+        setClasses(classesResponse)
       } catch (err) {
         setError(err.message || "Erreur lors du chargement")
       } finally {
@@ -98,6 +104,47 @@ const TeacherDashboard = () => {
     />
   </Link>
       </div>
+      {/* ✅ Teacher Classes */}
+<div className="card">
+  <h3 className="text-lg font-semibold text-gray-900 mb-4">Vos Classes</h3>
+  <ul className="space-y-2">
+    {classes.map((cls) => (
+      <li 
+        key={cls.id}
+        className="p-3 bg-gray-50 rounded-lg hover:bg-gray-100 cursor-pointer"
+        onClick={async () => {
+          setSelectedClass(cls)
+          const studentsInClass = await api.getClassStudents(cls.id)
+          setClassStudents(studentsInClass)
+        }}
+      >
+        <div className="flex justify-between">
+          <span className="font-medium text-gray-900">{cls.name}</span>
+          <span className="text-gray-500 text-sm">{cls.students?.length || 0} étudiants</span>
+        </div>
+        <p className="text-gray-600 text-sm">{cls.description}</p>
+      </li>
+    ))}
+  </ul>
+</div>
+{selectedClass && (
+  <div className="card mt-6">
+    <h3 className="text-lg font-semibold text-gray-900 mb-2">
+      Étudiants dans {selectedClass.name}
+    </h3>
+    {classStudents.length === 0 ? (
+      <p className="text-gray-500">Aucun étudiant dans cette classe.</p>
+    ) : (
+      <ul className="space-y-2">
+        {classStudents.map((s) => (
+          <li key={s.id} className="p-2 bg-gray-50 rounded">
+            {s.name} — {s.email}
+          </li>
+        ))}
+      </ul>
+    )}
+  </div>
+)}
 
       {/* Engagement Chart */}
       {dashboardData && (

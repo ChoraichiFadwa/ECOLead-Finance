@@ -7,8 +7,12 @@
     font-family: "Inter", system-ui, sans-serif;
   }
 
+  /* Fixed: Only background color, no extra spacing */
   body {
     @apply bg-gray-50 text-gray-900;
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
   }
 }
 
