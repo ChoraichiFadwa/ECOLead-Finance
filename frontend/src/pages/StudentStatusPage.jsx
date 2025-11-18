@@ -82,30 +82,7 @@ const StudentStatusPage = () => {
 
   return (
     <div className="space-y-8 animate-fade-in">
-      {/* Unified Header with Bell */}
-      <div className="bg-white rounded-2xl shadow-sm border border-gray-200 p-5">
-        <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
-          <div>
-            <h1 className="text-2xl font-bold text-gray-900">Mon état</h1>
-            <p className="text-gray-600 mt-1">Vue d’ensemble de votre performance</p>
-          </div>
-          <div className="flex items-center flex-wrap gap-3">
-            {/* Notification Bell */}
-            <StudentNotifications 
-              studentId={userId} 
-              onMissionSelect={(missionId) => setSelectedMissionId(missionId)} 
-            />
-            
-            {/* Back to Dashboard Button */}
-            <Link
-              to="/dashboard"
-              className="px-3 py-2 text-sm text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-            >
-              ← Mon parcours
-            </Link>
-          </div>
-        </div>
-      </div>
+
 
       {/* Current Metrics */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">

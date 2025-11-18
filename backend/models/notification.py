@@ -7,9 +7,9 @@ class Notification(Base):
     
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
-    type = Column(String, nullable=False)  # e.g., "feedback"
+    type = Column(String, nullable=False) 
     message = Column(String, nullable=False)
-    # target_mission_id = Column(Integer, ForeignKey("missions.id"), nullable=True)  # link to mission
+    # target_mission_id = Column(Integer, ForeignKey("missions.id"), nullable=True) 
     target_mission_id = Column(Integer, nullable=True)
 
     is_read = Column(Boolean, default=False)

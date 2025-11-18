@@ -35,7 +35,6 @@ class MetricHistory(Base): # Tracks a timeline of student metrics
     student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     recorded_at = Column(DateTime, default=datetime.utcnow)
     
-    # Snapshot of metrics at this time
     cashflow = Column(Float)
     controle = Column(Float)
     stress = Column(Float)
@@ -55,7 +54,6 @@ class ConceptProgress(Base): # Tracks progress on specific concept
     id = Column(Integer, primary_key=True, index=True)
     student_id = Column(Integer, ForeignKey("users.id"), nullable=False)
     concept = Column(String, nullable=False)
-    # level = Column(String, nullable=False)
     missions_completed = Column(Integer, default=0)
     total_missions = Column(Integer, default=0)
     is_completed = Column(Boolean, default=False)

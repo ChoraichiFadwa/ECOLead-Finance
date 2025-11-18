@@ -8,11 +8,7 @@ from models.classroom import Class, class_student_table
 from models.user import Student as StudentBase
 from sqlalchemy import select
 from datetime import datetime
-# Business logic is mostly inline, e.g., creating a student, applying profile baselines.
-# This could be refactored into a service class (like UserService) to respect separation of concerns.
-# Keep routes for requests/responses
-# from services.profile_service import get_student_profile_enum  # ← Nouvelle fonction
-#"profile": profile_enum.value,           # int (pour compatibilité existante)
+
 router = APIRouter()
 
 class StudentCreate(BaseModel):

@@ -34,10 +34,6 @@ class MissionTimelinePoint(BaseModel):
     score_earned: int
     time_spent_minutes: float
     time_spent_seconds: int
-    # contexte: Optional[str] = None
-    # objectif_pedagogique: Optional[str] = None
-    # choix_etudiant: Optional[Any] = None
-    # feedback_teacher: Optional[str] = None
 
 class StudentChartData(BaseModel):
     metrics_over_time: List[MetricPoint]

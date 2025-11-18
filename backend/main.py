@@ -3,7 +3,6 @@ from fastapi.middleware.cors import CORSMiddleware
 import uvicorn # ASGI server
 from database import engine, Base # Import SQLAlchemy engine and Base, engine - db connextion | Base - ORM models
 from routes import users, missions, progress, analytics, suggestion, predict_ai_profile, events, CustomCreation, notification, classroom
-# Create database tables, dev only in prod we should use alembic
 Base.metadata.create_all(bind=engine)
 
 #Instantiate the app 

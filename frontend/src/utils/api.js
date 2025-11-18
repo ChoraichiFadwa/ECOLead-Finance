@@ -258,5 +258,11 @@ getTeacherClasses: async (teacherId) => {
     if (!res.ok) throw new Error("Erreur chargement étudiants")
     return res.json()
   },
+  getStudentClasses: async (studentId) => {
+  const res = await fetch(`${API_BASE_URL}/students/${studentId}/classes`);
+  if (!res.ok) throw new Error("Erreur chargement classes étudiant");
+  return res.json();
+},
+
 
 }

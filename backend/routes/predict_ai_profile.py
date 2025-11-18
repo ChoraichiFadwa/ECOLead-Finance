@@ -21,7 +21,7 @@ class FeaturesRequest(BaseModel):
     event_exposure_rate: float
 class TiltResponse(BaseModel):
     tilt: str
-
+    
 @router.post("/ai_profile", response_model=TiltResponse)
 async def predict_profile_endpoint(req: FeaturesRequest):
     tilt=predict_tilt(req)

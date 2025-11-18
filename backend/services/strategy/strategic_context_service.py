@@ -72,10 +72,6 @@ def compute_goal_recommendations(alerts: List[Dict], opportunities: List[Dict]) 
     return goal_recommendations
 
 
-# ============================================================================
-# ALERT DETECTION
-# ============================================================================
-
 def detect_stress_alert(feats: Dict) -> Dict:
     """Détecte si le stress est critique."""
     if feats.get("pct_stress_up", 0) >= 0.5:
@@ -256,9 +252,6 @@ def collect_opportunities(feats: Dict, stage: str, explored_count: int = 0, tota
     return opportunities
 
 
-# ============================================================================
-# CONTEXT BUILDERS
-# ============================================================================
 
 def build_cold_start_context(student_id: int, profile_name: str, job: ProfileType, tilt: str) -> Dict:
     """Construit le contexte pour un nouvel étudiant."""
@@ -405,9 +398,6 @@ def build_experienced_context(
     }
 
 
-# ============================================================================
-# MAIN FUNCTION
-# ============================================================================
 
 def get_strategic_context(student_id: int) -> Dict:
     """
@@ -451,7 +441,6 @@ def get_strategic_context(student_id: int) -> Dict:
             missions, explored, unexplored, feats
         )
     
-    # 5. Experienced : analyse complète
     feats = compute_features_from_student_id(student_id)
     
     return build_experienced_context(

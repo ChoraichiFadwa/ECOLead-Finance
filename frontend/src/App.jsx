@@ -12,6 +12,8 @@ import ChooseProfile from "./pages/ChooseProfile"
 import LearningDesignPage from "./pages/LearningDesignPage"
 import StudentsPage from "./pages/StudentsPage"
 import StudentStatusPage from "./pages/StudentStatusPage"
+import TeacherStudentsPage from "./pages/TeacherStudentsPage"
+import StudentClassesPage from "./pages/StudentClassesPage"
 
 function App() {
   const { role, loading } = useRole()
@@ -70,6 +72,20 @@ function App() {
     )
   }
 />
+      <Route
+  path="/student/classes"
+  element={
+    role === "student" ? (
+      <Layout>
+        <StudentClassesPage />
+      </Layout>
+    ) : (
+      <Navigate to="/dashboard" />
+    )
+  }
+/>
+
+
       <Route
       path="/concepts"
       element={

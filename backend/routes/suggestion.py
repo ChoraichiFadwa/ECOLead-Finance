@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Depends
 from services.strategy.suggest_service import suggest_strategy
-from models.schemas import SuggestRequest, SuggestResponse  # On va les créer
+from models.schemas import SuggestRequest, SuggestResponse 
 from services.strategy.strategic_context_service import get_strategic_context
 
 router = APIRouter()
@@ -14,7 +14,7 @@ def suggest_bundle(student_id: int, goal: str, max_bundle: int = 3, concept_whit
 @router.post("/strategy/suggest-strategy", response_model=SuggestResponse)
 async def suggest_strategy_endpoint(req: SuggestRequest):
     return suggest_strategy(req)
-# Dans routes/student.py
+
 
 @router.get("/strategy/students/{student_id}/strategic-context")
 def get_student_strategic_context(student_id: int):

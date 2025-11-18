@@ -10,13 +10,11 @@ def create_class(db: Session, teacher_id: int, name: str, description: str = Non
     db.refresh(new_class)
     return new_class
 def create_class_with_students(db: Session, teacher_id: int, name: str, description: str, student_ids: list):
-    # ✅ Create the class
     new_class = Class(name=name, description=description, teacher_id=teacher_id)
     db.add(new_class)
     db.commit()
     db.refresh(new_class)
 
-    # ✅ Add students (if any)
     if student_ids:
         students = db.query(Student).filter(Student.id.in_(student_ids)).all()
         new_class.students.extend(students)

@@ -10,7 +10,7 @@ import {
   Users, 
   Target, 
   BarChart3, 
-  BookOpen as BookOpenIcon,
+  BookOpen as BookOpenIcon, School
 } from "lucide-react";
 
 const Layout = ({ children }) => {
@@ -23,13 +23,14 @@ const Layout = ({ children }) => {
     { icon: Home, label: "Accueil", path: "/dashboard" },
     { icon: BookOpenIcon, label: "Apprentissage", path: "/concepts" }, // 👈 Changed
     { icon: BarChart3, label: "Mon état", path: "/student/status" },
+    { icon: School, label: "Mes cours", path: "/student/classes" },
     { icon: LogOut, label: "Déconnexion", onClick: logout },
   ];
 
   // Teacher Navigation
   const teacherSidebarItems = [
     { icon: Home, label: "Accueil", path: "/teacher/dashboard" },
-    { icon: Users, label: "Étudiants", path: "/teacher/students" },
+    { icon: Users, label: "Cours enseignés", path: "/teacher/students" },
     { icon: Target, label: "Contenu pédagogique", path: "/teacher/learning-design" },
     { icon: LogOut, label: "Déconnexion", onClick: logout },
   ];

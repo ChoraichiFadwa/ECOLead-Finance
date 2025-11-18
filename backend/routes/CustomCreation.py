@@ -8,16 +8,10 @@ from sqlalchemy.orm import Session
 from database import get_db
 from models.user import Teacher
 from models.custom_mission import CustomMission
-from models.schemas import ConceptCreate, ConceptOut
-from models.custom_mission import CustomMission
 from services.teacher_service import add_concept_to_json, add_custom_mission_to_json, add_event_to_json, slugify
 from models.custom_event import Event
-from models.schemas import EventCreate, EventOut
+from models.schemas import ConceptCreate, ConceptOut, EventCreate, EventOut, CustomMissionCreate, CustomMissionOut
 router = APIRouter()
-from pydantic import BaseModel
-from typing import List, Optional, Dict
-from datetime import datetime
-
 
 class Impact(BaseModel):
     cashflow: int = 0
@@ -108,16 +102,6 @@ class CustomMissionOut(CustomMissionBase):
 
 #     class Config:
 #         orm_mode = True
-
-
-from fastapi import APIRouter, Depends, HTTPException
-from sqlalchemy.orm import Session
-from database import get_db
-from models.user import Teacher
-from models.custom_mission import CustomMission
-from models.schemas import CustomMissionCreate, CustomMissionOut
-from services.teacher_service import add_custom_mission_to_json
-from datetime import datetime
 
 router = APIRouter()
 

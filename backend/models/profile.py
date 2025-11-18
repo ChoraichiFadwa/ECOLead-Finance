@@ -6,7 +6,6 @@ class ProfileType(enum.IntEnum):
     ANALYSTE_FINANCE  = 2
     BANQUIER_AFFAIRES = 3
 
-# Optional: labels for UI / JSON
 PROFILE_LABELS = {
     ProfileType.GESTION_PORTEFEUILLE: "Gestionnaire de Portefeuille",
     ProfileType.ANALYSTE_FINANCE: "Analyste financier",

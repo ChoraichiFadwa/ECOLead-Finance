@@ -137,12 +137,6 @@ const [eventSearch, setEventSearch] = useState("");
             Créez et gérez vos concepts et missions personnalisés.
           </p>
         </div>
-        <Link
-          to="/teacher/dashboard"
-          className="px-4 py-2 text-gray-700 border border-gray-300 rounded-lg hover:bg-gray-50 transition"
-        >
-          ← Tableau de bord
-        </Link>
       </div>
 
       {/* Concepts Section */}

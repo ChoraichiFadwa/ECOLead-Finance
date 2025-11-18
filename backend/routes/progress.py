@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from sqlalchemy import and_
 from pydantic import BaseModel
-from typing import Dict, Any, List, Optional
+from typing import Dict, List, Optional
 from database import get_db
 from models.user import User, UserRole
 from models.progress import Progress, MetricHistory
@@ -12,6 +12,9 @@ from datetime import datetime
 from models.progress import ConceptProgress
 from services.predict_ai_profile import run_profiling
 from models.notification import Notification
+from models.custom_feedback import Feedback
+from models.schemas import FeedbackCreate, FeedbackOut
+
 router = APIRouter()
 game_loader = GameLoader()
 class StudentMissionDetail(BaseModel):
@@ -26,8 +29,6 @@ class StudentMissionDetail(BaseModel):
     feedback_auto: Optional[str] = None
     completed_at: Optional[datetime] = None
 
-from models.custom_feedback import Feedback
-from models.schemas import FeedbackCreate, FeedbackOut
 
 @router.post("/teachers/{teacher_id}/students/{student_id}/missions/{mission_id}/feedback",response_model=FeedbackOut)
 async def add_teacher_feedback(

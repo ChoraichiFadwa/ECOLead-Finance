@@ -253,8 +253,7 @@ def suggest_strategy(req: SuggestRequest) -> SuggestResponse:
 
     tip = select_tip(goal=req.goal)
 
-    # explanation = f"Mini-bundle aligné sur {req.goal}, respect des pré-requis par concept et du track {job}."
-
+    
     return SuggestResponse(
         profile_tilt=tilt,
         job=PROFILE_LABELS.get(job, "Gestionnaire de Portefeuille"),  # ← ICI

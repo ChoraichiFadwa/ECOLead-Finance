@@ -1,6 +1,6 @@
 from sqlalchemy import create_engine
 from sqlalchemy.ext.declarative import declarative_base
-from sqlalchemy.orm import sessionmaker # Database sessions 
+from sqlalchemy.orm import sessionmaker 
 import os
 
 # SQLite database URL
@@ -15,10 +15,10 @@ engine = create_engine(
 
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 
-# All ORM models will inherit from Base, in our case it's user
+# All ORM models will inherit from Base
 Base = declarative_base()
 
-# Dependency to get database session in each request
+# Dependency to get database session in each request | LOCAL |
 def get_db():
     db = SessionLocal()
     try:

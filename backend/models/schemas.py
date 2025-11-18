@@ -2,6 +2,7 @@ from pydantic import BaseModel
 from typing import List, Optional, Dict, Any
 from datetime import datetime
 
+
 class SuggestRequest(BaseModel):
     student_id: int
     goal: str # = "balance"
@@ -84,8 +85,6 @@ class EventOut(EventCreate):
     teacher_id: int
     created_at: str
 
-from pydantic import BaseModel
-from datetime import datetime
 
 class FeedbackCreate(BaseModel):
     comment: str

@@ -61,18 +61,18 @@ const TeacherDashboard = () => {
           <p className="text-gray-600 mt-1">Suivez les progrès et l'engagement de votre classe</p>
         </div>
         {/* 👇 Link to Learning Design Page */}
-        <Link
+        {/* <Link
           to="/teacher/learning-design"
           className="px-4 py-2 bg-primary-600 text-white rounded-lg hover:bg-primary-700 transition"
         >
           Créer du contenu pédagogique
-        </Link>
+        </Link> */}
       </div>
 
       {/* Add new class form */}
-<div className="mt-6">
+{/* <div className="mt-6">
   <ClassCreateForm teacherId={userId} onCreated={() => console.log("Class created!")} />
-</div>
+</div> */}
 
       {/* Key Metrics */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -95,17 +95,17 @@ const TeacherDashboard = () => {
           icon={Award} 
           color="purple" 
         />
-        <Link to="/teacher/students" className="block">
+        {/* <Link to="/teacher/students" className="block">
     <MetricCard 
       title="Voir les étudiants" 
       value="→" 
       icon={Users} 
       color="indigo" 
     />
-  </Link>
+  </Link> */}
       </div>
       {/* ✅ Teacher Classes */}
-<div className="card">
+{/* <div className="card">
   <h3 className="text-lg font-semibold text-gray-900 mb-4">Vos Classes</h3>
   <ul className="space-y-2">
     {classes.map((cls) => (
@@ -144,7 +144,7 @@ const TeacherDashboard = () => {
       </ul>
     )}
   </div>
-)}
+)} */}
 
       {/* Engagement Chart */}
       {dashboardData && (
@@ -194,4 +194,4 @@ const TeacherDashboard = () => {
   )
 }
 
-export default TeacherDashboard
+export default TeacherDashboard;

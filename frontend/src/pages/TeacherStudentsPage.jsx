@@ -7,7 +7,7 @@ import { Link } from "react-router-dom";
 import TeacherFeedbackPanel from "../components/TeacherFeedbackPanel";
 import ClassCreateForm from "../components/ClassCreateForm";
 
-const StudentsPage = () => {
+const TeacherStudentsPage = () => {
   const { userId } = useRole();
   const [allStudents, setAllStudents] = useState([]);
   const [classes, setClasses] = useState([]);
@@ -15,9 +15,8 @@ const StudentsPage = () => {
   const [selectedClass, setSelectedClass] = useState(null);
   const [classStudents, setClassStudents] = useState([]);
   const [selectedStudent, setSelectedStudent] = useState(null);
-  const [fullStudentDetails, setFullStudentDetails] = useState(null);
-  const [loadingStudentDetails, setLoadingStudentDetails] = useState(false);
-  const [showCreateForm, setShowCreateForm] = useState(false);
+  const [studentMetrics, setStudentMetrics] = useState(null);
+  const [showCreateForm, setShowCreateForm] = useState(false); // 👈 Toggle form visibility
 
   useEffect(() => {
     const fetchData = async () => {
@@ -42,7 +41,6 @@ const StudentsPage = () => {
   const handleClassSelect = async (cls) => {
     setSelectedClass(cls);
     setSelectedStudent(null);
-    setFullStudentDetails(null);
     try {
       const studentsInClass = await api.getClassStudents(cls.id);
       setClassStudents(studentsInClass);
@@ -54,17 +52,11 @@ const StudentsPage = () => {
 
   const handleStudentSelect = async (student) => {
     setSelectedStudent(student);
-    setLoadingStudentDetails(true);
-    setFullStudentDetails(null); // Clear previous details
     try {
-      // Fetch the full student details using the student's ID
-      const fullStudentData = await api.getStudent(student.id);
-      setFullStudentDetails(fullStudentData);
+      const metrics = await api.getStudentMetrics(userId, student.id);
+      setStudentMetrics(metrics);
     } catch (err) {
-      console.error("Failed to load full student details", err);
-      setFullStudentDetails(null);
-    } finally {
-      setLoadingStudentDetails(false);
+      console.error("Failed to load student metrics", err);
     }
   };
 
@@ -72,7 +64,7 @@ const StudentsPage = () => {
     try {
       const newClasses = await api.getTeacherClasses(userId);
       setClasses(newClasses);
-      setShowCreateForm(false);
+      setShowCreateForm(false); // Hide form after successful creation
     } catch (err) {
       console.error("Failed to refresh classes after creation", err);
     }
@@ -81,26 +73,20 @@ const StudentsPage = () => {
   if (loading) return <LoadingSpinner />;
 
   return (
-    <div className="space-y-6 relative">
+    <div className="space-y-6">
       <div className="flex justify-between items-center">
         <h1 className="text-2xl font-bold text-gray-900">Cours enseignés</h1>
-        <div className="flex items-center space-x-3">
-          {/* Floating Create Class Button */}
-          <button
-            onClick={() => setShowCreateForm(true)}
-            className="w-10 h-10 flex items-center justify-center bg-blue-600 text-white rounded-full hover:bg-blue-700 transition shadow-sm"
-            title="Créer une classe"
-          >
-            +
-          </button>
-        </div>
+        <Link to="/teacher/dashboard" className="text-primary-600 hover:underline">
+          ← Retour au tableau de bord
+        </Link>
       </div>
 
       {/* Classes Section */}
       <div>
+        <h2 className="text-lg font-semibold text-gray-900 mb-4">Vos Classes</h2>
         
         {/* Class Cards Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mb-6">
           {classes.map((cls) => (
             <div
               key={cls.id}
@@ -120,7 +106,7 @@ const StudentsPage = () => {
               <button
                 className="mt-3 text-sm text-blue-600 hover:text-blue-800 font-medium"
                 onClick={(e) => {
-                  e.stopPropagation();
+                  e.stopPropagation(); // Prevent card click
                   handleClassSelect(cls);
                 }}
               >
@@ -129,24 +115,35 @@ const StudentsPage = () => {
             </div>
           ))}
         </div>
+
+        {/* Create Class Button */}
+        <button
+          onClick={() => setShowCreateForm(!showCreateForm)}
+          className="flex items-center space-x-2 px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition"
+        >
+          <span className="text-xl">+</span>
+          <span>Créer une nouvelle classe</span>
+        </button>
+
+        {/* Create Class Form (appears below button) */}
+        {showCreateForm && (
+          <div className="mt-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
+            <ClassCreateForm 
+              teacherId={userId} 
+              onCreated={handleClassCreated}
+            />
+          </div>
+        )}
       </div>
 
-      {/* Students and Details Section */}
+      {/* Students and Details Section (only shows when class is selected) */}
       {selectedClass && (
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
           {/* Students in Selected Class */}
           <div className="card">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-lg font-semibold">
-                Étudiants dans {selectedClass.name}
-              </h2>
-              <button
-                onClick={() => setSelectedClass(null)}
-                className="text-sm text-gray-500 hover:text-gray-700"
-              >
-                ← Retour aux classes
-              </button>
-            </div>
+            <h2 className="text-lg font-semibold mb-4">
+              Étudiants dans {selectedClass.name}
+            </h2>
             <div className="space-y-3 max-h-[600px] overflow-y-auto">
               {classStudents.map((student) => (
                 <div
@@ -160,6 +157,10 @@ const StudentsPage = () => {
                 >
                   <div className="font-medium">{student.name}</div>
                   <div className="text-sm text-gray-600">{student.email}</div>
+                  <div className="text-sm text-gray-500">Profil : {student.level_ai}</div>
+                  <div className="mt-2 text-lg font-bold text-primary-600">
+                    {student.total_score} pts
+                  </div>
                 </div>
               ))}
             </div>
@@ -169,53 +170,33 @@ const StudentsPage = () => {
           <div className="card max-h-[700px] overflow-y-auto">
             {selectedStudent ? (
               <>
-                <div className="flex justify-between items-center mb-4">
-                  <h2 className="text-lg font-semibold">
-                    {selectedStudent.name} — Détails
-                  </h2>
-                  <button
-                    onClick={() => setSelectedStudent(null)}
-                    className="text-sm text-gray-500 hover:text-gray-700"
-                  >
-                    ← Retour aux étudiants
-                  </button>
+                <h2 className="text-lg font-semibold mb-4">
+                  {selectedStudent.name} — Détails
+                </h2>
+
+                <div className="grid grid-cols-2 gap-4 mb-6">
+                  <Metric label="Cashflow" value={`${selectedStudent.cashflow}€`} color="green" />
+                  <Metric label="Contrôle" value={`${selectedStudent.controle}%`} color="blue" />
+                  <Metric label="Stress" value={`${selectedStudent.stress}%`} color="red" />
+                  <Metric label="Rentabilité" value={`${selectedStudent.rentabilite}%`} color="purple" />
                 </div>
 
-                {loadingStudentDetails ? (
-                  <div className="text-center py-8">
-                    <LoadingSpinner />
+                <div className="mb-4">
+                  <div className="flex justify-between text-sm mb-1">
+                    <span className="text-gray-700">Réputation</span>
+                    <span>{selectedStudent.reputation}%</span>
                   </div>
-                ) : fullStudentDetails ? (
-                  <>
-                    <div className="grid grid-cols-2 gap-4 mb-6">
-                      <Metric label="Cashflow" value={`${fullStudentDetails.cashflow}€`} color="green" />
-                      <Metric label="Contrôle" value={`${fullStudentDetails.controle}%`} color="blue" />
-                      <Metric label="Stress" value={`${fullStudentDetails.stress}%`} color="red" />
-                      <Metric label="Rentabilité" value={`${fullStudentDetails.rentabilite}%`} color="purple" />
-                    </div>
-
-                    <div className="mb-4">
-                      <div className="flex justify-between text-sm mb-1">
-                        <span className="text-gray-700">Réputation</span>
-                        <span>{fullStudentDetails.reputation}%</span>
-                      </div>
-                      <div className="w-full bg-gray-200 rounded-full h-2">
-                        <div
-                          className="bg-yellow-500 h-2 rounded-full"
-                          style={{ width: `${fullStudentDetails.reputation}%` }}
-                        />
-                      </div>
-                    </div>
-
-                    <p className="text-sm text-gray-600 mb-6">
-                      Inscrit le {new Date(fullStudentDetails.created_at).toLocaleDateString()}
-                    </p>
-                  </>
-                ) : (
-                  <div className="text-center py-8 text-gray-500">
-                    Aucune donnée détaillée disponible pour cet étudiant
+                  <div className="w-full bg-gray-200 rounded-full h-2">
+                    <div
+                      className="bg-yellow-500 h-2 rounded-full"
+                      style={{ width: `${selectedStudent.reputation}%` }}
+                    />
                   </div>
-                )}
+                </div>
+
+                <p className="text-sm text-gray-600 mb-6">
+                  Inscrit le {new Date(selectedStudent.created_at).toLocaleDateString()}
+                </p>
 
                 {/* Teacher Feedback Panel */}
                 <div className="border-t pt-4 mt-6">
@@ -230,29 +211,6 @@ const StudentsPage = () => {
                 Sélectionnez un étudiant pour voir ses détails
               </div>
             )}
-          </div>
-        </div>
-      )}
-
-      {/* Floating Class Creation Form Modal */}
-      {showCreateForm && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center p-4 z-50">
-          <div className="bg-white rounded-lg shadow-xl w-full max-w-md">
-            <div className="flex justify-between items-center p-4 border-b">
-              <h2 className="text-lg font-semibold">Créer une nouvelle classe</h2>
-              <button
-                onClick={() => setShowCreateForm(false)}
-                className="text-gray-500 hover:text-gray-700 text-xl"
-              >
-                &times;
-              </button>
-            </div>
-            <div className="p-4">
-              <ClassCreateForm 
-                teacherId={userId} 
-                onCreated={handleClassCreated}
-              />
-            </div>
           </div>
         </div>
       )}
@@ -276,4 +234,4 @@ const Metric = ({ label, value, color }) => {
   );
 };
 
-export default StudentsPage;
+export default TeacherStudentsPage;
