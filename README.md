@@ -1,18 +1,18 @@
-# 🎮 Serious Game
+#  Serious Game
 
-## 📌 Overview
+##  Overview
 
 This platform is a gamified educational system where **students** progress through structured **missions**, grouped by **concepts** and organized by **difficulty levels**. It includes a React frontend and a FastAPI backend.
 Currently in active development, the system supports **student progression tracking**, **concept-based learning**, and **adaptive mission unlocking**.
 
 ---
 
-## 👤 User Roles
+##  User Roles
 
 | Role     | Status | Abilities |
 |----------|--------|---------|
-| **Student** | ✅ Implemented | Browse concepts, launch missions, track progress |
-| **Teacher** | 🚧 In Development | View class analytics, monitor student progress |
+| **Student** | Implemented | Browse concepts, launch missions, track progress |
+| **Teacher** | Implemented | View class analytics, monitor student progress, send feedback |
 
 Role is selected on first visit and stored locally. Role-based access is enforced in routing and backend endpoints.
 After that a student chosoes his role as student, he gets to choose what path to learn in, either it's ' Gestionnaire de portfeuille boursier', 'analyste financier' et 'Banquier d'affaires'.
@@ -22,7 +22,7 @@ Each cooncept is linked to a certain profile to personnalize the user experience
 Missions are grouped under **7 domains** and **3 specialized profiles** (see `DOCUMENTATION.md`).
 ---
 
-## 🧠 Core Concepts
+##  Core Concepts
 
 | Term       | Meaning |
 |------------|---------|
@@ -32,7 +32,7 @@ Missions are grouped under **7 domains** and **3 specialized profiles** (see `DO
 
 ---
 
-## 🖥️ Tech Stack
+##  Tech Stack
 
 | Layer     | Stack         |
 |-----------|---------------|
@@ -43,7 +43,7 @@ Missions are grouped under **7 domains** and **3 specialized profiles** (see `DO
 
 ---
 
-## 📚 Frontend Routes
+##  Frontend Routes
 
 | Path                   | Description                         | Access     |
 |------------------------|-------------------------------------|------------|
@@ -57,7 +57,7 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 
 ---
 
-## 🔄 API Endpoints
+##  API Endpoints
 
 | Method | Path                                           | Description                              |
 |--------|------------------------------------------------|------------------------------------------|
@@ -71,9 +71,9 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 
 ---
 
-## 🗃️ Data Model (JSON-based)
+##  Data Model (JSON-based)
 
-### 📁 Concepts
+###  Concepts
 
 ```json
 "stratégie": {
@@ -87,7 +87,7 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 }
 ```
 
-### 📁 Missions
+###  Missions
 
 ```json
 "mission_fusion_acquisition_a": {
@@ -105,7 +105,7 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 
 ---
 
-## 🔐 Auth & Role Handling
+##  Auth & Role Handling
 
 - No login required yet (stored locally)
 - RoleContext provides role and loading state globally
@@ -113,21 +113,7 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 
 ---
 
-## 🚧 Features in Development
-
-- ✅ Mission completion and tracking
-- ✅ Mission unlock logic by concept/level
-- ✅ Teacher dashboard
-- 🚧 XP system
-- 🚧 Prerequisites between concepts
-- 🚧 Mini-quizzes before missions
-- 🚧 Avatar and dashboard personalization
-
----
-
-## 🌱 Suggested Extensions
-
-### 📚 Content
+###  Content
 
 | Feature              | Value |
 |----------------------|-------|
@@ -136,31 +122,9 @@ Navigation is protected via `useRole()` and redirects unauthorized users.
 | Learning paths       | Curated mission flows across concepts |
 | Resource links       | Videos, articles linked to concepts |
 
-### 🎮 Interactivity
 
-| Feature       | Value |
-|---------------|-------|
-| XP system     | Gain points and unlock new missions |
-| Achievements  | Rewards for milestones |
-| Streaks       | Encourage daily usage |
 
-### 📊 Analytics
 
-| Feature               | Description |
-|------------------------|-------------|
-| Heatmaps of difficulty | Detect struggle points per student |
-| Time spent             | Track engagement |
-| Teacher insights       | Completion stats, failure patterns |
-
----
-
-## 🧱 Developer Notes
-
-- JSON is loaded from `game_data.json`, with flattened mission structure
-- Progress is per student and per concept
-- Backend models and routes are modular (`routes/progress.py`, `routes/missions.py`, etc.)
-
----
 
 ## 🛠 Project Setup
 
@@ -189,7 +153,7 @@ npm run dev
 
 ---
 
-## ✨ Credits
+##  Credits
 
 Built with ❤️ using FastAPI, React, and your brain.  
 Design and game logic by **[Fadwa Choraichi]**.
