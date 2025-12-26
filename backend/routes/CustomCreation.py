@@ -1,7 +1,7 @@
 # this file is for the creation of concepts and missions by teachers
 from pydantic import BaseModel
 from datetime import datetime
-from typing import List, Optional
+from typing import List, Optional, Dict
 from models.custom_concept import CustomConcept
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
@@ -57,7 +57,7 @@ class CustomMissionOut(CustomMissionBase):
     evenements_possibles: List[str]
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 # from pydantic import BaseModel
 # from typing import Dict, List, Optional

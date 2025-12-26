@@ -71,7 +71,7 @@ class CustomMissionOut(CustomMissionBase):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 
 class EventCreate(BaseModel):
@@ -98,7 +98,7 @@ class FeedbackOut(BaseModel):
     created_at: datetime
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class StudentBase(BaseModel):
     id: int
@@ -106,7 +106,7 @@ class StudentBase(BaseModel):
     email: str
 
     class Config:
-        orm_mode = True
+        from_attributes = True
 
 class ClassBase(BaseModel):
     name: str
@@ -122,4 +122,4 @@ class ClassResponse(ClassBase):
     students: List[StudentBase] = []
 
     class Config:
-        orm_mode = True
+        from_attributes = True
